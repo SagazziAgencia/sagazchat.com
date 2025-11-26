@@ -39,7 +39,7 @@ export function Header() {
               Fale com vendas
             </Button>
              <Button className="bg-[#92D639] text-black font-bold hover:bg-[#82c232] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#92D639]/30">
-              Começar Grátis
+              Começar Agora
             </Button>
           </div>
 
@@ -59,7 +59,7 @@ export function Header() {
           <Link href="#" className="block text-gray-300 hover:text-[#92D639] py-2">Planos</Link>
           <Link href="#" className="block text-gray-300 hover:text-[#92D639] py-2">Funcionalidades</Link>
           <Button className="w-full mt-4 bg-[#92D639] hover:bg-[#82c232] text-black py-3 rounded-lg font-bold">
-            Começar Grátis
+            Começar Agora
           </Button>
         </div>
       )}

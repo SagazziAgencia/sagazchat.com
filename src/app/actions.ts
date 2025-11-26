@@ -1,7 +1,7 @@
 "use server";
 
-import { contactSchema } from "@/lib/schemas";
 import { z } from "zod";
+import { contactSchema } from "@/lib/schemas";
 
 export async function handleContactSubmit(data: z.infer<typeof contactSchema>) {
   // This is a server action.

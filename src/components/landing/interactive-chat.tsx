@@ -95,7 +95,7 @@ export function InteractiveChat() {
       }, []);
 
     return (
-        <div className="w-full max-w-xl relative perspective-1000 mx-auto mt-12 flex flex-col items-center">
+        <div className="w-full max-w-xl relative perspective-1000 mx-auto flex flex-col items-center">
             
             {/* 1. TOP BAR: CHANNELS (Horizontal Hub) */}
             <div className="flex items-center gap-4 mb-6 relative z-20">

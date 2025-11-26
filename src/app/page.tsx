@@ -1,23 +1,15 @@
 import { Header } from '@/components/landing/header';
 import { Hero } from '@/components/landing/hero';
-import { Features } from '@/components/landing/features';
-import { Testimonials } from '@/components/landing/testimonials';
-import { Contact } from '@/components/landing/contact';
-import { Footer } from '@/components/landing/footer';
-import { AiChat } from '@/components/landing/ai-chat';
+import { FeaturesTicker } from '@/components/landing/features-ticker';
 
-export default function Home() {
+export default function RespondeZapLanding() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="min-h-screen bg-[#050505] text-white font-sans overflow-x-hidden">
       <Header />
-      <main className="flex-1">
+      <main>
         <Hero />
-        <Features />
-        <Testimonials />
-        <Contact />
       </main>
-      <Footer />
-      <AiChat />
+      <FeaturesTicker />
     </div>
   );
 }

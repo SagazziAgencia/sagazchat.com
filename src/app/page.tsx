@@ -1,6 +1,7 @@
 import { Header } from '@/components/landing/header';
 import { Hero } from '@/components/landing/hero';
 import { FeaturesTicker } from '@/components/landing/features-ticker';
+import { MultiWhatsapp } from '@/components/landing/multi-whatsapp';
 
 export default function RespondeZapLanding() {
   return (
@@ -8,6 +9,7 @@ export default function RespondeZapLanding() {
       <Header />
       <main>
         <Hero />
+        <MultiWhatsapp />
       </main>
       <FeaturesTicker />
     </div>

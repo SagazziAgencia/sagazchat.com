@@ -9,9 +9,9 @@ export default function RespondeZapLanding() {
       <Header />
       <main>
         <Hero />
+        <FeaturesTicker />
         <MultiWhatsapp />
       </main>
-      <FeaturesTicker />
     </div>
   );
 }

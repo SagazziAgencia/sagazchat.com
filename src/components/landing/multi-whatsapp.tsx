@@ -38,7 +38,7 @@ const ConnectionCard = ({
         </div>
         <Button
             variant="outline"
-            className="w-full py-1 mb-2 border-red-200 text-red-500 hover:bg-red-50 text-[10px] h-auto"
+            className="w-full py-1 mb-2 border-red-200 text-red-500 hover:bg-red-50 text-[10px] h-auto bg-transparent"
         >
             Desconectar
         </Button>

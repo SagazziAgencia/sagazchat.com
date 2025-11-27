@@ -1,6 +1,6 @@
 'use client';
 
-import { CheckCircle, MessageCircle, MoreVertical } from 'lucide-react';
+import { CheckCircle, MessageCircle, MoreVertical, Smartphone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const ConnectionCard = ({
@@ -17,24 +17,7 @@ const ConnectionCard = ({
   <div className="bg-card border border-border rounded-xl p-4 transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 shadow-sm text-center">
     <div className="flex items-center justify-between mb-3">
       <div className="flex items-center gap-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="w-5 h-5 text-red-500"
-        >
-          <rect width="16" height="16" x="4" y="4" rx="2" />
-          <path d="M9 4v16" />
-          <path d="M15 4v16" />
-          <path d="M4 9h16" />
-          <path d="M4 15h16" />
-        </svg>
+        <Smartphone className="w-5 h-5 text-muted-foreground" />
       </div>
       <div className="flex items-center gap-2">
         <div className="w-2 h-2 rounded-full bg-green-500"></div>

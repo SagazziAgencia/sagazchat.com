@@ -25,20 +25,23 @@ import {
   ChevronLeft,
   ChevronRight,
   Columns,
-  LayoutGrid
+  LayoutGrid,
+  MessagesSquare,
+  Share2,
+  UserCog
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 const sidebarItems = [
     { icon: <LayoutGrid size={20} />, title: "Dashboard", id: 'nav-dashboard'},
-    { icon: <MessageSquare size={20} />, title: "Bate Papo", id: 'nav-chat'},
+    { icon: <MessagesSquare size={20} />, title: "Bate Papo", id: 'nav-chat'},
     { icon: <Columns size={20} />, title: "Kanban" },
     { icon: <Bot size={20} />, title: "Atendimento IA" },
-    { icon: <GitBranch size={20} />, title: "Fluxos" },
+    { icon: <Share2 size={20} />, title: "Fluxos" },
     { icon: <Megaphone size={20} />, title: "Transmissão" },
     { icon: <Users size={20} />, title: "Audiência" },
-    { icon: <Briefcase size={20} />, title: "Gerente" },
+    { icon: <UserCog size={20} />, title: "Gerente" },
     { icon: <Play size={20} />, title: "Automação" },
 ];
 

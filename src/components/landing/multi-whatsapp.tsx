@@ -95,7 +95,7 @@ export function MultiWhatsapp() {
               </div>
             </div>
           </div>
-          <div className="relative animate-fade-in-up max-w-2xl mx-auto" style={{animationDelay: '200ms'}}>
+          <div className="relative animate-fade-in-up" style={{animationDelay: '200ms'}}>
             <div className="bg-[#111111] border border-white/10 rounded-2xl shadow-2xl p-1.5">
                 <div className="bg-black/20 p-4 rounded-t-lg">
                     <div className="flex items-center justify-between">

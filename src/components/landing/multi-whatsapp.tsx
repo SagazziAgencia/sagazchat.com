@@ -1,37 +1,63 @@
 'use client';
 
-import { CheckCircle, Plus, MessageCircle } from 'lucide-react';
+import { CheckCircle, Plus, MessageCircle, MoreVertical } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const ConnectionCard = ({
-  department,
   name,
   role,
   phone,
+  timestamp,
 }: {
-  department: string;
   name: string;
   role: string;
   phone: string;
+  timestamp: string;
 }) => (
-  <div className="bg-[#1A1A1A] border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:border-[#92D639]/50 hover:-translate-y-1">
-    <div className="flex items-start justify-between">
-      <div className="flex items-center gap-3">
-        <div className="bg-white/5 p-2 rounded-lg">
-          <MessageCircle className="w-5 h-5 text-[#92D639]" />
-        </div>
-        <div>
-          <p className="font-bold text-white">{department}</p>
-          <p className="text-xs text-gray-400">
-            {name} &bull; {role}
-          </p>
+  <div className="bg-card border border-border rounded-xl p-4 transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 shadow-sm">
+    <div className="flex items-center justify-between mb-3">
+      <div className="flex items-center gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="w-5 h-5 text-red-500"
+        >
+          <rect width="16" height="16" x="4" y="4" rx="2" />
+          <path d="M9 4v16" />
+          <path d="M15 4v16" />
+          <path d="M4 9h16" />
+          <path d="M4 15h16" />
+        </svg>
+        <div className="flex items-center gap-1.5">
+          <MessageCircle className="w-4 h-4 text-muted-foreground" />
+          <p className="font-semibold text-foreground">{name}</p>
         </div>
       </div>
       <div className="flex items-center gap-2">
-        <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></div>
+        <div className="w-2 h-2 rounded-full bg-green-500"></div>
+        <MoreVertical className="w-4 h-4 text-muted-foreground" />
       </div>
     </div>
-    <div className="mt-4 text-gray-300 font-mono text-sm tracking-wider">
-      {phone}
+
+    <Button
+      variant="outline"
+      size="sm"
+      className="w-full text-red-500 border-red-500/50 hover:bg-red-500/10 hover:text-red-500 mb-4 h-8 text-xs"
+    >
+      Desconectar
+    </Button>
+
+    <div className="text-center">
+      <p className="font-semibold text-sm text-foreground">{role}</p>
+      <p className="text-xs text-muted-foreground mt-1">{phone}</p>
+      <p className="text-[10px] text-muted-foreground/70 mt-1">{timestamp}</p>
     </div>
   </div>
 );
@@ -69,7 +95,7 @@ export function MultiWhatsapp() {
             </div>
           </div>
           <div className="relative animate-fade-in-up" style={{animationDelay: '200ms'}}>
-            <div className="bg-[#111111] border border-white/10 rounded-2xl shadow-2xl p-1.5">
+            <div className="bg-[#111111] border border-white/10 rounded-2xl shadow-2xl p-1.5 max-w-2xl mx-auto">
                 <div className="bg-black/20 p-4 rounded-t-lg">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
@@ -82,32 +108,32 @@ export function MultiWhatsapp() {
                         </div>
                     </div>
                 </div>
-                <div className="p-6">
-                    <h3 className="text-xl font-bold text-white">Conexões Ativas</h3>
-                    <p className="text-gray-400 text-sm mt-1">Gerencie os números da sua equipe</p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                <div className="bg-background/80 backdrop-blur-sm p-6 rounded-b-lg">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <ConnectionCard 
-                            department="Comercial"
                             name="Iarley"
-                            role="Gerente"
-                            phone="+55 31 98...950"
+                            role="Gerente Comercial"
+                            phone="+55 (31) 86...950"
+                            timestamp="26/11/25 13:21"
                         />
                          <ConnectionCard 
-                            department="Suporte N1"
                             name="Ana"
-                            role="Nível 1"
-                            phone="+55 11 99...123"
+                            role="Suporte N1"
+                            phone="+55 (11) 99...123"
+                            timestamp="26/11/25 14:05"
                         />
                          <ConnectionCard 
-                            department="Financeiro"
-                            name="Sofia"
-                            role="Cobrança"
-                            phone="+55 41 96...555"
+                            name="Pedro"
+                            role="Vendas"
+                            phone="+55 (21) 97...888"
+                            timestamp="26/11/25 12:45"
                         />
-                        <div className="bg-[#1A1A1A] border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center text-gray-400 hover:border-[#92D639] hover:text-white transition-all cursor-pointer">
-                            <Plus className="w-8 h-8"/>
-                            <p className="mt-2 text-sm font-medium">Adicionar Setor</p>
-                        </div>
+                        <ConnectionCard 
+                            name="Sofia"
+                            role="Financeiro"
+                            phone="+55 (41) 96...555"
+                            timestamp="26/11/25 10:30"
+                        />
                     </div>
                 </div>
             </div>

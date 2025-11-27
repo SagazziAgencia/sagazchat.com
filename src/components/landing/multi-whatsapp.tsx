@@ -1,47 +1,17 @@
 'use client';
 
-import { CheckCircle, MessageCircle, MoreVertical } from 'lucide-react';
+import {
+  CheckCircle,
+  MessageCircle,
+  MoreVertical,
+  Layers,
+  BarChartBig,
+  Briefcase,
+  Eye,
+  ArrowRight,
+  Bot,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-const CustomDeviceIcon = () => (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="text-muted-foreground"
-    >
-      <path
-        d="M17 5H7C5.89543 5 5 5.89543 5 7V17C5 18.1046 5.89543 19 7 19H17C18.1046 19 19 18.1046 19 17V7C19 5.89543 18.1046 5 17 5Z"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M9 12H9.01"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M15 12H15.01"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-       <path
-        d="M11 5V3H13V5"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
 
 const ConnectionCard = ({
   name,
@@ -54,118 +24,132 @@ const ConnectionCard = ({
   phone: string;
   timestamp: string;
 }) => (
-  <div className="bg-card border border-border rounded-xl p-4 transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 shadow-sm text-center">
-    <div className="flex items-center justify-between mb-3">
-      <div className="flex items-center gap-2">
-        <CustomDeviceIcon />
-      </div>
-      <div className="flex items-center gap-2">
-        <div className="w-2 h-2 rounded-full bg-green-500"></div>
-        <MoreVertical className="w-4 h-4 text-muted-foreground" />
+  <div className="bg-card border border-border rounded-lg p-3 flex flex-col items-center text-center group hover:border-primary/20 hover:shadow-sm transition-all">
+    <div className="w-full flex justify-between items-start mb-1">
+      <Bot className="text-muted-foreground w-3 h-3" />
+      <div className="flex items-center gap-1">
+        <span className="w-2 h-2 rounded-full bg-green-500"></span>
+        <MoreVertical className="text-muted-foreground w-3 h-3" />
       </div>
     </div>
-    
-    <div className="flex items-center justify-center gap-1.5">
-        <MessageCircle className="w-4 h-4 text-muted-foreground" />
-        <p className="font-semibold text-foreground">{name}</p>
+    <div className="flex items-center gap-2 mb-2">
+      <MessageCircle className="w-4 h-4 text-foreground" />
+      <span className="font-bold text-foreground text-sm">{name}</span>
     </div>
-
     <Button
       variant="outline"
-      size="sm"
-      className="w-full text-red-500 border-red-500/50 hover:bg-red-500/10 hover:text-red-500 my-4 h-8 text-xs"
+      className="w-full py-1 mb-2 border-red-500/20 text-red-500 hover:bg-red-500/10 hover:text-red-400 text-[10px] h-auto"
     >
       Desconectar
     </Button>
-
     <div className="text-center">
-      <p className="font-semibold text-sm text-foreground">{role}</p>
-      <p className="text-xs text-muted-foreground mt-1">{phone}</p>
-      <p className="text-[10px] text-muted-foreground/70 mt-1">{timestamp}</p>
+      <div className="font-bold text-xs text-foreground">{role}</div>
+      <div className="text-[10px] text-muted-foreground mt-0.5 font-mono">{phone}</div>
+      <div className="text-[10px] text-muted-foreground/70 mt-0.5">{timestamp}</div>
     </div>
   </div>
 );
+
+const BenefitCard = ({
+  icon,
+  title,
+  children,
+  iconBg,
+  iconColor,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  children: React.ReactNode;
+  iconBg: string;
+  iconColor: string;
+}) => (
+    <div className="bg-card p-5 rounded-xl border border-border/50 shadow-sm hover:shadow-md transition-all hover:border-primary/20 group h-full">
+        <div className={`w-10 h-10 rounded-lg ${iconBg} flex items-center justify-center ${iconColor} mb-3`}>
+            {icon}
+        </div>
+        <h4 className="font-bold text-foreground text-base mb-1">{title}</h4>
+        <p className="text-xs text-muted-foreground leading-relaxed">{children}</p>
+    </div>
+);
+
 
 export function MultiWhatsapp() {
   return (
     <section className="py-20 lg:py-32 bg-[#0A0A0B] relative">
       <div className="absolute inset-0 opacity-20" style={{backgroundImage: 'radial-gradient(circle at center, #111 2px, transparent 2px)', backgroundSize: '20px 20px'}}></div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-6 animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
-              Múltiplos WhatsApps.
-              <br />
-              <span className="text-[#92D639]">Uma única tela.</span>
-            </h2>
-            <p className="text-lg text-gray-400 max-w-lg leading-relaxed">
-              Centralize Comercial, Suporte e Financeiro. Elimine a
-              desorganização de celulares físicos e tenha auditoria completa da
-              sua operação em tempo real.
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center gap-12">
+        
+        {/* TOPO: Texto Centralizado */}
+        <div className="text-center max-w-4xl mx-auto mb-8">
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.1] mb-4 text-white">
+                Múltiplos WhatsApps.<br/>
+                <span className="text-primary">Uma única tela.</span>
+            </h1>
+
+            <p className="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto">
+                Centralize seu <span className="font-bold text-white">time comercial</span> em uma <span className="font-bold text-white">única tela</span>. Monitore atendimentos, elimine gargalos e transforme seu WhatsApp em uma <span className="font-bold text-white">máquina de lucro previsível</span>.
             </p>
-            <div className="space-y-3 pt-4">
-              <div className="flex items-center gap-3 text-gray-300">
-                <CheckCircle className="w-5 h-5 text-[#92D639]" />
-                <span>Gestão centralizada de equipes.</span>
-              </div>
-              <div className="flex items-center gap-3 text-gray-300">
-                <CheckCircle className="w-5 h-5 text-[#92D639]" />
-                <span>Auditoria e segurança das conversas.</span>
-              </div>
-              <div className="flex items-center gap-3 text-gray-300">
-                <CheckCircle className="w-5 h-5 text-[#92D639]" />
-                <span>Redução de custos com aparelhos.</span>
-              </div>
-            </div>
-          </div>
-          <div className="relative animate-fade-in-up" style={{animationDelay: '200ms'}}>
-            <div className="bg-[#111111] border border-white/10 rounded-2xl shadow-2xl p-1.5">
-                <div className="bg-black/20 p-4 rounded-t-lg">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                            <span className="w-3 h-3 rounded-full bg-red-500"></span>
-                            <span className="w-3 h-3 rounded-full bg-yellow-500"></span>
-                            <span className="w-3 h-3 rounded-full bg-green-500"></span>
+        </div>
+
+        {/* ABAIXO: Grid de 2 Colunas */}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center justify-center">
+
+            {/* COLUNA 1 (ESQUERDA): Mockup do App */}
+            <div className="relative w-full flex justify-center lg:justify-end order-2 lg:order-1 animate-fade-in-up">
+                <div className="bg-card/50 border border-border rounded-2xl p-1.5 shadow-2xl backdrop-blur-lg w-full max-w-[500px]">
+                    <div className="bg-black/20 p-4 rounded-t-lg">
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                                <span className="w-3 h-3 rounded-full bg-red-500"></span>
+                                <span className="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                <span className="w-3 h-3 rounded-full bg-green-500"></span>
+                            </div>
                         </div>
-                        <div className="text-xs text-gray-500 font-mono bg-white/5 px-3 py-1 rounded-md">
-                            painel.respondezap.ai
+                    </div>
+                    <div className="bg-background/80 p-6 rounded-b-lg">
+                        <div className="mb-4">
+                            <h2 className="text-xl font-bold text-white mb-1">Conexões Ativas</h2>
+                            <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full border border-primary/20">
+                                Gerencie os números da sua equipe
+                            </span>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <ConnectionCard name="Iarley" role="Gerente Comercial" phone="+55 (31) 86...950" timestamp="26/11/25 13:21" />
+                            <ConnectionCard name="Ana" role="Suporte N1" phone="+55 (11) 99...123" timestamp="26/11/25 14:05" />
+                            <ConnectionCard name="Pedro" role="Vendas" phone="+55 (21) 97...888" timestamp="26/11/25 12:45" />
+                            <ConnectionCard name="Sofia" role="Financeiro" phone="+55 (41) 96...555" timestamp="26/11/25 10:30" />
                         </div>
                     </div>
                 </div>
-                <div className="bg-background/80 backdrop-blur-sm p-6 rounded-b-lg">
-                    <div className="mb-6">
-                      <h3 className="text-2xl font-bold text-white">Conexões Ativas</h3>
-                      <p className="text-muted-foreground bg-green-500/10 inline-block px-2 py-1 rounded-md text-sm text-green-400">Gerencie os números da sua equipe</p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <ConnectionCard 
-                            name="Iarley"
-                            role="Gerente Comercial"
-                            phone="+55 (31) 86...950"
-                            timestamp="26/11/25 13:21"
-                        />
-                         <ConnectionCard 
-                            name="Ana"
-                            role="Suporte N1"
-                            phone="+55 (11) 99...123"
-                            timestamp="26/11/25 14:05"
-                        />
-                         <ConnectionCard 
-                            name="Pedro"
-                            role="Vendas"
-                            phone="+55 (21) 97...888"
-                            timestamp="26/11/25 12:45"
-                        />
-                        <ConnectionCard 
-                            name="Sofia"
-                            role="Financeiro"
-                            phone="+55 (41) 96...555"
-                            timestamp="26/11/25 10:30"
-                        />
-                    </div>
+            </div>
+
+            {/* COLUNA 2 (DIREITA): 4 Benefícios em Grid + CTA */}
+            <div className="flex flex-col gap-8 order-1 lg:order-2 w-full max-w-[500px] lg:max-w-none mx-auto animate-fade-in-up" style={{animationDelay: '200ms'}}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4"> 
+                    <BenefitCard icon={<Layers />} title="Fim da Mistura de Conversas" iconBg="bg-primary/10" iconColor="text-primary">
+                        Cada departamento tem seu espaço. Separe vendas de suporte e mantenha tudo organizado.
+                    </BenefitCard>
+                    <BenefitCard icon={<BarChartBig />} title="Decisões Baseadas em Dados" iconBg="bg-muted" iconColor="text-muted-foreground">
+                        Com tudo centralizado, veja gargalos, tempos de resposta e performance real da equipe.
+                    </BenefitCard>
+                    <BenefitCard icon={<Briefcase />} title="Profissionalismo Total" iconBg="bg-green-500/10" iconColor="text-green-400">
+                        Transmita confiança. Uma operação organizada reflete profissionalismo e aumenta o fechamento.
+                    </BenefitCard>
+                    <BenefitCard icon={<Eye />} title="Auditoria em Tempo Real" iconBg="bg-purple-500/10" iconColor="text-purple-400">
+                        Monitore o que sua equipe fala. Corrija erros na hora e garanta o padrão de qualidade do seu atendimento.
+                    </BenefitCard>
+                </div>
+                <div className="w-full">
+                    <Button size="lg" className="w-full group relative h-auto px-8 py-4 bg-primary text-black rounded-xl font-bold text-base hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-1">
+                        Começar Agora
+                        <ArrowRight className="inline-block ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                    <p className="text-muted-foreground text-xs mt-3 text-center flex items-center justify-center gap-1.5">
+                        <CheckCircle className="w-3.5 h-3.5 text-primary" /> 7 dias grátis sem compromisso.
+                    </p>
                 </div>
             </div>
-          </div>
+
         </div>
       </div>
     </section>

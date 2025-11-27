@@ -133,6 +133,10 @@ export function MultiWhatsapp() {
                     </div>
                 </div>
                 <div className="bg-background/80 backdrop-blur-sm p-6 rounded-b-lg">
+                    <div className="mb-6">
+                      <h3 className="text-2xl font-bold text-white">Conexões Ativas</h3>
+                      <p className="text-muted-foreground bg-green-500/10 inline-block px-2 py-1 rounded-md text-sm text-green-400">Gerencie os números da sua equipe</p>
+                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <ConnectionCard 
                             name="Iarley"

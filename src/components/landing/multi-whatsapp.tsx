@@ -197,7 +197,7 @@ export function MultiWhatsapp() {
                             <div className="slider-container h-full" style={{ transform: `translateX(-${currentSlide * 50}%)` }} onClick={() => setCurrentSlide(s => s === 0 ? 1 : 0)}>
                                 
                                 {/* SLIDE 1: Conexões Ativas */}
-                                <div className="slide p-6 bg-gray-50 flex flex-col justify-center">
+                                <div className="slide p-6 bg-gray-50 flex flex-col">
                                     <div className="mb-8 pointer-events-none">
                                         <h2 className="text-2xl font-bold text-gray-900 mb-2">Conexões Ativas</h2>
                                         <span className="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full border border-green-200">
@@ -208,10 +208,10 @@ export function MultiWhatsapp() {
                                         {connectionCards.map((card) => (
                                             <div key={card.name} className="bg-white border border-gray-200 rounded-2xl p-4 flex flex-col items-center text-center shadow-sm">
                                                 <div className="w-full flex justify-between items-start mb-1">
-                                                    <Bot className="text-gray-400 text-sm" size={16}/>
+                                                    <Bot className="text-gray-400" size={16}/>
                                                     <div className="flex items-center gap-1">
                                                         <span className="w-2.5 h-2.5 rounded-full bg-green-500"></span>
-                                                        <EllipsisVertical className="text-gray-400 text-xs ml-1" size={14}/>
+                                                        <EllipsisVertical className="text-gray-400 ml-1" size={14}/>
                                                     </div>
                                                 </div>
                                                 <div className="flex items-center gap-2 mb-3 justify-center w-full"> 

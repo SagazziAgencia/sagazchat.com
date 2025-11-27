@@ -1,6 +1,6 @@
 'use client';
 
-import { CheckCircle, Plus, MessageCircle, MoreVertical } from 'lucide-react';
+import { CheckCircle, MessageCircle, MoreVertical } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const ConnectionCard = ({
@@ -14,7 +14,7 @@ const ConnectionCard = ({
   phone: string;
   timestamp: string;
 }) => (
-  <div className="bg-card border border-border rounded-xl p-4 transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 shadow-sm">
+  <div className="bg-card border border-border rounded-xl p-4 transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 shadow-sm text-center">
     <div className="flex items-center justify-between mb-3">
       <div className="flex items-center gap-2">
         <svg
@@ -35,21 +35,22 @@ const ConnectionCard = ({
           <path d="M4 9h16" />
           <path d="M4 15h16" />
         </svg>
-        <div className="flex items-center gap-1.5">
-          <MessageCircle className="w-4 h-4 text-muted-foreground" />
-          <p className="font-semibold text-foreground">{name}</p>
-        </div>
       </div>
       <div className="flex items-center gap-2">
         <div className="w-2 h-2 rounded-full bg-green-500"></div>
         <MoreVertical className="w-4 h-4 text-muted-foreground" />
       </div>
     </div>
+    
+    <div className="flex items-center justify-center gap-1.5">
+        <MessageCircle className="w-4 h-4 text-muted-foreground" />
+        <p className="font-semibold text-foreground">{name}</p>
+    </div>
 
     <Button
       variant="outline"
       size="sm"
-      className="w-full text-red-500 border-red-500/50 hover:bg-red-500/10 hover:text-red-500 mb-4 h-8 text-xs"
+      className="w-full text-red-500 border-red-500/50 hover:bg-red-500/10 hover:text-red-500 my-4 h-8 text-xs"
     >
       Desconectar
     </Button>
@@ -94,8 +95,8 @@ export function MultiWhatsapp() {
               </div>
             </div>
           </div>
-          <div className="relative animate-fade-in-up" style={{animationDelay: '200ms'}}>
-            <div className="bg-[#111111] border border-white/10 rounded-2xl shadow-2xl p-1.5 max-w-2xl mx-auto">
+          <div className="relative animate-fade-in-up max-w-2xl mx-auto" style={{animationDelay: '200ms'}}>
+            <div className="bg-[#111111] border border-white/10 rounded-2xl shadow-2xl p-1.5">
                 <div className="bg-black/20 p-4 rounded-t-lg">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">

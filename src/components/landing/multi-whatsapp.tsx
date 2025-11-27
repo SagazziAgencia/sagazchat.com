@@ -10,6 +10,7 @@ import {
   Eye,
   ArrowRight,
   Bot,
+  ShieldCheck,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -145,7 +146,7 @@ export function MultiWhatsapp() {
                         <ArrowRight className="inline-block ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
                     <p className="text-gray-500 text-xs mt-3 text-center flex items-center justify-center gap-1.5">
-                        <CheckCircle className="w-3.5 h-3.5 text-green-600" /> 7 dias grátis sem compromisso.
+                        <ShieldCheck className="w-3.5 h-3.5 text-green-600" /> 7 dias de garantia.
                     </p>
                 </div>
             </div>

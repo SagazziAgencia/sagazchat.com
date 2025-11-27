@@ -1,7 +1,47 @@
 'use client';
 
-import { CheckCircle, MessageCircle, MoreVertical, Smartphone } from 'lucide-react';
+import { CheckCircle, MessageCircle, MoreVertical } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+
+const CustomDeviceIcon = () => (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="text-muted-foreground"
+    >
+      <path
+        d="M17 5H7C5.89543 5 5 5.89543 5 7V17C5 18.1046 5.89543 19 7 19H17C18.1046 19 19 18.1046 19 17V7C19 5.89543 18.1046 5 17 5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 12H9.01"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M15 12H15.01"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+       <path
+        d="M11 5V3H13V5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
 
 const ConnectionCard = ({
   name,
@@ -17,7 +57,7 @@ const ConnectionCard = ({
   <div className="bg-card border border-border rounded-xl p-4 transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 shadow-sm text-center">
     <div className="flex items-center justify-between mb-3">
       <div className="flex items-center gap-2">
-        <Smartphone className="w-5 h-5 text-muted-foreground" />
+        <CustomDeviceIcon />
       </div>
       <div className="flex items-center gap-2">
         <div className="w-2 h-2 rounded-full bg-green-500"></div>

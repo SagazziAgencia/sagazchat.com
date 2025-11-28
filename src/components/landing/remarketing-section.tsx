@@ -163,54 +163,54 @@ export function RemarketingSection() {
                         <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
                         <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
                         <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-                        <div className="rounded-[2rem] overflow-hidden w-full h-full bg-slate-200 relative flex flex-col justify-between">
+                        <div className="rounded-[2rem] overflow-hidden w-full h-full bg-slate-200 relative flex flex-col">
                             {/* Wallpaper */}
                             <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300 opacity-80" style={{backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(203 213 225 / 0.4)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")`}}></div>
-
-                            {/* WhatsApp Header */}
-                            <div className="bg-slate-100/80 backdrop-blur-md px-3 py-2 flex items-center gap-3 border-b border-slate-200/80 z-10">
-                                <div className="w-8 h-8 rounded-full bg-slate-300 flex items-center justify-center">
-                                    <User size={16} className="text-slate-500"/>
-                                </div>
-                                <div>
-                                    <h3 className="font-bold text-sm text-slate-800">Suporte Deposita.ai</h3>
-                                    <p className="text-xs text-slate-500">online</p>
-                                </div>
-                                <MoreVertical size={20} className="text-slate-500 ml-auto"/>
-                            </div>
-
-                            {/* Chat Body */}
-                            <div className="flex-1 p-3 flex flex-col justify-end gap-2 overflow-y-auto">
-                               <div className={cn("transition-all duration-500 ease-in-out self-start", activeStep >= 3 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2")}>
-                                  <div className="bg-white p-2.5 rounded-lg rounded-tl-none shadow-sm max-w-[90%] text-slate-800 text-sm">
-                                    <p>Oi, Maria! Vi que você não finalizou sua compra. Segue seu código Pix para garantir o acesso 👇</p>
-                                    <div className="bg-slate-100 border border-slate-200 p-2 rounded-lg mt-2 text-xs text-center font-mono text-slate-500 break-all">
-                                        00020126...
+                            
+                            <div className='relative w-full h-full flex flex-col'>
+                                {/* WhatsApp Header */}
+                                <div className="bg-slate-100/80 backdrop-blur-md px-3 py-2 flex items-center gap-3 border-b border-slate-200/80 z-10 flex-shrink-0">
+                                    <DepositaLogo className="w-8 h-8 shadow-none" />
+                                    <div>
+                                        <h3 className="font-bold text-sm text-slate-800">Suporte Deposita.ai</h3>
+                                        <p className="text-xs text-slate-500">online</p>
                                     </div>
-                                    <div className="flex items-center justify-center mt-2">
-                                        <button className="flex items-center gap-1.5 text-xs font-bold text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full">
-                                            <Copy size={12}/> Copiar Código
-                                        </button>
+                                    <MoreVertical size={20} className="text-slate-500 ml-auto"/>
+                                </div>
+
+                                {/* Chat Body */}
+                                <div className="flex-1 p-3 flex flex-col justify-end gap-2 overflow-y-auto">
+                                <div className={cn("transition-all duration-500 ease-in-out self-start", activeStep >= 3 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2")}>
+                                    <div className="bg-white p-2.5 rounded-lg rounded-tl-none shadow-sm max-w-[90%] text-slate-800 text-sm">
+                                        <p>Oi, Maria! Vi que você não finalizou sua compra. Segue seu código Pix para garantir o acesso 👇</p>
+                                        <div className="bg-slate-100 border border-slate-200 p-2 rounded-lg mt-2 text-xs text-center font-mono text-slate-500 break-all">
+                                            00020126...
+                                        </div>
+                                        <div className="flex items-center justify-center mt-2">
+                                            <button className="flex items-center gap-1.5 text-xs font-bold text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full">
+                                                <Copy size={12}/> Copiar Código
+                                            </button>
+                                        </div>
                                     </div>
-                                  </div>
-                                  <p className="text-[10px] text-slate-400 mt-1 ml-1">14:02</p>
-                               </div>
+                                    <p className="text-[10px] text-slate-400 mt-1 ml-1">14:02</p>
+                                </div>
 
-                               <div className={cn("transition-all duration-500 ease-in-out self-end", activeStep >= 4 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2")} style={{transitionDelay: '300ms'}}>
-                                  <div className="bg-[#DCF8C6] p-2.5 rounded-lg rounded-tr-none shadow-sm max-w-[90%] text-slate-800 text-sm">
-                                      Nossa, verdade! Tinha esquecido, vou pagar agora. Obrigado!
-                                  </div>
-                                  <p className="text-[10px] text-slate-400 mt-1 mr-1 text-right">14:03</p>
-                               </div>
-                            </div>
+                                <div className={cn("transition-all duration-500 ease-in-out self-end", activeStep >= 4 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2")} style={{transitionDelay: '300ms'}}>
+                                    <div className="bg-[#DCF8C6] p-2.5 rounded-lg rounded-tr-none shadow-sm max-w-[90%] text-slate-800 text-sm">
+                                        Nossa, verdade! Tinha esquecido, vou pagar agora. Obrigado!
+                                    </div>
+                                    <p className="text-[10px] text-slate-400 mt-1 mr-1 text-right">14:03</p>
+                                </div>
+                                </div>
 
-                            {/* WhatsApp Footer */}
-                            <div className="bg-slate-100/80 backdrop-blur-md p-2 flex items-center gap-2 border-t border-slate-200/80 z-10">
-                               <Smile size={24} className="text-slate-500"/>
-                               <div className="flex-1 bg-white rounded-full h-8 flex items-center px-3">
-                                  <p className="text-sm text-slate-400">Mensagem</p>
-                               </div>
-                               <Send size={24} className="text-slate-500"/>
+                                {/* WhatsApp Footer */}
+                                <div className="bg-slate-100/80 backdrop-blur-md p-2 flex items-center gap-2 border-t border-slate-200/80 z-10 flex-shrink-0">
+                                <Smile size={24} className="text-slate-500"/>
+                                <div className="flex-1 bg-white rounded-full h-8 flex items-center px-3">
+                                    <p className="text-sm text-slate-400">Mensagem</p>
+                                </div>
+                                <Send size={24} className="text-slate-500"/>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -16,6 +16,12 @@ const DepositaLogo = ({ className = "w-10 h-10" }) => (
     </div>
 );
 
+const RespondeZapLogo = ({ className = "w-10 h-10" }) => (
+    <div className={`${className} rounded-lg bg-gradient-to-br from-[#92D639] to-[#7ab828] flex items-center justify-center shadow-lg shrink-0`}>
+        <Zap size={20} className="text-black" fill="currentColor" />
+    </div>
+);
+
 
 const NotificationCard = ({
     logo,
@@ -189,17 +195,51 @@ export function RemarketingSection() {
                     </div>
                 </div>
 
-                {/* COLUNA DIREITA: ANIMAÇÃO DE NOTIFICAÇÕES */}
+                {/* COLUNA DIREITA: ANIMAÇÃO DE NOTIFICAÇÕES NO CELULAR */}
                 <div className="hidden lg:flex justify-center items-center h-[500px] relative order-1 lg:order-2 perspective-1000">
                     <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl animate-float">
                         <div className="w-[148px] h-[18px] bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
                         <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
                         <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
                         <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-                        <div className="rounded-[2rem] overflow-hidden w-full h-full bg-black flex items-center justify-center">
+                        <div className="rounded-[2rem] overflow-hidden w-full h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative flex flex-col justify-center items-center p-4 space-y-4">
+                        
+                            {/* Notification 1: Abandoned Cart */}
                             <NotificationCard
-                                isHighlighted={activeStep === 4}
-                                className="z-10"
+                                className={cn(
+                                'transition-all duration-500 ease-in-out',
+                                activeStep >= 1 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-4 scale-95',
+                                activeStep > 1 && 'opacity-60 scale-90 -translate-y-2'
+                                )}
+                                logo={<DepositaLogo className="w-10 h-10 shadow-none grayscale" />}
+                                title="Carrinho Abandonado"
+                                time="1min atrás"
+                                message={
+                                <p className="text-xs text-white/50">Cliente João Silva (***.123.456-**)</p>
+                                }
+                            />
+
+                            {/* Notification 2: Recovery Started */}
+                             <NotificationCard
+                                className={cn(
+                                'transition-all duration-500 ease-in-out delay-200',
+                                activeStep >= 3 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-4 scale-95',
+                                activeStep > 3 && 'opacity-60 scale-90 -translate-y-2'
+                                )}
+                                logo={<RespondeZapLogo className="w-10 h-10 shadow-none"/>}
+                                title="Iniciando Recuperação"
+                                time="Agora"
+                                message={
+                                <p className="text-xs text-white/50">Fluxo "Recupera Pix" disparado.</p>
+                                }
+                            />
+
+                            {/* Notification 3: Sale Recovered! */}
+                            <NotificationCard
+                                className={cn(
+                                'transition-all duration-500 ease-in-out delay-300',
+                                activeStep >= 4 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-4 scale-95'
+                                )}
                                 logo={<DepositaLogo className="w-10 h-10 shadow-none" />}
                                 title="Pix Depositado!"
                                 time="Agora"
@@ -207,17 +247,17 @@ export function RemarketingSection() {
                                 <>
                                     <p className="text-xs text-white/80">Valor: <span className="font-bold text-white">R$ 197,00</span></p>
                                     <div className="mt-2 flex items-center gap-1.5">
-                                    <span className="text-[9px] font-bold bg-green-500 text-white px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
-                                        <CheckCircle2 size={10} className="fill-white text-green-500"/> RECUPERADA
-                                    </span>
+                                        <span className="text-[9px] font-bold bg-green-500 text-white px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+                                            <CheckCircle2 size={10} className="fill-white text-green-500"/> RECUPERADA
+                                        </span>
                                     </div>
                                 </>
                                 }
                             />
+
                         </div>
                     </div>
                 </div>
-
             </div>
 
             {/* CTA Final */}

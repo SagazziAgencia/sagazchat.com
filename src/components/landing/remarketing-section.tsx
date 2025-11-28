@@ -204,40 +204,10 @@ export function RemarketingSection() {
                         <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
                         <div className="rounded-[2rem] overflow-hidden w-full h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative flex flex-col justify-center items-center p-4 space-y-4">
                         
-                            {/* Notification 1: Abandoned Cart */}
+                            {/* Notification: Sale Recovered! */}
                             <NotificationCard
                                 className={cn(
                                 'transition-all duration-500 ease-in-out',
-                                activeStep >= 1 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-4 scale-95',
-                                activeStep > 1 && 'opacity-60 scale-90 -translate-y-2'
-                                )}
-                                logo={<DepositaLogo className="w-10 h-10 shadow-none grayscale" />}
-                                title="Carrinho Abandonado"
-                                time="1min atrás"
-                                message={
-                                <p className="text-xs text-white/50">Cliente João Silva (***.123.456-**)</p>
-                                }
-                            />
-
-                            {/* Notification 2: Recovery Started */}
-                             <NotificationCard
-                                className={cn(
-                                'transition-all duration-500 ease-in-out delay-200',
-                                activeStep >= 3 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-4 scale-95',
-                                activeStep > 3 && 'opacity-60 scale-90 -translate-y-2'
-                                )}
-                                logo={<RespondeZapLogo className="w-10 h-10 shadow-none"/>}
-                                title="Iniciando Recuperação"
-                                time="Agora"
-                                message={
-                                <p className="text-xs text-white/50">Fluxo "Recupera Pix" disparado.</p>
-                                }
-                            />
-
-                            {/* Notification 3: Sale Recovered! */}
-                            <NotificationCard
-                                className={cn(
-                                'transition-all duration-500 ease-in-out delay-300',
                                 activeStep >= 4 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-4 scale-95'
                                 )}
                                 logo={<DepositaLogo className="w-10 h-10 shadow-none" />}

@@ -163,7 +163,7 @@ export function RemarketingSection() {
                         <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
                         <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
                         <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-                        <div className="rounded-[2rem] overflow-hidden w-full h-full bg-slate-200 relative flex flex-col">
+                        <div className="rounded-[2rem] overflow-hidden w-full h-full bg-slate-200 relative">
                             {/* Wallpaper */}
                             <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300 opacity-80" style={{backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(203 213 225 / 0.4)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")`}}></div>
                             

@@ -37,7 +37,6 @@ const NotificationCard = ({
         className={cn(
           "bg-[#1C1C1E]/80 backdrop-blur-md rounded-2xl p-3.5 shadow-2xl border border-white/10 ring-1 ring-black/5 w-64",
           "transition-all duration-500",
-          isHighlighted ? 'scale-105 shadow-green-500/20' : 'scale-95',
           className
         )}
       >
@@ -192,27 +191,31 @@ export function RemarketingSection() {
 
                 {/* COLUNA DIREITA: ANIMAÇÃO DE NOTIFICAÇÕES */}
                 <div className="hidden lg:flex justify-center items-center h-[500px] relative order-1 lg:order-2 perspective-1000">
-                    
-                    <NotificationCard
-                        isHighlighted={activeStep === 4}
-                        className="z-10 animate-float"
-                        logo={<DepositaLogo className="w-10 h-10 shadow-none" />}
-                        title="Pix Depositado!"
-                        time="Agora"
-                        message={
-                        <>
-                            <p className="text-xs text-white/80">Valor: <span className="font-bold text-white">R$ 197,00</span></p>
-                            <div className="mt-2 flex items-center gap-1.5">
-                            <span className="text-[9px] font-bold bg-green-500 text-white px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
-                                <CheckCircle2 size={10} className="fill-white text-green-500"/> RECUPERADA
-                            </span>
-                            </div>
-                        </>
-                        }
-                    />
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#92D639]/20 to-[#92D639]/5 rounded-3xl blur-3xl opacity-40 -z-10 transform translate-y-4"></div>
-
+                    <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl animate-float">
+                        <div className="w-[148px] h-[18px] bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
+                        <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
+                        <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
+                        <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
+                        <div className="rounded-[2rem] overflow-hidden w-full h-full bg-black flex items-center justify-center">
+                            <NotificationCard
+                                isHighlighted={activeStep === 4}
+                                className="z-10"
+                                logo={<DepositaLogo className="w-10 h-10 shadow-none" />}
+                                title="Pix Depositado!"
+                                time="Agora"
+                                message={
+                                <>
+                                    <p className="text-xs text-white/80">Valor: <span className="font-bold text-white">R$ 197,00</span></p>
+                                    <div className="mt-2 flex items-center gap-1.5">
+                                    <span className="text-[9px] font-bold bg-green-500 text-white px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+                                        <CheckCircle2 size={10} className="fill-white text-green-500"/> RECUPERADA
+                                    </span>
+                                    </div>
+                                </>
+                                }
+                            />
+                        </div>
+                    </div>
                 </div>
 
             </div>

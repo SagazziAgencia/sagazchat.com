@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ShoppingCart, Zap, ArrowRight, Wallet, BellRing, Battery, Wifi, Server, Network, CheckCircle2 } from 'lucide-react';
+import { ShoppingCart, Zap, ArrowRight, Wallet, BellRing, Battery, Wifi, Server, Network, CheckCircle2, User, Send, MoreVertical, Copy, Smile } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
@@ -22,47 +22,8 @@ const RespondeZapLogo = ({ className = "w-10 h-10" }) => (
     </div>
 );
 
-
-const NotificationCard = ({
-    logo,
-    title,
-    message,
-    time,
-    className,
-    isHighlighted = false
-  }: {
-    logo: React.ReactNode;
-    title: string;
-    message: React.ReactNode;
-    time: string;
-    className?: string;
-    isHighlighted?: boolean;
-  }) => {
-    return (
-      <div
-        className={cn(
-          "bg-[#1C1C1E]/80 backdrop-blur-md rounded-2xl p-3.5 shadow-2xl border border-white/10 ring-1 ring-black/5 w-64",
-          "transition-all duration-500",
-          className
-        )}
-      >
-        <div className="flex items-start gap-3">
-          {logo}
-          <div className="flex-1 min-w-0">
-            <div className="flex justify-between items-baseline mb-0.5">
-              <h4 className="text-sm font-bold text-white truncate">{title}</h4>
-              <span className="text-[10px] text-white/50">{time}</span>
-            </div>
-            {message}
-          </div>
-        </div>
-      </div>
-    );
-  };
-
 export function RemarketingSection() {
     const [activeStep, setActiveStep] = useState(1);
-
 
     // Animação automática dos passos
     useEffect(() => {
@@ -202,29 +163,55 @@ export function RemarketingSection() {
                         <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
                         <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
                         <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-                        <div className="rounded-[2rem] overflow-hidden w-full h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative flex flex-col justify-center items-center p-4 space-y-4">
-                        
-                            {/* Notification: Sale Recovered! */}
-                            <NotificationCard
-                                className={cn(
-                                'transition-all duration-500 ease-in-out',
-                                activeStep >= 4 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-4 scale-95'
-                                )}
-                                logo={<DepositaLogo className="w-10 h-10 shadow-none" />}
-                                title="Pix Depositado!"
-                                time="Agora"
-                                message={
-                                <>
-                                    <p className="text-xs text-white/80">Valor: <span className="font-bold text-white">R$ 197,00</span></p>
-                                    <div className="mt-2 flex items-center gap-1.5">
-                                        <span className="text-[9px] font-bold bg-green-500 text-white px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
-                                            <CheckCircle2 size={10} className="fill-white text-green-500"/> RECUPERADA
-                                        </span>
-                                    </div>
-                                </>
-                                }
-                            />
+                        <div className="rounded-[2rem] overflow-hidden w-full h-full bg-slate-200 relative flex flex-col justify-between">
+                            {/* Wallpaper */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300 opacity-80" style={{backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(203 213 225 / 0.4)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")`}}></div>
 
+                            {/* WhatsApp Header */}
+                            <div className="bg-slate-100/80 backdrop-blur-md px-3 py-2 flex items-center gap-3 border-b border-slate-200/80 z-10">
+                                <div className="w-8 h-8 rounded-full bg-slate-300 flex items-center justify-center">
+                                    <User size={16} className="text-slate-500"/>
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-sm text-slate-800">Suporte Deposita.ai</h3>
+                                    <p className="text-xs text-slate-500">online</p>
+                                </div>
+                                <MoreVertical size={20} className="text-slate-500 ml-auto"/>
+                            </div>
+
+                            {/* Chat Body */}
+                            <div className="flex-1 p-3 flex flex-col justify-end gap-2 overflow-y-auto">
+                               <div className={cn("transition-all duration-500 ease-in-out self-start", activeStep >= 3 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2")}>
+                                  <div className="bg-white p-2.5 rounded-lg rounded-tl-none shadow-sm max-w-[90%] text-slate-800 text-sm">
+                                    <p>Oi, Maria! Vi que você não finalizou sua compra. Segue seu código Pix para garantir o acesso 👇</p>
+                                    <div className="bg-slate-100 border border-slate-200 p-2 rounded-lg mt-2 text-xs text-center font-mono text-slate-500 break-all">
+                                        00020126...
+                                    </div>
+                                    <div className="flex items-center justify-center mt-2">
+                                        <button className="flex items-center gap-1.5 text-xs font-bold text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full">
+                                            <Copy size={12}/> Copiar Código
+                                        </button>
+                                    </div>
+                                  </div>
+                                  <p className="text-[10px] text-slate-400 mt-1 ml-1">14:02</p>
+                               </div>
+
+                               <div className={cn("transition-all duration-500 ease-in-out self-end", activeStep >= 4 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2")} style={{transitionDelay: '300ms'}}>
+                                  <div className="bg-[#DCF8C6] p-2.5 rounded-lg rounded-tr-none shadow-sm max-w-[90%] text-slate-800 text-sm">
+                                      Nossa, verdade! Tinha esquecido, vou pagar agora. Obrigado!
+                                  </div>
+                                  <p className="text-[10px] text-slate-400 mt-1 mr-1 text-right">14:03</p>
+                               </div>
+                            </div>
+
+                            {/* WhatsApp Footer */}
+                            <div className="bg-slate-100/80 backdrop-blur-md p-2 flex items-center gap-2 border-t border-slate-200/80 z-10">
+                               <Smile size={24} className="text-slate-500"/>
+                               <div className="flex-1 bg-white rounded-full h-8 flex items-center px-3">
+                                  <p className="text-sm text-slate-400">Mensagem</p>
+                               </div>
+                               <Send size={24} className="text-slate-500"/>
+                            </div>
                         </div>
                     </div>
                 </div>

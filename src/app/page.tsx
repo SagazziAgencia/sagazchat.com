@@ -2,6 +2,7 @@ import { Header } from '@/components/landing/header';
 import { Hero } from '@/components/landing/hero';
 import { FeaturesTicker } from '@/components/landing/features-ticker';
 import { MultiWhatsapp } from '@/components/landing/multi-whatsapp';
+import { RemarketingSection } from '@/components/landing/remarketing-section';
 
 export default function RespondeZapLanding() {
   return (
@@ -11,6 +12,7 @@ export default function RespondeZapLanding() {
         <Hero />
         <FeaturesTicker />
         <MultiWhatsapp />
+        <RemarketingSection />
       </main>
     </div>
   );

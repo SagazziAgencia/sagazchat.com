@@ -37,7 +37,7 @@ const NotificationCard = ({
         className={cn(
           "bg-[#1C1C1E]/80 backdrop-blur-md rounded-2xl p-3.5 shadow-2xl border border-white/10 ring-1 ring-black/5 w-64",
           "transition-all duration-500",
-          isHighlighted ? 'scale-105 shadow-green-500/20' : 'scale-90 opacity-40',
+          isHighlighted ? 'scale-105 shadow-green-500/20' : 'scale-95',
           className
         )}
       >
@@ -195,7 +195,7 @@ export function RemarketingSection() {
                     
                     <NotificationCard
                         isHighlighted={activeStep === 4}
-                        className="z-10"
+                        className="z-10 animate-float"
                         logo={<DepositaLogo className="w-10 h-10 shadow-none" />}
                         title="Pix Depositado!"
                         time="Agora"
@@ -211,42 +211,6 @@ export function RemarketingSection() {
                         }
                     />
 
-                    {/* Notificações de fundo para dar volume */}
-                    <NotificationCard
-                        logo={<div className="w-10 h-10 rounded-lg bg-blue-500/80 flex items-center justify-center"><Zap size={20} className="text-white"/></div>}
-                        title="Novo Lead"
-                        time="1m"
-                        message={<p className="text-xs text-white/60">Lead do anúncio 'Promoção Dia das Mães'</p>}
-                        className="absolute top-[15%] left-[5%] animate-float"
-                        isHighlighted={false}
-                    />
-                    <NotificationCard
-                        logo={<div className="w-10 h-10 rounded-lg bg-red-500/80 flex items-center justify-center"><ShoppingCart size={20} className="text-white"/></div>}
-                        title="Carrinho Abandonado"
-                        time="3m"
-                        message={<p className="text-xs text-white/60">Cliente 'Maria' (...'9876')</p>}
-                        className="absolute top-[10%] right-[10%] animate-float"
-                        style={{animationDelay: '-2s'}}
-                        isHighlighted={false}
-                    />
-                     <NotificationCard
-                        logo={<div className="w-10 h-10 rounded-lg bg-purple-500/80 flex items-center justify-center"><Wallet size={20} className="text-white"/></div>}
-                        title="Pagamento Confirmado"
-                        time="8m"
-                        message={<p className="text-xs text-white/60">Pedido #1234 - R$ 97,00</p>}
-                        className="absolute bottom-[20%] right-[2%] animate-float"
-                        style={{animationDelay: '-4s'}}
-                        isHighlighted={false}
-                    />
-                    <NotificationCard
-                        logo={<div className="w-10 h-10 rounded-lg bg-gray-500/80 flex items-center justify-center"><Server size={20} className="text-white"/></div>}
-                        title="Webhook Recebido"
-                        time="12m"
-                        message={<p className="text-xs text-white/60">Origem: 'Landing Page'</p>}
-                        className="absolute bottom-[15%] left-[8%] animate-float"
-                        style={{animationDelay: '-1s'}}
-                        isHighlighted={false}
-                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#92D639]/20 to-[#92D639]/5 rounded-3xl blur-3xl opacity-40 -z-10 transform translate-y-4"></div>
 
                 </div>

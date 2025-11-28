@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { ShoppingCart, Zap, ArrowRight, Wallet, BellRing, Battery, Wifi, Server, Network, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { cn } from '@/lib/utils';
 
 
 // Componente Logo Deposita.ai (SVG Puro)
@@ -15,9 +16,47 @@ const DepositaLogo = ({ className = "w-10 h-10" }) => (
     </div>
 );
 
+
+const NotificationCard = ({
+    logo,
+    title,
+    message,
+    time,
+    className,
+    isHighlighted = false
+  }: {
+    logo: React.ReactNode;
+    title: string;
+    message: React.ReactNode;
+    time: string;
+    className?: string;
+    isHighlighted?: boolean;
+  }) => {
+    return (
+      <div
+        className={cn(
+          "bg-[#1C1C1E]/80 backdrop-blur-md rounded-2xl p-3.5 shadow-2xl border border-white/10 ring-1 ring-black/5 w-64",
+          "transition-all duration-500",
+          isHighlighted ? 'scale-105 shadow-green-500/20' : 'scale-90 opacity-40',
+          className
+        )}
+      >
+        <div className="flex items-start gap-3">
+          {logo}
+          <div className="flex-1 min-w-0">
+            <div className="flex justify-between items-baseline mb-0.5">
+              <h4 className="text-sm font-bold text-white truncate">{title}</h4>
+              <span className="text-[10px] text-white/50">{time}</span>
+            </div>
+            {message}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
 export function RemarketingSection() {
     const [activeStep, setActiveStep] = useState(1);
-    const happyPersonImage = PlaceHolderImages.find(p => p.id === 'happy-person-looking-at-phone');
 
 
     // Animação automática dos passos
@@ -149,64 +188,66 @@ export function RemarketingSection() {
                             </p>
                         </div>
                     </div>
-
                 </div>
 
-                {/* COLUNA DIREITA: IMAGEM FIXA (COM PESSOA) */}
-                <div className="hidden lg:flex justify-center items-center h-[500px] relative order-1 lg:order-2">
+                {/* COLUNA DIREITA: ANIMAÇÃO DE NOTIFICAÇÕES */}
+                <div className="hidden lg:flex justify-center items-center h-[500px] relative order-1 lg:order-2 perspective-1000">
                     
-                    {/* Card de Fundo com Imagem */}
-                    <div className="relative w-[320px] h-[480px] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white transform rotate-1 hover:rotate-0 transition-transform duration-500">
-                        {/* Imagem da Pessoa Feliz (Placeholder de alta qualidade) */}
-                        {happyPersonImage && (
-                            <Image 
-                                src={happyPersonImage.imageUrl} 
-                                alt={happyPersonImage.description}
-                                fill
-                                className="w-full h-full object-cover"
-                                data-ai-hint={happyPersonImage.imageHint}
-                            />
-                        )}
-                        
-                        {/* Gradiente para legibilidade da notificação */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
-
-                        {/* A Notificação Chegando (Flutuante) */}
-                        <div className={`absolute bottom-8 left-4 right-4 transition-all duration-700 ease-out transform ${activeStep === 4 ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-95'}`}>
-                            <div className="bg-[#1C1C1E]/95 backdrop-blur-md rounded-2xl p-4 shadow-2xl border border-white/10 ring-1 ring-black/5">
-                                <div className="flex items-start gap-3">
-                                    {/* Logo Deposita */}
-                                    <DepositaLogo className="w-10 h-10 shadow-none" />
-                                    
-                                    <div className="flex-1 min-w-0">
-                                        <div className="flex justify-between items-baseline mb-0.5">
-                                            <h4 className="text-sm font-bold text-white truncate">Pix Depositado!</h4>
-                                            <span className="text-[10px] text-white/50">Agora</span>
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <p className="text-xs text-white/80">Valor: <span className="font-bold text-white">R$ 197,00</span></p>
-                                        </div>
-                                        <div className="mt-2 flex items-center gap-1.5">
-                                            <span className="text-[9px] font-bold bg-green-500 text-white px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
-                                                <CheckCircle2 size={10} className="fill-white text-green-500"/> RECUPERADA
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
+                    <NotificationCard
+                        isHighlighted={activeStep === 4}
+                        className="z-10"
+                        logo={<DepositaLogo className="w-10 h-10 shadow-none" />}
+                        title="Pix Depositado!"
+                        time="Agora"
+                        message={
+                        <>
+                            <p className="text-xs text-white/80">Valor: <span className="font-bold text-white">R$ 197,00</span></p>
+                            <div className="mt-2 flex items-center gap-1.5">
+                            <span className="text-[9px] font-bold bg-green-500 text-white px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+                                <CheckCircle2 size={10} className="fill-white text-green-500"/> RECUPERADA
+                            </span>
                             </div>
-                            
-                            {/* Indicador de quem enviou (opcional, para reforço) */}
-                            <div className={`mt-3 flex justify-center transition-opacity duration-500 delay-500 ${activeStep === 4 ? 'opacity-100' : 'opacity-0'}`}>
-                                <span className="text-[10px] text-white/80 font-medium flex items-center gap-1 bg-black/30 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10">
-                                    <Zap size={10} className="fill-green-400 text-green-400"/> Via Webhook RespondeZap
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                        </>
+                        }
+                    />
 
-                    {/* Elementos Decorativos de Fundo */}
-                    <div className="absolute -z-10 top-10 right-10 w-24 h-24 bg-green-500/20 rounded-full blur-3xl animate-pulse"></div>
-                    <div className="absolute -z-10 bottom-10 left-10 w-32 h-32 bg-orange-500/20 rounded-full blur-3xl animate-pulse delay-700"></div>
+                    {/* Notificações de fundo para dar volume */}
+                    <NotificationCard
+                        logo={<div className="w-10 h-10 rounded-lg bg-blue-500/80 flex items-center justify-center"><Zap size={20} className="text-white"/></div>}
+                        title="Novo Lead"
+                        time="1m"
+                        message={<p className="text-xs text-white/60">Lead do anúncio 'Promoção Dia das Mães'</p>}
+                        className="absolute top-[15%] left-[5%] animate-float"
+                        isHighlighted={false}
+                    />
+                    <NotificationCard
+                        logo={<div className="w-10 h-10 rounded-lg bg-red-500/80 flex items-center justify-center"><ShoppingCart size={20} className="text-white"/></div>}
+                        title="Carrinho Abandonado"
+                        time="3m"
+                        message={<p className="text-xs text-white/60">Cliente 'Maria' (...'9876')</p>}
+                        className="absolute top-[10%] right-[10%] animate-float"
+                        style={{animationDelay: '-2s'}}
+                        isHighlighted={false}
+                    />
+                     <NotificationCard
+                        logo={<div className="w-10 h-10 rounded-lg bg-purple-500/80 flex items-center justify-center"><Wallet size={20} className="text-white"/></div>}
+                        title="Pagamento Confirmado"
+                        time="8m"
+                        message={<p className="text-xs text-white/60">Pedido #1234 - R$ 97,00</p>}
+                        className="absolute bottom-[20%] right-[2%] animate-float"
+                        style={{animationDelay: '-4s'}}
+                        isHighlighted={false}
+                    />
+                    <NotificationCard
+                        logo={<div className="w-10 h-10 rounded-lg bg-gray-500/80 flex items-center justify-center"><Server size={20} className="text-white"/></div>}
+                        title="Webhook Recebido"
+                        time="12m"
+                        message={<p className="text-xs text-white/60">Origem: 'Landing Page'</p>}
+                        className="absolute bottom-[15%] left-[8%] animate-float"
+                        style={{animationDelay: '-1s'}}
+                        isHighlighted={false}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#92D639]/20 to-[#92D639]/5 rounded-3xl blur-3xl opacity-40 -z-10 transform translate-y-4"></div>
 
                 </div>
 

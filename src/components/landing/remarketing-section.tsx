@@ -1,25 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ShoppingCart, Zap, ArrowRight, Wallet, BellRing, Battery, Wifi, Server, Network, CheckCircle2, User, Send, MoreVertical, Copy, Smile } from 'lucide-react';
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { cn } from '@/lib/utils';
-
-// Componente Logo Deposita.ai (SVG Puro)
-const DepositaLogo = ({ className = "w-10 h-10" }) => (
-    <div className={`${className} rounded-lg bg-gradient-to-br from-[#FFC107] to-[#FF5722] flex items-center justify-center shadow-md shrink-0`}>
-        <svg viewBox="0 0 24 24" className="w-3/5 h-3/5 text-white fill-current" xmlns="http://www.w3.org/2000/svg">
-        <path d="M7 4v16h6.5c4.5 0 8.5-3.5 8.5-8s-4-8-8.5-8H7zm2.5 2.5h3.5c3.2 0 5.5 2.2 5.5 5.5s-2.3 5.5-5.5 5.5H9.5V6.5z" />
-        </svg>
-    </div>
-);
-
-const RespondeZapLogo = ({ className = "w-10 h-10" }) => (
-    <div className={`${className} rounded-lg bg-gradient-to-br from-[#92D639] to-[#7ab828] flex items-center justify-center shadow-lg shrink-0`}>
-        <Zap size={20} className="text-black" fill="currentColor" />
-    </div>
-);
+import { Network, Zap, BellRing } from 'lucide-react';
 
 const notificationsData = [
     { title: "Venda Cartão Depositada!", value: "R$ 347,00", type: "card", time: "07:00" },
@@ -31,110 +13,158 @@ const notificationsData = [
     { title: "Venda Cartão Depositada!", value: "R$ 450,50", type: "card", time: "07:00" },
 ];
 
-const LogoSvg = () => (
-    <svg className="logo-d" width="395" height="395" viewBox="0 0 395 395" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 66C1 29.5492 30.5492 0 67 0H328C364.451 0 394 29.5492 394 66V329C394 365.451 364.451 395 328 395H67C30.5492 395 1 365.451 1 329V66Z" fill="url(#paint0_linear_2267_93)"/>
-        <path d="M66 394C29.5492 394 3.52371e-07 364.451 7.87042e-07 328L3.89944e-06 67C4.33411e-06 30.5492 29.5492 1 66 1L329 1C365.451 1 395 30.5492 395 67L395 328C395 364.451 365.451 394 329 394L66 394Z" fill="url(#paint1_linear_2267_93)"/>
-        <path d="M333.5 214.5C292.5 119 216.5 118 148.5 122.5C79.5 118.5 68.8045 83.6549 62.2216 68.5H209.5C241.1 68.5 265.667 80.8333 274 87C333.6 129 338.5 189.5 333.5 214.5Z" fill="white"/>
-        <path d="M119 272L121.001 135.5L62.0011 163.5L61 327H175.501C225.5 307.5 230.5 290 234.5 263.5C214 273 153 272.5 119 272Z" fill="url(#paint2_linear_2267_93)"/>
-        <path d="M176 327C292.5 280 291 169 258 143.5C294.5 143.5 325.5 187.5 334 216C330.47 237.822 318.5 280.5 267 311C243.892 325.325 221.489 327 176 327Z" fill="url(#paint3_linear_2267_93)"/>
-        <defs>
+const DepositaLogoSvg = () => (
+    <svg className="w-full h-full object-contain" viewBox="0 0 395 395" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 66C1 29.5492 30.5492 0 67 0H328C364.451 0 394 29.5492 394 66V329C394 365.451 364.451 395 328 395H67C30.5492 395 1 365.451 1 329V66Z" fill="url(#paint0_linear_2267_93)"/>
+      <path d="M66 394C29.5492 394 3.52371e-07 364.451 7.87042e-07 328L3.89944e-06 67C4.33411e-06 30.5492 29.5492 1 66 1L329 1C365.451 1 395 30.5492 395 67L395 328C395 364.451 365.451 394 329 394L66 394Z" fill="url(#paint1_linear_2267_93)"/>
+      <path d="M333.5 214.5C292.5 119 216.5 118 148.5 122.5C79.5 118.5 68.8045 83.6549 62.2216 68.5H209.5C241.1 68.5 265.667 80.8333 274 87C333.6 129 338.5 189.5 333.5 214.5Z" fill="white"/>
+      <path d="M119 272L121.001 135.5L62.0011 163.5L61 327H175.501C225.5 307.5 230.5 290 234.5 263.5C214 273 153 272.5 119 272Z" fill="url(#paint2_linear_2267_93)"/>
+      <path d="M176 327C292.5 280 291 169 258 143.5C294.5 143.5 325.5 187.5 334 216C330.47 237.822 318.5 280.5 267 311C243.892 325.325 221.489 327 176 327Z" fill="url(#paint3_linear_2267_93)"/>
+      <defs>
         <linearGradient id="paint0_linear_2267_93" x1="349.5" y1="26" x2="197.5" y2="395" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#FFA700"/>
-        <stop offset="1" stopColor="#FF8000"/>
+          <stop stopColor="#FFA700"/>
+          <stop offset="1" stopColor="#FF8000"/>
         </linearGradient>
         <linearGradient id="paint1_linear_2267_93" x1="26" y1="45.5" x2="348" y2="317" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#FFDB00"/>
-        <stop offset="1" stopColor="#FF6C00"/>
+          <stop stopColor="#FFDB00"/>
+          <stop offset="1" stopColor="#FF6C00"/>
         </linearGradient>
         <linearGradient id="paint2_linear_2267_93" x1="131.5" y1="122" x2="263.5" y2="260.5" gradientUnits="userSpaceOnUse">
-        <stop offset="0.037148" stopColor="#FFBA00" stopOpacity="0.45"/>
-        <stop offset="0.317308" stopColor="white" stopOpacity="0.82"/>
-        <stop offset="0.723197" stopColor="white"/>
-        <stop offset="0.931722" stopColor="#FF8A01" stopOpacity="0.94"/>
+          <stop offset="0.037148" stopColor="#FFBA00" stopOpacity="0.45"/>
+          <stop offset="0.317308" stopColor="white" stopOpacity="0.82"/>
+          <stop offset="0.723197" stopColor="white"/>
+          <stop offset="0.931722" stopColor="#FF8A01" stopOpacity="0.94"/>
         </linearGradient>
         <linearGradient id="paint3_linear_2267_93" x1="290.5" y1="177.5" x2="221.5" y2="311" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#FF9500"/>
-        <stop offset="0.826923" stopColor="white"/>
+          <stop stopColor="#FF9500"/>
+          <stop offset="0.826923" stopColor="white"/>
         </linearGradient>
-        </defs>
+      </defs>
     </svg>
 );
 
-
-const NotificationCard = ({ data, isDarker }: { data: typeof notificationsData[0], isDarker: boolean }) => (
-    <div className={`notification-card animate-enter ${isDarker ? 'darker' : ''}`}>
-        <div className="icon-box">
-            <LogoSvg />
-        </div>
-        <div className="content">
-            <div className="app-name">Deposita.ai</div>
-            <div className="title">{data.title}</div>
-            <div className="subtitle">Valor: {data.value}</div>
-        </div>
-        <div className="time">{data.time}</div>
+const DepositaLogo = ({ className = "w-10 h-10" }) => (
+    <div className={`${className} rounded-lg bg-gradient-to-br from-[#FFC107] to-[#FF5722] flex items-center justify-center shadow-md shrink-0`}>
+        <svg viewBox="0 0 24 24" className="w-3/5 h-3/5 text-white fill-current" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 4v16h6.5c4.5 0 8.5-3.5 8.5-8s-4-8-8.5-8H7zm2.5 2.5h3.5c3.2 0 5.5 2.2 5.5 5.5s-2.3 5.5-5.5 5.5H9.5V6.5z" />
+        </svg>
     </div>
 );
 
 
-export function RemarketingSection() {
-    const [activeStep, setActiveStep] = useState(1);
-    const [currentTime, setCurrentTime] = useState("9:41");
-    const [notifications, setNotifications] = useState<any[]>([]);
+const NotificationCard = ({ data, isDarker } : {data: typeof notificationsData[0] & {id: number}, isDarker: boolean}) => {
+    return (
+      <div className={`notification-card animate-enter ${isDarker ? 'darker' : ''}`}>
+        <div className="icon-box">
+          <DepositaLogoSvg />
+        </div>
+        <div className="content">
+          <div className="app-name">Deposita.ai</div>
+          <div className="title">{data.title}</div>
+          <div className="subtitle">Valor: {data.value}</div>
+        </div>
+        <div className="time">{data.time}</div>
+      </div>
+    );
+};
+  
+const PhoneMockupAnimation = () => {
+    const [currentTime, setCurrentTime] = useState('');
+    const [activeNotifications, setActiveNotifications] = useState<(typeof notificationsData[0] & {id: number, isDarker: boolean})[]>([]);
     const dataIndexRef = useRef(0);
-    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-    // Clock update
+  
     useEffect(() => {
-        const clockInterval = setInterval(() => {
-            setCurrentTime(new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }));
-        }, 1000);
-        
-        return () => clearInterval(clockInterval);
+        const updateClock = () => {
+          const now = new Date();
+          setCurrentTime(now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }));
+        };
+        updateClock();
+        const interval = setInterval(updateClock, 1000);
+        return () => clearInterval(interval);
+    }, []);
+  
+    useEffect(() => {
+        let timeoutId: NodeJS.Timeout;
+    
+        const addNotification = () => {
+          const currentIndex = dataIndexRef.current;
+          const newData = { 
+            ...notificationsData[currentIndex], 
+            id: Date.now() + Math.random(),
+            isDarker: Math.random() > 0.6 
+          };
+    
+          setActiveNotifications(prev => {
+            const updated = [newData, ...prev];
+            return updated.length > 6 ? updated.slice(0, 6) : updated;
+          });
+    
+          dataIndexRef.current = (currentIndex + 1) % notificationsData.length;
+    
+          const delay = Math.random() * 1500 + 1500;
+          timeoutId = setTimeout(addNotification, delay);
+        };
+    
+        addNotification();
+    
+        return () => clearTimeout(timeoutId);
     }, []);
 
-    // Step cycling
+    return (
+        <div className="flex items-center justify-center">
+            <div className="phone-mockup">
+                <div className="notch"></div>
+                <div className="screen">
+                    <div className="status-bar">
+                        <span>{currentTime}</span>
+                        <div className="flex items-center gap-1.5">
+                            <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 10C1 9.44772 1.44772 9 2 9C2.55228 9 3 9.44772 3 10V11C3 11.5523 2.55228 12 2 12C1.44772 12 1 11.5523 1 11V10Z" />
+                                <path d="M5 7.5C5 6.94772 5.44772 6.5 6 6.5C6.55228 6.5 7 6.94772 7 7.5V11C7 11.5523 6.55228 12 6 12C5.44772 12 5 11.5523 5 11V7.5Z" />
+                                <path d="M9 5C9 4.44772 9.44772 4 10 4C10.5523 4 11 4.44772 11 5V11C11 11.5523 10.5523 12 10 12C9.44772 12 9 11.5523 9 11V5Z" />
+                                <path d="M13 2.5C13 1.94772 13.4477 1.5 14 1.5C14.5523 1.5 15 1.94772 15 2.5V11C15 11.5523 14.5523 12 14 12C13.4477 12 13 11.5523 13 11V2.5Z" />
+                            </svg>
+                            <svg width="18" height="13" viewBox="0 0 18 13" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" clipRule="evenodd" d="M9.00004 2.87207C11.9682 2.87207 14.6599 4.02021 16.6369 5.86776C16.9416 6.15252 17.4192 6.13605 17.7039 5.83129C17.9887 5.52652 17.9722 5.04896 17.6675 4.7642C15.4206 2.66442 12.3619 1.37207 9.00004 1.37207C5.63821 1.37207 2.57946 2.66442 0.332617 4.7642C0.0278553 5.04896 0.0113841 5.52652 0.296146 5.83129C0.580907 6.13605 1.05847 6.15252 1.36323 5.86776C3.3402 4.02021 6.03184 2.87207 9.00004 2.87207ZM9.00004 6.27643C10.9575 6.27643 12.7423 7.00947 14.0945 8.21481C14.4124 8.49811 14.4411 8.98616 14.1578 9.30403C13.8745 9.6219 13.3864 9.65063 13.0686 9.36733C11.9904 8.40632 10.5673 7.77643 9.00004 7.77643C7.43275 7.77643 6.00971 8.40632 4.93152 9.36733C4.61365 9.65063 4.12559 9.6219 3.8423 9.30403C3.559 8.98616 3.58773 8.49811 3.90561 8.21481C5.25776 7.00947 7.04259 6.27643 9.00004 6.27643ZM10.5298 11.0805C10.5298 11.9254 9.84483 12.6104 9.00004 12.6104C8.15525 12.6104 7.47025 11.9254 7.47025 11.0805C7.47025 10.2357 8.15525 9.55075 9.00004 9.55075C9.84483 9.55075 10.5298 10.2357 10.5298 11.0805Z" />
+                            </svg>
+                            <svg width="25" height="12" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-1">
+                                <rect x="0.5" y="0.5" width="21" height="11" rx="2.5" stroke="currentColor" strokeOpacity="0.4"/>
+                                <rect x="2" y="2" width="18" height="8" rx="1.5" fill="currentColor"/>
+                                <path d="M23 4C23.5523 4 24 4.44772 24 5V7C24 7.55228 23.5523 8 23 8V4Z" fill="currentColor" fillOpacity="0.4"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div className="notification-feed">
+                        {activeNotifications.map((notif) => (
+                            <NotificationCard 
+                                key={notif.id} 
+                                data={notif} 
+                                isDarker={notif.isDarker} 
+                            />
+                        ))}
+                    </div>
+                    <div className="cta-footer">
+                        <div className="cta-text">
+                            Use <span className="cta-highlight">Deposita.ai</span> com <span className="cta-highlight">Respondechat.ai</span> no seu negócio
+                        </div>
+                        <div className="home-indicator"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+
+export function RemarketingSection() {
+    const [activeStep, setActiveStep] = useState(1);
+
     useEffect(() => {
         const stepInterval = setInterval(() => {
             setActiveStep((prev) => (prev === 4 ? 1 : prev + 1));
         }, 4500);
 
         return () => clearInterval(stepInterval);
-    }, []);
-
-    // Notification cycling
-    useEffect(() => {
-        const addNotification = () => {
-            const data = notificationsData[dataIndexRef.current];
-            dataIndexRef.current = (dataIndexRef.current + 1) % notificationsData.length;
-            
-            setNotifications(prev => {
-                const newNotifications = [{ ...data, id: Date.now() + Math.random(), isDarker: Math.random() > 0.6 }, ...prev];
-                return newNotifications.length > 6 ? newNotifications.slice(0, 6) : newNotifications;
-            });
-        };
-
-        const scheduleNext = () => {
-            if (timeoutRef.current) {
-                clearTimeout(timeoutRef.current);
-            }
-            const delay = Math.random() * 1500 + 1500;
-            timeoutRef.current = setTimeout(() => {
-                addNotification();
-                scheduleNext();
-            }, delay);
-        };
-        
-        // Start the process
-        addNotification();
-        scheduleNext();
-
-        // Cleanup
-        return () => {
-            if (timeoutRef.current) {
-                clearTimeout(timeoutRef.current);
-            }
-        };
     }, []);
 
 
@@ -144,7 +174,6 @@ export function RemarketingSection() {
 
             <section className="container mx-auto max-w-7xl">
                 
-                {/* Cabeçalho Compacto */}
                 <div className="text-center mb-16 space-y-4">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-sm text-[10px] font-bold uppercase tracking-wider text-green-700 mb-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
@@ -161,22 +190,17 @@ export function RemarketingSection() {
                     </p>
                 </div>
 
-                {/* LAYOUT CENTRALIZADO */}
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     
-                    {/* COLUNA ESQUERDA: LISTA DE PASSOS */}
                     <div className="relative space-y-4 w-full max-w-2xl mx-auto">
                         
-                        {/* Linha Conectora Vertical */}
                         <div className="absolute left-[1.65rem] top-8 bottom-8 w-px bg-slate-200 z-0"></div>
                         
-                        {/* Barra de Progresso Vertical Ativa */}
                         <div 
                             className="absolute left-[1.65rem] top-8 w-px bg-green-500 z-0 transition-all duration-1000 ease-in-out"
                             style={{ height: `${Math.min((activeStep - 1) * 33.3, 100)}%` }}
                         ></div>
 
-                        {/* PASSO 1: PLATAFORMA */}
                         <div 
                             onClick={() => setActiveStep(1)}
                             className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 1 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
@@ -196,7 +220,6 @@ export function RemarketingSection() {
                             </div>
                         </div>
 
-                        {/* PASSO 2: WEBHOOK */}
                         <div 
                             onClick={() => setActiveStep(2)}
                             className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 2 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
@@ -216,7 +239,6 @@ export function RemarketingSection() {
                             </div>
                         </div>
 
-                        {/* PASSO 3: FLUXO */}
                         <div 
                             onClick={() => setActiveStep(3)}
                             className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 3 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
@@ -233,14 +255,12 @@ export function RemarketingSection() {
                                 <p className={`text-xs leading-relaxed mb-2 ${activeStep === 3 ? 'text-slate-600' : 'text-slate-400'}`}>
                                     O RespondeZap envia a mensagem de recuperação no WhatsApp do cliente.
                                 </p>
-                                {/* Mini Chat Compacto */}
                                 <div className={`text-[9px] inline-flex items-center gap-2 bg-slate-50 px-2 py-1.5 rounded border border-slate-100 text-slate-500 transition-opacity ${activeStep === 3 ? 'opacity-100' : 'opacity-40'}`}>
-                                <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span> "Oi! Segue seu código Pix 👇"
+                                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span> "Oi! Segue seu código Pix 👇"
                                 </div>
                             </div>
                         </div>
 
-                        {/* PASSO 4: SUCESSO */}
                         <div 
                             onClick={() => setActiveStep(4)}
                             className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 4 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
@@ -262,48 +282,14 @@ export function RemarketingSection() {
                     </div>
                     
                     {/* COLUNA DIREITA: SMARTPHONE MOCKUP */}
-                    <div className="flex items-center justify-center">
-                        <div className="phone-mockup">
-                            <div className="notch"></div>
-                            <div className="screen">
-                                <div className="status-bar">
-                                    <span id="clock">{currentTime}</span>
-                                    <div className="flex items-center gap-1.5">
-                                        <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 10C1 9.44772 1.44772 9 2 9C2.55228 9 3 9.44772 3 10V11C3 11.5523 2.55228 12 2 12C1.44772 12 1 11.5523 1 11V10Z" />
-                                            <path d="M5 7.5C5 6.94772 5.44772 6.5 6 6.5C6.55228 6.5 7 6.94772 7 7.5V11C7 11.5523 6.55228 12 6 12C5.44772 12 5 11.5523 5 11V7.5Z" />
-                                            <path d="M9 5C9 4.44772 9.44772 4 10 4C10.5523 4 11 4.44772 11 5V11C11 11.5523 10.5523 12 10 12C9.44772 12 9 11.5523 9 11V5Z" />
-                                            <path d="M13 2.5C13 1.94772 13.4477 1.5 14 1.5C14.5523 1.5 15 1.94772 15 2.5V11C15 11.5523 14.5523 12 14 12C13.4477 12 13 11.5523 13 11V2.5Z" />
-                                        </svg>
-                                        <svg width="18" height="13" viewBox="0 0 18 13" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path fillRule="evenodd" clipRule="evenodd" d="M9.00004 2.87207C11.9682 2.87207 14.6599 4.02021 16.6369 5.86776C16.9416 6.15252 17.4192 6.13605 17.7039 5.83129C17.9887 5.52652 17.9722 5.04896 17.6675 4.7642C15.4206 2.66442 12.3619 1.37207 9.00004 1.37207C5.63821 1.37207 2.57946 2.66442 0.332617 4.7642C0.0278553 5.04896 0.0113841 5.52652 0.296146 5.83129C0.580907 6.13605 1.05847 6.15252 1.36323 5.86776C3.3402 4.02021 6.03184 2.87207 9.00004 2.87207ZM9.00004 6.27643C10.9575 6.27643 12.7423 7.00947 14.0945 8.21481C14.4124 8.49811 14.4411 8.98616 14.1578 9.30403C13.8745 9.6219 13.3864 9.65063 13.0686 9.36733C11.9904 8.40632 10.5673 7.77643 9.00004 7.77643C7.43275 7.77643 6.00971 8.40632 4.93152 9.36733C4.61365 9.65063 4.12559 9.6219 3.8423 9.30403C3.559 8.98616 3.58773 8.49811 3.90561 8.21481C5.25776 7.00947 7.04259 6.27643 9.00004 6.27643ZM10.5298 11.0805C10.5298 11.9254 9.84483 12.6104 9.00004 12.6104C8.15525 12.6104 7.47025 11.9254 7.47025 11.0805C7.47025 10.2357 8.15525 9.55075 9.00004 9.55075C9.84483 9.55075 10.5298 10.2357 10.5298 11.0805Z" />
-                                        </svg>
-                                        <svg width="25" height="12" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-1">
-                                            <rect x="0.5" y="0.5" width="21" height="11" rx="2.5" stroke="currentColor" strokeOpacity="0.4"/>
-                                            <rect x="2" y="2" width="18" height="8" rx="1.5" fill="currentColor"/>
-                                            <path d="M23 4C23.5523 4 24 4.44772 24 5V7C24 7.55228 23.5523 8 23 8V4Z" fill="currentColor" fillOpacity="0.4"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div className="notification-feed">
-                                    {notifications.map(notif => (
-                                        <NotificationCard key={notif.id} data={notif} isDarker={notif.isDarker} />
-                                    ))}
-                                </div>
-                                <div className="cta-footer">
-                                    <div className="cta-text">
-                                        Use <span className="cta-highlight">Deposita.ai</span> com <span className="cta-highlight">Respondechat.ai</span> no seu negócio
-                                    </div>
-                                    <div className="home-indicator"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <PhoneMockupAnimation />
                 </div>
 
             </section>
 
             <style jsx>{`
+                .font-inter { font-family: 'Inter', sans-serif; }
+                
                 .phone-mockup {
                     width: 320px;
                     height: 650px;
@@ -437,16 +423,7 @@ export function RemarketingSection() {
                     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
                 }
 
-                :global(.logo-d) {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: contain;
-                }
-
-                .content {
-                    flex: 1;
-                    min-width: 0;
-                }
+                .content { flex: 1; min-width: 0; }
 
                 .title {
                     font-size: 12px;
@@ -495,13 +472,13 @@ export function RemarketingSection() {
                 .animate-enter {
                     animation: slideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
                 }
-
+                
                 .bg-blur {
                     position: absolute;
                     width: 500px;
                     height: 500px;
                     background: radial-gradient(circle, rgba(255,165,0,0.2) 0%, rgba(0,0,0,0) 70%);
-                    z-index: 1;
+                    z-index: -1;
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
@@ -510,3 +487,5 @@ export function RemarketingSection() {
         </div>
     );
 };
+
+    

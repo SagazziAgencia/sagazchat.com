@@ -4,64 +4,73 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Network, Zap, DollarSign } from 'lucide-react';
 
 export function RemarketingSection() {
+    const [activeStep, setActiveStep] = useState(1);
 
-    const notificationsData = [
-        { title: "Venda Cartão Depositada!", value: "R$ 347,00", type: "card", time: "07:00" },
-        { title: "Venda Pix Gerada!", value: "R$ 175,00", type: "pix", time: "10:30" },
-        { title: "Pix Depositado!", value: "R$ 5.000,00", type: "deposit", time: "21:45" },
-        { title: "Pix Depositado!", value: "R$ 2.350,00", type: "deposit", time: "11:30" },
-        { title: "Venda Pix Gerada!", value: "R$ 89,90", type: "pix", time: "10:30" },
-        { title: "Pix Depositado!", value: "R$ 1.200,00", type: "deposit", time: "21:45" },
-        { title: "Venda Cartão Depositada!", value: "R$ 450,50", type: "card", time: "07:00" },
-    ];
+    useEffect(() => {
+        const stepInterval = setInterval(() => {
+            setActiveStep((prev) => (prev === 4 ? 1 : prev + 1));
+        }, 4500);
 
-    const DepositaLogoSvg = () => (
-        <svg className="w-full h-full object-contain" viewBox="0 0 395 395" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 66C1 29.5492 30.5492 0 67 0H328C364.451 0 394 29.5492 394 66V329C394 365.451 364.451 395 328 395H67C30.5492 395 1 365.451 1 329V66Z" fill="url(#paint0_linear_2267_93)"/>
-          <path d="M66 394C29.5492 394 3.52371e-07 364.451 7.87042e-07 328L3.89944e-06 67C4.33411e-06 30.5492 29.5492 1 66 1L329 1C365.451 1 395 30.5492 395 67L395 328C395 364.451 365.451 394 329 394L66 394Z" fill="url(#paint1_linear_2267_93)"/>
-          <path d="M333.5 214.5C292.5 119 216.5 118 148.5 122.5C79.5 118.5 68.8045 83.6549 62.2216 68.5H209.5C241.1 68.5 265.667 80.8333 274 87C333.6 129 338.5 189.5 333.5 214.5Z" fill="white"/>
-          <path d="M119 272L121.001 135.5L62.0011 163.5L61 327H175.501C225.5 307.5 230.5 290 234.5 263.5C214 273 153 272.5 119 272Z" fill="url(#paint2_linear_2267_93)"/>
-          <path d="M176 327C292.5 280 291 169 258 143.5C294.5 143.5 325.5 187.5 334 216C330.47 237.822 318.5 280.5 267 311C243.892 325.325 221.489 327 176 327Z" fill="url(#paint3_linear_2267_93)"/>
-          <defs>
-            <linearGradient id="paint0_linear_2267_93" x1="349.5" y1="26" x2="197.5" y2="395" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#FFA700"/>
-              <stop offset="1" stopColor="#FF8000"/>
-            </linearGradient>
-            <linearGradient id="paint1_linear_2267_93" x1="26" y1="45.5" x2="348" y2="317" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#FFDB00"/>
-              <stop offset="1" stopColor="#FF6C00"/>
-            </linearGradient>
-            <linearGradient id="paint2_linear_2267_93" x1="131.5" y1="122" x2="263.5" y2="260.5" gradientUnits="userSpaceOnUse">
-              <stop offset="0.037148" stopColor="#FFBA00" stopOpacity="0.45"/>
-              <stop offset="0.317308" stopColor="white" stopOpacity="0.82"/>
-              <stop offset="0.723197" stopColor="white"/>
-              <stop offset="0.931722" stopColor="#FF8A01" stopOpacity="0.94"/>
-            </linearGradient>
-            <linearGradient id="paint3_linear_2267_93" x1="290.5" y1="177.5" x2="221.5" y2="311" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#FF9500"/>
-              <stop offset="0.826923" stopColor="white"/>
-            </linearGradient>
-          </defs>
-        </svg>
-    );
-
-    const NotificationCard = ({ data, isDarker }: { data: any, isDarker: boolean }) => {
-        return (
-            <div className={`notification-card animate-enter ${isDarker ? 'darker' : ''}`}>
-                <div className="icon-box">
-                    <DepositaLogoSvg />
-                </div>
-                <div className="content">
-                    <div className="app-name">Deposita.ai</div>
-                    <div className="title">{data.title}</div>
-                    <div className="subtitle">Valor: {data.value}</div>
-                </div>
-                <div className="time">{data.time}</div>
-            </div>
-        );
-    };
-
+        return () => clearInterval(stepInterval);
+    }, []);
+    
     const PhoneMockupAnimation = () => {
+        const notificationsData = [
+            { title: "Venda Cartão Depositada!", value: "R$ 347,00", type: "card", time: "07:00" },
+            { title: "Venda Pix Gerada!", value: "R$ 175,00", type: "pix", time: "10:30" },
+            { title: "Pix Depositado!", value: "R$ 5.000,00", type: "deposit", time: "21:45" },
+            { title: "Pix Depositado!", value: "R$ 2.350,00", type: "deposit", time: "11:30" },
+            { title: "Venda Pix Gerada!", value: "R$ 89,90", type: "pix", time: "10:30" },
+            { title: "Pix Depositado!", value: "R$ 1.200,00", type: "deposit", time: "21:45" },
+            { title: "Venda Cartão Depositada!", value: "R$ 450,50", type: "card", time: "07:00" },
+        ];
+        
+        const DepositaLogoSvg = () => (
+            <svg className="w-full h-full object-contain" viewBox="0 0 395 395" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 66C1 29.5492 30.5492 0 67 0H328C364.451 0 394 29.5492 394 66V329C394 365.451 364.451 395 328 395H67C30.5492 395 1 365.451 1 329V66Z" fill="url(#paint0_linear_2267_93)"/>
+              <path d="M66 394C29.5492 394 3.52371e-07 364.451 7.87042e-07 328L3.89944e-06 67C4.33411e-06 30.5492 29.5492 1 66 1L329 1C365.451 1 395 30.5492 395 67L395 328C395 364.451 365.451 394 329 394L66 394Z" fill="url(#paint1_linear_2267_93)"/>
+              <path d="M333.5 214.5C292.5 119 216.5 118 148.5 122.5C79.5 118.5 68.8045 83.6549 62.2216 68.5H209.5C241.1 68.5 265.667 80.8333 274 87C333.6 129 338.5 189.5 333.5 214.5Z" fill="white"/>
+              <path d="M119 272L121.001 135.5L62.0011 163.5L61 327H175.501C225.5 307.5 230.5 290 234.5 263.5C214 273 153 272.5 119 272Z" fill="url(#paint2_linear_2267_93)"/>
+              <path d="M176 327C292.5 280 291 169 258 143.5C294.5 143.5 325.5 187.5 334 216C330.47 237.822 318.5 280.5 267 311C243.892 325.325 221.489 327 176 327Z" fill="url(#paint3_linear_2267_93)"/>
+              <defs>
+                <linearGradient id="paint0_linear_2267_93" x1="349.5" y1="26" x2="197.5" y2="395" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#FFA700"/>
+                  <stop offset="1" stopColor="#FF8000"/>
+                </linearGradient>
+                <linearGradient id="paint1_linear_2267_93" x1="26" y1="45.5" x2="348" y2="317" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#FFDB00"/>
+                  <stop offset="1" stopColor="#FF6C00"/>
+                </linearGradient>
+                <linearGradient id="paint2_linear_2267_93" x1="131.5" y1="122" x2="263.5" y2="260.5" gradientUnits="userSpaceOnUse">
+                  <stop offset="0.037148" stopColor="#FFBA00" stopOpacity="0.45"/>
+                  <stop offset="0.317308" stopColor="white" stopOpacity="0.82"/>
+                  <stop offset="0.723197" stopColor="white"/>
+                  <stop offset="0.931722" stopColor="#FF8A01" stopOpacity="0.94"/>
+                </linearGradient>
+                <linearGradient id="paint3_linear_2267_93" x1="290.5" y1="177.5" x2="221.5" y2="311" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#FF9500"/>
+                  <stop offset="0.826923" stopColor="white"/>
+                </linearGradient>
+              </defs>
+            </svg>
+        );
+
+        const NotificationCard = ({ data, isDarker }: { data: any, isDarker: boolean }) => {
+            return (
+                <div className={`notification-card animate-enter ${isDarker ? 'darker' : ''}`}>
+                    <div className="icon-box">
+                        <DepositaLogoSvg />
+                    </div>
+                    <div className="content">
+                        <div className="app-name">Deposita.ai</div>
+                        <div className="title">{data.title}</div>
+                        <div className="subtitle">Valor: {data.value}</div>
+                    </div>
+                    <div className="time">{data.time}</div>
+                </div>
+            );
+        };
+        
         const [time, setTime] = useState('');
         const [activeNotifications, setActiveNotifications] = useState<any[]>([]);
         const dataIndexRef = useRef(0);
@@ -96,11 +105,8 @@ export function RemarketingSection() {
                 const delay = Math.random() * 1500 + 1500;
                 timeoutRef.current = setTimeout(addNotification, delay);
             };
-
-            if (timeoutRef.current) {
-                clearTimeout(timeoutRef.current);
-            }
-            addNotification();
+            
+            timeoutRef.current = setTimeout(addNotification, 100);
 
             return () => {
                 if (timeoutRef.current) {
@@ -155,16 +161,6 @@ export function RemarketingSection() {
         );
     };
 
-    const [activeStep, setActiveStep] = useState(1);
-
-    useEffect(() => {
-        const stepInterval = setInterval(() => {
-            setActiveStep((prev) => (prev === 4 ? 1 : prev + 1));
-        }, 4500);
-
-        return () => clearInterval(stepInterval);
-    }, []);
-
     return (
         <div className="min-h-screen bg-[#F8FAFC] flex flex-col items-center justify-center py-20 px-4 font-sans text-slate-900 selection:bg-green-100 selection:text-green-900 relative overflow-hidden">
             <section className="container mx-auto max-w-7xl relative z-10">
@@ -199,7 +195,7 @@ export function RemarketingSection() {
                         >
                             <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-500 bg-white border border-slate-50 shadow-sm ${activeStep === 1 ? 'scale-110 border-green-100' : 'grayscale opacity-70'}`}>
                                 <div className="w-8 h-8">
-                                    <DepositaLogoSvg />
+                                    <PhoneMockupAnimation.DepositaLogoSvg />
                                 </div>
                             </div>
                             <div className="flex-1">
@@ -478,12 +474,14 @@ export function RemarketingSection() {
                     width: 500px;
                     height: 500px;
                     background: radial-gradient(circle, rgba(255,165,0,0.2) 0%, rgba(0,0,0,0) 70%);
-                    z-index: -1;
+                    z-index: 0;
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
                 }
-            `}</style>
+            `}
+            </style>
         </div>
     );
-};
+}
+```

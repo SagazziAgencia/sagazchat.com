@@ -49,7 +49,7 @@ const NotificationCard = ({ notification, isVisible }: { notification: typeof no
     return (
         <div 
             className={cn(
-                'w-[94%] bg-[rgba(255,255,255,0.12)] backdrop-blur-md border border-[rgba(255,255,255,0.2)] shadow-lg rounded-2xl p-3 flex items-center gap-3 text-white origin-top transition-opacity duration-500',
+                'w-[94%] bg-[rgba(255,255,255,0.12)] backdrop-blur-md border border-[rgba(255,255,255,0.2)] shadow-lg rounded-2xl p-3 flex items-center gap-3 text-white origin-top transition-all duration-500',
                 isDarker && 'bg-[rgba(0,0,0,0.25)] border-[rgba(255,255,255,0.1)]',
                 isVisible ? 'opacity-100 animate-slide-in' : 'opacity-0'
             )}
@@ -104,7 +104,7 @@ export function PhoneMockupAnimation() {
                         </div>
                     </div>
                     <div className="flex-1 pt-2.5 pb-0 px-0 flex flex-col items-center gap-3 overflow-hidden [mask-image:linear-gradient(to_bottom,black_85%,transparent_100%)]">
-                        {notifications.map((notification, index) => (
+                        {notifications.map((notification) => (
                             <NotificationCard 
                                 key={notification.key}
                                 notification={notification} 

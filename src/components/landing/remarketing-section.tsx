@@ -88,7 +88,7 @@ export function RemarketingSection() {
         }, []);
       
         useEffect(() => {
-            let timeoutId: NodeJS.Timeout;
+            const timeoutIds: NodeJS.Timeout[] = [];
         
             const addNotification = () => {
               const currentIndex = dataIndexRef.current;
@@ -106,14 +106,15 @@ export function RemarketingSection() {
               dataIndexRef.current = (currentIndex + 1) % notificationsData.length;
         
               const delay = Math.random() * 1500 + 1500;
-              timeoutId = setTimeout(addNotification, delay);
+              const id = setTimeout(addNotification, delay);
+              timeoutIds.push(id);
             };
         
             const firstTimeout = setTimeout(addNotification, 1000);
+            timeoutIds.push(firstTimeout);
         
             return () => {
-                clearTimeout(firstTimeout);
-                clearTimeout(timeoutId);
+                timeoutIds.forEach(id => clearTimeout(id));
             };
         }, []);
 

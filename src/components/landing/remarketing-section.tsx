@@ -47,7 +47,8 @@ export function RemarketingSection() {
     }, []);
     
     return (
-        <div className="min-h-screen bg-[#F8FAFC] flex flex-col items-center justify-center py-20 px-4 font-sans text-slate-900 selection:bg-green-100 selection:text-green-900 relative overflow-hidden">
+        <div className="min-h-screen bg-[#F8FAFC] flex flex-col items-center justify-center py-20 px-4 font-sans text-slate-900 selection:bg-green-100 selection:text-green-900 relative overflow-hidden bg-pattern">
+             <div className="pattern-mask"></div>
             <section className="container mx-auto max-w-7xl relative z-10">
                 <div className="text-center mb-12 md:mb-16 space-y-4">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-sm text-[10px] font-bold uppercase tracking-wider text-green-700 mb-1">
@@ -160,6 +161,23 @@ export function RemarketingSection() {
                     </div>
                 </div>
             </section>
+             <style jsx>{`
+                .bg-pattern {
+                    background-image: radial-gradient(circle at center, #F8FAFC, #F8FAFC), radial-gradient(circle at center, #e2e8f0 0.5px, transparent 0.5px);
+                    background-size: 100% 100%, 16px 16px;
+                }
+                .pattern-mask {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: radial-gradient(circle at 50% 50%, transparent 40%, #F8FAFC 70%);
+                    pointer-events: none;
+                }
+            `}</style>
         </div>
     );
 }
+
+    

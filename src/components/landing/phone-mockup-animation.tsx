@@ -1,150 +1,301 @@
 'use client';
-import { Server, MessageSquare, Check, ShoppingCart, Copy, CheckCircle2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 
-export function PhoneMockupAnimation({ currentStep }: { currentStep: number }) {
+const notificationsData = [
+  { app: "DEPOSITA.AI", title: "Venda Cartão Depositada!", value: "R$ 347,00", time: "07:00" },
+  { app: "DEPOSITA.AI", title: "Venda Cartão Depositada!", value: "R$ 450,50", time: "07:00" },
+  { app: "DEPOSITA.AI", title: "Pix Depositado!", value: "R$ 1.200,00", time: "21:45" },
+  { app: "DEPOSITA.AI", title: "Venda Pix Gerada!", value: "R$ 89,90", time: "10:30" },
+  { app: "DEPOSITA.AI", title: "Pix Depositado!", value: "R$ 2.350,00", time: "11:30" },
+  { app: "DEPOSITA.AI", title: "Pix Depositado!", value: "R$ 5.000,00", time: "21:45" },
+];
 
-    const Scene = ({ step, children }: { step: number; children: React.ReactNode }) => (
-        <div className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${currentStep === step ? 'opacity-100' : 'opacity-0'}`}>
-            {children}
+const DepositaLogoSvg = () => (
+    <svg viewBox="0 0 395 395" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+        <path d="M1 66C1 29.5492 30.5492 0 67 0H328C364.451 0 394 29.5492 394 66V329C394 365.451 364.451 395 328 395H67C30.5492 395 1 365.451 1 329V66Z" fill="url(#pma_paint0_linear_2267_93)"/>
+        <defs>
+            <linearGradient id="pma_paint0_linear_2267_93" x1="349.5" y1="26" x2="197.5" y2="395" gradientUnits="userSpaceOnUse"><stop stopColor="#FFA700"/><stop offset="1" stopColor="#FF8000"/></linearGradient>
+        </defs>
+    </svg>
+);
+
+const NotificationCard = ({ notification, isVisible, isDarker }: { notification: typeof notificationsData[0], isVisible: boolean, isDarker: boolean }) => {
+    return (
+        <div 
+            className={`notification-card ${isVisible ? 'animate-enter' : ''} ${isDarker ? 'darker' : ''}`}
+            style={{ opacity: isVisible ? 1 : 0 }}
+        >
+            <div className="icon-box"><DepositaLogoSvg /></div>
+            <div className="content">
+                <div className="app-name">{notification.app}</div>
+                <div className="title">{notification.title}</div>
+                <div className="subtitle">Valor: {notification.value}</div>
+            </div>
+            <div className="time">{notification.time}</div>
         </div>
     );
+};
 
-    const DepositaLogoSvg = () => (
-        <svg viewBox="0 0 395 395" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-            <path d="M1 66C1 29.5492 30.5492 0 67 0H328C364.451 0 394 29.5492 394 66V329C394 365.451 364.451 395 328 395H67C30.5492 395 1 365.451 1 329V66Z" fill="url(#pma_paint0_linear_2267_93)"/>
-            <defs>
-                <linearGradient id="pma_paint0_linear_2267_93" x1="349.5" y1="26" x2="197.5" y2="395" gradientUnits="userSpaceOnUse"><stop stopColor="#FFA700"/><stop offset="1" stopColor="#FF8000"/></linearGradient>
-            </defs>
-        </svg>
-    );
+export function PhoneMockupAnimation() {
+    const [visibleNotifications, setVisibleNotifications] = useState<number[]>([]);
+
+    useEffect(() => {
+        const totalNotifications = notificationsData.length;
+        const interval = setInterval(() => {
+            setVisibleNotifications(prev => {
+                if (prev.length < totalNotifications) {
+                    return [...prev, prev.length];
+                }
+                // Optional: reset animation
+                // return [0]; 
+                return prev;
+            });
+        }, 800); // Animation delay for each card
+
+        // Reset animation after a full cycle
+        const cycleTime = 800 * (totalNotifications + 2); // add extra delay at the end
+        const resetInterval = setInterval(() => {
+            setVisibleNotifications([0]);
+        }, cycleTime);
+
+
+        return () => {
+            clearInterval(interval);
+            clearInterval(resetInterval);
+        };
+    }, []);
 
     return (
-        <div className="relative w-[320px] h-[650px] bg-gray-900 border-4 border-gray-800 rounded-[50px] shadow-2xl shadow-slate-900/30 overflow-hidden">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-gray-900 rounded-b-2xl z-20"></div>
-            
-            <div className="relative w-full h-full bg-white rounded-[46px] overflow-hidden">
-                {/* --- Scene 1: Checkout --- */}
-                <Scene step={1}>
-                    <div className="flex flex-col h-full bg-gray-50 text-gray-800 p-6 pt-12">
-                        <div className="flex items-center gap-3 mb-8">
-                            <div className="w-12 h-12 flex items-center justify-center bg-orange-100 rounded-xl">
-                                <ShoppingCart className="w-6 h-6 text-orange-500" />
-                            </div>
-                            <div>
-                                <h2 className="font-bold text-lg">Seu Carrinho</h2>
-                                <p className="text-xs text-gray-500">Finalize sua compra</p>
-                            </div>
-                        </div>
-
-                        <div className="bg-white p-4 rounded-lg border border-gray-200 space-y-3 mb-4">
-                            <div className="flex justify-between items-center text-sm">
-                                <span className="text-gray-600">Produto X</span>
-                                <span className="font-bold">R$ 97,00</span>
-                            </div>
-                            <div className="flex justify-between items-center text-sm">
-                                <span className="text-gray-600">Taxas</span>
-                                <span className="font-bold">R$ 0,00</span>
-                            </div>
-                            <div className="border-t border-dashed border-gray-200 my-2"></div>
-                            <div className="flex justify-between items-center text-base font-bold">
-                                <span>Total</span>
-                                <span>R$ 97,00</span>
-                            </div>
-                        </div>
-
-                        <div className="flex-1 flex flex-col items-center justify-center text-center p-4 bg-orange-500/10 rounded-lg border border-dashed border-orange-500/30">
-                           <p className="text-sm font-medium text-orange-700">Aguardando pagamento...</p>
-                           <div className="mt-4 w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
-                                <div className="h-full bg-orange-400 w-full animate-pulse"></div>
-                           </div>
-                           <p className="text-xs text-orange-600 mt-2">O cliente abandonou o checkout</p>
+        <div className="main-container font-sans">
+             <div className="bg-blur"></div>
+            <div className="phone-mockup">
+                <div className="notch"></div>
+                <div className="screen">
+                    <div className="status-bar">
+                        <span>15:17</span>
+                        <div className="flex items-center gap-1">
+                            <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.3333 0.666656C11.3333 0.666656 8.66667 0.14999 6 2.41666C3.33333 0.14999 0.666668 0.666656 0.666668 0.666656L6 8.33332L11.3333 0.666656Z" fill="white"/></svg>
+                            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 5.33333C3.66667 -0.666667 12.3333 -0.666667 16 5.33333M2.66667 5.33333C4.66667 2.33333 11.3333 2.33333 13.3333 5.33333M5.33333 5.33333C6.33333 4.33333 9.66667 4.33333 10.6667 5.33333" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                            <svg width="25" height="12" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="0.5" width="20" height="11" rx="2" stroke="white"/><path d="M22 3.5V8.5" stroke="white" strokeWidth="2" strokeLinecap="round"/><rect x="3" y="2.5" width="16" height="7" rx="1" fill="white"/></svg>
                         </div>
                     </div>
-                </Scene>
-
-                {/* --- Scene 2: Webhook Processing --- */}
-                <Scene step={2}>
-                    <div className="flex flex-col items-center justify-center h-full bg-slate-800 text-white p-6 text-center">
-                        <div className="relative flex items-center justify-center w-40 h-40">
-                             <div className="absolute inset-0 bg-blue-500 rounded-full animate-ping opacity-20"></div>
-                             <div className="relative w-24 h-24 flex items-center justify-center bg-slate-700 border-2 border-slate-600 rounded-full">
-                                <Server className="w-10 h-10 text-blue-400" />
-                             </div>
-                        </div>
-                        <h2 className="text-lg font-bold mt-8">Webhook Recebido</h2>
-                        <p className="text-sm text-slate-400 mt-1">Processando dados do checkout abandonado...</p>
+                    <div className="notification-feed">
+                        {notificationsData.map((notification, index) => (
+                            <NotificationCard 
+                                key={index} 
+                                notification={notification} 
+                                isVisible={visibleNotifications.includes(index)}
+                                isDarker={index > 3}
+                            />
+                        ))}
                     </div>
-                </Scene>
-
-                {/* --- Scene 3: WhatsApp Chat --- */}
-                <Scene step={3}>
-                    <div className="flex flex-col h-full bg-[#E5DDD5]">
-                         <div className="bg-[#005E54] p-4 pt-10 flex items-center gap-3 text-white shadow-md z-10">
-                            <div className="w-10 h-10 bg-gray-300 rounded-full"></div>
-                            <div>
-                                <h3 className="font-bold text-sm">Carlos Mendes</h3>
-                                <p className="text-xs opacity-80">online</p>
-                            </div>
-                        </div>
-                        <div className="flex-1 p-4 space-y-3 overflow-y-auto" style={{backgroundImage: 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAARCAYAAAA/x3R8AAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAABEaADAAQAAAABAAARAAAAAAAo4wVPAAAAZklEQVR4Ae3dMQ0AIAwD0dT+pbgoim4pB1sEwQAAAADgL8G9wT3BvcE9wT3BvcE9wT3BvcE9wT3BvcE9wT3BvcE9wT3BvcE9wT3BvcE9wT3BvcE9wT3BvcE9wT3BvQIAAADgXwAn9QAB5o5cBAAAAABJRU5ErkJggg==")', opacity: 0.05}}>
-                             <div className="flex justify-start">
-                                <div className="bg-white p-3 rounded-lg max-w-[80%] shadow-sm">
-                                    <p className="text-sm text-gray-800">Opa! Vi que você tentou comprar e não conseguiu. Quer ajuda pra finalizar?</p>
-                                    <p className="text-[10px] text-gray-400 text-right mt-1">14:31</p>
-                                </div>
-                            </div>
-                            <div className="flex justify-end">
-                                <div className="bg-[#DCF8C6] p-3 rounded-lg max-w-[80%] shadow-sm">
-                                    <p className="text-sm text-gray-800">Segue o PIX pra facilitar:</p>
-                                    <div className="mt-2 p-2 bg-gray-100 rounded text-xs text-gray-600 font-mono flex items-center justify-between">
-                                        <span>0002...abcd</span>
-                                        <Copy className="w-3 h-3 text-gray-500" />
-                                    </div>
-                                    <div className="flex items-center justify-end gap-1 text-[10px] text-gray-500 mt-1">
-                                        <span>14:32</span>
-                                        <Check className="w-3 h-3" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="bg-gray-100 p-2 border-t border-gray-200">
-                             <div className="bg-white rounded-full h-10 w-full flex items-center px-4">
-                                <p className="text-sm text-gray-400">Escreva uma mensagem...</p>
-                            </div>
-                        </div>
+                    <div className="cta-footer">
+                        <p className="cta-text">
+                            Use <span className="cta-highlight">Deposita.ai</span> com <span className="cta-highlight">Respondechat.ai</span> no seu negócio
+                        </p>
+                        <div className="home-indicator"></div>
                     </div>
-                </Scene>
-
-                {/* --- Scene 4: Success Screen --- */}
-                <Scene step={4}>
-                    <div className="relative flex flex-col items-center justify-center h-full bg-green-600 text-white p-6 text-center overflow-hidden">
-                        <div className="w-24 h-24 flex items-center justify-center bg-white/20 rounded-full">
-                           <CheckCircle2 className="w-12 h-12 text-white" strokeWidth={1.5} />
-                        </div>
-                        <h2 className="text-4xl font-bold mt-6">R$ 97,00</h2>
-                        <p className="text-lg opacity-90 mt-1">Venda Recuperada!</p>
-                        <p className="text-sm bg-white/20 px-3 py-1 rounded-full mt-6">Sucesso!</p>
-
-                        {/* Notification Overlay */}
-                        <div className={`
-                            absolute top-5 left-1/2 -translate-x-1/2 w-[92%] p-3 rounded-2xl
-                            bg-black/20 backdrop-blur-lg border border-white/10 shadow-2xl
-                            flex items-center gap-3 transition-all duration-700 ease-in-out
-                            ${currentStep === 4 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}
-                        `}>
-                            <div className="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0">
-                                <DepositaLogoSvg />
-                            </div>
-                            <div className="flex-1 text-left">
-                                <p className="text-xs font-bold text-white">Deposita.Ai</p>
-                                <p className="text-sm font-semibold text-white leading-tight">Venda Aprovada!</p>
-                                <p className="text-xs text-white/80">Você recuperou R$ 97,00</p>
-                            </div>
-                            <div className="text-xs text-white/50">agora</div>
-                        </div>
-                    </div>
-                </Scene>
+                </div>
             </div>
+            <style jsx>{`
+                    .font-inter { font-family: 'Inter', sans-serif; }
+                    
+                    .main-container {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        position: relative;
+                        padding: 40px;
+                      }
+              
+                      .phone-mockup {
+                        width: 320px;
+                        height: 650px;
+                        background: #000;
+                        border-radius: 50px;
+                        padding: 12px;
+                        position: relative;
+                        box-shadow: 
+                          0 0 0 2px #333,
+                          0 0 0 4px #1a1a1a,
+                          0 30px 60px rgba(0,0,0,0.6),
+                          inset 0 0 20px rgba(255,255,255,0.1);
+                        z-index: 10;
+                      }
+              
+                      .notch {
+                        position: absolute;
+                        top: 22px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 90px;
+                        height: 24px;
+                        background: #000;
+                        border-radius: 12px;
+                        z-index: 20;
+                      }
+              
+                      .screen {
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(to bottom, #FF8A00 0%, #151010 50%, #151010 100%);
+                        border-radius: 38px;
+                        overflow: hidden;
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                      }
+              
+                      .status-bar {
+                        height: 44px; 
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 0 24px;
+                        padding-top: 4px; 
+                        color: white;
+                        font-size: 15px;
+                        font-weight: 600;
+                        z-index: 25;
+                        letter-spacing: -0.5px;
+                      }
+              
+                      .notification-feed {
+                        flex: 1;
+                        padding: 10px 0;
+                        overflow: hidden;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 12px;
+                        align-items: center;
+                        mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+                        -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+                      }
+              
+                      .cta-footer {
+                        width: 100%;
+                        padding: 16px 20px 24px 20px;
+                        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+                        text-align: center;
+                        z-index: 30;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 4px;
+                      }
+              
+                      .cta-text {
+                        color: rgba(255, 255, 255, 0.9);
+                        font-size: 11px;
+                        font-weight: 500;
+                        letter-spacing: 0.3px;
+                        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+                      }
+              
+                      .cta-highlight {
+                        color: #FF8A00;
+                        font-weight: 700;
+                      }
+              
+                      .home-indicator {
+                        width: 130px;
+                        height: 5px;
+                        background: rgba(255, 255, 255, 0.3);
+                        border-radius: 10px;
+                        margin-top: 12px;
+                      }
+              
+                      .notification-card {
+                        width: 94%;
+                        background: rgba(255, 255, 255, 0.12);
+                        backdrop-filter: blur(12px);
+                        -webkit-backdrop-filter: blur(12px);
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                        border-radius: 16px;
+                        padding: 10px 12px;
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                        color: white;
+                        transform-origin: top center;
+                        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+                      }
+              
+                      .notification-card.darker {
+                        background: rgba(0, 0, 0, 0.25);
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                      }
+              
+                      .icon-box {
+                        width: 42px;
+                        height: 42px;
+                        background: transparent; 
+                        border-radius: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-shrink: 0;
+                        filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+                      }
+              
+                      .content { flex: 1; min-width: 0; }
+              
+                      .title {
+                        font-size: 12px;
+                        font-weight: 700;
+                        line-height: 1.2;
+                        margin-bottom: 2px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                      }
+              
+                      .app-name {
+                        font-size: 9px;
+                        text-transform: uppercase;
+                        opacity: 0.6;
+                        margin-bottom: 2px;
+                        font-weight: 600;
+                        letter-spacing: 0.5px;
+                      }
+              
+                      .subtitle {
+                        font-size: 11px;
+                        opacity: 0.9;
+                        font-weight: 400;
+                      }
+              
+                      .time {
+                        font-size: 10px;
+                        opacity: 0.7;
+                        align-self: flex-start;
+                        margin-top: 2px;
+                        white-space: nowrap;
+                      }
+              
+                      @keyframes slideIn {
+                        0% { opacity: 0; transform: translateY(-20px) scale(0.95); }
+                        100% { opacity: 1; transform: translateY(0) scale(1); }
+                      }
+              
+                      .animate-enter {
+                        animation: slideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+                      }
+
+                       .bg-blur {
+                        position: absolute;
+                        width: 500px;
+                        height: 500px;
+                        background: radial-gradient(circle, rgba(255,165,0,0.2) 0%, rgba(0,0,0,0) 70%);
+                        z-index: 0;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                `}</style>
         </div>
     );
 }

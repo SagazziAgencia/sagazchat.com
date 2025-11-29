@@ -50,9 +50,9 @@ export function RemarketingSection() {
                             <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-500 bg-white border border-slate-50 shadow-sm ${activeStep === 1 ? 'scale-110 border-green-100' : 'grayscale opacity-70'}`}>
                                 <div className="w-8 h-8">
                                     <svg viewBox="0 0 395 395" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1 66C1 29.5492 30.5492 0 67 0H328C364.451 0 394 29.5492 394 66V329C394 365.451 364.451 395 328 395H67C30.5492 395 1 365.451 1 329V66Z" fill="url(#pma_paint0_linear_2267_93)"/>
+                                        <path d="M1 66C1 29.5492 30.5492 0 67 0H328C364.451 0 394 29.5492 394 66V329C394 365.451 364.451 395 328 395H67C30.5492 395 1 365.451 1 329V66Z" fill="url(#pma_paint0_linear_2267_93_rm)"/>
                                         <defs>
-                                            <linearGradient id="pma_paint0_linear_2267_93" x1="349.5" y1="26" x2="197.5" y2="395" gradientUnits="userSpaceOnUse"><stop stopColor="#FFA700"/><stop offset="1" stopColor="#FF8000"/></linearGradient>
+                                            <linearGradient id="pma_paint0_linear_2267_93_rm" x1="349.5" y1="26" x2="197.5" y2="395" gradientUnits="userSpaceOnUse"><stop stopColor="#FFA700"/><stop offset="1" stopColor="#FF8000"/></linearGradient>
                                         </defs>
                                     </svg>
                                 </div>
@@ -130,7 +130,7 @@ export function RemarketingSection() {
                     </div>
                     
                     <div className="lg:order-2 flex justify-center items-center">
-                        <PhoneMockupAnimation currentStep={activeStep} />
+                        <PhoneMockupAnimation key={activeStep} />
                     </div>
                 </div>
             </section>

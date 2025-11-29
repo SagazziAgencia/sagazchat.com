@@ -13,6 +13,7 @@ const notificationsData = [
     { title: "Venda Cartão Depositada!", value: "R$ 450,50", type: "card", time: "07:00" },
 ];
 
+
 const DepositaLogoSvg = () => (
     <svg className="w-full h-full object-contain" viewBox="0 0 395 395" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M1 66C1 29.5492 30.5492 0 67 0H328C364.451 0 394 29.5492 394 66V329C394 365.451 364.451 395 328 395H67C30.5492 395 1 365.451 1 329V66Z" fill="url(#paint0_linear_2267_93)"/>
@@ -43,16 +44,7 @@ const DepositaLogoSvg = () => (
     </svg>
 );
 
-const DepositaLogo = ({ className = "w-10 h-10" }) => (
-    <div className={`${className} rounded-lg bg-gradient-to-br from-[#FFC107] to-[#FF5722] flex items-center justify-center shadow-md shrink-0`}>
-        <svg viewBox="0 0 24 24" className="w-3/5 h-3/5 text-white fill-current" xmlns="http://www.w3.org/2000/svg">
-        <path d="M7 4v16h6.5c4.5 0 8.5-3.5 8.5-8s-4-8-8.5-8H7zm2.5 2.5h3.5c3.2 0 5.5 2.2 5.5 5.5s-2.3 5.5-5.5 5.5H9.5V6.5z" />
-        </svg>
-    </div>
-);
-
-
-const NotificationCard = ({ data, isDarker } : {data: typeof notificationsData[0] & {id: number}, isDarker: boolean}) => {
+const NotificationCard = ({ data, isDarker }: {data: typeof notificationsData[0] & {id: number}, isDarker: boolean}) => {
     return (
       <div className={`notification-card animate-enter ${isDarker ? 'darker' : ''}`}>
         <div className="icon-box">
@@ -105,9 +97,13 @@ const PhoneMockupAnimation = () => {
           timeoutId = setTimeout(addNotification, delay);
         };
     
-        addNotification();
+        // Primeira execução
+        const firstTimeout = setTimeout(addNotification, 1000);
     
-        return () => clearTimeout(timeoutId);
+        return () => {
+            clearTimeout(firstTimeout);
+            clearTimeout(timeoutId);
+        };
     }, []);
 
     return (
@@ -116,7 +112,7 @@ const PhoneMockupAnimation = () => {
                 <div className="notch"></div>
                 <div className="screen">
                     <div className="status-bar">
-                        <span>{currentTime}</span>
+                        <span>{currentTime || '9:41'}</span>
                         <div className="flex items-center gap-1.5">
                             <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 10C1 9.44772 1.44772 9 2 9C2.55228 9 3 9.44772 3 10V11C3 11.5523 2.55228 12 2 12C1.44772 12 1 11.5523 1 11V10Z" />
@@ -151,145 +147,8 @@ const PhoneMockupAnimation = () => {
                     </div>
                 </div>
             </div>
-        </div>
-    );
-};
-
-
-export function RemarketingSection() {
-    const [activeStep, setActiveStep] = useState(1);
-
-    useEffect(() => {
-        const stepInterval = setInterval(() => {
-            setActiveStep((prev) => (prev === 4 ? 1 : prev + 1));
-        }, 4500);
-
-        return () => clearInterval(stepInterval);
-    }, []);
-
-
-    return (
-        <div className="min-h-screen bg-[#F8FAFC] flex flex-col items-center justify-center py-20 px-4 font-sans text-slate-900 selection:bg-green-100 selection:text-green-900">
-            <div className="bg-blur"></div>
-
-            <section className="container mx-auto max-w-7xl">
-                
-                <div className="text-center mb-16 space-y-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-sm text-[10px] font-bold uppercase tracking-wider text-green-700 mb-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                        Fluxo Automático
-                    </div>
-                    <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
-                        Recuperação via <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-500">
-                        Webhook em Tempo Real
-                        </span>
-                    </h2>
-                    <p className="text-base text-slate-500 max-w-xl mx-auto font-medium leading-relaxed">
-                        Integração nativa entre <strong>Deposita.Ai</strong> e <strong>RespondeZap</strong>. Recupere vendas automaticamente sem mover um dedo.
-                    </p>
-                </div>
-
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
-                    
-                    <div className="relative space-y-4 w-full max-w-2xl mx-auto">
-                        
-                        <div className="absolute left-[1.65rem] top-8 bottom-8 w-px bg-slate-200 z-0"></div>
-                        
-                        <div 
-                            className="absolute left-[1.65rem] top-8 w-px bg-green-500 z-0 transition-all duration-1000 ease-in-out"
-                            style={{ height: `${Math.min((activeStep - 1) * 33.3, 100)}%` }}
-                        ></div>
-
-                        <div 
-                            onClick={() => setActiveStep(1)}
-                            className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 1 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
-                        >
-                            <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-500 bg-white border border-slate-50 shadow-sm ${activeStep === 1 ? 'scale-110 border-green-100' : 'grayscale opacity-70'}`}>
-                                <DepositaLogo className="w-8 h-8 shadow-none" />
-                            </div>
-                            
-                            <div className="flex-1">
-                                <div className="flex justify-between items-center mb-1">
-                                    <h3 className={`text-base font-bold transition-colors ${activeStep === 1 ? 'text-slate-900' : 'text-slate-500'}`}>1. Checkout Deposita.Ai</h3>
-                                    {activeStep === 1 && <span className="text-[9px] font-bold text-orange-500 bg-orange-50 px-2 py-0.5 rounded-full">Pendente</span>}
-                                </div>
-                                <p className={`text-xs leading-relaxed ${activeStep === 1 ? 'text-slate-600' : 'text-slate-400'}`}>
-                                    O cliente gera um Pix ou Boleto no checkout mas sai sem pagar.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div 
-                            onClick={() => setActiveStep(2)}
-                            className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 2 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
-                        >
-                            <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-500 border ${activeStep === 2 ? 'bg-blue-50 text-blue-600 border-blue-100 scale-110' : 'bg-slate-50 text-slate-400 border-slate-100'}`}>
-                                <Network size={20} />
-                            </div>
-                            
-                            <div className="flex-1">
-                                <div className="flex justify-between items-center mb-1">
-                                    <h3 className={`text-base font-bold transition-colors ${activeStep === 2 ? 'text-slate-900' : 'text-slate-500'}`}>2. Envio do Webhook</h3>
-                                    {activeStep === 2 && <span className="text-[9px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full animate-pulse">Recebendo...</span>}
-                                </div>
-                                <p className={`text-xs leading-relaxed ${activeStep === 2 ? 'text-slate-600' : 'text-slate-400'}`}>
-                                    A plataforma envia os dados (Nome, Telefone) para o RespondeZap instantaneamente.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div 
-                            onClick={() => setActiveStep(3)}
-                            className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 3 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
-                        >
-                            <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-500 border ${activeStep === 3 ? 'bg-green-50 text-green-600 border-green-100 scale-110' : 'bg-slate-50 text-slate-400 border-slate-100'}`}>
-                                <Zap size={20} />
-                            </div>
-                            
-                            <div className="flex-1">
-                                <div className="flex justify-between items-center mb-1">
-                                    <h3 className={`text-base font-bold transition-colors ${activeStep === 3 ? 'text-slate-900' : 'text-slate-500'}`}>3. Disparo do Fluxo</h3>
-                                    {activeStep === 3 && <span className="text-[9px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-full">Enviada</span>}
-                                </div>
-                                <p className={`text-xs leading-relaxed mb-2 ${activeStep === 3 ? 'text-slate-600' : 'text-slate-400'}`}>
-                                    O RespondeZap envia a mensagem de recuperação no WhatsApp do cliente.
-                                </p>
-                                <div className={`text-[9px] inline-flex items-center gap-2 bg-slate-50 px-2 py-1.5 rounded border border-slate-100 text-slate-500 transition-opacity ${activeStep === 3 ? 'opacity-100' : 'opacity-40'}`}>
-                                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span> "Oi! Segue seu código Pix 👇"
-                                </div>
-                            </div>
-                        </div>
-
-                        <div 
-                            onClick={() => setActiveStep(4)}
-                            className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 4 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
-                        >
-                            <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-500 border ${activeStep === 4 ? 'bg-slate-900 text-white border-slate-700 scale-110' : 'bg-slate-50 text-slate-400 border-slate-100'}`}>
-                                <BellRing size={20} />
-                            </div>
-                            
-                            <div className="flex-1">
-                                <div className="flex justify-between items-center mb-1">
-                                    <h3 className={`text-base font-bold transition-colors ${activeStep === 4 ? 'text-slate-900' : 'text-slate-500'}`}>4. Venda Recuperada</h3>
-                                    {activeStep === 4 && <span className="text-[9px] font-bold text-white bg-green-500 px-2 py-0.5 rounded-full">Sucesso</span>}
-                                </div>
-                                <p className={`text-xs leading-relaxed ${activeStep === 4 ? 'text-slate-600' : 'text-slate-400'}`}>
-                                    O cliente paga e você recebe a notificação da Deposita.Ai.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    {/* COLUNA DIREITA: SMARTPHONE MOCKUP */}
-                    <PhoneMockupAnimation />
-                </div>
-
-            </section>
-
+            
             <style jsx>{`
-                .font-inter { font-family: 'Inter', sans-serif; }
-                
                 .phone-mockup {
                     width: 320px;
                     height: 650px;
@@ -388,7 +247,7 @@ export function RemarketingSection() {
                     border-radius: 10px;
                     margin-top: 12px;
                 }
-
+                
                 .notification-card {
                     width: 94%;
                     background: rgba(255, 255, 255, 0.12);
@@ -403,7 +262,6 @@ export function RemarketingSection() {
                     gap: 12px;
                     color: white;
                     transform-origin: top center;
-                    opacity: 0;
                 }
                 
                 .notification-card.darker {
@@ -422,63 +280,194 @@ export function RemarketingSection() {
                     flex-shrink: 0;
                     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
                 }
-
+                
                 .content { flex: 1; min-width: 0; }
 
                 .title {
-                    font-size: 12px;
-                    font-weight: 700;
-                    line-height: 1.2;
-                    margin-bottom: 2px;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
+                  font-size: 12px;
+                  font-weight: 700;
+                  line-height: 1.2;
+                  margin-bottom: 2px;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
                 }
 
                 .app-name {
-                    font-size: 9px;
-                    text-transform: uppercase;
-                    opacity: 0.6;
-                    margin-bottom: 2px;
-                    font-weight: 600;
-                    letter-spacing: 0.5px;
+                  font-size: 9px;
+                  text-transform: uppercase;
+                  opacity: 0.6;
+                  margin-bottom: 2px;
+                  font-weight: 600;
+                  letter-spacing: 0.5px;
                 }
 
                 .subtitle {
-                    font-size: 11px;
-                    opacity: 0.9;
-                    font-weight: 400;
+                  font-size: 11px;
+                  opacity: 0.9;
+                  font-weight: 400;
                 }
 
                 .time {
-                    font-size: 10px;
-                    opacity: 0.7;
-                    align-self: flex-start;
-                    margin-top: 2px;
-                    white-space: nowrap;
+                  font-size: 10px;
+                  opacity: 0.7;
+                  align-self: flex-start;
+                  margin-top: 2px;
+                  white-space: nowrap;
                 }
-
+                
                 @keyframes slideIn {
-                    0% {
-                        opacity: 0;
-                        transform: translateY(-20px) scale(0.95);
-                    }
-                    100% {
-                        opacity: 1;
-                        transform: translateY(0) scale(1);
-                    }
+                    0% { opacity: 0; transform: translateY(-20px) scale(0.95); }
+                    100% { opacity: 1; transform: translateY(0) scale(1); }
                 }
 
                 .animate-enter {
                     animation: slideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
                 }
+            `}</style>
+        </div>
+    );
+};
+
+
+export function RemarketingSection() {
+    const [activeStep, setActiveStep] = useState(1);
+
+    useEffect(() => {
+        const stepInterval = setInterval(() => {
+            setActiveStep((prev) => (prev === 4 ? 1 : prev + 1));
+        }, 4500);
+
+        return () => clearInterval(stepInterval);
+    }, []);
+
+
+    return (
+        <div className="min-h-screen bg-[#F8FAFC] flex flex-col items-center justify-center py-20 px-4 font-sans text-slate-900 selection:bg-green-100 selection:text-green-900 relative overflow-hidden">
+            <div className="bg-blur"></div>
+
+            <section className="container mx-auto max-w-7xl relative z-10">
                 
+                <div className="text-center mb-16 space-y-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-sm text-[10px] font-bold uppercase tracking-wider text-green-700 mb-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                        Fluxo Automático
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+                        Transforme Checkouts Abandonados em<br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-500">
+                        Dinheiro no Seu Bolso
+                        </span>
+                    </h2>
+                    <p className="text-base text-slate-500 max-w-xl mx-auto font-medium leading-relaxed">
+                        Integração nativa entre <strong>Deposita.Ai</strong> e <strong>RespondeZap</strong>. Recupere vendas automaticamente sem mover um dedo.
+                    </p>
+                </div>
+
+                <div className="grid lg:grid-cols-2 gap-16 items-center">
+                    
+                    <div className="relative space-y-4 w-full max-w-2xl mx-auto">
+                        
+                        <div className="absolute left-[1.65rem] top-8 bottom-8 w-px bg-slate-200 z-0"></div>
+                        
+                        <div 
+                            className="absolute left-[1.65rem] top-8 w-px bg-green-500 z-0 transition-all duration-1000 ease-in-out"
+                            style={{ height: `${Math.min((activeStep - 1) * 33.3, 100)}%` }}
+                        ></div>
+
+                        <div 
+                            onClick={() => setActiveStep(1)}
+                            className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 1 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
+                        >
+                            <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-500 bg-white border border-slate-50 shadow-sm ${activeStep === 1 ? 'scale-110 border-green-100' : 'grayscale opacity-70'}`}>
+                               <DepositaLogoSvg />
+                            </div>
+                            
+                            <div className="flex-1">
+                                <div className="flex justify-between items-center mb-1">
+                                    <h3 className={`text-base font-bold transition-colors ${activeStep === 1 ? 'text-slate-900' : 'text-slate-500'}`}>1. Checkout Deposita.Ai</h3>
+                                    {activeStep === 1 && <span className="text-[9px] font-bold text-orange-500 bg-orange-50 px-2 py-0.5 rounded-full">Pendente</span>}
+                                </div>
+                                <p className={`text-xs leading-relaxed ${activeStep === 1 ? 'text-slate-600' : 'text-slate-400'}`}>
+                                    O cliente gera um Pix ou Boleto no checkout mas sai sem pagar.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div 
+                            onClick={() => setActiveStep(2)}
+                            className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 2 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
+                        >
+                            <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-500 border ${activeStep === 2 ? 'bg-blue-50 text-blue-600 border-blue-100 scale-110' : 'bg-slate-50 text-slate-400 border-slate-100'}`}>
+                                <Network size={20} />
+                            </div>
+                            
+                            <div className="flex-1">
+                                <div className="flex justify-between items-center mb-1">
+                                    <h3 className={`text-base font-bold transition-colors ${activeStep === 2 ? 'text-slate-900' : 'text-slate-500'}`}>2. Envio do Webhook</h3>
+                                    {activeStep === 2 && <span className="text-[9px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full animate-pulse">Recebendo...</span>}
+                                </div>
+                                <p className={`text-xs leading-relaxed ${activeStep === 2 ? 'text-slate-600' : 'text-slate-400'}`}>
+                                    A plataforma envia os dados (Nome, Telefone) para o RespondeZap instantaneamente.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div 
+                            onClick={() => setActiveStep(3)}
+                            className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 3 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
+                        >
+                            <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-500 border ${activeStep === 3 ? 'bg-green-50 text-green-600 border-green-100 scale-110' : 'bg-slate-50 text-slate-400 border-slate-100'}`}>
+                                <Zap size={20} />
+                            </div>
+                            
+                            <div className="flex-1">
+                                <div className="flex justify-between items-center mb-1">
+                                    <h3 className={`text-base font-bold transition-colors ${activeStep === 3 ? 'text-slate-900' : 'text-slate-500'}`}>3. Disparo do Fluxo</h3>
+                                    {activeStep === 3 && <span className="text-[9px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-full">Enviada</span>}
+                                </div>
+                                <p className={`text-xs leading-relaxed mb-2 ${activeStep === 3 ? 'text-slate-600' : 'text-slate-400'}`}>
+                                    O RespondeZap envia a mensagem de recuperação no WhatsApp do cliente.
+                                </p>
+                                <div className={`text-[9px] inline-flex items-center gap-2 bg-slate-50 px-2 py-1.5 rounded border border-slate-100 text-slate-500 transition-opacity ${activeStep === 3 ? 'opacity-100' : 'opacity-40'}`}>
+                                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span> "Oi! Segue seu código Pix 👇"
+                                </div>
+                            </div>
+                        </div>
+
+                        <div 
+                            onClick={() => setActiveStep(4)}
+                            className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 4 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
+                        >
+                            <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-500 border ${activeStep === 4 ? 'bg-slate-900 text-white border-slate-700 scale-110' : 'bg-slate-50 text-slate-400 border-slate-100'}`}>
+                                <BellRing size={20} />
+                            </div>
+                            
+                            <div className="flex-1">
+                                <div className="flex justify-between items-center mb-1">
+                                    <h3 className={`text-base font-bold transition-colors ${activeStep === 4 ? 'text-slate-900' : 'text-slate-500'}`}>4. Venda Recuperada</h3>
+                                    {activeStep === 4 && <span className="text-[9px] font-bold text-white bg-green-500 px-2 py-0.5 rounded-full">Sucesso</span>}
+                                </div>
+                                <p className={`text-xs leading-relaxed ${activeStep === 4 ? 'text-slate-600' : 'text-slate-400'}`}>
+                                    O cliente paga e você recebe a notificação da Deposita.Ai.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {/* COLUNA DIREITA: SMARTPHONE MOCKUP */}
+                    <PhoneMockupAnimation />
+                </div>
+
+            </section>
+
+            <style jsx>{`
                 .bg-blur {
                     position: absolute;
                     width: 500px;
                     height: 500px;
                     background: radial-gradient(circle, rgba(255,165,0,0.2) 0%, rgba(0,0,0,0) 70%);
-                    z-index: -1;
+                    z-index: 0;
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
@@ -487,5 +476,3 @@ export function RemarketingSection() {
         </div>
     );
 };
-
-    

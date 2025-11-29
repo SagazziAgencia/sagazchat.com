@@ -4,16 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Network, Zap, BellRing } from 'lucide-react';
 
 export function RemarketingSection() {
-    const notificationsData = [
-        { title: "Venda Cartão Depositada!", value: "R$ 347,00", type: "card", time: "07:00" },
-        { title: "Venda Pix Gerada!", value: "R$ 175,00", type: "pix", time: "10:30" },
-        { title: "Pix Depositado!", value: "R$ 5.000,00", type: "deposit", time: "21:45" },
-        { title: "Pix Depositado!", value: "R$ 2.350,00", type: "deposit", time: "11:30" },
-        { title: "Venda Pix Gerada!", value: "R$ 89,90", type: "pix", time: "10:30" },
-        { title: "Pix Depositado!", value: "R$ 1.200,00", type: "deposit", time: "21:45" },
-        { title: "Venda Cartão Depositada!", value: "R$ 450,50", type: "card", time: "07:00" },
-    ];
-
+    
     const DepositaLogoSvg = () => (
       <svg className="w-full h-full object-contain" viewBox="0 0 395 395" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M1 66C1 29.5492 30.5492 0 67 0H328C364.451 0 394 29.5492 394 66V329C394 365.451 364.451 395 328 395H67C30.5492 395 1 365.451 1 329V66Z" fill="url(#paint0_linear_2267_93)"/>
@@ -44,6 +35,16 @@ export function RemarketingSection() {
       </svg>
     );
 
+    const notificationsData = [
+        { title: "Venda Cartão Depositada!", value: "R$ 347,00", type: "card", time: "07:00" },
+        { title: "Venda Pix Gerada!", value: "R$ 175,00", type: "pix", time: "10:30" },
+        { title: "Pix Depositado!", value: "R$ 5.000,00", type: "deposit", time: "21:45" },
+        { title: "Pix Depositado!", value: "R$ 2.350,00", type: "deposit", time: "11:30" },
+        { title: "Venda Pix Gerada!", value: "R$ 89,90", type: "pix", time: "10:30" },
+        { title: "Pix Depositado!", value: "R$ 1.200,00", type: "deposit", time: "21:45" },
+        { title: "Venda Cartão Depositada!", value: "R$ 450,50", type: "card", time: "07:00" },
+    ];
+    
     const NotificationCard = ({ data, isDarker }: { data: typeof notificationsData[0] & { id: number }, isDarker: boolean }) => {
         return (
             <div className={`notification-card animate-enter ${isDarker ? 'darker' : ''}`}>
@@ -271,7 +272,6 @@ export function RemarketingSection() {
                         </div>
                     </div>
                     
-                    {/* COLUNA DIREITA: SMARTPHONE MOCKUP */}
                     <PhoneMockupAnimation />
                 </div>
 
@@ -280,17 +280,6 @@ export function RemarketingSection() {
             <style jsx>{`
                 .font-inter { font-family: 'Inter', sans-serif; }
                 
-                .bg-blur {
-                    position: absolute;
-                    width: 500px;
-                    height: 500px;
-                    background: radial-gradient(circle, rgba(255,165,0,0.2) 0%, rgba(0,0,0,0) 70%);
-                    z-index: 0;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                }
-
                 .main-container {
                     display: flex;
                     align-items: center;
@@ -474,6 +463,16 @@ export function RemarketingSection() {
                   .animate-enter {
                     animation: slideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
                   }
+                   .bg-blur {
+                    position: absolute;
+                    width: 500px;
+                    height: 500px;
+                    background: radial-gradient(circle, rgba(255,165,0,0.2) 0%, rgba(0,0,0,0) 70%);
+                    z-index: 0;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
             `}</style>
         </div>
     );

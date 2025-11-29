@@ -82,53 +82,59 @@ export function RemarketingSection() {
     const [currentTime, setCurrentTime] = useState("9:41");
     const [notifications, setNotifications] = useState<any[]>([]);
     const dataIndexRef = useRef(0);
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+    // Clock update
     useEffect(() => {
         const clockInterval = setInterval(() => {
             setCurrentTime(new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }));
         }, 1000);
+        
+        return () => clearInterval(clockInterval);
+    }, []);
 
+    // Step cycling
+    useEffect(() => {
         const stepInterval = setInterval(() => {
             setActiveStep((prev) => (prev === 4 ? 1 : prev + 1));
         }, 4500);
 
-        return () => {
-            clearInterval(clockInterval);
-            clearInterval(stepInterval);
-        };
+        return () => clearInterval(stepInterval);
     }, []);
 
+    // Notification cycling
     useEffect(() => {
         const addNotification = () => {
             const data = notificationsData[dataIndexRef.current];
             dataIndexRef.current = (dataIndexRef.current + 1) % notificationsData.length;
             
             setNotifications(prev => {
-                const newNotifications = [{ ...data, id: Date.now(), isDarker: Math.random() > 0.6 }, ...prev];
-                if (newNotifications.length > 6) {
-                    return newNotifications.slice(0, 6);
-                }
-                return newNotifications;
+                const newNotifications = [{ ...data, id: Date.now() + Math.random(), isDarker: Math.random() > 0.6 }, ...prev];
+                return newNotifications.length > 6 ? newNotifications.slice(0, 6) : newNotifications;
             });
         };
 
-        addNotification(); // Add one immediately
-        
         const scheduleNext = () => {
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+            }
             const delay = Math.random() * 1500 + 1500;
-            const timeoutId = setTimeout(() => {
+            timeoutRef.current = setTimeout(() => {
                 addNotification();
                 scheduleNext();
             }, delay);
-            return () => clearTimeout(timeoutId);
         };
+        
+        // Start the process
+        addNotification();
+        scheduleNext();
 
-        const clearSchedule = scheduleNext();
-
+        // Cleanup
         return () => {
-            clearSchedule();
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+            }
         };
-
     }, []);
 
 

@@ -9,6 +9,15 @@ export function PhoneMockupAnimation({ currentStep }: { currentStep: number }) {
         </div>
     );
 
+    const DepositaLogoSvg = () => (
+        <svg viewBox="0 0 395 395" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+            <path d="M1 66C1 29.5492 30.5492 0 67 0H328C364.451 0 394 29.5492 394 66V329C394 365.451 364.451 395 328 395H67C30.5492 395 1 365.451 1 329V66Z" fill="url(#pma_paint0_linear_2267_93)"/>
+            <defs>
+                <linearGradient id="pma_paint0_linear_2267_93" x1="349.5" y1="26" x2="197.5" y2="395" gradientUnits="userSpaceOnUse"><stop stopColor="#FFA700"/><stop offset="1" stopColor="#FF8000"/></linearGradient>
+            </defs>
+        </svg>
+    );
+
     return (
         <div className="relative w-[320px] h-[650px] bg-gray-900 border-4 border-gray-800 rounded-[50px] shadow-2xl shadow-slate-900/30 overflow-hidden">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-gray-900 rounded-b-2xl z-20"></div>
@@ -108,13 +117,31 @@ export function PhoneMockupAnimation({ currentStep }: { currentStep: number }) {
 
                 {/* --- Scene 4: Success Screen --- */}
                 <Scene step={4}>
-                    <div className="flex flex-col items-center justify-center h-full bg-green-600 text-white p-6 text-center">
+                    <div className="relative flex flex-col items-center justify-center h-full bg-green-600 text-white p-6 text-center overflow-hidden">
                         <div className="w-24 h-24 flex items-center justify-center bg-white/20 rounded-full">
                            <CheckCircle2 className="w-12 h-12 text-white" strokeWidth={1.5} />
                         </div>
                         <h2 className="text-4xl font-bold mt-6">R$ 97,00</h2>
                         <p className="text-lg opacity-90 mt-1">Venda Recuperada!</p>
                         <p className="text-sm bg-white/20 px-3 py-1 rounded-full mt-6">Sucesso!</p>
+
+                        {/* Notification Overlay */}
+                        <div className={`
+                            absolute top-5 left-1/2 -translate-x-1/2 w-[92%] p-3 rounded-2xl
+                            bg-black/20 backdrop-blur-lg border border-white/10 shadow-2xl
+                            flex items-center gap-3 transition-all duration-700 ease-in-out
+                            ${currentStep === 4 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}
+                        `}>
+                            <div className="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0">
+                                <DepositaLogoSvg />
+                            </div>
+                            <div className="flex-1 text-left">
+                                <p className="text-xs font-bold text-white">Deposita.Ai</p>
+                                <p className="text-sm font-semibold text-white leading-tight">Venda Aprovada!</p>
+                                <p className="text-xs text-white/80">Você recuperou R$ 97,00</p>
+                            </div>
+                            <div className="text-xs text-white/50">agora</div>
+                        </div>
                     </div>
                 </Scene>
             </div>

@@ -53,16 +53,16 @@ export function WebhookSection() {
                 <div className="text-center mb-12 md:mb-16 space-y-4">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-sm text-[10px] font-bold uppercase tracking-wider text-green-700 mb-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                        💸 Lucro Automático com Webhooks
+                        💸 Lucro Automático
                     </div>
                     <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
-                        Transforme Eventos em<br />
+                        Transforme Checkouts Abandonados em<br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-500">
                         Dinheiro no Seu Bolso
                         </span>
                     </h2>
                     <p className="text-base md:text-lg text-slate-500 max-w-xl mx-auto font-medium leading-relaxed">
-                        Integração nativa via <strong>Webhooks</strong> entre <strong>Deposita.Ai</strong> e <strong>RespondeZap</strong>. Recupere vendas automaticamente sem mover um dedo.
+                        Integração nativa entre <strong>Deposita.Ai</strong> e <strong>RespondeZap</strong>. Recupere vendas automaticamente sem mover um dedo.
                     </p>
                 </div>
 
@@ -165,10 +165,9 @@ export function WebhookSection() {
              <style jsx>{`
                 .min-h-screen {
                     background-color: #F8FAFC;
-                    background-image: radial-gradient(#d1d5db 1px, transparent 1px), 
-                                      radial-gradient(#F8FAFC, #F8FAFC);
-                    background-size: 24px 24px, 100% 100%;
-                    background-position: center, center;
+                    background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+                    background-size: 24px 24px;
+                    background-position: center;
                 }
             `}</style>
         </div>

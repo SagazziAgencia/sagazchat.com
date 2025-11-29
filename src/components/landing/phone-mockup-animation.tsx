@@ -34,7 +34,7 @@ const DepositaLogoSvg = () => (
             </linearGradient>
         </defs>
         <path d="M1 66C1 29.5492 30.5492 0 67 0H328C364.451 0 394 29.5492 394 66V329C394 365.451 364.451 395 328 395H67C30.5492 395 1 365.451 1 329V66Z" fill="url(#pma_paint0_linear_2267_93)"/>
-        <path d="M66 394C29.5492 394 3.52371e-07 364.451 7.87042e-07 328L3.89944e-06 67C4.33411e-06 30.5492 29.5492 1 66 1L329 1C365.451 1 395 30.5492 395 67L395 328C395 364.451 365.451 394 329 394L66 394Z" fill="url(#pma_paint1_linear_2267_93)"/>
+        <path d="M66 394C29.5492 394 0 364.451 0 328L0 67C0 30.5492 29.5492 1 66 1L329 1C365.451 1 395 30.5492 395 67L395 328C395 364.451 365.451 394 329 394L66 394Z" fill="url(#pma_paint1_linear_2267_93)"/>
         <path d="M333.5 214.5C292.5 119 216.5 118 148.5 122.5C79.5 118.5 68.8045 83.6549 62.2216 68.5H209.5C241.1 68.5 265.667 80.8333 274 87C333.6 129 338.5 189.5 333.5 214.5Z" fill="white"/>
         <path d="M119 272L121.001 135.5L62.0011 163.5L61 327H175.501C225.5 307.5 230.5 290 234.5 263.5C214 273 153 272.5 119 272Z" fill="url(#pma_paint2_linear_2267_93)"/>
         <path d="M176 327C292.5 280 291 169 258 143.5C294.5 143.5 325.5 187.5 334 216C330.47 237.822 318.5 280.5 267 311C243.892 325.325 221.489 327 176 327Z" fill="url(#pma_paint3_linear_2267_93)"/>
@@ -42,12 +42,11 @@ const DepositaLogoSvg = () => (
 );
 
 
-const NotificationCard = ({ notification, isVisible }: { notification: typeof notificationsData[0], isVisible: boolean }) => {
+const NotificationCard = ({ notification }: { notification: typeof notificationsData[0] }) => {
     const isDarker = Math.random() > 0.6;
     return (
         <div 
-            className={`notification-card ${isVisible ? 'animate-enter' : ''} ${isDarker ? 'darker' : ''}`}
-            style={{ opacity: isVisible ? 1 : 0 }}
+            className={`notification-card animate-enter ${isDarker ? 'darker' : ''}`}
         >
             <div className="icon-box"><DepositaLogoSvg /></div>
             <div className="content">
@@ -72,6 +71,7 @@ export function PhoneMockupAnimation() {
                 setDataIndex(newIndex);
                 
                 const updatedNotifications = [newNotification, ...prev];
+                // Limit to 6 notifications on screen
                 if (updatedNotifications.length > 6) {
                     return updatedNotifications.slice(0, 6);
                 }
@@ -79,11 +79,10 @@ export function PhoneMockupAnimation() {
             });
         };
         
-        addNotification(); // Add initial one
+        // Add initial notification
+        addNotification(); 
 
-        const interval = setInterval(() => {
-            addNotification();
-        }, 2000); // Add a new notification every 2 seconds
+        const interval = setInterval(addNotification, 2000);
 
         return () => clearInterval(interval);
     }, [dataIndex]);
@@ -105,9 +104,8 @@ export function PhoneMockupAnimation() {
                     <div className="notification-feed">
                         {notifications.map((notification, index) => (
                             <NotificationCard 
-                                key={index} 
+                                key={`${dataIndex}-${index}`}
                                 notification={notification} 
-                                isVisible={true}
                             />
                         ))}
                     </div>
@@ -241,7 +239,6 @@ export function PhoneMockupAnimation() {
                         gap: 12px;
                         color: white;
                         transform-origin: top center;
-                        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
                       }
               
                       .notification-card.darker {

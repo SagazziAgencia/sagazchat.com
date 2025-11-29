@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Network, Zap, DollarSign } from 'lucide-react';
-import { PhoneMockupAnimation } from './phone-mockup-animation';
+import { PhoneMockupAnimation } from '@/components/landing/phone-mockup-animation';
 
 export function RemarketingSection() {
     const [activeStep, setActiveStep] = useState(1);

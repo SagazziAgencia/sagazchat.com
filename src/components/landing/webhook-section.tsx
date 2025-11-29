@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Network, Zap, DollarSign } from 'lucide-react';
 import { PhoneMockupAnimation } from '@/components/landing/phone-mockup-animation';
 
+
 const DepositaLogoSvgStep = () => (
     <svg viewBox="0 0 395 395" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full object-contain">
         <defs>
@@ -35,7 +36,7 @@ const DepositaLogoSvgStep = () => (
 );
 
 
-export function RemarketingSection() {
+export function WebhookSection() {
     const [activeStep, setActiveStep] = useState(1);
 
     useEffect(() => {
@@ -52,16 +53,16 @@ export function RemarketingSection() {
                 <div className="text-center mb-12 md:mb-16 space-y-4">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-sm text-[10px] font-bold uppercase tracking-wider text-green-700 mb-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                        💸 Lucro Automático
+                        💸 Lucro Automático com Webhooks
                     </div>
                     <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
-                        Transforme Checkouts Abandonados em<br />
+                        Transforme Eventos em<br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-500">
                         Dinheiro no Seu Bolso
                         </span>
                     </h2>
                     <p className="text-base md:text-lg text-slate-500 max-w-xl mx-auto font-medium leading-relaxed">
-                        Integração nativa entre <strong>Deposita.Ai</strong> e <strong>RespondeZap</strong>. Recupere vendas automaticamente sem mover um dedo.
+                        Integração nativa via <strong>Webhooks</strong> entre <strong>Deposita.Ai</strong> e <strong>RespondeZap</strong>. Recupere vendas automaticamente sem mover um dedo.
                     </p>
                 </div>
 
@@ -78,7 +79,7 @@ export function RemarketingSection() {
                             onClick={() => setActiveStep(1)}
                             className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 1 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
                         >
-                             <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-all duration-500 bg-white border border-slate-50 shadow-sm ${activeStep === 1 ? 'scale-110' : 'grayscale opacity-70'}`}>
+                            <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-all duration-500 bg-white border border-slate-50 shadow-sm ${activeStep === 1 ? 'scale-110' : 'grayscale opacity-70'}`}>
                                 <div className="w-8 h-8">
                                     <DepositaLogoSvgStep />
                                 </div>
@@ -163,9 +164,9 @@ export function RemarketingSection() {
              <style jsx>{`
                 .min-h-screen {
                     background-color: #F8FAFC;
-                    background-image: radial-gradient(circle at center, #F8FAFC, #F8FAFC), 
-                                      radial-gradient(circle at center, #d1d5db 1px, transparent 1px);
-                    background-size: 100% 100%, 24px 24px;
+                    background-image: radial-gradient(#d1d5db 1px, transparent 1px), 
+                                      radial-gradient(#F8FAFC, #F8FAFC);
+                    background-size: 24px 24px, 100% 100%;
                     background-position: center, center;
                 }
             `}</style>

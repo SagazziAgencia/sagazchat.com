@@ -76,7 +76,7 @@ export function WebhookSection() {
 
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
                     <div className="w-full lg:w-1/2">
-                        <div className="relative space-y-4 w-full mx-auto">
+                        <div className="relative space-y-4 w-full">
                             <div className="absolute left-[1.65rem] top-8 bottom-8 w-px bg-slate-200 z-0"></div>
                             <div 
                                 className="absolute left-[1.65rem] top-8 w-px bg-green-500 z-0 transition-all duration-1000 ease-in-out"

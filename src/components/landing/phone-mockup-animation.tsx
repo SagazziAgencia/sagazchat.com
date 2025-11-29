@@ -69,24 +69,42 @@ const NotificationCard = ({ notification, isVisible }: { notification: typeof no
 
 export function PhoneMockupAnimation() {
     const [notifications, setNotifications] = useState<Array<typeof notificationsData[0] & {key: number}>>([]);
+    const [time, setTime] = useState('15:17');
     
     useEffect(() => {
-        const addNotification = (index: number) => {
-            setNotifications(prev => {
-                const newNotification = { ...notificationsData[index % notificationsData.length], key: Date.now() + Math.random() };
-                const updatedNotifications = [newNotification, ...prev];
-                return updatedNotifications.slice(0, 6);
-            });
+        let notificationIndex = 0;
+        
+        const addNotification = () => {
+            const newNotification = { 
+                ...notificationsData[notificationIndex % notificationsData.length], 
+                key: Date.now() + Math.random() 
+            };
+            setNotifications(prev => [newNotification, ...prev.slice(0, 5)]);
+            notificationIndex++;
         };
 
-        addNotification(0);
-        let i = 1;
-        const interval = setInterval(() => {
-            addNotification(i);
-            i++;
-        }, 2000);
+        addNotification(); // Add the first one immediately
 
-        return () => clearInterval(interval);
+        const scheduleNext = () => {
+            const delay = Math.random() * 1000 + 1500; // Random delay between 1.5s and 2.5s
+            setTimeout(() => {
+                addNotification();
+                scheduleNext();
+            }, delay);
+        };
+
+        const initialTimeout = setTimeout(scheduleNext, Math.random() * 1000 + 1500);
+
+        const clockInterval = setInterval(() => {
+             setTime(new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }));
+        }, 1000);
+
+        return () => {
+            clearTimeout(initialTimeout);
+            clearInterval(clockInterval);
+            // We don't have a handle to clear the recursively scheduled timeouts, 
+            // but they will stop creating new ones when the component unmounts.
+        };
     }, []);
 
     return (
@@ -96,7 +114,7 @@ export function PhoneMockupAnimation() {
                 <div className="absolute top-[22px] left-1/2 -translate-x-1/2 w-[90px] h-6 bg-black rounded-xl z-20"></div>
                 <div className="w-full h-full bg-gradient-to-b from-[#FF8A00] via-50% via-[#151010] to-[#151010] rounded-[38px] overflow-hidden relative flex flex-col">
                     <div className="h-11 w-full flex justify-between items-center px-6 pt-1 text-white text-[15px] font-semibold z-20 tracking-tighter">
-                        <span>15:17</span>
+                        <span>{time}</span>
                         <div className="flex items-center gap-1.5">
                            <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M1 10C1 9.44772 1.44772 9 2 9C2.55228 9 3 9.44772 3 10V11C3 11.5523 2.55228 12 2 12C1.44772 12 1 11.5523 1 11V10Z" /><path d="M5 7.5C5 6.94772 5.44772 6.5 6 6.5C6.55228 6.5 7 6.94772 7 7.5V11C7 11.5523 6.55228 12 6 12C5.44772 12 5 11.5523 5 11V7.5Z" /><path d="M9 5C9 4.44772 9.44772 4 10 4C10.5523 4 11 4.44772 11 5V11C11 11.5523 10.5523 12 10 12C9.44772 12 9 11.5523 9 11V5Z" /><path d="M13 2.5C13 1.94772 13.4477 1.5 14 1.5C14.5523 1.5 15 1.94772 15 2.5V11C15 11.5523 14.5523 12 14 12C13.4477 12 13 11.5523 13 11V2.5Z" /></svg>
                             <svg width="18" height="13" viewBox="0 0 18 13" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M9.00004 2.87207C11.9682 2.87207 14.6599 4.02021 16.6369 5.86776C16.9416 6.15252 17.4192 6.13605 17.7039 5.83129C17.9887 5.52652 17.9722 5.04896 17.6675 4.7642C15.4206 2.66442 12.3619 1.37207 9.00004 1.37207C5.63821 1.37207 2.57946 2.66442 0.332617 4.7642C0.0278553 5.04896 0.0113841 5.52652 0.296146 5.83129C0.580907 6.13605 1.05847 6.15252 1.36323 5.86776C3.3402 4.02021 6.03184 2.87207 9.00004 2.87207ZM9.00004 6.27643C10.9575 6.27643 12.7423 7.00947 14.0945 8.21481C14.4124 8.49811 14.4411 8.98616 14.1578 9.30403C13.8745 9.6219 13.3864 9.65063 13.0686 9.36733C11.9904 8.40632 10.5673 7.77643 9.00004 7.77643C7.43275 7.77643 6.00971 8.40632 4.93152 9.36733C4.61365 9.65063 4.12559 9.6219 3.8423 9.30403C3.559 8.98616 3.58773 8.49811 3.90561 8.21481C5.25776 7.00947 7.04259 6.27643 9.00004 6.27643ZM10.5298 11.0805C10.5298 11.9254 9.84483 12.6104 9.00004 12.6104C8.15525 12.6104 7.47025 11.9254 7.47025 11.0805C7.47025 10.2357 8.15525 9.55075 9.00004 9.55075C9.84483 9.55075 10.5298 10.2357 10.5298 11.0805Z" /></svg>

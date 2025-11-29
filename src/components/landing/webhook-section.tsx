@@ -56,7 +56,7 @@ export function WebhookSection() {
                         <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
                         💸 Lucro Automático
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+                    <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
                         Transforme Checkouts Abandonados em<br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-500">
                         Dinheiro no Seu Bolso
@@ -80,7 +80,7 @@ export function WebhookSection() {
                             onClick={() => setActiveStep(1)}
                             className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 1 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
                         >
-                           <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-all duration-500 bg-white border border-slate-50 shadow-sm ${activeStep === 1 ? 'scale-110' : 'grayscale opacity-70'}`}>
+                           <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-all duration-500 bg-white border border-slate-50 shadow-sm ${activeStep !== 1 ? 'grayscale opacity-70' : ''}`}>
                                 <div className="w-8 h-8">
                                     <DepositaLogoSvgStep />
                                 </div>
@@ -165,7 +165,7 @@ export function WebhookSection() {
             </section>
              <style jsx>{`
                 .webhook-section-bg {
-                    background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+                    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
                     background-size: 24px 24px;
                 }
                 .bg-radial-gradient-mask {

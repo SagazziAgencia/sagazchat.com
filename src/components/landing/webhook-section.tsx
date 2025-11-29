@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Network, Zap, DollarSign } from 'lucide-react';
+import { Network, Zap, DollarSign, ArrowRight, ShieldCheck } from 'lucide-react';
 import { PhoneMockupAnimation } from '@/components/landing/phone-mockup-animation';
+import { Button } from '@/components/ui/button';
 
 
 const DepositaLogoSvgStep = () => (
@@ -75,7 +76,7 @@ export function WebhookSection() {
                 </div>
 
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-                    <div className="w-full lg:w-1/2">
+                    <div className="w-full lg:w-1/2 flex flex-col gap-8">
                         <div className="relative space-y-4 w-full">
                             <div className="absolute left-[1.65rem] top-8 bottom-8 w-px bg-slate-200 z-0"></div>
                             <div 
@@ -164,6 +165,15 @@ export function WebhookSection() {
                                     </p>
                                 </div>
                             </div>
+                        </div>
+                        <div className="w-full mt-4">
+                            <Button size="lg" className="w-full group relative h-auto px-8 py-4 bg-green-600 text-white rounded-xl font-bold text-base hover:bg-green-700 transition-all shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 hover:-translate-y-1">
+                                Quero Recuperar Vendas
+                                <ArrowRight className="inline-block ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Button>
+                            <p className="text-slate-500 text-xs mt-3 text-center flex items-center justify-center gap-1.5">
+                                <ShieldCheck className="w-3.5 h-3.5 text-green-600" /> 7 dias de garantia incondicional.
+                            </p>
                         </div>
                     </div>
                     

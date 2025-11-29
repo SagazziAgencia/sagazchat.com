@@ -130,7 +130,7 @@ export function RemarketingSection() {
                     </div>
                     
                     <div className="lg:order-2 flex justify-center items-center">
-                        <PhoneMockupAnimation key={activeStep} />
+                        <PhoneMockupAnimation />
                     </div>
                 </div>
             </section>

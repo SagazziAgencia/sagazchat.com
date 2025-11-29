@@ -61,13 +61,13 @@ export function WebhookSection() {
                         Dinheiro no Seu Bolso
                         </span>
                     </h2>
-                    <p className="text-base md:text-lg text-slate-500 max-w-xl mx-auto font-medium leading-relaxed">
+                    <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
                         Integração nativa entre <strong>Deposita.Ai</strong> e <strong>RespondeZap</strong>. Recupere vendas automaticamente sem mover um dedo.
                     </p>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-                    <div className="relative space-y-4 w-full max-w-2xl mx-auto lg:order-1">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div className="relative space-y-4 w-full max-w-2xl mx-auto lg:order-2">
                         <div className="absolute left-[1.65rem] top-8 bottom-8 w-px bg-slate-200 z-0"></div>
                         <div 
                             className="absolute left-[1.65rem] top-8 w-px bg-green-500 z-0 transition-all duration-1000 ease-in-out"
@@ -79,7 +79,7 @@ export function WebhookSection() {
                             onClick={() => setActiveStep(1)}
                             className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 1 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
                         >
-                            <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-all duration-500 bg-white border border-slate-50 shadow-sm ${activeStep === 1 ? 'scale-110' : 'grayscale opacity-70'}`}>
+                           <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-all duration-500 bg-white border border-slate-50 shadow-sm ${activeStep === 1 ? 'scale-110' : 'grayscale opacity-70'}`}>
                                 <div className="w-8 h-8">
                                     <DepositaLogoSvgStep />
                                 </div>
@@ -89,7 +89,7 @@ export function WebhookSection() {
                                     <h3 className={`text-base font-bold transition-colors ${activeStep === 1 ? 'text-slate-900' : 'text-slate-500'}`}>1. Checkout Deposita.Ai</h3>
                                     {activeStep === 1 && <span className="text-[9px] font-bold text-orange-500 bg-orange-50 px-2 py-0.5 rounded-full">Pendente</span>}
                                 </div>
-                                <p className={`text-xs leading-relaxed ${activeStep === 1 ? 'text-slate-600' : 'text-slate-400'}`}>
+                                <p className={`text-sm leading-relaxed ${activeStep === 1 ? 'text-slate-600' : 'text-slate-400'}`}>
                                     O cliente gera um Pix ou Boleto no checkout mas sai sem pagar.
                                 </p>
                             </div>
@@ -108,7 +108,7 @@ export function WebhookSection() {
                                     <h3 className={`text-base font-bold transition-colors ${activeStep === 2 ? 'text-slate-900' : 'text-slate-500'}`}>2. Envio do Webhook</h3>
                                     {activeStep === 2 && <span className="text-[9px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full animate-pulse">Recebendo...</span>}
                                 </div>
-                                <p className={`text-xs leading-relaxed ${activeStep === 2 ? 'text-slate-600' : 'text-slate-400'}`}>
+                                <p className={`text-sm leading-relaxed ${activeStep === 2 ? 'text-slate-600' : 'text-slate-400'}`}>
                                     A plataforma envia os dados (Nome, Telefone) para o RespondeZap instantaneamente.
                                 </p>
                             </div>
@@ -127,11 +127,11 @@ export function WebhookSection() {
                                     <h3 className={`text-base font-bold transition-colors ${activeStep === 3 ? 'text-slate-900' : 'text-slate-500'}`}>3. Disparo do Fluxo</h3>
                                     {activeStep === 3 && <span className="text-[9px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-full">Enviada</span>}
                                 </div>
-                                <p className={`text-xs leading-relaxed mb-2 ${activeStep === 3 ? 'text-slate-600' : 'text-slate-400'}`}>
+                                <p className={`text-sm leading-relaxed mb-2 ${activeStep === 3 ? 'text-slate-600' : 'text-slate-400'}`}>
                                     O RespondeZap envia a mensagem de recuperação no WhatsApp do cliente.
                                 </p>
 
-                                <div className={`text-[9px] inline-flex items-center gap-2 bg-slate-50 px-2 py-1.5 rounded border border-slate-100 text-slate-500 transition-opacity ${activeStep === 3 ? 'opacity-100' : 'opacity-40'}`}>
+                                <div className={`text-xs inline-flex items-center gap-2 bg-slate-50 px-2 py-1.5 rounded-lg border border-slate-100 text-slate-500 transition-opacity ${activeStep === 3 ? 'opacity-100' : 'opacity-40'}`}>
                                     <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span> "Oi! Segue seu código Pix 👇"
                                 </div>
                             </div>
@@ -150,14 +150,14 @@ export function WebhookSection() {
                                     <h3 className={`text-base font-bold transition-colors ${activeStep === 4 ? 'text-slate-900' : 'text-slate-500'}`}>4. Venda Recuperada</h3>
                                     {activeStep === 4 && <span className="text-[9px] font-bold text-white bg-green-500 px-2 py-0.5 rounded-full">Sucesso</span>}
                                 </div>
-                                <p className={`text-xs leading-relaxed ${activeStep === 4 ? 'text-slate-600' : 'text-slate-400'}`}>
+                                <p className={`text-sm leading-relaxed ${activeStep === 4 ? 'text-slate-600' : 'text-slate-400'}`}>
                                     O cliente paga e você recebe a notificação da Deposita.Ai.
                                 </p>
                             </div>
                         </div>
                     </div>
                     
-                    <div className="lg:order-2 flex justify-center items-center">
+                    <div className="lg:order-1 flex justify-center items-center">
                         <PhoneMockupAnimation />
                     </div>
                 </div>
@@ -165,7 +165,9 @@ export function WebhookSection() {
              <style jsx>{`
                 .min-h-screen {
                     background-color: #F8FAFC;
-                    background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+                }
+                .webhook-section-bg {
+                    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
                     background-size: 24px 24px;
                     background-position: center;
                 }

@@ -48,7 +48,8 @@ export function WebhookSection() {
     }, []);
     
     return (
-        <div className="min-h-screen bg-[#F8FAFC] flex flex-col items-center justify-center py-20 px-4 font-sans text-slate-900 selection:bg-green-100 selection:text-green-900 relative overflow-hidden">
+        <div className="bg-[#F8FAFC] py-20 lg:py-32 px-4 font-sans text-slate-900 selection:bg-green-100 selection:text-green-900 relative overflow-hidden webhook-section-bg">
+             <div className="absolute inset-0 bg-radial-gradient-mask"></div>
             <section className="container mx-auto max-w-7xl relative z-10">
                 <div className="text-center mb-12 md:mb-16 space-y-4">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-sm text-[10px] font-bold uppercase tracking-wider text-green-700 mb-1">
@@ -67,7 +68,7 @@ export function WebhookSection() {
                 </div>
 
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    <div className="relative space-y-4 w-full max-w-2xl mx-auto lg:order-2">
+                    <div className="relative space-y-4 w-full max-w-2xl mx-auto">
                         <div className="absolute left-[1.65rem] top-8 bottom-8 w-px bg-slate-200 z-0"></div>
                         <div 
                             className="absolute left-[1.65rem] top-8 w-px bg-green-500 z-0 transition-all duration-1000 ease-in-out"
@@ -157,19 +158,18 @@ export function WebhookSection() {
                         </div>
                     </div>
                     
-                    <div className="lg:order-1 flex justify-center items-center">
+                    <div className="flex justify-center items-center">
                         <PhoneMockupAnimation />
                     </div>
                 </div>
             </section>
              <style jsx>{`
-                .min-h-screen {
-                    background-color: #F8FAFC;
-                }
                 .webhook-section-bg {
-                    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+                    background-image: radial-gradient(#d1d5db 1px, transparent 1px);
                     background-size: 24px 24px;
-                    background-position: center;
+                }
+                .bg-radial-gradient-mask {
+                    background: radial-gradient(circle, transparent 30%, #F8FAFC 80%);
                 }
             `}</style>
         </div>

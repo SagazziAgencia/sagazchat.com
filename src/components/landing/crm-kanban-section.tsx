@@ -64,9 +64,9 @@ clearInterval(animationInterval!);
       <div className="relative z-10 w-full py-12 lg:py-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <div className="grid lg:grid-cols-2 items-center">
             
-            <div className="space-y-8 animate-fadeIn text-center lg:text-left order-2 lg:order-1">
+            <div className="space-y-8 animate-fadeIn text-center lg:text-right order-2 lg:order-1">
                 
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#92D639]/10 border border-[#92D639]/30 text-[#92D639] text-[11px] font-bold uppercase tracking-wider">
                     <Layout size={12} fill="currentColor" /> Atualização CRM
@@ -79,13 +79,13 @@ clearInterval(animationInterval!);
                     </span>
                 </h1>
 
-                <div className="text-lg text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0 border-l-4 border-[#92D639] pl-6 text-left">
+                <div className="text-lg text-slate-300 leading-relaxed max-w-lg mx-auto lg:mr-0 lg:border-l-4 border-[#92D639] lg:pl-6 text-center lg:text-left">
                     <p>
                         O novo <strong>CRM Kanban</strong> do RespondeZap faz o cálculo automático de cada etapa do seu funil. Saiba exatamente quanto valor está em negociação e tome decisões baseadas em números reais.
                     </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-6 pt-4 justify-center lg:justify-start">
+                <div className="flex flex-col sm:flex-row gap-6 pt-4 justify-center lg:justify-end">
                     <div className="flex items-center gap-3 bg-white/5 p-4 rounded-xl sm:bg-transparent sm:p-0">
                         <div className="w-12 h-12 shrink-0 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
                             <Calculator className="w-6 h-6 text-[#92D639]" />
@@ -109,7 +109,7 @@ clearInterval(animationInterval!);
                     </div>
                 </div>
 
-                <div className="pt-4">
+                <div className="pt-4 flex justify-center lg:justify-end">
                     <Button size="lg" className="group w-full sm:w-auto relative px-8 py-4 bg-[#92D639] text-black rounded-lg font-bold text-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1 h-auto">
                       <Layout size={20} />
                       Acessar Meu Kanban
@@ -117,7 +117,7 @@ clearInterval(animationInterval!);
                 </div>
             </div>
 
-            <div className="relative flex justify-center lg:justify-end order-1 lg:order-2 mb-12 lg:mb-0">
+            <div className="relative flex justify-center lg:justify-start order-1 lg:order-2 mb-12 lg:mb-0">
                  
                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#92D639]/10 rounded-full blur-[80px] -z-10"></div>
 

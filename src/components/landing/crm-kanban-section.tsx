@@ -15,43 +15,73 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+const initialCards: { id: number; name: string; value: number; }[] = [
+  // Cards iniciais que já estão na coluna
+];
+
+const incomingLeads = [
+  { id: 3, name: 'Junior Lima', value: 147.00 },
+  { id: 4, name: 'Fernanda Costa', value: 250.00 },
+  { id: 5, name: 'Lucas Martins', value: 99.00 },
+];
+
 export const CrmKanbanSection = () => {
+  const [cards, setCards] = useState(initialCards);
   const [totalValue, setTotalValue] = useState(0);
-  const [cards, setCards] = useState([
-    // This card is designed to be hidden initially and will be replaced by the animated one.
-    // { id: 1, name: 'Ana Silva', value: 1500, time: '2h', date: 'Hoje' },
-    // { id: 2, name: 'Roberto Almeida', value: 2000, time: '1d', date: 'Ontem' },
-  ]);
-  const [showNewCard, setShowNewCard] = useState(false);
 
   useEffect(() => {
-    let animationInterval: NodeJS.Timeout | undefined;
-    
-    const timer = setTimeout(() => {
-      setShowNewCard(true);
+    let leadIndex = 0;
+    let currentTotal = 0;
+
+    const addLead = () => {
+      if (leadIndex >= incomingLeads.length) {
+        return;
+      }
       
-      let start = 0;
-      const end = 147;
-      const duration = 1000;
+      const newLead = incomingLeads[leadIndex];
+      
+      // Animate the number counting up
+      let startValue = currentTotal;
+      const endValue = currentTotal + newLead.value;
+      const duration = 500;
       const incrementTime = 20;
       const steps = duration / incrementTime;
-      const incrementAmount = (end - start) / steps;
-
-      animationInterval = setInterval(() => {
-        start += incrementAmount;
-        if (start >= end) {
-          setTotalValue(end);
-clearInterval(animationInterval!);
+      const incrementAmount = (endValue - startValue) / steps;
+      
+      const animationInterval = setInterval(() => {
+        startValue += incrementAmount;
+        if (startValue >= endValue) {
+          setTotalValue(endValue);
+          clearInterval(animationInterval);
         } else {
-          setTotalValue(Math.floor(start));
+          setTotalValue(startValue);
         }
       }, incrementTime);
+      
+      // Add card to the list after a short delay
+      setTimeout(() => {
+         setCards(prevCards => [...prevCards, newLead]);
+      }, 100);
 
+      currentTotal = endValue;
+      leadIndex++;
+    };
+
+    // Start adding leads after an initial delay
+    const initialTimeout = setTimeout(() => {
+      addLead(); // Add the first lead
+      const intervalId = setInterval(() => {
+        addLead(); // Add subsequent leads
+        if (leadIndex >= incomingLeads.length) {
+          clearInterval(intervalId);
+        }
+      }, 2000); // Interval between new leads
+
+      return () => clearInterval(intervalId);
     }, 1500);
 
     return () => {
-        clearTimeout(timer);
-        if (animationInterval) clearInterval(animationInterval);
+        clearTimeout(initialTimeout);
     };
   }, []);
 
@@ -131,7 +161,7 @@ clearInterval(animationInterval!);
                                 R$ {totalValue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                             </div>
                             <div className="bg-black/20 text-white text-[11px] font-bold w-5 h-5 flex items-center justify-center rounded-md">
-                                {showNewCard ? 1 : 0}
+                                {cards.length}
                             </div>
                             <Trash2 className="text-black/50 w-4 h-4 cursor-pointer hover:text-black" />
                         </div>
@@ -141,30 +171,13 @@ clearInterval(animationInterval!);
                     <div className="bg-transparent mt-3 rounded-b-xl min-h-[400px] p-0 space-y-3 relative">
                         
                         {cards.map((card) => (
-                             <div key={card.id} className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm relative z-10 text-gray-800">
-                                <p className="text-[10px] text-blue-500 uppercase tracking-wider font-bold mb-2">LIGHT SIDE</p>
-                                <div className="flex justify-between items-center mb-3">
-                                    <p className="font-bold text-sm text-gray-900 leading-tight">{card.name}</p>
-                                    <p className="font-mono text-gray-800 font-bold text-sm">
-                                        R$ {card.value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
-                                    </p>
-                                </div>
-                                <div className="border-t border-gray-200 pt-2 flex items-center text-gray-500 text-xs gap-4">
-                                    <MessageCircle size={14} />
-                                    <span className="flex items-center gap-1"><Clock size={12} /> 0/19</span>
-                                    <span className="flex items-center gap-1"><Clock size={12} /> 489d</span>
-                                </div>
-                            </div>
-                        ))}
-
-                        {showNewCard && (
-                            <div className="animate-slideInDown relative z-10">
+                             <div key={card.id} className="animate-slideInDown relative z-10">
                                 <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm relative z-10 text-gray-800">
                                     <p className="text-[10px] text-blue-500 uppercase tracking-wider font-bold mb-2">LIGHT SIDE</p>
                                     <div className="flex justify-between items-center mb-3">
-                                        <p className="font-bold text-sm text-gray-900 leading-tight">Junior Lima</p>
+                                        <p className="font-bold text-sm text-gray-900 leading-tight">{card.name}</p>
                                         <p className="font-mono text-gray-800 font-bold text-sm">
-                                            R$ 147,00
+                                            R$ {card.value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                                         </p>
                                     </div>
                                     <div className="border-t border-gray-200 pt-2 flex items-center text-gray-500 text-xs gap-4">
@@ -174,7 +187,7 @@ clearInterval(animationInterval!);
                                     </div>
                                 </div>
                             </div>
-                        )}
+                        ))}
 
                         <div className="border border-dashed border-white/10 rounded-xl p-3 flex items-center justify-center text-slate-500 hover:text-[#92D639] hover:border-[#92D639]/30 hover:bg-white/5 transition-all cursor-pointer">
                             <Plus size={16} />
@@ -183,12 +196,14 @@ clearInterval(animationInterval!);
                     </div>
                  </div>
 
-                 <div className="absolute -right-8 top-20 bg-[#1f2c34] p-3 rounded-lg border border-white/10 shadow-xl animate-float hidden lg:block">
-                     <div className="flex items-center gap-2 text-[#92D639] text-xs font-bold">
-                         <TrendingUp size={14} />
-                         + R$ 147,00
-                     </div>
-                 </div>
+                 {cards.length > 0 && (
+                    <div className="absolute -right-8 top-20 bg-[#1f2c34] p-3 rounded-lg border border-white/10 shadow-xl animate-float hidden lg:block">
+                        <div className="flex items-center gap-2 text-[#92D639] text-xs font-bold">
+                            <TrendingUp size={14} />
+                            + R$ {cards[cards.length - 1].value.toLocaleString('pt-BR', {minimumFractionDigits: 2})}
+                        </div>
+                    </div>
+                 )}
 
             </div>
 

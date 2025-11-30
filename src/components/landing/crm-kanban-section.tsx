@@ -115,25 +115,25 @@ export const CrmKanbanSection = () => {
                     </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-6 pt-4 justify-center lg:justify-start">
-                    <div className="flex items-center gap-3 bg-white/5 p-4 rounded-xl sm:bg-transparent sm:p-0">
-                        <div className="w-12 h-12 shrink-0 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                            <Calculator className="w-6 h-6 text-[#92D639]" />
+                <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
+                    <div className="flex items-center gap-3 bg-white/5 p-3 rounded-xl sm:bg-transparent sm:p-0">
+                        <div className="w-10 h-10 shrink-0 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
+                            <Calculator className="w-5 h-5 text-[#92D639]" />
                         </div>
                         <div className="text-left">
-                            <p className="font-bold text-white text-lg">Soma Automática</p>
+                            <p className="font-bold text-white leading-none mb-1">Soma Automática</p>
                             <p className="text-xs text-slate-400">Valores atualizados ao arrastar</p>
                         </div>
                     </div>
                     
-                    <div className="hidden sm:block w-px h-16 bg-white/10"></div>
+                    <div className="hidden sm:block w-px h-12 bg-white/10"></div>
 
-                    <div className="flex items-center gap-3 bg-white/5 p-4 rounded-xl sm:bg-transparent sm:p-0">
-                        <div className="w-12 h-12 shrink-0 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                            <TrendingUp className="w-6 h-6 text-[#92D639]" />
+                    <div className="flex items-center gap-3 bg-white/5 p-3 rounded-xl sm:bg-transparent sm:p-0">
+                        <div className="w-10 h-10 shrink-0 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
+                            <TrendingUp className="w-5 h-5 text-[#92D639]" />
                         </div>
                         <div className="text-left">
-                            <p className="font-bold text-white text-lg">Previsibilidade</p>
+                            <p className="font-bold text-white leading-none mb-1">Previsibilidade</p>
                             <p className="text-xs text-slate-400">Controle total do pipeline</p>
                         </div>
                     </div>

@@ -94,21 +94,22 @@ export const CrmKanbanSection = () => {
 
       <div className="relative z-10 w-full py-12 lg:py-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            
-            <div className="space-y-8 animate-fadeIn text-center order-2 lg:order-1">
-                
+            <div className="text-center mb-12">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#92D639]/10 border border-[#92D639]/30 text-[#92D639] text-[11px] font-bold uppercase tracking-wider">
                     <Layout size={12} fill="currentColor" /> Atualização CRM
                 </div>
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
                     Não organize apenas leads. <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#92D639] to-[#baff68]">
                         Organize seu dinheiro.
                     </span>
                 </h1>
+            </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            
+            <div className="space-y-8 animate-fadeIn text-center lg:text-left order-2 lg:order-1">
 
                 <div className="text-lg text-slate-300 leading-relaxed max-w-lg mx-auto lg:border-l-4 border-[#92D639] lg:pl-6 text-center lg:text-left">
                     <p>
@@ -140,7 +141,7 @@ export const CrmKanbanSection = () => {
                     </div>
                 </div>
 
-                <div className="pt-4 flex justify-center">
+                <div className="pt-4 flex justify-center lg:justify-start">
                     <Button size="lg" className="group w-full sm:w-auto relative px-8 py-4 bg-[#92D639] text-black rounded-lg font-bold text-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1 h-auto">
                       <UserPlus size={20} />
                       Assinar Agora

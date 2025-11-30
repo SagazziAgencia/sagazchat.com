@@ -88,7 +88,7 @@ export const ShortcutSection = () => {
       <div className="relative z-10 w-full py-12 lg:py-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-4 items-center">
             
             {/* Left Column: Direct Explanation */}
             <div className="space-y-8 animate-fadeIn text-center lg:text-left">
@@ -139,10 +139,6 @@ export const ShortcutSection = () => {
                       <UserPlus size={20} />
                       Assinar Agora
                       <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                    
-                    <Button size="lg" variant="outline" className="group w-full sm:w-auto px-8 py-4 rounded-lg border-gray-600 text-gray-300 font-medium hover:border-[#92D639] hover:text-white transition-all bg-white/5 backdrop-blur-sm h-auto">
-                      Ver como configurar <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                 </div>
             </div>

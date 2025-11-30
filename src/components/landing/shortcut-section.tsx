@@ -88,10 +88,10 @@ export const ShortcutSection = () => {
       <div className="relative z-10 w-full py-12 lg:py-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid lg:grid-cols-2 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             
             {/* Left Column: Direct Explanation */}
-            <div className="space-y-8 animate-fadeIn text-center lg:text-right">
+            <div className="space-y-8 animate-fadeIn text-center lg:text-left">
                 
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#92D639]/10 border border-[#92D639]/30 text-[#92D639] text-[11px] font-bold uppercase tracking-wider">
                     <Zap size={12} fill="currentColor" /> Novo Recurso
@@ -104,13 +104,13 @@ export const ShortcutSection = () => {
                     </span>
                 </h1>
 
-                <div className="text-lg text-slate-300 leading-relaxed max-w-lg ml-auto lg:border-l-4 border-[#92D639] lg:pl-6 text-center lg:text-left">
+                <div className="text-lg text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0 lg:border-l-4 border-[#92D639] lg:pl-6 text-center lg:text-left">
                     <p>
                         Para quem vive na correria: configure uma palavra-chave (como <code className="bg-white/10 px-1.5 py-0.5 rounded text-white font-mono text-base">!apresentacao</code>) e dispare funis inteiros de áudio, vídeo e texto instantaneamente.
                     </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-end">
+                <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
                     <div className="flex items-center gap-3 bg-white/5 p-3 rounded-xl sm:bg-transparent sm:p-0">
                         <div className="w-10 h-10 shrink-0 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
                             <Clock className="w-5 h-5 text-[#92D639]" />
@@ -134,8 +134,8 @@ export const ShortcutSection = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-end">
-                    <Button size="lg" className="group w-full sm:w-auto relative px-8 py-4 bg-[#92D639] text-black rounded-lg font-bold text-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1 h-auto">
+                <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start">
+                     <Button size="lg" className="group w-full sm:w-auto relative px-8 py-4 bg-[#92D639] text-black rounded-lg font-bold text-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1 h-auto">
                       <UserPlus size={20} />
                       Assinar Agora
                       <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -144,7 +144,7 @@ export const ShortcutSection = () => {
             </div>
 
             {/* Right Column: Phone Demo */}
-            <div className="relative flex justify-center lg:justify-start transform scale-[0.85] sm:scale-100 origin-top sm:origin-center -mb-20 sm:mb-0">
+            <div className="relative flex justify-center lg:justify-center transform scale-[0.85] sm:scale-100 origin-top sm:origin-center -mb-20 sm:mb-0">
                  
                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[600px] bg-[#92D639]/20 rounded-full blur-[100px] -z-10"></div>
 

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Layout, 
-  DollarSign, 
+  Trash2,
   TrendingUp, 
   Calculator, 
   ArrowRight, 
@@ -16,10 +16,11 @@ import {
 import { Button } from '@/components/ui/button';
 
 export const CrmKanbanSection = () => {
-  const [totalValue, setTotalValue] = useState(3500);
+  const [totalValue, setTotalValue] = useState(0);
   const [cards, setCards] = useState([
-    { id: 1, name: 'Ana Silva', value: 1500, time: '2h', date: 'Hoje' },
-    { id: 2, name: 'Roberto Almeida', value: 2000, time: '1d', date: 'Ontem' },
+    // This card is designed to be hidden initially and will be replaced by the animated one.
+    // { id: 1, name: 'Ana Silva', value: 1500, time: '2h', date: 'Hoje' },
+    // { id: 2, name: 'Roberto Almeida', value: 2000, time: '1d', date: 'Ontem' },
   ]);
   const [showNewCard, setShowNewCard] = useState(false);
 
@@ -29,8 +30,8 @@ export const CrmKanbanSection = () => {
     const timer = setTimeout(() => {
       setShowNewCard(true);
       
-      let start = 3500;
-      const end = 3647;
+      let start = 0;
+      const end = 147;
       const duration = 1000;
       const incrementTime = 20;
       const steps = duration / incrementTime;
@@ -120,102 +121,56 @@ export const CrmKanbanSection = () => {
                  
                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#92D639]/10 rounded-full blur-[80px] -z-10"></div>
 
-                 <div className="w-[340px] md:w-[380px] bg-[#10191f] rounded-3xl border border-white/10 shadow-2xl overflow-hidden flex flex-col relative">
+                 <div className="w-[340px] md:w-[380px] bg-[#10191f]/50 rounded-xl border border-white/10 shadow-2xl overflow-hidden flex flex-col relative p-4 backdrop-blur-sm">
                     
-                    <div className="bg-[#1f2c34] p-4 border-b border-white/5 flex justify-between items-center">
+                    {/* Kanban Column Header (The highlight) */}
+                    <div className="bg-[#92D639] rounded-lg p-3 flex items-center justify-between shadow-lg shadow-[#92D639]/20 relative overflow-hidden group">
+                        <h3 className="font-bold text-black text-sm tracking-wide">Lead interessado</h3>
                         <div className="flex items-center gap-2">
-                             <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                             <div className="w-3 h-3 rounded-full bg-[#92D639]"></div>
-                        </div>
-                        <div className="text-xs text-slate-400 font-mono">CRM.exe</div>
-                    </div>
-
-                    <div className="p-4 pb-0">
-                        <div className="bg-[#92D639] rounded-t-xl p-4 shadow-lg shadow-[#92D639]/20 relative overflow-hidden group">
-                            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            
-                            <div className="flex justify-between items-start mb-2">
-                                <h3 className="font-bold text-black text-lg tracking-wide">Em Negociação</h3>
-                                <MoreHorizontal className="text-green-900/50 w-5 h-5 cursor-pointer" />
+                            <div className="bg-black/20 text-white text-[11px] font-bold px-2 py-0.5 rounded-md">
+                                R$ {totalValue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                             </div>
-                            
-                            <div className="bg-white/90 rounded-lg p-2 flex items-center justify-between text-green-900 shadow-inner">
-                                <span className="text-xs font-bold uppercase tracking-wider opacity-70">Total da Etapa:</span>
-                                <div className="flex items-center gap-1 font-mono font-bold text-xl">
-                                    <span className="text-sm">R$</span>
-                                    {totalValue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
-                                </div>
+                            <div className="bg-black/20 text-white text-[11px] font-bold w-5 h-5 flex items-center justify-center rounded-md">
+                                {showNewCard ? 1 : 0}
                             </div>
-                            
-                            <div className="absolute top-2 right-10 w-6 h-6 bg-black/20 rounded-full flex items-center justify-center text-xs font-bold text-white">
-                                {showNewCard ? 3 : 2}
-                            </div>
+                            <Trash2 className="text-black/50 w-4 h-4 cursor-pointer hover:text-black" />
                         </div>
                     </div>
 
-                    <div className="bg-[#0b141a] m-4 mt-0 rounded-b-xl min-h-[400px] p-3 space-y-3 relative border border-t-0 border-white/5">
+                    {/* Column Body / Cards Area */}
+                    <div className="bg-transparent mt-3 rounded-b-xl min-h-[400px] p-0 space-y-3 relative">
                         
-                        <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '12px 12px'}}></div>
-
                         {cards.map((card) => (
-                            <div key={card.id} className="bg-[#1f2c34] p-4 rounded-xl border border-white/5 hover:border-[#92D639]/50 transition-colors group cursor-grab active:cursor-grabbing shadow-lg relative z-10">
-                                <div className="flex justify-between items-start mb-3">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-slate-700 to-slate-600 flex items-center justify-center font-bold text-xs text-white">
-                                            {card.name.charAt(0)}
-                                        </div>
-                                        <div>
-                                            <p className="font-bold text-sm text-white leading-tight">{card.name}</p>
-                                            <p className="text-[10px] text-[#92D639] uppercase tracking-wider font-bold mt-0.5">Light Side</p>
-                                        </div>
-                                    </div>
-                                    <p className="font-mono text-[#92D639] font-bold text-sm">
+                             <div key={card.id} className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm relative z-10 text-gray-800">
+                                <p className="text-[10px] text-blue-500 uppercase tracking-wider font-bold mb-2">LIGHT SIDE</p>
+                                <div className="flex justify-between items-center mb-3">
+                                    <p className="font-bold text-sm text-gray-900 leading-tight">{card.name}</p>
+                                    <p className="font-mono text-gray-800 font-bold text-sm">
                                         R$ {card.value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                                     </p>
                                 </div>
-                                
-                                <div className="flex justify-between items-center text-slate-500 text-[10px] border-t border-white/5 pt-2 mt-2">
-                                    <div className="flex gap-3">
-                                        <span className="flex items-center gap-1 hover:text-[#92D639] transition-colors"><MessageCircle size={10} /> WhatsApp</span>
-                                        <span className="flex items-center gap-1"><Calendar size={10} /> {card.date}</span>
-                                    </div>
-                                    <span className="flex items-center gap-1 bg-slate-800 px-1.5 py-0.5 rounded text-slate-400">
-                                        <Clock size={10} /> {card.time}
-                                    </span>
+                                <div className="border-t border-gray-200 pt-2 flex items-center text-gray-500 text-xs gap-4">
+                                    <MessageCircle size={14} />
+                                    <span className="flex items-center gap-1"><Clock size={12} /> 0/19</span>
+                                    <span className="flex items-center gap-1"><Clock size={12} /> 489d</span>
                                 </div>
                             </div>
                         ))}
 
                         {showNewCard && (
                             <div className="animate-slideInDown relative z-10">
-                                <div className="bg-[#1f2c34] p-4 rounded-xl border border-[#92D639] shadow-[0_0_15px_rgba(146,214,57,0.3)] group cursor-pointer relative overflow-hidden">
-                                    
-                                    <div className="absolute inset-0 bg-[#92D639]/20 animate-pulse rounded-xl pointer-events-none"></div>
-
-                                    <div className="flex justify-between items-start mb-3">
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#92D639] to-green-500 flex items-center justify-center font-bold text-xs text-white">
-                                                J
-                                            </div>
-                                            <div>
-                                                <p className="font-bold text-sm text-white leading-tight">Junior Lima</p>
-                                                <p className="text-[10px] text-[#92D639] uppercase tracking-wider font-bold mt-0.5">Light Side</p>
-                                            </div>
-                                        </div>
-                                        <p className="font-mono text-[#92D639] font-bold text-sm">
+                                <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm relative z-10 text-gray-800">
+                                    <p className="text-[10px] text-blue-500 uppercase tracking-wider font-bold mb-2">LIGHT SIDE</p>
+                                    <div className="flex justify-between items-center mb-3">
+                                        <p className="font-bold text-sm text-gray-900 leading-tight">Junior Lima</p>
+                                        <p className="font-mono text-gray-800 font-bold text-sm">
                                             R$ 147,00
                                         </p>
                                     </div>
-                                    
-                                    <div className="flex justify-between items-center text-slate-500 text-[10px] border-t border-white/5 pt-2 mt-2">
-                                        <div className="flex gap-3">
-                                            <span className="flex items-center gap-1 text-[#92D639]"><MessageCircle size={10} /> 1 nova</span>
-                                            <span className="flex items-center gap-1"><Calendar size={10} /> Agora</span>
-                                        </div>
-                                        <span className="flex items-center gap-1 bg-[#92D639]/20 text-[#92D639] px-1.5 py-0.5 rounded font-bold">
-                                            Novo
-                                        </span>
+                                    <div className="border-t border-gray-200 pt-2 flex items-center text-gray-500 text-xs gap-4">
+                                        <MessageCircle size={14} />
+                                        <span className="flex items-center gap-1"><Clock size={12} /> 0/19</span>
+                                        <span className="flex items-center gap-1"><Clock size={12} /> 489d</span>
                                     </div>
                                 </div>
                             </div>
@@ -228,7 +183,7 @@ export const CrmKanbanSection = () => {
                     </div>
                  </div>
 
-                 <div className="absolute -right-8 top-20 bg-[#1f2c34] p-3 rounded-lg border border-white/10 shadow-xl animate-bounce hidden lg:block">
+                 <div className="absolute -right-8 top-20 bg-[#1f2c34] p-3 rounded-lg border border-white/10 shadow-xl animate-float hidden lg:block">
                      <div className="flex items-center gap-2 text-[#92D639] text-xs font-bold">
                          <TrendingUp size={14} />
                          + R$ 147,00

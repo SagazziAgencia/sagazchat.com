@@ -3,6 +3,7 @@ import { Hero } from '@/components/landing/hero';
 import { FeaturesTicker } from '@/components/landing/features-ticker';
 import { MultiWhatsapp } from '@/components/landing/multi-whatsapp';
 import { WebhookSection } from '@/components/landing/webhook-section';
+import { ShortcutSection } from '@/components/landing/shortcut-section';
 
 export default function RespondeZapLanding() {
   return (
@@ -13,6 +14,7 @@ export default function RespondeZapLanding() {
         <FeaturesTicker />
         <MultiWhatsapp />
         <WebhookSection />
+        <ShortcutSection />
       </main>
     </div>
   );

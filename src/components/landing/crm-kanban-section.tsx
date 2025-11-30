@@ -97,7 +97,7 @@ export const CrmKanbanSection = () => {
           
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             
-            <div className="space-y-8 animate-fadeIn text-center lg:text-left order-2 lg:order-1">
+            <div className="space-y-8 animate-fadeIn text-center order-2 lg:order-1">
                 
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#92D639]/10 border border-[#92D639]/30 text-[#92D639] text-[11px] font-bold uppercase tracking-wider">
                     <Layout size={12} fill="currentColor" /> Atualização CRM
@@ -110,13 +110,13 @@ export const CrmKanbanSection = () => {
                     </span>
                 </h1>
 
-                <div className="text-lg text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0 lg:border-l-4 border-[#92D639] lg:pl-6 text-center lg:text-left">
+                <div className="text-lg text-slate-300 leading-relaxed max-w-lg mx-auto lg:border-l-4 border-[#92D639] lg:pl-6 text-center lg:text-left">
                     <p>
                         O novo <strong>CRM Kanban</strong> do RespondeZap faz o cálculo automático de cada etapa do seu funil. Saiba exatamente quanto valor está em negociação e tome decisões baseadas em números reais.
                     </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
+                <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
                     <div className="flex items-center gap-3 bg-white/5 p-3 rounded-xl sm:bg-transparent sm:p-0">
                         <div className="w-10 h-10 shrink-0 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
                             <Calculator className="w-5 h-5 text-[#92D639]" />
@@ -140,7 +140,7 @@ export const CrmKanbanSection = () => {
                     </div>
                 </div>
 
-                <div className="pt-4 flex justify-center lg:justify-start">
+                <div className="pt-4 flex justify-center">
                     <Button size="lg" className="group w-full sm:w-auto relative px-8 py-4 bg-[#92D639] text-black rounded-lg font-bold text-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1 h-auto">
                       <UserPlus size={20} />
                       Assinar Agora
@@ -149,7 +149,7 @@ export const CrmKanbanSection = () => {
                 </div>
             </div>
 
-            <div className="relative flex justify-center lg:justify-center order-1 lg:order-2 mb-12 lg:mb-0">
+            <div className="relative flex justify-center order-1 lg:order-2 mb-12 lg:mb-0">
                  
                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#92D639]/10 rounded-full blur-[80px] -z-10"></div>
 

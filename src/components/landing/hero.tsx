@@ -1,6 +1,6 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, TrendingUp } from 'lucide-react';
+import { ArrowRight, TrendingUp, UserPlus } from 'lucide-react';
 import { InteractiveChat } from './interactive-chat';
 
 export function Hero() {
@@ -33,7 +33,8 @@ export function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-8">
               <Button size="lg" className="group relative px-8 py-4 bg-[#92D639] text-black rounded-lg font-bold text-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1 h-auto">
-                COMEÇAR AGORA
+                <UserPlus size={20} />
+                Assinar Agora
                 <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button size="lg" variant="outline" className="px-8 py-4 rounded-lg border-gray-600 text-gray-300 font-medium hover:border-[#92D639] hover:text-white transition-all bg-white/5 backdrop-blur-sm h-auto">

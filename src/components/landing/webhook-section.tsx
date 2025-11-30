@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Network, Zap, DollarSign, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Network, Zap, DollarSign, ArrowRight, ShieldCheck, UserPlus } from 'lucide-react';
 import { PhoneMockupAnimation } from '@/components/landing/phone-mockup-animation';
 import { Button } from '@/components/ui/button';
 
@@ -168,7 +168,8 @@ export function WebhookSection() {
                         </div>
                         <div className="w-full mt-4">
                             <Button size="lg" className="w-full group relative h-auto px-8 py-4 bg-[#92D639] text-black rounded-xl font-bold text-base hover:bg-[#82c232] transition-all shadow-lg shadow-[#92D639]/30 hover:shadow-xl hover:shadow-[#92D639]/40 hover:-translate-y-1">
-                                Quero Recuperar Vendas
+                                <UserPlus size={20} />
+                                Assinar Agora
                                 <ArrowRight className="inline-block ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Button>
                             <p className="text-slate-500 text-xs mt-3 text-center flex items-center justify-center gap-1.5">

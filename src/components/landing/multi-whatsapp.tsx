@@ -28,7 +28,8 @@ import {
   LayoutGrid,
   MessagesSquare,
   Share2,
-  UserCog
+  UserCog,
+  UserPlus
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -308,7 +309,8 @@ export function MultiWhatsapp() {
                 </div>
                 <div className="w-full">
                      <Button size="lg" className="w-full group relative h-auto px-8 py-4 bg-[#92D639] text-black rounded-xl font-bold text-base hover:bg-[#82c232] transition-all shadow-lg shadow-[#92D639]/30 hover:shadow-xl hover:shadow-[#92D639]/40 hover:-translate-y-1">
-                        Começar Agora
+                        <UserPlus size={20} />
+                        Assinar Agora
                         <ArrowRight className="inline-block ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
                     <p className="text-gray-500 text-xs mt-3 text-center flex items-center justify-center gap-1.5">

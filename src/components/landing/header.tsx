@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { MessageCircle, Menu, X, ArrowRight } from 'lucide-react';
+import { MessageCircle, Menu, X, ArrowRight, UserPlus } from 'lucide-react';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,7 +39,7 @@ export function Header() {
               Fale com vendas
             </Button>
              <Button className="bg-[#92D639] text-black font-bold hover:bg-[#82c232] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#92D639]/30">
-              Começar Agora
+              <UserPlus size={16} /> Assinar Agora
             </Button>
           </div>
 

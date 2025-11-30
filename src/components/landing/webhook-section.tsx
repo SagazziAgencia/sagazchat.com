@@ -49,7 +49,7 @@ export function WebhookSection() {
     }, []);
     
     return (
-        <div className="bg-[#F8FAFC] py-20 lg:py-32 px-4 font-sans text-slate-900 selection:bg-green-100 selection:text-green-900 relative overflow-hidden">
+        <div className="bg-[#F8FAFC] py-20 lg:py-32 px-4 font-sans text-slate-900 selection:bg-[#92D639]/20 selection:text-slate-900 relative overflow-hidden">
              <div 
                 className="absolute inset-0"
                 style={{
@@ -60,13 +60,13 @@ export function WebhookSection() {
             ></div>
             <section className="container mx-auto max-w-7xl relative z-10">
                 <div className="text-center mb-12 md:mb-16 space-y-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-sm text-[10px] font-bold uppercase tracking-wider text-green-700 mb-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-sm text-[10px] font-bold uppercase tracking-wider text-[#92D639] mb-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#92D639] animate-pulse"></span>
                         💸 Lucro Automático
                     </div>
                     <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
                         Transforme Checkouts Abandonados em<br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-500">
+                        <span className="text-[#92D639]">
                         Dinheiro no Seu Bolso
                         </span>
                     </h2>
@@ -80,14 +80,14 @@ export function WebhookSection() {
                         <div className="relative space-y-4 w-full">
                             <div className="absolute left-[1.65rem] top-8 bottom-8 w-px bg-slate-200 z-0"></div>
                             <div 
-                                className="absolute left-[1.65rem] top-8 w-px bg-green-500 z-0 transition-all duration-1000 ease-in-out"
+                                className="absolute left-[1.65rem] top-8 w-px bg-[#92D639] z-0 transition-all duration-1000 ease-in-out"
                                 style={{ height: `${Math.min((activeStep - 1) * 33.3, 100)}%` }}
                             ></div>
 
                             {/* STEP 1 */}
                             <div 
                                 onClick={() => setActiveStep(1)}
-                                className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 1 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
+                                className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 1 ? 'border-[#92D639] shadow-lg shadow-black/5 ring-1 ring-[#92D639]/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
                             >
                                <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-all duration-500 bg-white border border-slate-50 shadow-sm ${activeStep !== 1 ? 'grayscale opacity-70' : ''}`}>
                                     <div className="w-8 h-8">
@@ -108,7 +108,7 @@ export function WebhookSection() {
                             {/* STEP 2 */}
                             <div 
                                 onClick={() => setActiveStep(2)}
-                                className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 2 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
+                                className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 2 ? 'border-[#92D639] shadow-lg shadow-black/5 ring-1 ring-[#92D639]/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
                             >
                                 <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-500 border ${activeStep === 2 ? 'bg-blue-50 text-blue-600 border-blue-100 scale-110' : 'bg-slate-50 text-slate-400 border-slate-100'}`}>
                                     <Network size={20} />
@@ -127,9 +127,9 @@ export function WebhookSection() {
                             {/* STEP 3 */}
                             <div 
                                 onClick={() => setActiveStep(3)}
-                                className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 3 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
+                                className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 3 ? 'border-[#92D639] shadow-lg shadow-black/5 ring-1 ring-[#92D639]/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
                             >
-                                <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-500 border ${activeStep === 3 ? 'bg-green-50 text-green-600 border-green-100 scale-110' : 'bg-slate-50 text-slate-400 border-slate-100'}`}>
+                                <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-500 border ${activeStep === 3 ? 'bg-green-50 text-[#92D639] border-green-100 scale-110' : 'bg-slate-50 text-slate-400 border-slate-100'}`}>
                                     <Zap size={20} />
                                 </div>
                                 <div className="flex-1">
@@ -142,7 +142,7 @@ export function WebhookSection() {
                                     </p>
 
                                     <div className={`text-xs inline-flex items-center gap-2 bg-slate-50 px-2 py-1.5 rounded-lg border border-slate-100 text-slate-500 transition-opacity ${activeStep === 3 ? 'opacity-100' : 'opacity-40'}`}>
-                                        <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span> "Oi! Segue seu código Pix 👇"
+                                        <span className="w-1.5 h-1.5 bg-[#92D639] rounded-full"></span> "Oi! Segue seu código Pix 👇"
                                     </div>
                                 </div>
                             </div>
@@ -150,7 +150,7 @@ export function WebhookSection() {
                             {/* STEP 4 */}
                             <div 
                                 onClick={() => setActiveStep(4)}
-                                className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 4 ? 'border-green-500 shadow-lg shadow-green-900/5 ring-1 ring-green-500/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
+                                className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 4 ? 'border-[#92D639] shadow-lg shadow-black/5 ring-1 ring-[#92D639]/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
                             >
                                 <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-500 border ${activeStep === 4 ? 'bg-slate-900 text-white border-slate-700 scale-110' : 'bg-slate-50 text-slate-400 border-slate-100'}`}>
                                     <DollarSign size={20} />
@@ -158,7 +158,7 @@ export function WebhookSection() {
                                 <div className="flex-1">
                                     <div className="flex justify-between items-center mb-1">
                                         <h3 className={`text-base font-bold transition-colors ${activeStep === 4 ? 'text-slate-900' : 'text-slate-500'}`}>4. Venda Recuperada</h3>
-                                        {activeStep === 4 && <span className="text-[9px] font-bold text-white bg-green-500 px-2 py-0.5 rounded-full">Sucesso</span>}
+                                        {activeStep === 4 && <span className="text-[9px] font-bold text-white bg-[#92D639] px-2 py-0.5 rounded-full">Sucesso</span>}
                                     </div>
                                     <p className={`text-sm leading-relaxed ${activeStep === 4 ? 'text-slate-600' : 'text-slate-400'}`}>
                                         O cliente paga e você recebe a notificação da Deposita.Ai.
@@ -167,12 +167,12 @@ export function WebhookSection() {
                             </div>
                         </div>
                         <div className="w-full mt-4">
-                            <Button size="lg" className="w-full group relative h-auto px-8 py-4 bg-green-600 text-white rounded-xl font-bold text-base hover:bg-green-700 transition-all shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 hover:-translate-y-1">
+                            <Button size="lg" className="w-full group relative h-auto px-8 py-4 bg-[#92D639] text-black rounded-xl font-bold text-base hover:bg-[#82c232] transition-all shadow-lg shadow-[#92D639]/30 hover:shadow-xl hover:shadow-[#92D639]/40 hover:-translate-y-1">
                                 Quero Recuperar Vendas
                                 <ArrowRight className="inline-block ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Button>
                             <p className="text-slate-500 text-xs mt-3 text-center flex items-center justify-center gap-1.5">
-                                <ShieldCheck className="w-3.5 h-3.5 text-green-600" /> 7 dias de garantia incondicional.
+                                <ShieldCheck className="w-3.5 h-3.5 text-[#92D639]" /> 7 dias de garantia incondicional.
                             </p>
                         </div>
                     </div>

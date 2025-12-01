@@ -74,58 +74,6 @@ export default function IntegrationsSection() {
             ))}
           </div>
         </div>
-
-        <div className="mt-24 max-w-7xl mx-auto">
-          <h3 className="text-2xl md:text-3xl font-bold text-center mb-12">
-            Como a Magia do Webhook Funciona?
-          </h3>
-          <div className="relative px-4">
-            {/* Desktop timeline */}
-            <div className="hidden md:block absolute top-10 left-0 w-full">
-                <div className="h-0.5 bg-primary/20 w-full"></div>
-                <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-                    <div className="absolute h-full w-32 bg-gradient-to-r from-transparent via-primary/80 to-transparent animate-horizontal-travel"></div>
-                </div>
-            </div>
-
-            {/* Mobile timeline */}
-            <div className="md:hidden absolute top-4 left-1/2 -translate-x-1/2 h-[calc(100%-2rem)] w-0.5 bg-primary/20"></div>
-
-            {/* The steps */}
-            <div className="relative flex flex-col md:flex-row items-center md:items-start justify-between gap-16 md:gap-8">
-              <div className="w-full md:flex-1 flex flex-col items-center text-center">
-                <div className="bg-[#11161b] p-4 rounded-full border-2 border-primary/30 mb-4 animate-checkpoint-glow relative z-10" style={{ animationDelay: '0s' }}>
-                  <PlusSquare className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="font-bold text-lg mb-2 text-white">1. Crie o Webhook</h4>
-                <p className="text-gray-400 text-sm max-w-xs mx-auto">Gere uma URL de Webhook única dentro do RespondeZap.</p>
-              </div>
-              <div className="w-full md:flex-1 flex flex-col items-center text-center">
-                <div className="bg-[#11161b] p-4 rounded-full border-2 border-primary/30 mb-4 animate-checkpoint-glow relative z-10" style={{ animationDelay: '1s' }}>
-                  <ShoppingCart className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="font-bold text-lg mb-2 text-white">2. O Evento</h4>
-                <p className="text-gray-400 text-sm max-w-xs mx-auto">Seu cliente abandona um carrinho ou uma compra falha.</p>
-              </div>
-              <div className="w-full md:flex-1 flex flex-col items-center text-center">
-                <div className="bg-[#11161b] p-4 rounded-full border-2 border-primary/30 mb-4 animate-checkpoint-glow relative z-10" style={{ animationDelay: '2s' }}>
-                  <Webhook className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="font-bold text-lg mb-2 text-white">3. Alerta Imediato</h4>
-                <p className="text-gray-400 text-sm max-w-xs mx-auto">Sua plataforma envia os dados do evento para a URL gerada.</p>
-              </div>
-              <div className="w-full md:flex-1 flex flex-col items-center text-center">
-                <div className="bg-[#11161b] p-4 rounded-full border-2 border-primary/30 mb-4 animate-checkpoint-glow relative z-10" style={{ animationDelay: '3s' }}>
-                  <Rocket className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="font-bold text-lg mb-2 text-white">4. Automação Começa</h4>
-                <p className="text-gray-400 text-sm max-w-xs mx-auto">
-                  Um fluxo de recuperação é acionado no <span className="inline-flex items-center gap-1.5 font-medium text-green-400">WhatsApp <WhatsAppIcon className="h-4 w-4 text-current" /></span> com uma mensagem personalizada.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
         
         <div className="mt-20 text-center">
            <Button size="lg" className="group w-full sm:w-auto relative px-8 py-4 bg-[#92D639] text-black rounded-lg font-bold text-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1 h-auto">

@@ -27,8 +27,8 @@ export default function RespondeZapLanding() {
         <CrmKanbanSection />
         <RemarketingSection />
         <GroupManagerSection />
-        <PricingSection />
         <TestimonialsSection />
+        <PricingSection />
       </main>
     </div>
   );

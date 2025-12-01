@@ -170,7 +170,7 @@ export const FlowBuilderSection = () => {
                 </div>
 
                 {/* Canvas Area */}
-                <div className="flex-1 bg-[#f0f2f5] relative overflow-auto no-scrollbar cursor-grab active:cursor-grabbing">
+                <div className="flex-1 bg-[#f0f2f5] relative overflow-auto cursor-grab active:cursor-grabbing">
                     <div className="relative min-w-[1200px] min-h-[800px]">
                         
                         {/* Grid */}

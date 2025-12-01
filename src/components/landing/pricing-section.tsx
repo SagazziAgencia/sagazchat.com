@@ -1,6 +1,6 @@
 'use client';
 
-import { CheckCircle, Zap, ArrowRight, UserPlus } from 'lucide-react';
+import { CheckCircle, Zap, ArrowRight, UserPlus, DollarSign } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import React, { useState, useMemo } from 'react';
@@ -134,11 +134,14 @@ export function PricingSection() {
        <div className="absolute inset-0 bg-[radial-gradient(rgba(146,214,57,0.04)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none z-0"></div>
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-            Encontre o plano perfeito para você
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#92D639]/10 border border-[#92D639]/30 text-[#92D639] text-[11px] font-bold uppercase tracking-wider mb-6">
+                <DollarSign size={12} /> Planos Flexíveis
+            </div>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
+             Um plano para cada tamanho de <span className="text-[#92D639]">ambição</span>.
           </h2>
           <p className="text-lg text-gray-400 mt-4">
-            Comece pequeno ou vá com tudo. Temos a opção certa para cada fase do seu negócio.
+            Seja você um empreendedor a solo ou uma equipa em crescimento, temos o motor de vendas de que precisa.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 items-start max-w-7xl mx-auto">

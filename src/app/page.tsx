@@ -12,6 +12,7 @@ import { RemarketingSection } from '@/components/landing/remarketing-section';
 import { GroupManagerSection } from '@/components/landing/group-manager-section';
 import { TestimonialsSection } from '@/components/landing/testimonials-section';
 import { PricingSection } from '@/components/landing/pricing-section';
+import { SupportSection } from '@/components/landing/support-section';
 
 export default function RespondeZapLanding() {
   return (
@@ -29,6 +30,7 @@ export default function RespondeZapLanding() {
         <GroupManagerSection />
         <TestimonialsSection />
         <PricingSection />
+        <SupportSection />
       </main>
     </div>
   );

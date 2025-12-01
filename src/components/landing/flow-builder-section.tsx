@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { 
   Workflow, 
   Zap, 
@@ -40,30 +40,6 @@ import {
 import { Button } from '@/components/ui/button';
 
 export const FlowBuilderSection = () => {
-  const [step, setStep] = useState(0);
-
-  useEffect(() => {
-    let activeTimeouts: NodeJS.Timeout[] = [];
-
-    const animate = () => {
-      setStep(0);
-      // Sequência de construção sincronizada
-      activeTimeouts.push(setTimeout(() => setStep(1), 500));  // Início
-      activeTimeouts.push(setTimeout(() => setStep(2), 1500)); // Conteúdo
-      activeTimeouts.push(setTimeout(() => setStep(3), 2500)); // Menu
-      activeTimeouts.push(setTimeout(() => setStep(4), 3500)); // Vendas
-      activeTimeouts.push(setTimeout(() => setStep(5), 4500)); // Suporte
-      activeTimeouts.push(setTimeout(() => setStep(6), 5500)); // Remarketing
-    };
-
-    animate();
-    const interval = setInterval(animate, 12000);
-
-    return () => {
-        clearInterval(interval);
-        activeTimeouts.forEach(clearTimeout);
-    };
-  }, []);
 
   const features = [
     "Interface visual de arrastar e soltar",
@@ -205,25 +181,25 @@ export const FlowBuilderSection = () => {
                             {/* Lines (SVG) - Conexões Ajustadas e Visíveis */}
                             <svg className="absolute inset-0 pointer-events-none z-0 w-full h-full overflow-visible">
                                 {/* 1. Início (242, 195) -> Conteúdo (300, 195) */}
-                                <path d="M 242 195 L 300 195" fill="none" stroke="#94a3b8" strokeWidth="4" strokeDasharray="8,8" strokeLinecap="round" className={`transition-opacity duration-700 ${step >= 2 ? 'opacity-100' : 'opacity-0'}`} />
+                                <path d="M 242 195 L 300 195" fill="none" stroke="#94a3b8" strokeWidth="4" strokeDasharray="8,8" strokeLinecap="round" className="opacity-100" />
                                 
                                 {/* 2. Conteúdo (460, 195) -> Menu (520, 135) */}
-                                <path d="M 460 195 C 490 195, 490 135, 520 135" fill="none" stroke="#94a3b8" strokeWidth="4" strokeDasharray="8,8" strokeLinecap="round" className={`transition-opacity duration-700 ${step >= 3 ? 'opacity-100' : 'opacity-0'}`} />
+                                <path d="M 460 195 C 490 195, 490 135, 520 135" fill="none" stroke="#94a3b8" strokeWidth="4" strokeDasharray="8,8" strokeLinecap="round" className="opacity-100" />
 
                                 {/* 3. Menu Opt1 (744, 160) -> Vendas (800, 160) */}
-                                <path d="M 744 160 L 800 160" fill="none" stroke="#94a3b8" strokeWidth="4" strokeDasharray="8,8" strokeLinecap="round" className={`transition-opacity duration-700 ${step >= 4 ? 'opacity-100' : 'opacity-0'}`} />
+                                <path d="M 744 160 L 800 160" fill="none" stroke="#94a3b8" strokeWidth="4" strokeDasharray="8,8" strokeLinecap="round" className="opacity-100" />
 
                                 {/* 4. Menu Opt2 (744, 210) -> Suporte (800, 270) */}
-                                <path d="M 744 210 C 770 210, 770 270, 800 270" fill="none" stroke="#94a3b8" strokeWidth="4" strokeDasharray="8,8" strokeLinecap="round" className={`transition-opacity duration-700 ${step >= 5 ? 'opacity-100' : 'opacity-0'}`} />
+                                <path d="M 744 210 C 770 210, 770 270, 800 270" fill="none" stroke="#94a3b8" strokeWidth="4" strokeDasharray="8,8" strokeLinecap="round" className="opacity-100" />
 
                                 {/* 5. Menu Inact (744, 260) -> Remarketing (800, 380) */}
-                                <path d="M 744 260 C 760 260, 760 380, 800 380" fill="none" stroke="#94a3b8" strokeWidth="4" strokeDasharray="8,8" strokeLinecap="round" className={`transition-opacity duration-700 ${step >= 6 ? 'opacity-100' : 'opacity-0'}`} />
+                                <path d="M 744 260 C 760 260, 760 380, 800 380" fill="none" stroke="#94a3b8" strokeWidth="4" strokeDasharray="8,8" strokeLinecap="round" className="opacity-100" />
                             </svg>
 
                             {/* --- NÓS (Coordenadas Fixas para alinhamento) --- */}
 
                             {/* 1. Início - Top 150 */}
-                            <div className={`absolute top-[150px] left-[50px] w-48 bg-[#e6fffa] border-l-4 border-l-[#38b2ac] border-y border-r border-[#e2e8f0] rounded-r-lg shadow-sm p-4 transition-all duration-500 z-10 ${step >= 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+                            <div className="absolute top-[150px] left-[50px] w-48 bg-[#e6fffa] border-l-4 border-l-[#38b2ac] border-y border-r border-[#e2e8f0] rounded-r-lg shadow-sm p-4 z-10">
                                 <div className="flex items-center gap-2 mb-2 text-[#2c7a7b]">
                                     <Rocket size={18} />
                                     <span className="text-sm font-bold">Início do fluxo</span>
@@ -234,7 +210,7 @@ export const FlowBuilderSection = () => {
                             </div>
 
                             {/* 2. Conteúdo - Top 150 */}
-                            <div className={`absolute top-[150px] left-[300px] w-40 bg-[#fff5f5] border-t-4 border-t-[#fc8181] border-x border-b border-[#e2e8f0] rounded-b-lg shadow-sm p-2 transition-all duration-500 z-10 ${step >= 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+                            <div className="absolute top-[150px] left-[300px] w-40 bg-[#fff5f5] border-t-4 border-t-[#fc8181] border-x border-b border-[#e2e8f0] rounded-b-lg shadow-sm p-2 z-10">
                                 <div className="flex justify-between items-start mb-2 px-1">
                                     <div className="flex items-center gap-1 text-[#c53030]">
                                         <Star size={14} />
@@ -250,7 +226,7 @@ export const FlowBuilderSection = () => {
                             </div>
 
                             {/* 3. Menu - Top 50 */}
-                            <div className={`absolute top-[50px] left-[520px] w-56 bg-[#f3e8ff] border border-[#9f7aea] rounded-lg shadow-md transition-all duration-500 z-20 ${step >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+                            <div className="absolute top-[50px] left-[520px] w-56 bg-[#f3e8ff] border border-[#9f7aea] rounded-lg shadow-md z-20">
                                 <div className="bg-[#d6bcfa] px-3 py-2 rounded-t-lg flex justify-between items-center text-[#553c9a]">
                                     <div className="flex items-center gap-2"><LayoutGrid size={16} /><span className="text-xs font-bold">Menu (Lista)</span></div>
                                     <div className="flex gap-2 opacity-60"><Copy size={12} /> <Trash2 size={12} /></div>
@@ -298,7 +274,7 @@ export const FlowBuilderSection = () => {
                             </div>
 
                             {/* 4. Depto Vendas - Top 120 */}
-                            <div className={`absolute top-[120px] left-[800px] w-48 bg-white border border-[#dd6b20] rounded-lg shadow-sm transition-all duration-500 z-10 ${step >= 4 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}>
+                            <div className="absolute top-[120px] left-[800px] w-48 bg-white border border-[#dd6b20] rounded-lg shadow-sm z-10">
                                 <div className="bg-[#431407] px-3 py-2 rounded-t-lg flex justify-between items-center text-[#ffedd5]">
                                     <div className="flex items-center gap-2"><Briefcase size={14} /><span className="text-xs font-bold">Departamentos</span></div>
                                     <div className="flex gap-2 opacity-60"><Copy size={10} /> <Trash2 size={10} /></div>
@@ -311,7 +287,7 @@ export const FlowBuilderSection = () => {
                             </div>
 
                             {/* 5. Depto Suporte - Top 230 */}
-                            <div className={`absolute top-[230px] left-[800px] w-48 bg-white border border-[#dd6b20] rounded-lg shadow-sm transition-all duration-500 z-10 ${step >= 5 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}>
+                            <div className="absolute top-[230px] left-[800px] w-48 bg-white border border-[#dd6b20] rounded-lg shadow-sm z-10">
                                 <div className="bg-[#431407] px-3 py-2 rounded-t-lg flex justify-between items-center text-[#ffedd5]">
                                     <div className="flex items-center gap-2"><Briefcase size={14} /><span className="text-xs font-bold">Departamentos</span></div>
                                     <div className="flex gap-2 opacity-60"><Copy size={10} /> <Trash2 size={10} /></div>
@@ -324,7 +300,7 @@ export const FlowBuilderSection = () => {
                             </div>
 
                             {/* 6. Remarketing - Top 340 */}
-                            <div className={`absolute top-[340px] left-[800px] w-48 bg-white border border-[#ed8936] rounded-lg shadow-sm transition-all duration-500 z-10 ${step >= 6 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}>
+                            <div className="absolute top-[340px] left-[800px] w-48 bg-white border border-[#ed8936] rounded-lg shadow-sm z-10">
                                 <div className="px-3 py-2 bg-[#fff7ed] rounded-t-lg border-b border-[#ed8936]/20 flex justify-between items-center text-[#ed8936]">
                                     <div className="flex items-center gap-2"><Repeat size={16} /><span className="text-xs font-bold">Remarketing</span></div>
                                     <div className="flex gap-2 opacity-60"><Copy size={12} /> <Trash2 size={12} /></div>
@@ -338,18 +314,6 @@ export const FlowBuilderSection = () => {
                             </div>
 
                         </div>
-
-                        {/* Mouse Cursor */}
-                        <div 
-                            className={`absolute transition-all duration-1000 ease-in-out z-50 drop-shadow-xl ${step === 0 || step >= 7 ? 'opacity-0' : 'opacity-100'}`}
-                            style={{
-                                top: step === 1 ? '150px' : step === 2 ? '150px' : step === 3 ? '180px' : step === 4 ? '120px' : step === 5 ? '250px' : '380px',
-                                left: step === 1 ? '100px' : step === 2 ? '300px' : step === 3 ? '550px' : step === 4 ? '800px' : step === 5 ? '800px' : '800px',
-                            }}
-                        >
-                            <MousePointer2 size={24} className="text-black fill-white" />
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -358,8 +322,9 @@ export const FlowBuilderSection = () => {
 
       </div>
        <style jsx>{`
-        .custom-scrollbar::-webkit-scrollbar { display: none; }
-        .custom-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
     </div>
   );
+};

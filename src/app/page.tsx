@@ -1,3 +1,5 @@
+'use client';
+
 import { Header } from '@/components/landing/header';
 import { Hero } from '@/components/landing/hero';
 import { FlowBuilderSection } from '@/components/landing/flow-builder-section';
@@ -9,6 +11,7 @@ import { CrmKanbanSection } from '@/components/landing/crm-kanban-section';
 import { RemarketingSection } from '@/components/landing/remarketing-section';
 import { GroupManagerSection } from '@/components/landing/group-manager-section';
 import { TestimonialsSection } from '@/components/landing/testimonials-section';
+import { PricingSection } from '@/components/landing/pricing-section';
 
 export default function RespondeZapLanding() {
   return (
@@ -24,6 +27,7 @@ export default function RespondeZapLanding() {
         <CrmKanbanSection />
         <RemarketingSection />
         <GroupManagerSection />
+        <PricingSection />
         <TestimonialsSection />
       </main>
     </div>

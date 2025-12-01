@@ -19,25 +19,16 @@ export function Footer() {
     <footer className="bg-[#0A0F13] text-white pt-20">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="bg-[#11161B] border border-white/10 rounded-2xl p-8 lg:p-12">
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-                <div className="space-y-6">
+            <div className="grid lg:grid-cols-1 gap-8 items-center">
+                <div className="space-y-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-extrabold">Fale com um Especialista Agora</h2>
-                    <p className="text-gray-400 max-w-lg">
+                    <p className="text-gray-400 max-w-lg mx-auto">
                         Clique no botão e seja direcionado para o WhatsApp. Nossa equipe está pronta para tirar suas dúvidas e criar um plano de ação para o seu negócio.
                     </p>
                     <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-auto px-6 py-3 text-base font-bold">
                         <WhatsAppIcon className="w-5 h-5 mr-2" />
                         Iniciar Conversa no WhatsApp
                     </Button>
-                </div>
-                <div className="relative flex items-center justify-center">
-                    <Image 
-                        src="https://storage.googleapis.com/aip-dev-central-artifacts/gen-apps/support-illustration.svg" 
-                        alt="Support agent illustration"
-                        width={350}
-                        height={300}
-                        className="object-contain"
-                    />
                 </div>
             </div>
         </div>

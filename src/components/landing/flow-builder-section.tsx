@@ -194,6 +194,9 @@ export const FlowBuilderSection = () => {
 
                                 {/* 5. Menu Inact (744, 260) -> Remarketing (800, 380) */}
                                 <path d="M 744 260 C 760 260, 760 380, 800 380" fill="none" stroke="#94a3b8" strokeWidth="4" strokeDasharray="8,8" strokeLinecap="round" className="opacity-100" />
+
+                                 {/* 6. Vendas (992, 160) -> Etiqueta (1050, 160) */}
+                                <path d="M 992 160 L 1050 160" fill="none" stroke="#94a3b8" strokeWidth="4" strokeDasharray="8,8" strokeLinecap="round" className="opacity-100" />
                             </svg>
 
                             {/* --- NÓS (Coordenadas Fixas para alinhamento) --- */}
@@ -284,6 +287,8 @@ export const FlowBuilderSection = () => {
                                     <div className="bg-[#ffedd5] text-[#c05621] text-xs font-bold py-2 px-3 rounded border border-[#fed7aa] shadow-sm">Venda</div>
                                 </div>
                                 <div className="absolute top-[40px] -left-1.5 w-2.5 h-2.5 bg-[#c05621] rounded-full border-2 border-white"></div>
+                                 {/* Saída */}
+                                <div className="absolute top-[40px] -right-1.5 w-2.5 h-2.5 bg-[#c05621] rounded-full border-2 border-white"></div>
                             </div>
 
                             {/* 5. Depto Suporte - Top 230 */}
@@ -311,6 +316,19 @@ export const FlowBuilderSection = () => {
                                     <div className="bg-[#ffedd5] text-[#c05621] text-xs font-bold py-2 rounded border border-[#fed7aa] shadow-sm">Recuperação</div>
                                 </div>
                                 <div className="absolute top-[40px] -left-1.5 w-2.5 h-2.5 bg-[#ed8936] rounded-full border-2 border-white"></div>
+                            </div>
+                            
+                            {/* 7. Etiqueta - Top 120 (ao lado de Vendas) */}
+                            <div className="absolute top-[120px] left-[1050px] w-48 bg-white border border-pink-400 rounded-lg shadow-sm z-10">
+                                <div className="bg-pink-50 text-pink-600 px-3 py-2 rounded-t-lg flex justify-between items-center">
+                                    <div className="flex items-center gap-2"><Bookmark size={14} /><span className="text-xs font-bold">Etiqueta</span></div>
+                                    <div className="flex gap-2 opacity-60"><Copy size={10} /> <Trash2 size={10} /></div>
+                                </div>
+                                <div className="p-4 text-center">
+                                    <div className="text-[10px] text-pink-500 mb-2 font-bold uppercase tracking-wide">Adicionar Etiqueta</div>
+                                    <div className="bg-pink-100 text-pink-700 text-xs font-bold py-2 px-3 rounded border border-pink-200 shadow-sm">Lead Qualificado</div>
+                                </div>
+                                <div className="absolute top-[40px] -left-1.5 w-2.5 h-2.5 bg-pink-500 rounded-full border-2 border-white"></div>
                             </div>
 
                         </div>

@@ -33,7 +33,7 @@ export function Footer() {
             </div>
         </div>
 
-        <div className="py-8 mt-12 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-6">
+        <div className="py-8 mt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-6">
             <div className="flex items-center gap-2">
                 <div className="w-8 h-8 bg-gradient-to-br from-[#92D639] to-[#7ab828] rounded-lg flex items-center justify-center shadow-lg shadow-[#92D639]/20">
                   <MessageCircle className="text-black w-5 h-5" />
@@ -42,8 +42,8 @@ export function Footer() {
                   RESPONDE<span className="text-[#92D639]">ZAP.AI</span>
                 </span>
             </div>
-            <p className="text-sm text-gray-500 order-3 sm:order-2">© {new Date().getFullYear()} Todos os direitos reservados.</p>
-            <div className="flex items-center gap-4 order-2 sm:order-3">
+            <p className="text-sm text-gray-500 order-last md:order-none">© {new Date().getFullYear()} Todos os direitos reservados.</p>
+            <div className="flex items-center gap-4">
                 <Link href="#" className="text-gray-500 hover:text-white"><Facebook size={20} /></Link>
                 <Link href="#" className="text-gray-500 hover:text-white"><Instagram size={20} /></Link>
                 <Link href="#" className="text-gray-500 hover:text-white"><Linkedin size={20} /></Link>

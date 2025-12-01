@@ -9,7 +9,6 @@ import { CrmKanbanSection } from '@/components/landing/crm-kanban-section';
 import { RemarketingSection } from '@/components/landing/remarketing-section';
 import { GroupManagerSection } from '@/components/landing/group-manager-section';
 import { TestimonialsSection } from '@/components/landing/testimonials-section';
-import IntegrationsSection from '@/components/landing/integrations-section';
 
 export default function RespondeZapLanding() {
   return (
@@ -26,7 +25,6 @@ export default function RespondeZapLanding() {
         <RemarketingSection />
         <GroupManagerSection />
         <TestimonialsSection />
-        <IntegrationsSection />
       </main>
     </div>
   );

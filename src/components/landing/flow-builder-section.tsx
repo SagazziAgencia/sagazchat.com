@@ -14,7 +14,7 @@ import {
   Bookmark, 
   MessageCircle, 
   Briefcase, 
-  Save, 
+  Save,
   Power, 
   Filter, 
   Link, 
@@ -152,10 +152,10 @@ export const FlowBuilderSection = () => {
                 </div>
             </div>
 
-            <div className="flex-1 flex overflow-hidden">
+            <div className="flex-1 flex overflow-auto">
                 
                 {/* Sidebar */}
-                <div className="w-64 bg-white border-r border-gray-200 hidden md:flex flex-col z-30 shrink-0">
+                <div className="w-64 bg-white border-r border-gray-200 flex flex-col z-30 shrink-0">
                     <div className="p-4 border-b border-gray-100">
                         <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">Ferramentas</div>
                     </div>

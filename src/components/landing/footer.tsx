@@ -30,7 +30,7 @@ export function Footer() {
                         Iniciar Conversa no WhatsApp
                     </Button>
                 </div>
-                <div className="relative h-64 lg:h-auto flex items-center justify-center">
+                <div className="relative flex items-center justify-center">
                     <Image 
                         src="https://storage.googleapis.com/aip-dev-central-artifacts/gen-apps/support-illustration.svg" 
                         alt="Support agent illustration"
@@ -62,4 +62,3 @@ export function Footer() {
     </footer>
   );
 }
-

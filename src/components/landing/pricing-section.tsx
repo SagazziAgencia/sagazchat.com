@@ -141,7 +141,7 @@ export function PricingSection() {
             Comece pequeno ou vá com tudo. Temos a opção certa para cada fase do seu negócio.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 items-start max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 items-start max-w-7xl mx-auto">
           
           {/* Plano Basic Interativo */}
           <div

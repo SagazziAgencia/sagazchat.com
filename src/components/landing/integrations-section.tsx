@@ -38,13 +38,13 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export default function IntegrationsSection() {
   return (
-    <section id="integrations" className="py-20 bg-gray-900 text-white overflow-hidden">
+    <section id="integrations" className="py-20 bg-[#0a0f13] text-white overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Seu Ecossistema de Vendas, Totalmente Integrado via Webhooks.
           </h2>
-          <p className="text-gray-300 max-w-3xl mx-auto">
+          <p className="text-gray-400 max-w-3xl mx-auto">
             De CRMs a plataformas de pagamento, o RespondeZap se integra com as ferramentas que você ama, automatizando seu fluxo de trabalho e centralizando suas operações.
           </p>
         </div>
@@ -94,28 +94,28 @@ export default function IntegrationsSection() {
             {/* The steps */}
             <div className="relative flex flex-col md:flex-row items-center md:items-start justify-between gap-16 md:gap-8">
               <div className="w-full md:flex-1 flex flex-col items-center text-center">
-                <div className="bg-gray-900 p-4 rounded-full border-2 border-primary/30 mb-4 animate-checkpoint-glow relative z-10" style={{ animationDelay: '0s' }}>
+                <div className="bg-[#11161b] p-4 rounded-full border-2 border-primary/30 mb-4 animate-checkpoint-glow relative z-10" style={{ animationDelay: '0s' }}>
                   <PlusSquare className="h-8 w-8 text-primary" />
                 </div>
                 <h4 className="font-bold text-lg mb-2 text-white">1. Crie o Webhook</h4>
                 <p className="text-gray-400 text-sm max-w-xs mx-auto">Gere uma URL de Webhook única dentro do RespondeZap.</p>
               </div>
               <div className="w-full md:flex-1 flex flex-col items-center text-center">
-                <div className="bg-gray-900 p-4 rounded-full border-2 border-primary/30 mb-4 animate-checkpoint-glow relative z-10" style={{ animationDelay: '1s' }}>
+                <div className="bg-[#11161b] p-4 rounded-full border-2 border-primary/30 mb-4 animate-checkpoint-glow relative z-10" style={{ animationDelay: '1s' }}>
                   <ShoppingCart className="h-8 w-8 text-primary" />
                 </div>
                 <h4 className="font-bold text-lg mb-2 text-white">2. O Evento</h4>
                 <p className="text-gray-400 text-sm max-w-xs mx-auto">Seu cliente abandona um carrinho ou uma compra falha.</p>
               </div>
               <div className="w-full md:flex-1 flex flex-col items-center text-center">
-                <div className="bg-gray-900 p-4 rounded-full border-2 border-primary/30 mb-4 animate-checkpoint-glow relative z-10" style={{ animationDelay: '2s' }}>
+                <div className="bg-[#11161b] p-4 rounded-full border-2 border-primary/30 mb-4 animate-checkpoint-glow relative z-10" style={{ animationDelay: '2s' }}>
                   <Webhook className="h-8 w-8 text-primary" />
                 </div>
                 <h4 className="font-bold text-lg mb-2 text-white">3. Alerta Imediato</h4>
                 <p className="text-gray-400 text-sm max-w-xs mx-auto">Sua plataforma envia os dados do evento para a URL gerada.</p>
               </div>
               <div className="w-full md:flex-1 flex flex-col items-center text-center">
-                <div className="bg-gray-900 p-4 rounded-full border-2 border-primary/30 mb-4 animate-checkpoint-glow relative z-10" style={{ animationDelay: '3s' }}>
+                <div className="bg-[#11161b] p-4 rounded-full border-2 border-primary/30 mb-4 animate-checkpoint-glow relative z-10" style={{ animationDelay: '3s' }}>
                   <Rocket className="h-8 w-8 text-primary" />
                 </div>
                 <h4 className="font-bold text-lg mb-2 text-white">4. Automação Começa</h4>
@@ -138,3 +138,5 @@ export default function IntegrationsSection() {
     </section>
   );
 }
+
+    

@@ -33,6 +33,9 @@ export const CrmKanbanSection = () => {
   useEffect(() => {
     let leadIndex = 0;
     let currentTotal = 0;
+    const animationIntervals: NodeJS.Timeout[] = [];
+    let intervalId: NodeJS.Timeout | null = null;
+    let initialTimeout: NodeJS.Timeout | null = null;
 
     const addLead = () => {
       if (leadIndex >= incomingLeads.length) {
@@ -49,15 +52,16 @@ export const CrmKanbanSection = () => {
       const steps = duration / incrementTime;
       const incrementAmount = (endValue - startValue) / steps;
       
-      const animationInterval = setInterval(() => {
+      const animInterval = setInterval(() => {
         startValue += incrementAmount;
         if (startValue >= endValue) {
           setTotalValue(endValue);
-          clearInterval(animationInterval);
+          clearInterval(animInterval);
         } else {
           setTotalValue(startValue);
         }
       }, incrementTime);
+      animationIntervals.push(animInterval);
       
       // Add card to the list after a short delay
       setTimeout(() => {
@@ -69,20 +73,20 @@ export const CrmKanbanSection = () => {
     };
 
     // Start adding leads after an initial delay
-    const initialTimeout = setTimeout(() => {
+    initialTimeout = setTimeout(() => {
       addLead(); // Add the first lead
-      const intervalId = setInterval(() => {
+      intervalId = setInterval(() => {
         addLead(); // Add subsequent leads
         if (leadIndex >= incomingLeads.length) {
-          clearInterval(intervalId);
+          if (intervalId) clearInterval(intervalId);
         }
       }, 2000); // Interval between new leads
-
-      return () => clearInterval(intervalId);
     }, 1500);
 
     return () => {
-        clearTimeout(initialTimeout);
+        if(initialTimeout) clearTimeout(initialTimeout);
+        if(intervalId) clearInterval(intervalId);
+        animationIntervals.forEach(clearInterval);
     };
   }, []);
 

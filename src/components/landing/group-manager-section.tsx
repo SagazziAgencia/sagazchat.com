@@ -54,35 +54,26 @@ const features = [
   },
 ];
 
-const groups = [
-    { icon: <Rocket size={16} />, name: 'Lançamento Alpha', size: 7, status: 'active' },
-    { icon: <Star size={16} />, name: 'Clientes VIP', size: 4, status: 'active' },
-    { icon: <Headphones size={16} />, name: 'Suporte - Nível 1', size: 3, status: 'active' },
-    { icon: <BrainCircuit size={16} />, name: 'Mentoria Semanal', size: 2, status: 'active' },
-    { icon: <FlaskConical size={16} />, name: 'Equipe de Testes', size: 2, status: 'active' },
-    { icon: <Lightbulb size={16} />, name: 'Brainstorm de Ideias', size: 2, status: 'active' },
-];
-
 export function GroupManagerSection() {
   return (
     <section className="py-20 lg:py-32 bg-white text-gray-800 relative bg-pattern">
        <div className="pattern-mask-light"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-1 gap-16 items-center">
           
           {/* Left Column */}
           <div className="space-y-10">
-            <div className="space-y-4">
+            <div className="space-y-4 text-center">
               <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 leading-tight">
                 Transforme Grupos do WhatsApp em {' '}
                 <span className="text-[#92D639]">Comunidades Lucrativas</span>
               </h1>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
                 Assuma o controle total da sua comunicação em grupos. Importe, gerencie, exporte membros e automatize interações com o nosso poderoso Gerente de Grupos.
               </p>
             </div>
             
-            <div className="grid sm:grid-cols-2 gap-x-8 gap-y-10">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 max-w-4xl mx-auto">
               {features.map((feature, index) => (
                 <div key={index} className="flex gap-4">
                   <div className="flex-shrink-0 w-10 h-10 bg-[#92D639]/10 rounded-lg flex items-center justify-center">
@@ -96,11 +87,6 @@ export function GroupManagerSection() {
               ))}
             </div>
           </div>
-
-          {/* Right Column */}
-          <div className="bg-white border border-gray-200/80 rounded-2xl shadow-soft hover:shadow-lg transition-shadow duration-300 w-full animate-fade-in-up" style={{animationDelay: '150ms'}}>
-          </div>
-
         </div>
       </div>
       <style jsx>{`

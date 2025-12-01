@@ -122,30 +122,30 @@ export const FlowBuilderSection = () => {
         <div className="relative w-full max-w-[1100px] h-[650px] bg-[#11161b] rounded-3xl border border-gray-800 shadow-2xl overflow-hidden flex flex-col z-20 group">
             
             {/* Header */}
-            <div className="h-16 border-b border-gray-200 bg-white flex items-center px-6 justify-between z-20 shrink-0">
-                <div className="flex items-center gap-4">
+            <div className="h-16 border-b border-gray-200 bg-white flex items-center px-4 md:px-6 justify-between z-20 shrink-0">
+                <div className="flex items-center gap-2 md:gap-4">
                     <div className="flex gap-1.5">
                         <div className="w-3 h-3 rounded-full bg-red-400/80"></div>
                         <div className="w-3 h-3 rounded-full bg-yellow-400/80"></div>
                         <div className="w-3 h-3 rounded-full bg-green-400/80"></div>
                     </div>
-                    <div className="h-6 w-[1px] bg-gray-200"></div>
+                    <div className="hidden md:block h-6 w-[1px] bg-gray-200"></div>
                     <div className="flex items-center gap-2 text-gray-500 text-sm font-bold uppercase tracking-wider">
                         <Rocket size={16} className="text-[#92D639]" />
-                        <span>Fluxo Principal</span>
+                        <span className="hidden sm:inline">Fluxo Principal</span>
                     </div>
                 </div>
 
-                <div className="flex items-center gap-6">
-                    <div className="flex items-center gap-4 pr-6 border-r border-gray-200">
+                <div className="flex items-center gap-2 md:gap-6">
+                    <div className="hidden md:flex items-center gap-4 pr-6 border-r border-gray-200">
                         <button className="text-[#92D639] hover:bg-green-50 p-1.5 rounded transition-colors"><Scissors size={20} strokeWidth={2.5} /></button>
                         <button className="text-[#92D639] hover:bg-green-50 p-1.5 rounded transition-colors"><RotateCcw size={20} strokeWidth={2.5} /></button>
                     </div>
-                    <div className="flex items-center gap-3">
-                        <button className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full text-xs font-bold transition-colors border border-gray-200">
-                            Compartilhar fluxo <Share size={14} />
+                    <div className="flex items-center gap-2 md:gap-3">
+                        <button className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full text-xs font-bold transition-colors border border-gray-200">
+                            Compartilhar <Share size={14} />
                         </button>
-                        <button className="px-6 py-2 bg-[#92D639] hover:bg-[#82c232] text-black rounded-full text-xs font-bold transition-colors shadow-sm shadow-green-200">
+                        <button className="px-4 md:px-6 py-2 bg-[#92D639] hover:bg-[#82c232] text-black rounded-full text-xs font-bold transition-colors shadow-sm shadow-green-200">
                             Salvar
                         </button>
                     </div>
@@ -323,10 +323,6 @@ export const FlowBuilderSection = () => {
         </div>
 
       </div>
-       <style jsx>{`
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      `}</style>
     </div>
   );
 };

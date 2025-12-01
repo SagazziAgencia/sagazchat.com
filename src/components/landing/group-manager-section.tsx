@@ -43,7 +43,7 @@ const features = [
     description: 'Envie textos, áudios, imagens ou vídeos diretamente para grupos específicos via fluxo.',
   },
   {
-    icon: <Hourglass size={24} className="text-[#92D639]" />,
+    icon: <Hourglass size={24} className="text-[#92D6D9]" />,
     title: 'Atraso Inteligente',
     description: 'Programe pausas entre os envios para simular uma comunicação mais natural e humana.',
   },
@@ -113,44 +113,6 @@ export function GroupManagerSection() {
                         Carregar grupos
                     </Button>
                 </div>
-            </div>
-
-            <div className="overflow-x-auto">
-                 <table className="w-full text-sm text-left">
-                    <thead className="text-xs text-gray-500 uppercase bg-gray-50/50">
-                        <tr>
-                            <th scope="col" className="px-6 py-3">Nome</th>
-                            <th scope="col" className="px-6 py-3 text-center">Tamanho</th>
-                            <th scope="col" className="px-6 py-3 text-center">Status</th>
-                            <th scope="col" className="px-6 py-3">WhatsApp</th>
-                            <th scope="col" className="px-6 py-3 text-right">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {groups.map((group, index) => (
-                            <tr key={index} className="bg-white border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                                <td className="px-6 py-4 font-medium text-gray-800 whitespace-nowrap flex items-center gap-3">
-                                    <div className="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-gray-500">
-                                        {group.icon}
-                                    </div>
-                                    {group.name}
-                                </td>
-                                <td className="px-6 py-4 text-center text-gray-600 flex items-center justify-center gap-2">
-                                    {group.size} <Download size={14} className="text-gray-400" />
-                                </td>
-                                <td className="px-6 py-4 text-center">
-                                    <span className="w-2.5 h-2.5 bg-green-500 rounded-full inline-block"></span>
-                                </td>
-                                <td className="px-6 py-4 text-gray-600">
-                                    Vendas
-                                </td>
-                                <td className="px-6 py-4 text-right">
-                                    <a href="#" className="font-medium text-[#92D639] hover:underline">Ativar</a>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
             </div>
           </div>
 

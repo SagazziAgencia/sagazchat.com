@@ -99,21 +99,6 @@ export function GroupManagerSection() {
 
           {/* Right Column */}
           <div className="bg-white border border-gray-200/80 rounded-2xl shadow-soft hover:shadow-lg transition-shadow duration-300 w-full animate-fade-in-up" style={{animationDelay: '150ms'}}>
-            <div className="px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4 border-b border-gray-100">
-                <div className="flex items-center gap-3 text-lg font-bold text-gray-700">
-                    <Users size={22} />
-                    <span>Gerente de Grupos</span>
-                </div>
-                <div className="flex items-center gap-2 w-full sm:w-auto">
-                    <div className="relative flex-1 sm:flex-auto">
-                        <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
-                        <input type="text" placeholder="Pesquisar..." className="w-full bg-gray-50 border border-gray-200 rounded-lg py-2 pl-9 pr-3 text-sm focus:ring-2 focus:ring-[#92D639]/50 focus:border-[#92D639] outline-none transition" />
-                    </div>
-                    <Button className="bg-[#92D639] text-black font-bold hover:bg-[#82c232] h-10 px-4">
-                        Carregar grupos
-                    </Button>
-                </div>
-            </div>
           </div>
 
         </div>

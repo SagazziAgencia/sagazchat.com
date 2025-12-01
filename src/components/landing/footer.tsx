@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -17,7 +16,7 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 export function Footer() {
   return (
     <footer className="bg-[#0A0F13] text-white pt-20">
-      <div className="container mx-auto px-6 max-w-6xl">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-[#11161B] border border-white/10 rounded-2xl p-8 lg:p-12">
             <div className="grid lg:grid-cols-1 gap-8 items-center">
                 <div className="space-y-6 text-center">

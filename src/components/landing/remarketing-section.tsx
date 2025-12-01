@@ -145,7 +145,7 @@ export const RemarketingSection = () => {
             `}</style>
 
             <div className="relative z-10 w-full py-12 lg:py-20 min-h-screen flex items-center bg-[#0a0f13]">
-                <div className="fixed top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-[#92D639]/5 rounded-full blur-[120px] pointer-events-none"></div>
+                <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[60%] h-[60%] bg-[#92D639]/5 rounded-full blur-[120px] pointer-events-none"></div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center max-w-4xl mx-auto mb-16 flex flex-col items-center">
@@ -160,9 +160,9 @@ export const RemarketingSection = () => {
                         </h1>
                     </div>
 
-                    <div className="grid lg:grid-cols-2 gap-8 items-center">
+                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                         <div className="space-y-8 text-center lg:text-left">
-                            <div className="text-lg text-slate-400 leading-relaxed border-l-4 border-[#92D639] pl-6 text-left space-y-6">
+                            <div className="text-lg text-slate-400 leading-relaxed border-l-4 border-[#92D639] pl-6 text-left space-y-6 max-w-lg mx-auto lg:mx-0">
                                 <p>Nem todo mundo compra no primeiro contato. O remarketing traz esses clientes de volta.</p>
                                 <p>Configure fluxos que identificam quem demonstrou interesse e envie a mensagem certa para reengajar. Transforme o "talvez depois" em venda fechada, automaticamente.</p>
                             </div>
@@ -175,8 +175,8 @@ export const RemarketingSection = () => {
                             </div>
                         </div>
 
-                        <div className="relative flex justify-center lg:justify-end h-[550px] items-center">
-                            <div className="relative w-[750px] bg-[#11161b] rounded-3xl border border-gray-800 shadow-2xl overflow-hidden flex flex-col z-20 min-h-[480px]">
+                        <div className="relative flex justify-center lg:justify-end h-auto lg:h-[550px] items-center">
+                            <div className="relative w-full max-w-[750px] bg-[#11161b] rounded-3xl border border-gray-800 shadow-2xl overflow-hidden flex flex-col z-20 min-h-[480px]">
                                 <div className="p-6 pb-4 border-b border-gray-800 bg-[#161b22] z-30">
                                     <div className="bg-black/40 p-1 rounded-lg flex relative cursor-pointer w-64 mx-auto lg:mx-0" onClick={manualToggle}>
                                         <div id="slider-bg" className="absolute top-1 left-1 w-[calc(50%-4px)] h-[calc(100%-8px)] bg-gray-700 rounded-md shadow-md transition-all duration-500 ease-in-out" style={{ transform: currentMode === 'live' ? 'translateX(100%)' : 'translateX(0)' }}></div>
@@ -185,9 +185,9 @@ export const RemarketingSection = () => {
                                     </div>
                                 </div>
 
-                                <div className="relative flex-1 bg-[#f3f4f6] overflow-hidden">
+                                <div className="relative flex-1 bg-[#f3f4f6] overflow-x-auto">
                                     <div id="view-config" className={cn("absolute inset-0 flex flex-col transition-custom bg-[#f3f4f6]", currentMode === 'config' ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10 pointer-events-none')}>
-                                        <div className="px-6 py-4 flex items-center justify-between">
+                                        <div className="px-6 py-4 flex items-center justify-between min-w-[680px]">
                                             <div className="flex items-center gap-2">
                                                 <ChevronLeft className="w-5 h-5 text-gray-600 cursor-pointer font-bold" />
                                                 <h2 className="text-gray-800 text-xl font-medium tracking-tight">Recuperação</h2>
@@ -199,7 +199,7 @@ export const RemarketingSection = () => {
                                             </div>
                                         </div>
 
-                                        <div className="mx-4 bg-white rounded-lg shadow-sm border border-gray-200 flex-1 relative overflow-hidden mb-4 flex flex-col">
+                                        <div className="mx-4 bg-white rounded-lg shadow-sm border border-gray-200 flex-1 relative overflow-hidden mb-4 flex flex-col min-w-[680px]">
                                             <div className="grid grid-cols-12 px-6 py-3 border-b border-gray-100 bg-white items-center">
                                                 <span className="col-span-4 text-sm font-medium text-gray-700 pl-8">Executar</span>
                                                 <span className="col-span-4 text-sm font-medium text-gray-700 text-center">Fluxo</span>
@@ -265,7 +265,7 @@ export const RemarketingSection = () => {
                                         </div>
                                     </div>
 
-                                    <div id="view-live" className={cn("absolute inset-0 bg-[#0a0f13] p-8 pl-12 flex flex-col transition-custom", currentMode === 'live' ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10 pointer-events-none')}>
+                                    <div id="view-live" className={cn("absolute inset-0 bg-[#0a0f13] p-8 pl-12 flex flex-col transition-custom min-w-[400px]", currentMode === 'live' ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10 pointer-events-none')}>
                                         <div className="absolute left-[35px] top-8 bottom-20 w-[2px] bg-gray-800 rounded-full overflow-hidden">
                                             <div id="live-progress" className="w-full bg-[#92D639]" style={{ height: `${progressHeight}%`, transition: 'height 7s linear' }}></div>
                                         </div>
@@ -319,7 +319,7 @@ export const RemarketingSection = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="absolute -z-10 top-10 -right-10 w-[400px] h-[300px] bg-[#92D639]/10 rounded-[3rem] blur-3xl opacity-50 animate-pulse"></div>
+                            <div className="absolute -z-10 top-10 -right-10 w-full h-full max-w-[400px] max-h-[300px] bg-[#92D639]/10 rounded-[3rem] blur-3xl opacity-50 animate-pulse"></div>
                         </div>
                     </div>
                 </div>

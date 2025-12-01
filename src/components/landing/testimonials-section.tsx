@@ -80,7 +80,7 @@ export function TestimonialsSection() {
         >
           <CarouselContent className="-ml-4">
             {testimonials.map((testimonial, index) => (
-              <CarouselItem key={index} className="pl-4 basis-1/2 md:basis-1/3 lg:basis-1/5 group">
+              <CarouselItem key={index} className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/5 group">
                 <div className="relative aspect-[9/16] w-full rounded-2xl overflow-hidden border border-white/10 shadow-lg transition-transform duration-300 group-hover:scale-105 group-hover:shadow-[#92D639]/10">
                   <Image
                     src={testimonial.videoThumbnailUrl}

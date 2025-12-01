@@ -18,6 +18,8 @@ import {
   Search,
   Download,
   UserCog,
+  ArrowRight,
+  UserPlus
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -85,6 +87,14 @@ export function GroupManagerSection() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            <div className="pt-4 flex justify-center">
+                <Button size="lg" className="group w-full sm:w-auto relative px-8 py-4 bg-[#92D639] text-black rounded-lg font-bold text-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1 h-auto">
+                  <UserPlus size={20} />
+                  Assinar Agora
+                  <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
             </div>
           </div>
         </div>

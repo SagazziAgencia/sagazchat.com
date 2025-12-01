@@ -5,6 +5,7 @@ import { MultiWhatsapp } from '@/components/landing/multi-whatsapp';
 import { WebhookSection } from '@/components/landing/webhook-section';
 import { ShortcutSection } from '@/components/landing/shortcut-section';
 import { CrmKanbanSection } from '@/components/landing/crm-kanban-section';
+import { RemarketingSection } from '@/components/landing/remarketing-section';
 
 export default function RespondeZapLanding() {
   return (
@@ -17,6 +18,7 @@ export default function RespondeZapLanding() {
         <WebhookSection />
         <ShortcutSection />
         <CrmKanbanSection />
+        <RemarketingSection />
       </main>
     </div>
   );

@@ -33,7 +33,7 @@ export function Footer() {
             </div>
         </div>
 
-        <div className="py-8 mt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-6">
+        <div className="py-8 mt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-6 text-center md:text-left">
             <div className="flex items-center gap-2">
                 <div className="w-8 h-8 bg-gradient-to-br from-[#92D639] to-[#7ab828] rounded-lg flex items-center justify-center shadow-lg shadow-[#92D639]/20">
                   <MessageCircle className="text-black w-5 h-5" />

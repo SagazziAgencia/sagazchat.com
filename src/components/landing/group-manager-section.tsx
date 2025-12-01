@@ -17,6 +17,7 @@ import {
   Lightbulb,
   Search,
   Download,
+  UserCog,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -45,6 +46,11 @@ const features = [
     icon: <Hourglass size={24} className="text-[#92D639]" />,
     title: 'Atraso Inteligente',
     description: 'Programe pausas entre os envios para simular uma comunicação mais natural e humana.',
+  },
+  {
+    icon: <UserCog size={24} className="text-[#92D639]" />,
+    title: 'Gestão por Assinatura',
+    description: 'Adicione ou remova membros automaticamente com base no status da assinatura.',
   },
 ];
 

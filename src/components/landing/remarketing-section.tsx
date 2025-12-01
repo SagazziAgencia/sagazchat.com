@@ -147,7 +147,7 @@ export const RemarketingSection = () => {
             <div className="relative z-10 w-full py-12 lg:py-20 min-h-screen flex items-center bg-[#0a0f13]">
                 <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[60%] h-[60%] bg-[#92D639]/5 rounded-full blur-[120px] pointer-events-none"></div>
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                     <div className="text-center max-w-4xl mx-auto mb-16 flex flex-col items-center">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#92D639]/10 border border-[#92D639]/30 text-[#92D639] text-[11px] font-bold uppercase tracking-wider mb-6">
                             <RefreshCw className="w-3 h-3" /> LUCRO AUTOMÁTICO
@@ -208,8 +208,9 @@ export const RemarketingSection = () => {
                                             </div>
 
                                             <div className="relative p-0 flex-1 overflow-y-auto custom-scrollbar">
-                                                <div className="absolute left-[39px] top-6 bottom-10 w-[2px] bg-[#92D639] z-0"></div>
-                                                <div className="relative z-10 grid grid-cols-12 px-6 py-4 border-b border-gray-50 bg-white items-center group hover:bg-gray-50 transition-colors">
+                                                
+                                                <div id="row1" className="relative z-10 grid grid-cols-12 px-6 py-4 border-b border-gray-50 bg-white items-center group hover:bg-gray-50 transition-colors">
+                                                    <div className="absolute left-[39px] top-full h-[calc(100%-1rem)] w-[2px] bg-[#92D639] z-0 -translate-y-1/2"></div>
                                                     <div className="col-span-4 flex items-center gap-6">
                                                         <div className="w-4 h-4 rounded-full bg-[#92D639] shrink-0 ring-4 ring-white relative z-20"></div>
                                                         <div className="flex flex-col">
@@ -229,7 +230,9 @@ export const RemarketingSection = () => {
                                                     </div>
                                                 </div>
 
-                                                <div className={cn("relative z-10 grid grid-cols-12 px-6 py-4 border-b border-gray-50 bg-white items-center transition-all duration-500", confRow2Visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4")}>
+                                                <div id="row2" className={cn("relative z-10 grid grid-cols-12 px-6 py-4 border-b border-gray-50 bg-white items-center transition-all duration-500", confRow2Visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4")}>
+                                                    <div className="absolute left-[39px] bottom-full h-full w-[2px] bg-[#92D639] z-0 translate-y-1/2"></div>
+                                                    <div className="absolute left-[39px] top-full h-full w-[2px] bg-[#92D639] z-0 -translate-y-1/2"></div>
                                                     <div className="col-span-4 flex items-center gap-6">
                                                         <div className="w-4 h-4 rounded-full bg-[#92D639] shrink-0 ring-4 ring-white relative z-20"></div>
                                                         <div className="flex flex-col">
@@ -250,6 +253,7 @@ export const RemarketingSection = () => {
                                                 </div>
 
                                                 <div className="relative z-10 flex items-center gap-4 px-6 py-4 cursor-pointer transition-transform duration-200 hover:opacity-80" style={{ transform: `scale(${btnAddScale})` }}>
+                                                     <div className="absolute left-[39px] bottom-full h-full w-[2px] bg-[#92D639] z-0 translate-y-1/2"></div>
                                                     <div className="w-4 h-4 rounded-full bg-[#92D639] flex items-center justify-center text-white shrink-0 ring-4 ring-white relative z-20 shadow-sm">
                                                         <Plus className="w-3 h-3 stroke-[3px]" />
                                                     </div>
@@ -265,13 +269,13 @@ export const RemarketingSection = () => {
                                         </div>
                                     </div>
 
-                                    <div id="view-live" className={cn("absolute inset-0 bg-[#0a0f13] p-8 pl-12 flex flex-col transition-custom min-w-[400px]", currentMode === 'live' ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10 pointer-events-none')}>
-                                        <div className="absolute left-[35px] top-8 bottom-20 w-[2px] bg-gray-800 rounded-full overflow-hidden">
+                                    <div id="view-live" className={cn("absolute inset-0 bg-[#0a0f13] p-4 sm:p-8 sm:pl-12 flex flex-col transition-custom min-w-[400px]", currentMode === 'live' ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10 pointer-events-none')}>
+                                        <div className="absolute left-[27px] sm:left-[35px] top-8 bottom-20 w-[2px] bg-gray-800 rounded-full overflow-hidden">
                                             <div id="live-progress" className="w-full bg-[#92D639]" style={{ height: `${progressHeight}%`, transition: 'height 7s linear' }}></div>
                                         </div>
                                         <div className="space-y-6 relative">
                                             <div className="relative transition-opacity duration-500" style={{opacity: stepOpacities[0]}}>
-                                                <div className="absolute -left-[30px] z-10 w-10 h-10 rounded-full bg-[#11161b] border-2 border-red-500/50 text-red-500 flex items-center justify-center">
+                                                <div className="absolute -left-[22px] sm:-left-[30px] z-10 w-10 h-10 rounded-full bg-[#11161b] border-2 border-red-500/50 text-red-500 flex items-center justify-center">
                                                     <AlertCircle className="w-5 h-5" />
                                                 </div>
                                                 <div className="pt-1 pl-4">
@@ -280,7 +284,7 @@ export const RemarketingSection = () => {
                                                 </div>
                                             </div>
                                             <div className="relative transition-opacity duration-500" style={{opacity: stepOpacities[1]}}>
-                                                <div className="absolute -left-[30px] z-10 w-10 h-10 rounded-full bg-[#11161b] border-2 border-blue-500/50 text-blue-500 flex items-center justify-center">
+                                                <div className="absolute -left-[22px] sm:-left-[30px] z-10 w-10 h-10 rounded-full bg-[#11161b] border-2 border-blue-500/50 text-blue-500 flex items-center justify-center">
                                                     <Send className="w-5 h-5 ml-0.5" />
                                                 </div>
                                                 <div className="pt-1 pl-4">
@@ -289,7 +293,7 @@ export const RemarketingSection = () => {
                                                 </div>
                                             </div>
                                             <div className="relative transition-opacity duration-500" style={{opacity: stepOpacities[2]}}>
-                                                <div className="absolute -left-[30px] z-10 w-10 h-10 rounded-full bg-[#11161b] border-2 border-yellow-500/50 text-yellow-500 flex items-center justify-center">
+                                                <div className="absolute -left-[22px] sm:-left-[30px] z-10 w-10 h-10 rounded-full bg-[#11161b] border-2 border-yellow-500/50 text-yellow-500 flex items-center justify-center">
                                                     <Clock className="w-5 h-5" />
                                                 </div>
                                                 <div className="pt-1 pl-4">
@@ -298,7 +302,7 @@ export const RemarketingSection = () => {
                                                 </div>
                                             </div>
                                             <div className="relative transition-opacity duration-500" style={{opacity: stepOpacities[3]}}>
-                                                <div className="absolute -left-[30px] z-10 w-10 h-10 rounded-full bg-[#11161b] border-2 border-purple-500/50 text-purple-500 flex items-center justify-center">
+                                                <div className="absolute -left-[22px] sm:-left-[30px] z-10 w-10 h-10 rounded-full bg-[#11161b] border-2 border-purple-500/50 text-purple-500 flex items-center justify-center">
                                                     <Zap className="w-5 h-5" />
                                                 </div>
                                                 <div className="pt-1 pl-4">
@@ -307,7 +311,7 @@ export const RemarketingSection = () => {
                                                 </div>
                                             </div>
                                             <div className="relative transition-all duration-500" style={{opacity: stepOpacities[4], transform: step5Translate ? 'translateY(0.5rem)' : 'translateY(0)'}}>
-                                                <div className="absolute -left-[30px] z-10 w-10 h-10 rounded-full bg-[#92D639] text-white flex items-center justify-center shadow-lg shadow-[#92D639]/20 transform scale-110">
+                                                <div className="absolute -left-[22px] sm:-left-[30px] z-10 w-10 h-10 rounded-full bg-[#92D639] text-white flex items-center justify-center shadow-lg shadow-[#92D639]/20 transform scale-110">
                                                     <CheckCircle2 className="w-6 h-6" />
                                                 </div>
                                                 <div className="pt-2 pl-4">

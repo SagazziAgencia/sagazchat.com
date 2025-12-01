@@ -363,4 +363,3 @@ export const FlowBuilderSection = () => {
       `}</style>
     </div>
   );
-};

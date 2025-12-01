@@ -95,18 +95,6 @@ export function GroupManagerSection() {
                 </div>
               ))}
             </div>
-
-            <div className="bg-[#92D639]/10 border-l-4 border-[#92D639] p-6 rounded-r-lg text-gray-700">
-                <div className="flex items-center gap-2 mb-3">
-                    <Lock size={16} className="text-[#82c232]" />
-                    <h4 className="font-bold text-base">Limites por Plano</h4>
-                </div>
-                <ul className="list-disc list-inside text-sm space-y-2 text-gray-600">
-                    <li><span className="font-semibold">Plano Basic:</span> Pode ativar <span className="font-bold text-gray-800">1 grupo</span> por vez.</li>
-                    <li><span className="font-semibold">Plano Pro:</span> Pode ativar até <span className="font-bold text-gray-800">3 grupos</span> simultaneamente.</li>
-                </ul>
-                <p className="text-xs text-gray-500 mt-3">Para ativar um novo grupo, desative um grupo em uso se o limite do seu plano for atingido.</p>
-            </div>
           </div>
 
           {/* Right Column */}

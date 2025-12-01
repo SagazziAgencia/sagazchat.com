@@ -14,6 +14,7 @@ import { TestimonialsSection } from '@/components/landing/testimonials-section';
 import { PricingSection } from '@/components/landing/pricing-section';
 import { SupportSection } from '@/components/landing/support-section';
 import { FaqSection } from '@/components/landing/faq-section';
+import { Footer } from '@/components/landing/footer';
 
 export default function RespondeZapLanding() {
   return (
@@ -33,6 +34,7 @@ export default function RespondeZapLanding() {
         <PricingSection />
         <SupportSection />
         <FaqSection />
+        <Footer />
       </main>
     </div>
   );

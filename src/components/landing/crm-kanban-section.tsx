@@ -117,7 +117,7 @@ export const CrmKanbanSection = () => {
 
               <div className="text-lg text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0 lg:border-l-4 border-[#92D639] lg:pl-6">
                 <p>
-                  O novo <strong>CRM Kanban</strong> do RespondeZap faz o cálculo automático de cada etapa do seu funil. Saiba exatamente quanto valor está em negociação e tome decisões baseadas em números reais.
+                  O novo <strong>CRM Kanban</strong> do Respondechat faz o cálculo automático de cada etapa do seu funil. Saiba exatamente quanto valor está em negociação e tome decisões baseadas em números reais.
                 </p>
               </div>
 

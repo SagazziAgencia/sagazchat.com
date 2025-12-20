@@ -38,7 +38,7 @@ export function Header() {
             <Button variant="outline" className="bg-white/5 border-white/10 hover:bg-white/10">
               Fale com vendas
             </Button>
-            <Button className="bg-[#92D639] text-black font-bold hover:bg-[#82c232] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#92D639]/30">
+            <Button className="bg-[#92D639] text-black font-bold text-base px-6 py-3 h-auto hover:bg-[#82c232] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#92D639]/30">
               <UserPlus size={16} /> Assinar Agora
             </Button>
           </div>
@@ -58,7 +58,7 @@ export function Header() {
           <Link href="#" className="block text-gray-300 hover:text-[#92D639] py-2">Home</Link>
           <Link href="#" className="block text-gray-300 hover:text-[#92D639] py-2">Planos</Link>
           <Link href="#" className="block text-gray-300 hover:text-[#92D639] py-2">Funcionalidades</Link>
-          <Button className="w-full mt-4 bg-[#92D639] hover:bg-[#82c232] text-black py-3 font-bold">
+          <Button className="w-full mt-4 bg-[#92D639] hover:bg-[#82c232] text-black py-3 h-auto text-base font-bold">
             Começar Agora
           </Button>
         </div>

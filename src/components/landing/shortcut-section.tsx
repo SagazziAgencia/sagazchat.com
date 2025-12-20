@@ -43,7 +43,7 @@ export const ShortcutSection = () => {
                     id: Date.now() + 1,
                     type: 'sent' as const,
                     isSystem: true,
-                    text: 'Olá! 👋 Que bom ter você aqui. O RespondeZap é especialista em automação...'
+                    text: 'Olá! 👋 Que bom ter você aqui. O Respondechat é especialista em automação...'
                 }]);
 
                 setTimeout(() => {

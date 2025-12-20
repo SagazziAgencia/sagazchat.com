@@ -71,7 +71,7 @@ export function WebhookSection() {
                         </span>
                     </h2>
                     <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
-                        Integração nativa entre <strong>Deposita.Ai</strong> e <strong>RespondeZap</strong>. Recupere vendas automaticamente sem mover um dedo.
+                        Integração nativa entre <strong>Deposita.Ai</strong> e <strong>Respondechat</strong>. Recupere vendas automaticamente sem mover um dedo.
                     </p>
                 </div>
 
@@ -119,7 +119,7 @@ export function WebhookSection() {
                                         {activeStep === 2 && <span className="text-[9px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full animate-pulse">Recebendo...</span>}
                                     </div>
                                     <p className={`text-sm leading-relaxed ${activeStep === 2 ? 'text-slate-600' : 'text-slate-400'}`}>
-                                        A plataforma envia os dados (Nome, Telefone) para o RespondeZap instantaneamente.
+                                        A plataforma envia os dados (Nome, Telefone) para o Respondechat instantaneamente.
                                     </p>
                                 </div>
                             </div>
@@ -138,7 +138,7 @@ export function WebhookSection() {
                                         {activeStep === 3 && <span className="text-[9px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-full">Enviada</span>}
                                     </div>
                                     <p className={`text-sm leading-relaxed mb-2 ${activeStep === 3 ? 'text-slate-600' : 'text-slate-400'}`}>
-                                        O RespondeZap envia a mensagem de recuperação no WhatsApp do cliente.
+                                        O Respondechat envia a mensagem de recuperação no WhatsApp do cliente.
                                     </p>
 
                                     <div className={`text-xs inline-flex items-center gap-2 bg-slate-50 px-2 py-1.5 rounded-lg border border-slate-100 text-slate-500 transition-opacity ${activeStep === 3 ? 'opacity-100' : 'opacity-40'}`}>

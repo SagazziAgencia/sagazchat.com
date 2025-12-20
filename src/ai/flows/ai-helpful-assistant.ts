@@ -8,8 +8,8 @@
  * - AIHelpfulAssistantOutput - The return type for the aiHelpfulAssistant function.
  */
 
-import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+import { ai } from '@/ai/genkit';
+import { z } from 'genkit';
 
 const AIHelpfulAssistantInputSchema = z.object({
   query: z.string().describe('The user query for the AI assistant.'),
@@ -27,9 +27,9 @@ export async function aiHelpfulAssistant(input: AIHelpfulAssistantInput): Promis
 
 const prompt = ai.definePrompt({
   name: 'aiHelpfulAssistantPrompt',
-  input: {schema: AIHelpfulAssistantInputSchema},
-  output: {schema: AIHelpfulAssistantOutputSchema},
-  prompt: `You are a helpful AI assistant on the Respondezap landing page. Answer questions about Respondezap.
+  input: { schema: AIHelpfulAssistantInputSchema },
+  output: { schema: AIHelpfulAssistantOutputSchema },
+  prompt: `You are a helpful AI assistant on the Respondechat landing page. Answer questions about Respondechat.
 
 User query: {{{query}}}`,
 });
@@ -41,7 +41,7 @@ const aiHelpfulAssistantFlow = ai.defineFlow(
     outputSchema: AIHelpfulAssistantOutputSchema,
   },
   async input => {
-    const {output} = await prompt(input);
+    const { output } = await prompt(input);
     return output!;
   }
 );

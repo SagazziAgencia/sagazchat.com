@@ -8,7 +8,7 @@ const supportItems = [
   {
     icon: <HelpCircle className="w-6 h-6 text-primary" />,
     title: 'FAQ Completo',
-    description: 'Respostas para as dúvidas mais comuns sobre a plataforma RespondeZap.',
+    description: 'Respostas para as dúvidas mais comuns sobre a plataforma Respondechat.',
     linkText: 'Acessar FAQ',
     href: '#',
   },

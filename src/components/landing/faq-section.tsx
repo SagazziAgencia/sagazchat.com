@@ -10,7 +10,7 @@ import { HelpCircle } from 'lucide-react';
 
 const faqItems = [
   {
-    question: 'Qual é o tempo médio para configurar e começar a usar o RespondeZap?',
+    question: 'Qual é o tempo médio para configurar e começar a usar o Respondechat?',
     answer: 'A configuração inicial é super rápida! Em menos de 10 minutos, você consegue conectar seu número de WhatsApp e começar a usar as funcionalidades básicas. Para criar fluxos de automação mais complexos, o tempo pode variar, mas nossa interface intuitiva de arrastar e soltar torna o processo muito ágil.',
   },
   {
@@ -23,7 +23,7 @@ const faqItems = [
   },
   {
     question: 'Como funcionam os webhooks e para que servem?',
-    answer: 'Webhooks são como "notificações automáticas" entre sistemas. Por exemplo, quando uma venda é aprovada na sua plataforma de pagamento (Hotmart, Kiwify, etc.), ela envia um webhook para o RespondeZap, que pode então iniciar um fluxo automático para enviar os dados de acesso ao cliente, tudo sem intervenção manual.',
+    answer: 'Webhooks são como "notificações automáticas" entre sistemas. Por exemplo, quando uma venda é aprovada na sua plataforma de pagamento (Hotmart, Kiwify, etc.), ela envia um webhook para o Respondechat, que pode então iniciar um fluxo automático para enviar os dados de acesso ao cliente, tudo sem intervenção manual.',
   },
   {
     question: 'Existe algum contrato de fidelidade ou posso cancelar quando quiser?',
@@ -36,9 +36,9 @@ export function FaqSection() {
     <section className="py-20 lg:py-32 bg-[#050505] text-white">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center mb-12 flex flex-col items-center">
-            <div className="mb-4 w-16 h-16 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center">
-                 <HelpCircle className="w-8 h-8 text-primary" />
-            </div>
+          <div className="mb-4 w-16 h-16 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center">
+            <HelpCircle className="w-8 h-8 text-primary" />
+          </div>
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
             Perguntas Frequentes
           </h2>

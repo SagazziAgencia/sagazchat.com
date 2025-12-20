@@ -21,9 +21,7 @@ export function Hero() {
                 Vendas Automática.
               </span>
             </h1>
-            <Button className="w-full mt-4 bg-[#92D639] hover:bg-[#82c232] text-black px-6 py-3 h-auto text-base font-bold shadow-[0_0_20px_rgba(146,214,57,0.3)]">
-              Começar Agora
-            </Button>
+
 
             <p className="mt-6 text-lg md:text-xl text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
               Comece agora dominando o <strong>WhatsApp com IA e CRM Nativo</strong>.

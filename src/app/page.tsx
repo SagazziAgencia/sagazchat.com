@@ -5,6 +5,7 @@ import { Hero } from '@/components/landing/hero';
 import { FlowBuilderSection } from '@/components/landing/flow-builder-section';
 import { FeaturesTicker } from '@/components/landing/features-ticker';
 import { MultiWhatsapp } from '@/components/landing/multi-whatsapp';
+import { InstagramSection } from '@/components/landing/instagram-section';
 import { WebhookSection } from '@/components/landing/webhook-section';
 import { ShortcutSection } from '@/components/landing/shortcut-section';
 import { CrmKanbanSection } from '@/components/landing/crm-kanban-section';
@@ -16,7 +17,7 @@ import { SupportSection } from '@/components/landing/support-section';
 import { FaqSection } from '@/components/landing/faq-section';
 import { Footer } from '@/components/landing/footer';
 
-export default function RespondeZapLanding() {
+export default function RespondechatLanding() {
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans overflow-x-hidden">
       <Header />
@@ -25,6 +26,7 @@ export default function RespondeZapLanding() {
         <FlowBuilderSection />
         <FeaturesTicker />
         <MultiWhatsapp />
+        <InstagramSection />
         <WebhookSection />
         <ShortcutSection />
         <CrmKanbanSection />

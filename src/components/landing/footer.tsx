@@ -38,7 +38,7 @@ export function Footer() {
               <MessageCircle className="text-black w-5 h-5" />
             </div>
             <span className="text-lg font-bold tracking-tight">
-              RESPONDE<span className="text-[#92D639]">ZAP.AI</span>
+              RESPONDE<span className="text-[#92D639]">CHAT.AI</span>
             </span>
           </div>
           <p className="text-sm text-gray-500 order-last md:order-none">© {new Date().getFullYear()} Todos os direitos reservados.</p>

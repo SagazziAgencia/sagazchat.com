@@ -43,7 +43,7 @@ const testimonials = [
     videoThumbnailUrl: 'https://picsum.photos/seed/t5/270/480',
     aiHint: 'man talking',
   },
-   {
+  {
     name: 'Carla Souza',
     company: 'Startup de SaaS',
     videoThumbnailUrl: 'https://picsum.photos/seed/t6/270/480',
@@ -55,19 +55,19 @@ export function TestimonialsSection() {
   return (
     <section className="py-20 lg:py-32 bg-[#050505] text-white relative">
       <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f13] via-[#050505] to-[#050505] z-0"></div>
-       <div className="absolute inset-0 bg-[radial-gradient(rgba(146,214,57,0.04)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none z-0"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(146,214,57,0.04)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none z-0"></div>
 
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#92D639]/10 border border-[#92D639]/30 text-[#92D639] text-[11px] font-bold uppercase tracking-wider mb-6">
-                <Quote size={12} fill="currentColor" /> Prova Social
-            </div>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#92D639]/10 border border-[#92D639]/30 text-[#92D639] text-[11px] font-bold uppercase tracking-wider mb-6">
+            <Quote size={12} fill="currentColor" /> Prova Social
+          </div>
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
             Quem usa, confia e <span className="text-[#92D639]">vende mais.</span>
           </h2>
           <p className="text-lg text-slate-400">
-            Veja como o RespondeZap está a transformar a operação de vendas de centenas de empresas no Brasil.
+            Veja como o Respondechat está a transformar a operação de vendas de centenas de empresas no Brasil.
           </p>
         </div>
 
@@ -90,7 +90,7 @@ export function TestimonialsSection() {
                     data-ai-hint={testimonial.aiHint}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                  
+
                   <div className="absolute inset-0 flex items-center justify-center">
                     <PlayCircle
                       size={64}
@@ -112,11 +112,11 @@ export function TestimonialsSection() {
         </Carousel>
 
         <div className="mt-16 text-center">
-            <Button size="lg" className="group w-full sm:w-auto relative px-8 py-4 bg-[#92D639] text-black rounded-lg font-bold text-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1 h-auto">
-                <UserPlus size={20} />
-                Quero vender mais também
-                <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+          <Button size="lg" className="group w-full sm:w-auto relative px-8 py-4 bg-[#92D639] text-black rounded-lg font-bold text-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1 h-auto">
+            <UserPlus size={20} />
+            Quero vender mais também
+            <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Button>
         </div>
       </div>
     </section>

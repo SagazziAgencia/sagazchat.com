@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="!scroll-smooth">
+    <html lang="pt-BR" suppressHydrationWarning>
       <body className={`${inter.className} bg-[#050505] text-white selection:bg-[#92D639] selection:text-black`}>
         <div className="fixed inset-0 z-0 pointer-events-none">
             <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[60%] h-[50%] bg-[#92D639]/10 rounded-full blur-[120px]" />

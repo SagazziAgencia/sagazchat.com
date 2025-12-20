@@ -10,29 +10,29 @@ const DepositaLogoSvgStep = () => (
     <svg viewBox="0 0 395 395" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full object-contain">
         <defs>
             <linearGradient id="pma_paint0_linear_step" x1="349.5" y1="26" x2="197.5" y2="395" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#FFA700"/>
-                <stop offset="1" stopColor="#FF8000"/>
+                <stop stopColor="#FFA700" />
+                <stop offset="1" stopColor="#FF8000" />
             </linearGradient>
             <linearGradient id="pma_paint1_linear_step" x1="26" y1="45.5" x2="348" y2="317" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#FFDB00"/>
-                <stop offset="1" stopColor="#FF6C00"/>
+                <stop stopColor="#FFDB00" />
+                <stop offset="1" stopColor="#FF6C00" />
             </linearGradient>
             <linearGradient id="pma_paint2_linear_step" x1="131.5" y1="122" x2="263.5" y2="260.5" gradientUnits="userSpaceOnUse">
-                <stop offset="0.037148" stopColor="#FFBA00" stopOpacity="0.45"/>
-                <stop offset="0.317308" stopColor="white" stopOpacity="0.82"/>
-                <stop offset="0.723197" stopColor="white"/>
-                <stop offset="0.931722" stopColor="#FF8A01" stopOpacity="0.94"/>
+                <stop offset="0.037148" stopColor="#FFBA00" stopOpacity="0.45" />
+                <stop offset="0.317308" stopColor="white" stopOpacity="0.82" />
+                <stop offset="0.723197" stopColor="white" />
+                <stop offset="0.931722" stopColor="#FF8A01" stopOpacity="0.94" />
             </linearGradient>
             <linearGradient id="pma_paint3_linear_step" x1="290.5" y1="177.5" x2="221.5" y2="311" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#FF9500"/>
-                <stop offset="0.826923" stopColor="white"/>
+                <stop stopColor="#FF9500" />
+                <stop offset="0.826923" stopColor="white" />
             </linearGradient>
         </defs>
-        <path d="M1 66C1 29.5492 30.5492 0 67 0H328C364.451 0 394 29.5492 394 66V329C394 365.451 364.451 395 328 395H67C30.5492 395 1 365.451 1 329V66Z" fill="url(#pma_paint0_linear_step)"/>
-        <path d="M66 394C29.5492 394 0 364.451 0 328L0 67C0 30.5492 29.5492 1 66 1L329 1C365.451 1 395 30.5492 395 67L395 328C395 364.451 365.451 394 329 394L66 394Z" fill="url(#pma_paint1_linear_step)"/>
-        <path d="M333.5 214.5C292.5 119 216.5 118 148.5 122.5C79.5 118.5 68.8045 83.6549 62.2216 68.5H209.5C241.1 68.5 265.667 80.8333 274 87C333.6 129 338.5 189.5 333.5 214.5Z" fill="white"/>
-        <path d="M119 272L121.001 135.5L62.0011 163.5L61 327H175.501C225.5 307.5 230.5 290 234.5 263.5C214 273 153 272.5 119 272Z" fill="url(#pma_paint2_linear_step)"/>
-        <path d="M176 327C292.5 280 291 169 258 143.5C294.5 143.5 325.5 187.5 334 216C330.47 237.822 318.5 280.5 267 311C243.892 325.325 221.489 327 176 327Z" fill="url(#pma_paint3_linear_step)"/>
+        <path d="M1 66C1 29.5492 30.5492 0 67 0H328C364.451 0 394 29.5492 394 66V329C394 365.451 364.451 395 328 395H67C30.5492 395 1 365.451 1 329V66Z" fill="url(#pma_paint0_linear_step)" />
+        <path d="M66 394C29.5492 394 0 364.451 0 328L0 67C0 30.5492 29.5492 1 66 1L329 1C365.451 1 395 30.5492 395 67L395 328C395 364.451 365.451 394 329 394L66 394Z" fill="url(#pma_paint1_linear_step)" />
+        <path d="M333.5 214.5C292.5 119 216.5 118 148.5 122.5C79.5 118.5 68.8045 83.6549 62.2216 68.5H209.5C241.1 68.5 265.667 80.8333 274 87C333.6 129 338.5 189.5 333.5 214.5Z" fill="white" />
+        <path d="M119 272L121.001 135.5L62.0011 163.5L61 327H175.501C225.5 307.5 230.5 290 234.5 263.5C214 273 153 272.5 119 272Z" fill="url(#pma_paint2_linear_step)" />
+        <path d="M176 327C292.5 280 291 169 258 143.5C294.5 143.5 325.5 187.5 334 216C330.47 237.822 318.5 280.5 267 311C243.892 325.325 221.489 327 176 327Z" fill="url(#pma_paint3_linear_step)" />
     </svg>
 );
 
@@ -47,10 +47,10 @@ export function WebhookSection() {
 
         return () => clearInterval(stepInterval);
     }, []);
-    
+
     return (
         <div className="bg-[#F8FAFC] py-20 lg:py-32 px-4 font-sans text-slate-900 selection:bg-[#92D639]/20 selection:text-slate-900 relative overflow-hidden">
-             <div 
+            <div
                 className="absolute inset-0"
                 style={{
                     backgroundImage: 'radial-gradient(#d1d5db 1px, transparent 1px), radial-gradient(circle, transparent 30%, #F8FAFC 80%)',
@@ -67,7 +67,7 @@ export function WebhookSection() {
                     <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
                         Transforme Checkouts Abandonados em<br />
                         <span className="text-[#92D639]">
-                        Dinheiro no Seu Bolso
+                            Dinheiro no Seu Bolso
                         </span>
                     </h2>
                     <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
@@ -79,17 +79,17 @@ export function WebhookSection() {
                     <div className="w-full lg:w-1/2 flex flex-col gap-8">
                         <div className="relative space-y-4 w-full">
                             <div className="absolute left-[1.65rem] top-8 bottom-8 w-px bg-slate-200 z-0"></div>
-                            <div 
+                            <div
                                 className="absolute left-[1.65rem] top-8 w-px bg-[#92D639] z-0 transition-all duration-1000 ease-in-out"
                                 style={{ height: `${Math.min((activeStep - 1) * 33.3, 100)}%` }}
                             ></div>
 
                             {/* STEP 1 */}
-                            <div 
+                            <div
                                 onClick={() => setActiveStep(1)}
                                 className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 1 ? 'border-[#92D639] shadow-lg shadow-black/5 ring-1 ring-[#92D639]/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
                             >
-                               <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-all duration-500 bg-white border border-slate-50 shadow-sm ${activeStep !== 1 ? 'grayscale opacity-70' : ''}`}>
+                                <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-all duration-500 bg-white border border-slate-50 shadow-sm ${activeStep !== 1 ? 'grayscale opacity-70' : ''}`}>
                                     <div className="w-8 h-8">
                                         <DepositaLogoSvgStep />
                                     </div>
@@ -106,7 +106,7 @@ export function WebhookSection() {
                             </div>
 
                             {/* STEP 2 */}
-                            <div 
+                            <div
                                 onClick={() => setActiveStep(2)}
                                 className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 2 ? 'border-[#92D639] shadow-lg shadow-black/5 ring-1 ring-[#92D639]/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
                             >
@@ -125,7 +125,7 @@ export function WebhookSection() {
                             </div>
 
                             {/* STEP 3 */}
-                            <div 
+                            <div
                                 onClick={() => setActiveStep(3)}
                                 className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 3 ? 'border-[#92D639] shadow-lg shadow-black/5 ring-1 ring-[#92D639]/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
                             >
@@ -148,7 +148,7 @@ export function WebhookSection() {
                             </div>
 
                             {/* STEP 4 */}
-                            <div 
+                            <div
                                 onClick={() => setActiveStep(4)}
                                 className={`group cursor-pointer relative bg-white rounded-xl p-5 border transition-all duration-300 flex gap-5 items-start z-10 ${activeStep === 4 ? 'border-[#92D639] shadow-lg shadow-black/5 ring-1 ring-[#92D639]/20 scale-[1.02]' : 'border-slate-100 shadow-sm hover:border-slate-200'}`}
                             >
@@ -167,7 +167,7 @@ export function WebhookSection() {
                             </div>
                         </div>
                         <div className="w-full mt-4">
-                            <Button size="lg" className="w-full group relative h-auto px-8 py-4 bg-[#92D639] text-black rounded-xl font-bold text-base hover:bg-[#82c232] transition-all shadow-lg shadow-[#92D639]/30 hover:shadow-xl hover:shadow-[#92D639]/40 hover:-translate-y-1">
+                            <Button size="lg" className="w-full group relative px-8 py-4 h-auto bg-[#92D639] text-black font-bold text-lg hover:bg-[#82c232] transition-all shadow-lg shadow-[#92D639]/30 hover:shadow-xl hover:shadow-[#92D639]/40 hover:-translate-y-1">
                                 <UserPlus size={20} />
                                 Assinar Agora
                                 <ArrowRight className="inline-block ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -177,7 +177,7 @@ export function WebhookSection() {
                             </p>
                         </div>
                     </div>
-                    
+
                     <div className="w-full lg:w-1/2 flex justify-center items-center">
                         <PhoneMockupAnimation />
                     </div>

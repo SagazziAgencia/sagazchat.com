@@ -14,7 +14,7 @@ export function Header() {
         <div className="flex justify-between items-center h-20">
           {/* Logo Area */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#92D639] to-[#7ab828] rounded-xl flex items-center justify-center shadow-lg shadow-[#92D639]/20">
+            <div className="w-10 h-10 bg-gradient-to-br from-[#92D639] to-[#7ab828] rounded-md flex items-center justify-center shadow-lg shadow-[#92D639]/20">
               <MessageCircle className="text-black w-6 h-6" />
             </div>
             <span className="text-2xl font-bold tracking-tight">
@@ -35,10 +35,10 @@ export function Header() {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
-             <Button variant="outline" className="bg-white/5 border-white/10 hover:bg-white/10">
+            <Button variant="outline" className="bg-white/5 border-white/10 hover:bg-white/10">
               Fale com vendas
             </Button>
-             <Button className="bg-[#92D639] text-black font-bold hover:bg-[#82c232] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#92D639]/30">
+            <Button className="bg-[#92D639] text-black font-bold hover:bg-[#82c232] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#92D639]/30">
               <UserPlus size={16} /> Assinar Agora
             </Button>
           </div>
@@ -58,7 +58,7 @@ export function Header() {
           <Link href="#" className="block text-gray-300 hover:text-[#92D639] py-2">Home</Link>
           <Link href="#" className="block text-gray-300 hover:text-[#92D639] py-2">Planos</Link>
           <Link href="#" className="block text-gray-300 hover:text-[#92D639] py-2">Funcionalidades</Link>
-          <Button className="w-full mt-4 bg-[#92D639] hover:bg-[#82c232] text-black py-3 rounded-lg font-bold">
+          <Button className="w-full mt-4 bg-[#92D639] hover:bg-[#82c232] text-black py-3 font-bold">
             Começar Agora
           </Button>
         </div>

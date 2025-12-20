@@ -131,28 +131,28 @@ export function PricingSection() {
 
   return (
     <section id="pricing" className="py-20 bg-[#050505] text-white">
-       <div className="absolute inset-0 bg-[radial-gradient(rgba(146,214,57,0.04)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none z-0"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(146,214,57,0.04)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none z-0"></div>
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#92D639]/10 border border-[#92D639]/30 text-[#92D639] text-[11px] font-bold uppercase tracking-wider mb-6">
-                <DollarSign size={12} /> Planos Flexíveis
-            </div>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#92D639]/10 border border-[#92D639]/30 text-[#92D639] text-[11px] font-bold uppercase tracking-wider mb-6">
+            <DollarSign size={12} /> Planos Flexíveis
+          </div>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
-             Um plano para cada tamanho de <span className="text-[#92D639]">ambição</span>.
+            Um plano para cada tamanho de <span className="text-[#92D639]">ambição</span>.
           </h2>
           <p className="text-lg text-gray-400 mt-4">
             Seja você um empreendedor a solo ou uma equipa em crescimento, temos o motor de vendas de que precisa.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 items-start max-w-7xl mx-auto">
-          
+
           {/* Plano Basic Interativo */}
           <div
             className='bg-card rounded-2xl p-6 flex flex-col h-full border-2 transition-all duration-300 border-white/10 shadow-lg hover:shadow-xl hover:-translate-y-2'
           >
             <div className="flex-grow pt-8">
               <h3 className="text-xl font-bold text-white mb-2">{selectedBasicPlan.name}</h3>
-              
+
               <div className="mb-4">
                 <span className="text-4xl font-extrabold text-white">R${selectedBasicPlan.price}</span>
                 <span className="text-lg font-medium text-gray-400">{selectedBasicPlan.priceSuffix}</span>
@@ -178,7 +178,7 @@ export function PricingSection() {
               {selectedBasicPlan.savings && (
                 <div className="my-4 p-3 bg-primary/10 rounded-lg text-center">
                   <p className="font-bold text-primary flex items-center justify-center gap-2 text-sm">
-                    <Zap className="h-4 w-4"/> {selectedBasicPlan.savings}
+                    <Zap className="h-4 w-4" /> {selectedBasicPlan.savings}
                   </p>
                 </div>
               )}
@@ -186,7 +186,7 @@ export function PricingSection() {
               <Button
                 asChild
                 size="lg"
-                className="group w-full relative font-bold text-base h-11 mb-6 bg-[#92D639] text-black rounded-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1"
+                className="group w-full relative font-bold text-lg px-8 py-4 h-auto mb-6 bg-[#92D639] text-black hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1"
               >
                 <a href={selectedBasicPlan.link} target="_blank" rel="noopener noreferrer">
                   <UserPlus size={20} />
@@ -194,9 +194,9 @@ export function PricingSection() {
                   <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
-              
+
               <div className="border-t my-4 border-white/10"></div>
-              
+
               <ul className="space-y-3 text-sm">
                 {basicPlanFeatures.map((feature) => {
                   let featureText: React.ReactNode;
@@ -208,7 +208,7 @@ export function PricingSection() {
                   } else {
                     featureText = feature.text;
                   }
-                  
+
                   return (
                     <li key={feature.key} className="flex items-start gap-3">
                       <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
@@ -240,7 +240,7 @@ export function PricingSection() {
               )}
               <div className={cn("flex-grow", !plan.isRecommended && "pt-8")}>
                 <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
-                
+
                 <div className="mb-4">
                   <span className="text-4xl font-extrabold text-white">R${plan.price}</span>
                   <span className="text-lg font-medium text-gray-400">{plan.priceSuffix}</span>
@@ -250,7 +250,7 @@ export function PricingSection() {
                 <Button
                   asChild
                   size="lg"
-                  className="group w-full relative font-bold text-base h-11 mb-6 bg-[#92D639] text-black rounded-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1"
+                  className="group w-full relative font-bold text-lg px-8 py-4 h-auto mb-6 bg-[#92D639] text-black hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1"
                 >
                   <a href={plan.link} target="_blank" rel="noopener noreferrer">
                     <UserPlus size={20} />
@@ -258,9 +258,9 @@ export function PricingSection() {
                     <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </Button>
-                
+
                 <div className="border-t my-4 border-white/10"></div>
-                
+
                 <ul className="space-y-3 text-sm">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-3">

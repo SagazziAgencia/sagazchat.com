@@ -6,7 +6,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { HelpCircle } from 'lucide-react';
 
 const faqItems = [
   {
@@ -33,16 +32,14 @@ const faqItems = [
 
 export function FaqSection() {
   return (
-    <section className="py-20 lg:py-32 bg-[#050505] text-white">
+    <section className="py-24 text-white section-divider">
       <div className="container mx-auto px-6 max-w-4xl">
-        <div className="text-center mb-12 flex flex-col items-center">
-            <div className="mb-4 w-16 h-16 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center">
-                 <HelpCircle className="w-8 h-8 text-primary" />
-            </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-            Perguntas Frequentes
+        <div className="text-center mb-12">
+          <p className="text-sm font-medium text-white/30 tracking-wide uppercase mb-4">FAQ</p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+            Perguntas <span className="text-gradient">frequentes</span>
           </h2>
-          <p className="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className="text-base text-white/40 mt-4 max-w-2xl mx-auto leading-relaxed">
             Tirando todas as suas dúvidas para você tomar a melhor decisão.
           </p>
         </div>
@@ -53,12 +50,12 @@ export function FaqSection() {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-card border border-white/10 rounded-xl px-6 transition-colors hover:bg-white/5"
+                className="glass-card px-6 transition-colors hover:bg-white/[0.06]"
               >
-                <AccordionTrigger className="text-left font-semibold text-base hover:no-underline">
+                <AccordionTrigger className="text-left font-semibold text-sm text-white/80 hover:no-underline">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-400 pt-2 leading-relaxed">
+                <AccordionContent className="text-white/40 pt-2 leading-relaxed text-sm">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>

@@ -18,20 +18,28 @@ import { Footer } from '@/components/landing/footer';
 
 export default function RespondeZapLanding() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-[#080808] text-white font-sans overflow-x-hidden">
       <Header />
       <main>
         <Hero />
-        <FlowBuilderSection />
         <FeaturesTicker />
-        <MultiWhatsapp />
-        <WebhookSection />
-        <ShortcutSection />
-        <CrmKanbanSection />
-        <RemarketingSection />
-        <GroupManagerSection />
-        <TestimonialsSection />
-        <PricingSection />
+        <section id="funcionalidades">
+          <FlowBuilderSection />
+          <MultiWhatsapp />
+        </section>
+        <section id="como-funciona">
+          <WebhookSection />
+          <ShortcutSection />
+          <CrmKanbanSection />
+          <RemarketingSection />
+          <GroupManagerSection />
+        </section>
+        <section id="depoimentos">
+          <TestimonialsSection />
+        </section>
+        <section id="planos">
+          <PricingSection />
+        </section>
         <SupportSection />
         <FaqSection />
         <Footer />

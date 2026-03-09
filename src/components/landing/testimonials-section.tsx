@@ -53,21 +53,15 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section className="py-20 lg:py-32 bg-[#050505] text-white relative">
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f13] via-[#050505] to-[#050505] z-0"></div>
-       <div className="absolute inset-0 bg-[radial-gradient(rgba(146,214,57,0.04)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none z-0"></div>
-
-
+    <section className="py-24 text-white relative section-divider">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#92D639]/10 border border-[#92D639]/30 text-[#92D639] text-[11px] font-bold uppercase tracking-wider mb-6">
-                <Quote size={12} fill="currentColor" /> Prova Social
-            </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
-            Quem usa, confia e <span className="text-[#92D639]">vende mais.</span>
+            <p className="text-sm font-medium text-white/30 tracking-wide uppercase mb-4">Depoimentos</p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+            Quem usa, confia e <span className="text-gradient">vende mais</span>
           </h2>
-          <p className="text-lg text-slate-400">
-            Veja como o RespondeZap está a transformar a operação de vendas de centenas de empresas no Brasil.
+          <p className="text-base text-white/40">
+            Veja como o RespondeZap está transformando a operação de vendas de centenas de empresas.
           </p>
         </div>
 
@@ -81,7 +75,7 @@ export function TestimonialsSection() {
           <CarouselContent className="-ml-4">
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index} className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/5 group">
-                <div className="relative aspect-[9/16] w-full rounded-2xl overflow-hidden border border-white/10 shadow-lg transition-transform duration-300 group-hover:scale-105 group-hover:shadow-[#92D639]/10">
+                <div className="relative aspect-[9/16] w-full rounded-2xl overflow-hidden border border-white/[0.08] transition-transform duration-300 group-hover:scale-[1.03]">
                   <Image
                     src={testimonial.videoThumbnailUrl}
                     alt={`Depoimento de ${testimonial.name}`}
@@ -111,13 +105,6 @@ export function TestimonialsSection() {
           <CarouselNext className="absolute right-[-1rem] top-1/2 -translate-y-1/2 z-10 bg-white/10 border-white/20 text-white hover:bg-white/20" />
         </Carousel>
 
-        <div className="mt-16 text-center">
-            <Button size="lg" className="group w-full sm:w-auto relative px-8 py-4 bg-[#92D639] text-black rounded-lg font-bold text-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1 h-auto">
-                <UserPlus size={20} />
-                Quero vender mais também
-                <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-        </div>
       </div>
     </section>
   );

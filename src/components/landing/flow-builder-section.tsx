@@ -75,51 +75,35 @@ export const FlowBuilderSection = () => {
   ];
 
   return (
-    <div className="min-h-screen font-sans text-white selection:bg-[#92D639] selection:text-black relative overflow-x-hidden flex flex-col justify-center bg-[#0a0f13] py-20">
-      
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(146,214,57,0.03)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none z-0"></div>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#92D639]/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <div className="font-sans text-white relative overflow-x-hidden flex flex-col justify-center py-24 section-divider">
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-        
+
         {/* CABEÇALHO */}
-        <div className="text-center max-w-4xl mx-auto mb-12 animate-fadeIn">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#92D639]/10 border border-[#92D639]/30 text-[#92D639] text-[11px] font-bold uppercase tracking-wider mb-6">
-                <Workflow size={12} /> Construtor Visual
-            </div>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+            <p className="text-sm font-medium text-white/30 tracking-wide uppercase mb-4">Construtor Visual</p>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white mb-6">
-                O Criador de Fluxos Mais <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#92D639] to-[#baff68]">
-                    Completo e Intuitivo do Brasil.
-                </span>
-            </h1>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white mb-6">
+                Crie fluxos de automação{' '}
+                <span className="text-gradient">sem escrever código</span>
+            </h2>
 
-            <p className="text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto mb-10">
-                Dê vida às suas estratégias com uma ferramenta de arrastar e soltar. Crie desde um simples "Olá" até funis de vendas complexos com integrações, tudo em uma única tela.
+            <p className="text-base text-white/40 leading-relaxed max-w-2xl mx-auto mb-10">
+                Interface de arrastar e soltar para criar desde um simples &ldquo;Olá&rdquo; até funis de vendas complexos com integrações, tudo em uma única tela.
             </p>
 
-            <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 max-w-4xl mx-auto">
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 max-w-3xl mx-auto">
                 {features.map((feature, idx) => (
                     <div key={idx} className="flex items-center gap-2">
-                        <CheckCircle2 size={16} className="text-[#92D639] shrink-0" />
-                        <span className="text-sm text-slate-300 font-medium">{feature}</span>
+                        <CheckCircle2 size={14} className="text-[#92D639]/60 shrink-0" />
+                        <span className="text-sm text-white/50">{feature}</span>
                     </div>
                 ))}
-            </div>
-
-            <div className="mt-10">
-                <Button size="lg" className="group w-full sm:w-auto relative px-8 py-4 bg-[#92D639] text-black rounded-lg font-bold text-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1 h-auto">
-                    <UserPlus size={20} />
-                    Assinar Agora
-                    <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
             </div>
         </div>
 
         {/* ÁREA VISUAL DO FLUXO */}
-        <div className="relative w-full max-w-[1100px] h-[650px] bg-[#11161b] rounded-3xl border border-gray-800 shadow-2xl overflow-hidden flex flex-col z-20 group">
+        <div className="relative w-full max-w-[1100px] h-[650px] bg-[#0c1015] rounded-2xl border border-white/[0.08] shadow-2xl shadow-black/50 overflow-hidden flex flex-col z-20 group">
             
             {/* Header */}
             <div className="h-16 border-b border-gray-200 bg-white flex items-center px-4 md:px-6 justify-between z-20 shrink-0">

@@ -91,66 +91,47 @@ export const CrmKanbanSection = () => {
   }, []);
 
   return (
-    <div className="font-sans text-white selection:bg-[#92D639] selection:text-black relative overflow-x-hidden flex flex-col justify-center py-20">
-      
-      <div className="absolute inset-0 bg-gradient-to-br from-[#050505] via-[#05100c] to-[#0a2015] z-0"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(146,214,57,0.08)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none z-0"></div>
+    <div className="font-sans text-white relative overflow-x-hidden flex flex-col justify-center py-24 section-divider">
 
-      <div className="relative z-10 w-full py-12 lg:py-0">
+      <div className="relative z-10 w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#92D639]/10 border border-[#92D639]/30 text-[#92D639] text-[11px] font-bold uppercase tracking-wider">
-                    <Layout size={12} fill="currentColor" /> Atualização CRM
-                </div>
+                <p className="text-sm font-medium text-white/30 tracking-wide uppercase mb-4">CRM Kanban</p>
 
-                <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-                    Não organize apenas leads. <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#92D639] to-[#baff68]">
-                        Organize seu dinheiro.
-                    </span>
-                </h1>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+                    Organize leads.{' '}
+                    <span className="text-gradient">Organize receita.</span>
+                </h2>
             </div>
 
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             
-            <div className="space-y-8 animate-fadeIn text-center lg:text-left order-2 lg:order-1">
+            <div className="space-y-6 text-center lg:text-left order-2 lg:order-1">
 
-                <div className="text-lg text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0 lg:border-l-4 border-[#92D639] lg:pl-6">
-                    <p>
-                        O novo <strong>CRM Kanban</strong> do RespondeZap faz o cálculo automático de cada etapa do seu funil. Saiba exatamente quanto valor está em negociação e tome decisões baseadas em números reais.
-                    </p>
-                </div>
+                <p className="text-base text-white/40 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                    CRM Kanban com cálculo automático de cada etapa do funil. Saiba exatamente quanto valor está em negociação e tome decisões baseadas em números reais.
+                </p>
 
-                <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
-                    <div className="flex items-center gap-3 bg-white/5 p-3 rounded-xl sm:bg-transparent sm:p-0">
-                        <div className="w-10 h-10 shrink-0 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                            <Calculator className="w-5 h-5 text-[#92D639]" />
+                <div className="flex flex-col sm:flex-row gap-6 pt-2 justify-center lg:justify-start">
+                    <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 shrink-0 rounded-lg bg-white/[0.06] flex items-center justify-center">
+                            <Calculator className="w-4 h-4 text-[#92D639]/60" />
                         </div>
                         <div className="text-left">
-                            <p className="font-bold text-white leading-none mb-1">Soma Automática</p>
-                            <p className="text-xs text-slate-400">Valores atualizados ao arrastar</p>
+                            <p className="font-medium text-white/80 text-sm leading-none mb-0.5">Soma automática</p>
+                            <p className="text-xs text-white/30">Valores atualizados ao arrastar</p>
                         </div>
                     </div>
-                    
-                    <div className="hidden sm:block w-px h-12 bg-white/10"></div>
 
-                    <div className="flex items-center gap-3 bg-white/5 p-3 rounded-xl sm:bg-transparent sm:p-0">
-                        <div className="w-10 h-10 shrink-0 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                            <TrendingUp className="w-5 h-5 text-[#92D639]" />
+                    <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 shrink-0 rounded-lg bg-white/[0.06] flex items-center justify-center">
+                            <TrendingUp className="w-4 h-4 text-[#92D639]/60" />
                         </div>
                         <div className="text-left">
-                            <p className="font-bold text-white leading-none mb-1">Previsibilidade</p>
-                            <p className="text-xs text-slate-400">Controle total do pipeline</p>
+                            <p className="font-medium text-white/80 text-sm leading-none mb-0.5">Previsibilidade</p>
+                            <p className="text-xs text-white/30">Controle total do pipeline</p>
                         </div>
                     </div>
-                </div>
-
-                <div className="pt-4 flex justify-center lg:justify-start">
-                    <Button size="lg" className="group w-full sm:w-auto relative px-8 py-4 bg-[#92D639] text-black rounded-lg font-bold text-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1 h-auto">
-                      <UserPlus size={20} />
-                      Assinar Agora
-                      <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </Button>
                 </div>
             </div>
 

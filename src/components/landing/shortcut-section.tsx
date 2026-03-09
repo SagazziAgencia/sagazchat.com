@@ -76,70 +76,47 @@ export const ShortcutSection = () => {
   };
 
   return (
-    <div className="min-h-screen font-sans text-white selection:bg-[#92D639] selection:text-black relative overflow-x-hidden flex flex-col justify-center">
-      
-      {/* --- Black to Green Gradient Background --- */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#050505] via-[#05100c] to-[#0a2015] z-0"></div>
-      
-      {/* --- Grid Pattern Overlay --- */}
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(146,214,57,0.08)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none z-0"></div>
+    <div className="font-sans text-white relative overflow-x-hidden flex flex-col justify-center py-24 section-divider">
 
-      {/* --- Main Content Section --- */}
-      <div className="relative z-10 w-full py-12 lg:py-0">
+      <div className="relative z-10 w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             
             {/* Left Column: Direct Explanation */}
-            <div className="space-y-8 animate-fadeIn text-center lg:text-left">
-                
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#92D639]/10 border border-[#92D639]/30 text-[#92D639] text-[11px] font-bold uppercase tracking-wider">
-                    <Zap size={12} fill="currentColor" /> Novo Recurso
-                </div>
+            <div className="space-y-6 text-center lg:text-left">
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-                    Digite um atalho. <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#92D639] to-[#baff68]">
-                        O robô faz o resto.
-                    </span>
-                </h1>
+                <p className="text-sm font-medium text-white/30 tracking-wide uppercase">Atalhos Inteligentes</p>
 
-                <div className="text-lg text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0 lg:border-l-4 border-[#92D639] lg:pl-6 text-center lg:text-left">
-                    <p>
-                        Para quem vive na correria: configure uma palavra-chave (como <code className="bg-white/10 px-1.5 py-0.5 rounded text-white font-mono text-base">!apresentacao</code>) e dispare funis inteiros de áudio, vídeo e texto instantaneamente.
-                    </p>
-                </div>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+                    Digite um atalho.{' '}
+                    <span className="text-gradient">O robô faz o resto.</span>
+                </h2>
 
-                <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
-                    <div className="flex items-center gap-3 bg-white/5 p-3 rounded-xl sm:bg-transparent sm:p-0">
-                        <div className="w-10 h-10 shrink-0 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                            <Clock className="w-5 h-5 text-[#92D639]" />
+                <p className="text-base text-white/40 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                    Configure uma palavra-chave (como <code className="bg-white/[0.08] px-1.5 py-0.5 rounded text-white/70 font-mono text-sm">!apresentacao</code>) e dispare funis inteiros de áudio, vídeo e texto instantaneamente.
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-6 pt-4 justify-center lg:justify-start">
+                    <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 shrink-0 rounded-lg bg-white/[0.06] flex items-center justify-center">
+                            <Clock className="w-4 h-4 text-[#92D639]/60" />
                         </div>
                         <div className="text-left">
-                            <p className="font-bold text-white leading-none mb-1">Economia de Tempo</p>
-                            <p className="text-xs text-slate-400">Atendimentos 10x mais rápidos</p>
+                            <p className="font-medium text-white/80 text-sm leading-none mb-0.5">10x mais rápido</p>
+                            <p className="text-xs text-white/30">Economia de tempo</p>
                         </div>
                     </div>
-                    
-                    <div className="hidden sm:block w-px h-12 bg-white/10"></div>
 
-                    <div className="flex items-center gap-3 bg-white/5 p-3 rounded-xl sm:bg-transparent sm:p-0">
-                        <div className="w-10 h-10 shrink-0 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                            <ShieldCheck className="w-5 h-5 text-[#92D639]" />
+                    <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 shrink-0 rounded-lg bg-white/[0.06] flex items-center justify-center">
+                            <ShieldCheck className="w-4 h-4 text-[#92D639]/60" />
                         </div>
                         <div className="text-left">
-                            <p className="font-bold text-white leading-none mb-1">Sem Erros</p>
-                            <p className="text-xs text-slate-400">Envio padronizado sempre</p>
+                            <p className="font-medium text-white/80 text-sm leading-none mb-0.5">Zero erros</p>
+                            <p className="text-xs text-white/30">Envio padronizado</p>
                         </div>
                     </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start">
-                     <Button size="lg" className="group w-full sm:w-auto relative px-12 py-4 bg-[#92D639] text-black rounded-lg font-bold text-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1 h-auto">
-                      <UserPlus size={20} />
-                      Assinar Agora
-                      <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </Button>
                 </div>
             </div>
 

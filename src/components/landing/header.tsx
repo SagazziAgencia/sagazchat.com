@@ -1,66 +1,101 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { MessageCircle, Menu, X, ArrowRight, UserPlus } from 'lucide-react';
+import { MessageCircle, Menu, X, ArrowRight } from 'lucide-react';
+
+const navLinks = [
+  { label: 'Funcionalidades', href: '#funcionalidades' },
+  { label: 'Como Funciona', href: '#como-funciona' },
+  { label: 'Depoimentos', href: '#depoimentos' },
+  { label: 'Planos', href: '#planos' },
+];
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="relative z-50 w-full border-b border-white/10 backdrop-blur-md bg-[#050505]/80">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled
+        ? 'bg-[#080808]/80 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/20'
+        : 'bg-transparent'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo Area */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#92D639] to-[#7ab828] rounded-xl flex items-center justify-center shadow-lg shadow-[#92D639]/20">
-              <MessageCircle className="text-black w-6 h-6" />
+        <div className="flex justify-between items-center h-16 lg:h-[72px]">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-8 h-8 bg-gradient-to-br from-[#92D639] to-[#7ab828] rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
+              <MessageCircle className="text-black w-[18px] h-[18px]" />
             </div>
-            <span className="text-2xl font-bold tracking-tight">
-              RESPONDE<span className="text-[#92D639]">ZAP.AI</span>
+            <span className="text-lg font-bold tracking-tight">
+              Responde<span className="text-[#92D639]">Zap</span>
             </span>
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="#" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Home</Link>
-            <Link href="#" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Planos</Link>
-            <Link href="#" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Funcionalidades</Link>
-            <Link href="#" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Para você</Link>
-            <Link href="#" className="text-sm font-medium text-[#92D639] hover:text-[#aaff44] transition-colors flex items-center gap-1">
-              Área do Cliente <ArrowRight size={14} />
+          <nav className="hidden lg:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="px-4 py-2 text-sm text-white/60 hover:text-white transition-colors rounded-lg hover:bg-white/[0.04]"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="hidden lg:flex items-center gap-3">
+            <Link
+              href="#"
+              className="text-sm text-white/60 hover:text-white transition-colors px-4 py-2"
+            >
+              Entrar
             </Link>
-          </div>
-
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
-             <Button variant="outline" className="bg-white/5 border-white/10 hover:bg-white/10">
-              Fale com vendas
-            </Button>
-             <Button className="bg-[#92D639] text-black font-bold hover:bg-[#82c232] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#92D639]/30">
-              <UserPlus size={16} /> Assinar Agora
+            <Button
+              size="sm"
+              className="bg-[#92D639] text-black font-semibold hover:bg-[#a3e048] transition-all h-9 px-5 rounded-lg"
+            >
+              Começar Agora
+              <ArrowRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-300 hover:text-white">
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden text-white/70 hover:text-white p-2 -mr-2"
+          >
+            {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Dropdown */}
       {isMenuOpen && (
-        <div className="md:hidden bg-[#0A0A0B] border-b border-white/10 px-4 pt-2 pb-6 space-y-4 absolute w-full shadow-2xl">
-          <Link href="#" className="block text-gray-300 hover:text-[#92D639] py-2">Home</Link>
-          <Link href="#" className="block text-gray-300 hover:text-[#92D639] py-2">Planos</Link>
-          <Link href="#" className="block text-gray-300 hover:text-[#92D639] py-2">Funcionalidades</Link>
-          <Button className="w-full mt-4 bg-[#92D639] hover:bg-[#82c232] text-black py-3 rounded-lg font-bold">
-            Começar Agora
-          </Button>
+        <div className="lg:hidden bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-white/[0.06] animate-fadeIn">
+          <div className="max-w-7xl mx-auto px-4 py-4 space-y-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="block px-4 py-3 text-white/70 hover:text-white hover:bg-white/[0.04] rounded-lg transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className="pt-3 border-t border-white/[0.06] mt-3">
+              <Button className="w-full bg-[#92D639] hover:bg-[#a3e048] text-black font-semibold h-11 rounded-lg">
+                Começar Agora
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </Button>
+            </div>
+          </div>
         </div>
       )}
     </header>

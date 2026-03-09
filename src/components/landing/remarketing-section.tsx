@@ -144,35 +144,22 @@ export const RemarketingSection = () => {
                 .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #e5e7eb; border-radius: 4px; }
             `}</style>
 
-            <div className="relative z-10 w-full py-12 lg:py-20 min-h-screen flex items-center bg-[#0a0f13]">
-                <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[60%] h-[60%] bg-[#92D639]/5 rounded-full blur-[120px] pointer-events-none"></div>
+            <div className="relative z-10 w-full py-24 flex items-center section-divider">
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                    <div className="text-center max-w-4xl mx-auto mb-16 flex flex-col items-center">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#92D639]/10 border border-[#92D639]/30 text-[#92D639] text-[11px] font-bold uppercase tracking-wider mb-6">
-                            <RefreshCw className="w-3 h-3" /> LUCRO AUTOMÁTICO
-                        </div>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white mb-2">
-                            Recupere clientes que não <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#92D639] to-[#baff68]">
-                                compraram de primeira.
-                            </span>
-                        </h1>
+                    <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
+                        <p className="text-sm font-medium text-white/30 tracking-wide uppercase mb-4">Remarketing</p>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
+                            Recupere clientes que{' '}
+                            <span className="text-gradient">não compraram de primeira</span>
+                        </h2>
                     </div>
 
                     <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-                        <div className="space-y-8 text-center lg:text-left">
-                            <div className="text-lg text-slate-400 leading-relaxed border-l-4 border-[#92D639] pl-6 text-left space-y-6 max-w-lg mx-auto lg:mx-0">
-                                <p>Nem todo mundo compra no primeiro contato. O remarketing traz esses clientes de volta.</p>
-                                <p>Configure fluxos que identificam quem demonstrou interesse e envie a mensagem certa para reengajar. Transforme o "talvez depois" em venda fechada, automaticamente.</p>
-                            </div>
-                            <div className="flex justify-center lg:justify-start gap-4 pt-4">
-                                <Button size="lg" className="group w-full sm:w-auto relative px-8 py-4 bg-[#92D639] text-black rounded-lg font-bold text-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1 h-auto">
-                                    <UserPlus size={20} />
-                                    Assinar Agora
-                                    <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </Button>
-                            </div>
+                        <div className="space-y-6 text-center lg:text-left">
+                            <p className="text-base text-white/40 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                                Nem todo mundo compra no primeiro contato. Configure fluxos que identificam quem demonstrou interesse e envie a mensagem certa para reengajar automaticamente.
+                            </p>
                         </div>
 
                         <div className="relative flex justify-center lg:justify-end h-auto lg:h-[550px] items-center">

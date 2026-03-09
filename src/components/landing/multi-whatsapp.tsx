@@ -138,19 +138,20 @@ export function MultiWhatsapp() {
 
 
   return (
-    <section className="py-20 lg:py-32 bg-white text-gray-800 relative bg-pattern">
-      <div className="pattern-mask"></div>
+    <section className="py-24 relative section-divider">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center gap-12">
-        
-        {/* TOPO: Texto Centralizado */}
-        <div className="text-center max-w-4xl mx-auto mb-8 animate-fade-in-up">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-4 text-gray-900">
-                Múltiplos WhatsApps.<br/>
-                <span className="text-[#92D639]">Uma única tela.</span>
-            </h1>
 
-            <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-                Centralize seu <span className="font-bold text-gray-800">time comercial</span> em uma <span className="font-bold text-gray-800">única tela</span>. Monitore atendimentos, elimine gargalos e transforme seu WhatsApp em uma <span className="font-bold text-gray-800">máquina de lucro previsível</span>.
+        {/* TOPO: Texto Centralizado */}
+        <div className="text-center max-w-3xl mx-auto mb-4">
+            <p className="text-sm font-medium text-white/30 tracking-wide uppercase mb-4">Multi-Atendimento</p>
+
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight mb-4 text-white">
+                Múltiplos WhatsApps.{' '}
+                <span className="text-gradient">Uma única tela.</span>
+            </h2>
+
+            <p className="text-base text-white/40 leading-relaxed max-w-2xl mx-auto">
+                Centralize seu time comercial, monitore atendimentos e elimine gargalos com visibilidade total.
             </p>
         </div>
 
@@ -291,51 +292,27 @@ export function MultiWhatsapp() {
                 </div>
             </div>
 
-            {/* COLUNA 2 (DIREITA): 4 Benefícios em Grid + CTA */}
-            <div className="flex flex-col gap-8 order-1 lg:order-2 w-full max-w-[500px] lg:max-w-none mx-auto lg:pl-2 animate-fade-in-up" style={{animationDelay: '300ms'}}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4"> 
-                    <BenefitCard icon={<Layers />} title="Fim da Mistura de Conversas" iconBg="bg-[#92D639]/10" iconColor="text-[#92D639]">
+            {/* COLUNA 2 (DIREITA): 4 Benefícios em Grid */}
+            <div className="flex flex-col gap-6 order-1 lg:order-2 w-full max-w-[500px] lg:max-w-none mx-auto lg:pl-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <BenefitCard icon={<Layers />} title="Conversas organizadas">
                         Cada departamento tem seu espaço. Separe vendas de suporte e mantenha tudo organizado.
                     </BenefitCard>
-                    <BenefitCard icon={<BarChart />} title="Decisões Baseadas em Dados" iconBg="bg-gray-100" iconColor="text-gray-600">
-                        Com tudo centralizado, veja gargalos, tempos de resposta e performance real da equipe.
+                    <BenefitCard icon={<BarChart />} title="Decisões com dados">
+                        Veja gargalos, tempos de resposta e performance real da equipe em tempo real.
                     </BenefitCard>
-                    <BenefitCard icon={<Briefcase />} title="Profissionalismo Total" iconBg="bg-[#92D639]/10" iconColor="text-[#92D639]">
-                        Transmita confiança. Uma operação organizada reflete profissionalismo e aumenta o fechamento.
+                    <BenefitCard icon={<Briefcase />} title="Operação profissional">
+                        Uma operação organizada reflete profissionalismo e aumenta o fechamento.
                     </BenefitCard>
-                    <BenefitCard icon={<Eye />} title="Auditoria em Tempo Real" iconBg="bg-purple-100" iconColor="text-purple-600">
-                        Monitore o que sua equipe fala. Corrija erros na hora e garanta o padrão de qualidade do seu atendimento.
+                    <BenefitCard icon={<Eye />} title="Auditoria em tempo real">
+                        Monitore o que sua equipe fala e garanta o padrão de qualidade do atendimento.
                     </BenefitCard>
-                </div>
-                <div className="w-full">
-                     <Button size="lg" className="w-full group relative h-auto px-8 py-4 bg-[#92D639] text-black rounded-xl font-bold text-base hover:bg-[#82c232] transition-all shadow-lg shadow-[#92D639]/30 hover:shadow-xl hover:shadow-[#92D639]/40 hover:-translate-y-1">
-                        <UserPlus size={20} />
-                        Assinar Agora
-                        <ArrowRight className="inline-block ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                    <p className="text-gray-500 text-xs mt-3 text-center flex items-center justify-center gap-1.5">
-                        <ShieldCheck className="w-3.5 h-3.5 text-[#92D639]" /> 7 dias de garantia.
-                    </p>
                 </div>
             </div>
 
         </div>
       </div>
        <style jsx>{`
-        .bg-pattern {
-            background-image: radial-gradient(#e5e7eb 1.5px, transparent 1.5px);
-            background-size: 24px 24px;
-        }
-        .pattern-mask {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, transparent 0%, white 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
         .slider-container {
             display: flex;
             transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
@@ -386,20 +363,16 @@ const BenefitCard = ({
   icon,
   title,
   children,
-  iconBg,
-  iconColor,
 }: {
   icon: React.ReactNode;
   title: string;
   children: React.ReactNode;
-  iconBg: string;
-  iconColor: string;
 }) => (
-    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all hover:border-[#92D639]/30 group h-full">
-        <div className={`w-10 h-10 rounded-lg ${iconBg} flex items-center justify-center ${iconColor} mb-3`}>
+    <div className="glass-card p-5 hover:border-white/[0.12] transition-all group h-full">
+        <div className="w-9 h-9 rounded-lg bg-white/[0.06] flex items-center justify-center text-[#92D639]/70 mb-3">
             {icon}
         </div>
-        <h4 className="font-bold text-gray-900 text-base mb-1">{title}</h4>
-        <p className="text-xs text-gray-500 leading-relaxed">{children}</p>
+        <h4 className="font-semibold text-white text-sm mb-1.5">{title}</h4>
+        <p className="text-xs text-white/35 leading-relaxed">{children}</p>
     </div>
 );

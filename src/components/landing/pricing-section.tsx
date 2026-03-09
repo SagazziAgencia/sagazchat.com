@@ -130,25 +130,22 @@ export function PricingSection() {
   const formatNumber = (num: number) => new Intl.NumberFormat('pt-BR').format(num);
 
   return (
-    <section id="pricing" className="py-20 bg-[#050505] text-white">
-       <div className="absolute inset-0 bg-[radial-gradient(rgba(146,214,57,0.04)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none z-0"></div>
+    <section id="pricing" className="py-24 text-white section-divider">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#92D639]/10 border border-[#92D639]/30 text-[#92D639] text-[11px] font-bold uppercase tracking-wider mb-6">
-                <DollarSign size={12} /> Planos Flexíveis
-            </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
-             Um plano para cada tamanho de <span className="text-[#92D639]">ambição</span>.
+            <p className="text-sm font-medium text-white/30 tracking-wide uppercase mb-4">Planos Flexíveis</p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight">
+             Um plano para cada tamanho de <span className="text-gradient">ambição</span>.
           </h2>
-          <p className="text-lg text-gray-400 mt-4">
-            Seja você um empreendedor a solo ou uma equipa em crescimento, temos o motor de vendas de que precisa.
+          <p className="text-base text-white/40 mt-4 leading-relaxed">
+            Seja você um empreendedor solo ou uma equipe em crescimento, temos o motor de vendas de que precisa.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 items-start max-w-7xl mx-auto">
           
           {/* Plano Basic Interativo */}
           <div
-            className='bg-card rounded-2xl p-6 flex flex-col h-full border-2 transition-all duration-300 border-white/10 shadow-lg hover:shadow-xl hover:-translate-y-2'
+            className='glass-card p-6 flex flex-col h-full transition-all duration-300 hover:border-white/[0.12] hover:-translate-y-1'
           >
             <div className="flex-grow pt-8">
               <h3 className="text-xl font-bold text-white mb-2">{selectedBasicPlan.name}</h3>
@@ -225,10 +222,10 @@ export function PricingSection() {
             <div
               key={index}
               className={cn(
-                'bg-card rounded-2xl p-6 flex flex-col h-full border-2 transition-all duration-300',
+                'glass-card p-6 flex flex-col h-full transition-all duration-300',
                 plan.isRecommended
-                  ? 'border-primary lg:scale-105 shadow-2xl shadow-primary/10'
-                  : 'border-white/10 shadow-lg hover:shadow-xl hover:-translate-y-2'
+                  ? 'border-[#92D639]/30 lg:scale-105 shadow-2xl shadow-[#92D639]/10'
+                  : 'hover:border-white/[0.12] hover:-translate-y-1'
               )}
             >
               {plan.isRecommended && (

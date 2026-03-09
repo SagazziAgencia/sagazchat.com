@@ -3,7 +3,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Facebook, Instagram, Linkedin, MessageCircle } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -15,37 +14,38 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export function Footer() {
   return (
-    <footer className="bg-[#0A0F13] text-white pt-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#11161B] border border-white/10 rounded-2xl p-8 lg:p-12">
-            <div className="grid lg:grid-cols-1 gap-8 items-center">
-                <div className="space-y-6 text-center">
-                    <h2 className="text-3xl md:text-4xl font-extrabold">Fale com um Especialista Agora</h2>
-                    <p className="text-gray-400 max-w-lg mx-auto">
-                        Clique no botão e seja direcionado para o WhatsApp. Nossa equipe está pronta para tirar suas dúvidas e criar um plano de ação para o seu negócio.
-                    </p>
-                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-auto px-6 py-3 text-base font-bold">
-                        <WhatsAppIcon className="w-5 h-5 mr-2" />
-                        Iniciar Conversa no WhatsApp
-                    </Button>
-                </div>
+    <footer className="text-white pt-24 pb-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="glass-card p-8 lg:p-12">
+            <div className="text-center space-y-6">
+                <p className="text-sm font-medium text-white/30 tracking-wide uppercase">Fale Conosco</p>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                    Fale com um <span className="text-gradient">especialista</span>
+                </h2>
+                <p className="text-base text-white/40 max-w-lg mx-auto leading-relaxed">
+                    Clique no botão e seja direcionado para o WhatsApp. Nossa equipe está pronta para tirar suas dúvidas.
+                </p>
+                <Button size="lg" className="bg-[#92D639] hover:bg-[#82c232] text-black h-auto px-6 py-3 text-sm font-bold rounded-xl transition-all shadow-[0_0_20px_rgba(146,214,57,0.3)] hover:shadow-[0_0_30px_rgba(146,214,57,0.5)]">
+                    <WhatsAppIcon className="w-5 h-5 mr-2" />
+                    Iniciar Conversa no WhatsApp
+                </Button>
             </div>
         </div>
 
-        <div className="py-8 mt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-6 text-center md:text-left">
+        <div className="py-8 mt-12 border-t border-white/[0.06] flex flex-col md:flex-row justify-between items-center gap-8 md:gap-6 text-center md:text-left">
             <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-[#92D639] to-[#7ab828] rounded-lg flex items-center justify-center shadow-lg shadow-[#92D639]/20">
-                  <MessageCircle className="text-black w-5 h-5" />
+                <div className="w-7 h-7 bg-gradient-to-br from-[#92D639] to-[#7ab828] rounded-lg flex items-center justify-center">
+                  <MessageCircle className="text-black w-4 h-4" />
                 </div>
-                <span className="text-lg font-bold tracking-tight">
-                  RESPONDE<span className="text-[#92D639]">ZAP.AI</span>
+                <span className="text-sm font-bold tracking-tight text-white/60">
+                  RespondeZap
                 </span>
             </div>
-            <p className="text-sm text-gray-500 order-last md:order-none">© {new Date().getFullYear()} Todos os direitos reservados.</p>
+            <p className="text-xs text-white/25 order-last md:order-none">&copy; {new Date().getFullYear()} Todos os direitos reservados.</p>
             <div className="flex items-center gap-4">
-                <Link href="#" className="text-gray-500 hover:text-white"><Facebook size={20} /></Link>
-                <Link href="#" className="text-gray-500 hover:text-white"><Instagram size={20} /></Link>
-                <Link href="#" className="text-gray-500 hover:text-white"><Linkedin size={20} /></Link>
+                <Link href="#" className="text-white/25 hover:text-white/60 transition-colors"><Facebook size={18} /></Link>
+                <Link href="#" className="text-white/25 hover:text-white/60 transition-colors"><Instagram size={18} /></Link>
+                <Link href="#" className="text-white/25 hover:text-white/60 transition-colors"><Linkedin size={18} /></Link>
             </div>
         </div>
       </div>

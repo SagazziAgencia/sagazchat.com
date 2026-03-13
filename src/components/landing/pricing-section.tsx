@@ -1,6 +1,7 @@
 'use client';
 
-import { CheckCircle, Zap, ArrowRight, UserPlus, DollarSign, Sparkles, Crown, Bot, Instagram } from 'lucide-react';
+import { CheckCircle, Zap, ArrowRight, DollarSign, Crown, Brain, Instagram } from 'lucide-react';
+import { AnimateIn } from '@/components/ui/animate-in';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import React, { useState, useMemo } from 'react';
@@ -265,7 +266,7 @@ export function PricingSection() {
     onSelectChange: (value: string) => void;
     plansData: typeof basicPlansData;
     features: typeof basicPlanFeatures;
-    icon: typeof Sparkles;
+    icon: typeof Zap;
     isRecommended?: boolean;
   }) => (
     <div
@@ -273,20 +274,20 @@ export function PricingSection() {
         'group relative rounded-xl flex flex-col h-full transition-all duration-500',
         'bg-gradient-to-b from-[#0d0d0d] to-[#0a0a0a]',
         'border border-white/[0.08]',
-        'hover:border-[#92D639]/30 hover:shadow-[0_0_60px_-15px_rgba(146,214,57,0.3)]',
-        isRecommended && 'border-[#92D639]/50 shadow-[0_0_80px_-20px_rgba(146,214,57,0.4)] scale-[1.02] lg:scale-105'
+        'hover:border-primary/30 hover:shadow-[0_0_60px_-15px_rgba(146,214,57,0.3)]',
+        isRecommended && 'border-primary/50 shadow-[0_0_80px_-20px_rgba(146,214,57,0.4)] scale-[1.02] lg:scale-105'
       )}
     >
       {/* Subtle glow effect */}
-      <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-[#92D639]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       {/* Recommended badge */}
       {isRecommended && (
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
           <div className="relative">
-            <div className="absolute inset-0 bg-[#92D639] blur-lg opacity-50" />
-            <span className="relative flex items-center gap-1.5 bg-gradient-to-r from-[#92D639] to-[#7BC62B] text-black text-xs font-bold py-2 px-5 rounded-full shadow-lg">
-              <Crown size={14} className="animate-pulse" />
+            <div className="absolute inset-0 bg-primary blur-lg opacity-50" />
+            <span className="relative flex items-center gap-1.5 bg-gradient-to-r from-primary to-[#7BC62B] text-black text-xs font-bold py-2 px-5 rounded-full shadow-lg">
+              <Crown size={14} />
               RECOMENDADO
             </span>
           </div>
@@ -297,10 +298,10 @@ export function PricingSection() {
         {/* Icon badge */}
         <div className={cn(
           "w-12 h-12 rounded-2xl flex items-center justify-center mb-5",
-          "bg-gradient-to-br from-[#92D639]/20 to-[#92D639]/5",
-          "border border-[#92D639]/20"
+          "bg-gradient-to-br from-primary/20 to-primary/5",
+          "border border-primary/20"
         )}>
-          <Icon className="w-6 h-6 text-[#92D639]" />
+          <Icon className="w-6 h-6 text-primary" />
         </div>
 
         {/* Plan name */}
@@ -323,12 +324,12 @@ export function PricingSection() {
             Número de Conexões
           </label>
           <Select value={selectValue} onValueChange={onSelectChange}>
-            <SelectTrigger className="w-full bg-[#111111] border-white/10 hover:border-[#92D639]/30 transition-colors rounded-xl h-11">
+            <SelectTrigger className="w-full bg-[#111111] border-white/10 text-white hover:border-primary/30 transition-colors rounded-xl h-11">
               <SelectValue placeholder="Selecione..." />
             </SelectTrigger>
-            <SelectContent className="bg-[#111111] border-white/10">
+            <SelectContent className="bg-[#111111] border-white/10 text-white">
               {plansData.map(p => (
-                <SelectItem key={p.id} value={p.id} className="hover:bg-[#92D639]/10">
+                <SelectItem key={p.id} value={p.id} className="text-white hover:bg-primary/10 focus:bg-primary/10 focus:text-white">
                   {p.connections} Conexão(ões)
                 </SelectItem>
               ))}
@@ -338,8 +339,8 @@ export function PricingSection() {
 
         {/* Savings badge */}
         {plan.savings && (
-          <div className="mb-5 p-3 bg-[#92D639]/10 rounded-xl border border-[#92D639]/20">
-            <p className="font-bold text-[#92D639] flex items-center justify-center gap-2 text-sm">
+          <div className="mb-5 p-3 bg-primary/10 rounded-xl border border-primary/20">
+            <p className="font-bold text-primary flex items-center justify-center gap-2 text-sm">
               <Zap className="h-4 w-4 fill-current" />
               {plan.savings}
             </p>
@@ -352,13 +353,12 @@ export function PricingSection() {
           size="lg"
           className={cn(
             "group/btn w-full relative font-bold text-sm h-11 mb-5 rounded-lg overflow-hidden",
-            "bg-gradient-to-r from-[#92D639] to-[#7BC62B] text-black",
+            "bg-gradient-to-r from-primary to-[#7BC62B] text-black",
             "hover:shadow-[0_0_30px_rgba(146,214,57,0.5)]",
             "transition-all duration-300"
           )}
         >
           <a href={plan.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-            <UserPlus size={18} />
             <span>Assinar Agora</span>
             <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
           </a>
@@ -382,8 +382,8 @@ export function PricingSection() {
 
             return (
               <li key={feature.key} className="flex items-start gap-3 group/item">
-                <div className="w-5 h-5 rounded-full bg-[#92D639]/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-[#92D639]/20 transition-colors">
-                  <CheckCircle className="h-3 w-3 text-[#92D639]" />
+                <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-primary/20 transition-colors">
+                  <CheckCircle className="h-3 w-3 text-primary" />
                 </div>
                 <span className="text-gray-400 group-hover/item:text-gray-300 transition-colors">{featureText}</span>
               </li>
@@ -409,7 +409,7 @@ export function PricingSection() {
     onSelectChange: (value: string) => void;
     plansData: typeof basicPlansData;
     extras: typeof proPlanExtras;
-    icon: typeof Sparkles;
+    icon: typeof Zap;
     isRecommended?: boolean;
   }) => (
     <div
@@ -417,20 +417,20 @@ export function PricingSection() {
         'group relative rounded-xl flex flex-col h-full transition-all duration-500',
         'bg-gradient-to-b from-[#0d0d0d] to-[#0a0a0a]',
         'border border-white/[0.08]',
-        'hover:border-[#92D639]/30 hover:shadow-[0_0_60px_-15px_rgba(146,214,57,0.3)]',
-        isRecommended && 'border-[#92D639]/50 shadow-[0_0_80px_-20px_rgba(146,214,57,0.4)] scale-[1.02] lg:scale-105'
+        'hover:border-primary/30 hover:shadow-[0_0_60px_-15px_rgba(146,214,57,0.3)]',
+        isRecommended && 'border-primary/50 shadow-[0_0_80px_-20px_rgba(146,214,57,0.4)] scale-[1.02] lg:scale-105'
       )}
     >
       {/* Subtle glow effect */}
-      <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-[#92D639]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       {/* Recommended badge */}
       {isRecommended && (
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
           <div className="relative">
-            <div className="absolute inset-0 bg-[#92D639] blur-lg opacity-50" />
-            <span className="relative flex items-center gap-1.5 bg-gradient-to-r from-[#92D639] to-[#7BC62B] text-black text-xs font-bold py-2 px-5 rounded-full shadow-lg">
-              <Crown size={14} className="animate-pulse" />
+            <div className="absolute inset-0 bg-primary blur-lg opacity-50" />
+            <span className="relative flex items-center gap-1.5 bg-gradient-to-r from-primary to-[#7BC62B] text-black text-xs font-bold py-2 px-5 rounded-full shadow-lg">
+              <Crown size={14} />
               RECOMENDADO
             </span>
           </div>
@@ -441,10 +441,10 @@ export function PricingSection() {
         {/* Icon badge */}
         <div className={cn(
           "w-12 h-12 rounded-2xl flex items-center justify-center mb-5",
-          "bg-gradient-to-br from-[#92D639]/20 to-[#92D639]/5",
-          "border border-[#92D639]/20"
+          "bg-gradient-to-br from-primary/20 to-primary/5",
+          "border border-primary/20"
         )}>
-          <Icon className="w-6 h-6 text-[#92D639]" />
+          <Icon className="w-6 h-6 text-primary" />
         </div>
 
         {/* Plan name */}
@@ -467,12 +467,12 @@ export function PricingSection() {
             Número de Conexões
           </label>
           <Select value={selectValue} onValueChange={onSelectChange}>
-            <SelectTrigger className="w-full bg-[#111111] border-white/10 hover:border-[#92D639]/30 transition-colors rounded-xl h-11">
+            <SelectTrigger className="w-full bg-[#111111] border-white/10 text-white hover:border-primary/30 transition-colors rounded-xl h-11">
               <SelectValue placeholder="Selecione..." />
             </SelectTrigger>
-            <SelectContent className="bg-[#111111] border-white/10">
+            <SelectContent className="bg-[#111111] border-white/10 text-white">
               {plansData.map(p => (
-                <SelectItem key={p.id} value={p.id} className="hover:bg-[#92D639]/10">
+                <SelectItem key={p.id} value={p.id} className="text-white hover:bg-primary/10 focus:bg-primary/10 focus:text-white">
                   {p.connections} Conexão(ões)
                 </SelectItem>
               ))}
@@ -482,8 +482,8 @@ export function PricingSection() {
 
         {/* Savings badge */}
         {plan.savings && (
-          <div className="mb-5 p-3 bg-[#92D639]/10 rounded-xl border border-[#92D639]/20">
-            <p className="font-bold text-[#92D639] flex items-center justify-center gap-2 text-sm">
+          <div className="mb-5 p-3 bg-primary/10 rounded-xl border border-primary/20">
+            <p className="font-bold text-primary flex items-center justify-center gap-2 text-sm">
               <Zap className="h-4 w-4 fill-current" />
               {plan.savings}
             </p>
@@ -496,13 +496,12 @@ export function PricingSection() {
           size="lg"
           className={cn(
             "group/btn w-full relative font-bold text-sm h-11 mb-5 rounded-lg overflow-hidden",
-            "bg-gradient-to-r from-[#92D639] to-[#7BC62B] text-black",
+            "bg-gradient-to-r from-primary to-[#7BC62B] text-black",
             "hover:shadow-[0_0_30px_rgba(146,214,57,0.5)]",
             "transition-all duration-300"
           )}
         >
           <a href={plan.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-            <UserPlus size={18} />
             <span>Assinar Agora</span>
             <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
           </a>
@@ -514,7 +513,7 @@ export function PricingSection() {
         {/* Base plan indicator */}
         <div className="mb-4 p-3 bg-white/5 rounded-xl border border-white/10">
           <p className="text-sm font-semibold text-white flex items-center gap-2">
-            <CheckCircle className="h-4 w-4 text-[#92D639]" />
+            <CheckCircle className="h-4 w-4 text-primary" />
             Tudo do {extras.basePlan} +
           </p>
         </div>
@@ -523,10 +522,10 @@ export function PricingSection() {
         <ul className="space-y-3 text-sm flex-grow">
           {extras.features.map((feature, i) => (
             <li key={i} className="flex items-start gap-3 group/item">
-              <div className="w-5 h-5 rounded-full bg-[#92D639]/20 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-[#92D639]/30 transition-colors">
-                <Sparkles className="h-3 w-3 text-[#92D639]" />
+              <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-primary/30 transition-colors">
+                <CheckCircle className="h-3 w-3 text-primary" />
               </div>
-              <span className="text-white font-medium group-hover/item:text-[#92D639] transition-colors">{feature}</span>
+              <span className="text-white font-medium group-hover/item:text-primary transition-colors">{feature}</span>
             </li>
           ))}
         </ul>
@@ -535,41 +534,39 @@ export function PricingSection() {
   );
 
   return (
-    <section id="pricing" className="py-24 bg-[#050505] text-white relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(146,214,57,0.03)_1px,transparent_1px)] [background-size:40px_40px] pointer-events-none" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#92D639]/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#92D639]/5 rounded-full blur-[120px] pointer-events-none" />
+    <section id="pricing" className="py-24 bg-slate-50 relative overflow-hidden">
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
+        <AnimateIn>
         <div className="text-center mb-20 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#92D639]/10 border border-[#92D639]/20 text-[#92D639] text-xs font-bold uppercase tracking-widest mb-6 backdrop-blur-sm">
-            <DollarSign size={14} />
-            Invista no seu Crescimento
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-6">
+            Planos
+          </p>
+          <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900 mb-6">
             Escolha o plano ideal e<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#92D639] to-[#B8E86C]">comece a vender mais</span>
+            <span className="text-primary">comece a vender mais</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-xl mx-auto">
+          <p className="text-base text-slate-600 max-w-xl mx-auto">
             Todos os planos incluem acesso completo à plataforma. Cancele quando quiser, sem fidelidade.
           </p>
         </div>
+        </AnimateIn>
 
         {/* Toggle WhatsApp vs WhatsApp + Instagram */}
+        <AnimateIn from="scale" delay={150}>
         <div className="flex justify-center mb-12">
-          <div className="inline-flex items-center p-1 rounded-xl bg-[#111111] border border-white/10">
+          <div className="inline-flex items-center p-1 rounded-xl bg-white border border-slate-200 shadow-sm">
             <button
               onClick={() => setIncludeInstagram(false)}
               className={cn(
                 "flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300",
                 !includeInstagram
-                  ? "bg-[#92D639] text-black shadow-lg"
-                  : "text-gray-400 hover:text-white"
+                  ? "bg-primary text-white shadow-sm"
+                  : "text-slate-500 hover:text-slate-900"
               )}
             >
-              <Sparkles size={16} />
+              <Zap size={16} />
               Só WhatsApp
             </button>
             <button
@@ -577,8 +574,8 @@ export function PricingSection() {
               className={cn(
                 "flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300",
                 includeInstagram
-                  ? "bg-gradient-to-r from-[#E1306C] to-[#F77737] text-white shadow-lg"
-                  : "text-gray-400 hover:text-white"
+                  ? "bg-gradient-to-r from-[#E1306C] to-[#F77737] text-white shadow-sm"
+                  : "text-slate-500 hover:text-slate-900"
               )}
             >
               <Instagram size={16} />
@@ -586,8 +583,10 @@ export function PricingSection() {
             </button>
           </div>
         </div>
+        </AnimateIn>
 
         {/* Pricing Cards Grid */}
+        <AnimateIn delay={300} duration={800}>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch max-w-7xl mx-auto">
 
           {!includeInstagram ? (
@@ -601,7 +600,7 @@ export function PricingSection() {
                 onSelectChange={setSelectedBasicId}
                 plansData={basicPlansData}
                 features={basicPlanFeatures}
-                icon={Sparkles}
+                icon={Zap}
               />
 
               {/* PRO Plan */}
@@ -622,7 +621,7 @@ export function PricingSection() {
                 onSelectChange={setSelectedBasicIaId}
                 plansData={basicIaPlansData}
                 extras={basicIaExtras}
-                icon={Bot}
+                icon={Brain}
               />
 
               {/* PRO + IA Plan */}
@@ -632,7 +631,7 @@ export function PricingSection() {
                 onSelectChange={setSelectedProIaId}
                 plansData={proIaPlansData}
                 extras={proIaExtras}
-                icon={Bot}
+                icon={Brain}
               />
             </>
           ) : (
@@ -667,7 +666,7 @@ export function PricingSection() {
                 onSelectChange={setSelectedBasicIaInstaId}
                 plansData={basicIaInstaPlansData}
                 extras={basicIaInstaExtras}
-                icon={Bot}
+                icon={Brain}
               />
 
               {/* PRO + IA + Instagram Plan */}
@@ -677,12 +676,15 @@ export function PricingSection() {
                 onSelectChange={setSelectedProIaInstaId}
                 plansData={proIaInstaPlansData}
                 extras={proIaInstaExtras}
-                icon={Bot}
+                icon={Brain}
               />
             </>
           )}
         </div>
+        </AnimateIn>
       </div>
     </section>
   );
 }
+
+

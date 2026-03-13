@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Facebook, Instagram, Linkedin, MessageCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Logo } from '../brand/logo';
+import { AnimateIn } from '@/components/ui/animate-in';
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -15,9 +17,10 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export function Footer() {
   return (
-    <footer className="bg-[#0A0F13] text-white pt-20">
+    <footer className="bg-slate-900 text-white pt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#11161B] border border-white/10 rounded-2xl p-8 lg:p-12">
+        <AnimateIn from="scale" duration={700}>
+        <div className="bg-slate-800 border border-slate-700 rounded-2xl p-8 lg:p-12">
           <div className="grid lg:grid-cols-1 gap-8 items-center">
             <div className="space-y-6 text-center">
               <h2 className="text-3xl md:text-4xl font-extrabold">Fale com um Especialista Agora</h2>
@@ -31,24 +34,31 @@ export function Footer() {
             </div>
           </div>
         </div>
+        </AnimateIn>
 
-        <div className="py-8 mt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-6 text-center md:text-left">
+        <AnimateIn delay={200}>
+        <div className="py-8 mt-12 border-t border-slate-700 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-6 text-center md:text-left">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-[#92D639] to-[#7ab828] rounded-lg flex items-center justify-center shadow-lg shadow-[#92D639]/20">
-              <MessageCircle className="text-black w-5 h-5" />
-            </div>
-            <span className="text-lg font-bold tracking-tight">
-              RESPONDE<span className="text-[#92D639]">CHAT.AI</span>
-            </span>
+            <Logo variant="white" height={24} />
           </div>
-          <p className="text-sm text-gray-500 order-last md:order-none">© {new Date().getFullYear()} Todos os direitos reservados.</p>
+          <div className="flex flex-col items-center gap-2 order-last md:order-none">
+            <p className="text-sm text-slate-400">© {new Date().getFullYear()} Sagazchat. Todos os direitos reservados.</p>
+            <div className="flex items-center gap-4 text-xs text-slate-500">
+              <Link href="#" className="hover:text-white transition-colors">Termos de Uso</Link>
+              <span>•</span>
+              <Link href="#" className="hover:text-white transition-colors">Política de Privacidade</Link>
+            </div>
+          </div>
           <div className="flex items-center gap-4">
-            <Link href="#" className="text-gray-500 hover:text-white"><Facebook size={20} /></Link>
-            <Link href="#" className="text-gray-500 hover:text-white"><Instagram size={20} /></Link>
-            <Link href="#" className="text-gray-500 hover:text-white"><Linkedin size={20} /></Link>
+            <span className="text-slate-400 hover:text-white transition-colors"><Facebook size={20} /></span>
+            <span className="text-slate-400 hover:text-white transition-colors"><Instagram size={20} /></span>
+            <span className="text-slate-400 hover:text-white transition-colors"><Linkedin size={20} /></span>
           </div>
         </div>
+        </AnimateIn>
       </div>
     </footer>
   );
 }
+
+

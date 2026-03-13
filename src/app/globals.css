@@ -4,36 +4,33 @@
 
 @layer base {
   :root {
-    --background: 5 5% 5%;
-    /* #0D0D0D */
-    --foreground: 0 0% 100%;
+    --background: 0 0% 100%;
+    --foreground: 222 13% 15%;
 
-    --card: 0 0% 10%;
-    /* #1A1A1A */
-    --card-foreground: 0 0% 98%;
+    --card: 210 20% 98%;
+    --card-foreground: 222 13% 15%;
 
-    --popover: 5 5% 5%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 13% 15%;
 
-    --primary: 80 70% 55%;
-    /* #92D639 */
-    --primary-foreground: 0 0% 5%;
+    --primary: 143 79% 44%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 222 13% 15%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 14% 45%;
 
-    --accent: 80 70% 55%;
-    --accent-foreground: 0 0% 5%;
+    --accent: 143 79% 44%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 100% / 0.1;
-    --input: 0 0% 100% / 0.05;
-    --ring: 80 70% 55%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 143 79% 44%;
 
     --radius: 0.625rem;
   }
@@ -45,8 +42,8 @@
   }
 
   body {
-    @apply bg-[#050505] text-foreground;
-    font-family: 'Inter', sans-serif;
+    @apply bg-white text-foreground;
+    font-family: var(--font-sans), 'Manrope', sans-serif;
   }
 }
 
@@ -129,4 +126,13 @@
 
 .animate-slideInDown {
   animation: slideInDown 0.5s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

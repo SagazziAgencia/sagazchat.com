@@ -29,10 +29,10 @@ import {
   MessagesSquare,
   Share2,
   UserCog,
-  UserPlus
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { AnimateIn } from '@/components/ui/animate-in';
 
 const sidebarItems = [
     { icon: <LayoutGrid size={20} />, title: "Dashboard", id: 'nav-dashboard'},
@@ -60,8 +60,8 @@ const chatItems = [
         author: "Iarley",
         time: "15:21",
         tags: [
-            { name: "Comercial", color: "bg-blue-500" },
-            { name: "Iarley", color: "bg-[#92D639]" }
+            { name: "Comercial", color: "bg-emerald-600" },
+            { name: "Iarley", color: "bg-primary" }
         ],
         active: true
     },
@@ -71,8 +71,8 @@ const chatItems = [
         author: "Ana",
         time: "14:30",
         tags: [
-            { name: "Suporte", color: "bg-yellow-500" },
-            { name: "Ana", color: "bg-[#92D639]" }
+            { name: "Suporte", color: "bg-green-600" },
+            { name: "Ana", color: "bg-primary" }
         ]
     },
     {
@@ -81,8 +81,8 @@ const chatItems = [
         author: null,
         time: "12:45",
         tags: [
-            { name: "Vendas", color: "bg-red-500" },
-            { name: "Pedro", color: "bg-[#92D639]" }
+            { name: "Vendas", color: "bg-lime-700" },
+            { name: "Pedro", color: "bg-primary" }
         ]
     },
     {
@@ -91,8 +91,8 @@ const chatItems = [
         author: "Sofia",
         time: "10:15",
         tags: [
-            { name: "Financeiro", color: "bg-purple-500" },
-            { name: "Sofia", color: "bg-[#92D639]" }
+            { name: "Financeiro", color: "bg-teal-700" },
+            { name: "Sofia", color: "bg-primary" }
         ]
     },
 ]
@@ -143,22 +143,25 @@ export function MultiWhatsapp() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center gap-12">
         
         {/* TOPO: Texto Centralizado */}
-        <div className="text-center max-w-4xl mx-auto mb-8 animate-fade-in-up">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-4 text-gray-900">
+        <AnimateIn>
+        <div className="text-center max-w-4xl mx-auto mb-8">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] mb-4 text-gray-900">
                 Múltiplos WhatsApps.<br/>
-                <span className="text-[#92D639]">Uma única tela.</span>
-            </h1>
+                <span className="text-primary">Uma única tela.</span>
+            </h2>
 
-            <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base text-gray-600 leading-relaxed max-w-2xl mx-auto">
                 Centralize seu <span className="font-bold text-gray-800">time comercial</span> em uma <span className="font-bold text-gray-800">única tela</span>. Monitore atendimentos, elimine gargalos e transforme seu WhatsApp em uma <span className="font-bold text-gray-800">máquina de lucro previsível</span>.
             </p>
         </div>
+        </AnimateIn>
 
         {/* ABAIXO: Grid de 2 Colunas */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 items-center justify-center">
 
             {/* COLUNA 1 (ESQUERDA): Mockup do App com SLIDER */}
-            <div className="relative w-full flex justify-center lg:justify-end order-2 lg:order-1 animate-fade-in-up" style={{animationDelay: '150ms'}}>
+            <AnimateIn from="left" delay={150}>
+            <div className="relative w-full flex justify-center lg:justify-end order-2 lg:order-1">
                 <div ref={appWindowRef} id="app-window" className="bg-white border border-gray-200 rounded-2xl shadow-soft hover:shadow-lg transition-shadow duration-300 h-[580px] w-full max-w-[500px] flex flex-col overflow-hidden">
                     
                     {/* Barra de Título */}
@@ -169,8 +172,8 @@ export function MultiWhatsapp() {
                             <div className="w-2.5 h-2.5 rounded-full bg-green-400 border border-green-200"></div>
                         </div>
                         <div className="flex gap-1.5 cursor-pointer">
-                            <div onClick={() => goToSlide(0)} className={cn("w-2 h-2 rounded-full transition-all duration-300 hover:scale-125", currentSlide === 0 ? 'bg-[#92D639]' : 'bg-gray-300')}></div>
-                            <div onClick={() => goToSlide(1)} className={cn("w-2 h-2 rounded-full transition-all duration-300 hover:scale-125", currentSlide === 1 ? 'bg-[#92D639]' : 'bg-gray-300')}></div>
+                            <div onClick={() => goToSlide(0)} className={cn("w-2 h-2 rounded-full transition-all duration-300 hover:scale-125", currentSlide === 0 ? 'bg-primary' : 'bg-gray-300')}></div>
+                            <div onClick={() => goToSlide(1)} className={cn("w-2 h-2 rounded-full transition-all duration-300 hover:scale-125", currentSlide === 1 ? 'bg-primary' : 'bg-gray-300')}></div>
                         </div>
                     </div>
 
@@ -201,7 +204,7 @@ export function MultiWhatsapp() {
                                 <div className="slide p-6 bg-gray-50 flex flex-col">
                                     <div className="mb-8 pointer-events-none">
                                         <h2 className="text-2xl font-bold text-gray-900 mb-2">Conexões Ativas</h2>
-                                        <span className="inline-block bg-[#92D639]/10 text-[#92D639] text-xs font-semibold px-3 py-1 rounded-full border border-[#92D639]/20">
+                                        <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full border border-primary/20">
                                             Gerencie os números da sua equipe
                                         </span>
                                     </div>
@@ -211,7 +214,7 @@ export function MultiWhatsapp() {
                                                 <div className="w-full flex justify-between items-start mb-1">
                                                     <Bot className="text-gray-400" size={16}/>
                                                     <div className="flex items-center gap-1">
-                                                        <span className="w-2.5 h-2.5 rounded-full bg-[#92D639]"></span>
+                                                        <span className="w-2.5 h-2.5 rounded-full bg-primary"></span>
                                                         <EllipsisVertical className="text-gray-400 ml-1" size={14}/>
                                                     </div>
                                                 </div>
@@ -236,7 +239,7 @@ export function MultiWhatsapp() {
                                 <div className="slide bg-white h-full flex flex-col">
                                     <div className="px-5 pt-5 pb-2 pointer-events-none">
                                         <h2 className="text-xl font-bold text-gray-900 mb-1">Bate Papo ao Vivo</h2>
-                                        <span className="inline-block bg-[#92D639]/10 text-[#92D639] text-xs font-semibold px-3 py-1 rounded-full border border-[#92D639]/20">
+                                        <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full border border-primary/20">
                                             Conversas separadas por conexão
                                         </span>
                                     </div>
@@ -246,7 +249,7 @@ export function MultiWhatsapp() {
                                                 <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"/>
                                                 <input type="text" placeholder="Buscar atendimento e mensagens" className="w-full bg-[#f3f4f6] rounded-full py-2 pl-9 pr-3 text-xs text-gray-600 focus:outline-none placeholder-gray-500"/>
                                             </div>
-                                            <Filter size={18} className="text-blue-500"/>
+                                            <Filter size={18} className="text-primary"/>
                                         </div>
                                     </div>
                                     <div className="flex-1 overflow-y-auto chat-scroll pointer-events-none pb-6">
@@ -290,17 +293,19 @@ export function MultiWhatsapp() {
                     </div>
                 </div>
             </div>
+            </AnimateIn>
 
             {/* COLUNA 2 (DIREITA): 4 Benefícios em Grid + CTA */}
-            <div className="flex flex-col gap-8 order-1 lg:order-2 w-full max-w-[500px] lg:max-w-none mx-auto lg:pl-2 animate-fade-in-up" style={{animationDelay: '300ms'}}>
+            <AnimateIn from="right" delay={250}>
+            <div className="flex flex-col gap-8 order-1 lg:order-2 w-full max-w-[500px] lg:max-w-none mx-auto lg:pl-2">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4"> 
-                    <BenefitCard icon={<Layers />} title="Fim da Mistura de Conversas" iconBg="bg-[#92D639]/10" iconColor="text-[#92D639]">
+                    <BenefitCard icon={<Layers />} title="Fim da Mistura de Conversas" iconBg="bg-primary/10" iconColor="text-primary">
                         Cada departamento tem seu espaço. Separe vendas de suporte e mantenha tudo organizado.
                     </BenefitCard>
                     <BenefitCard icon={<BarChart />} title="Decisões Baseadas em Dados" iconBg="bg-gray-100" iconColor="text-gray-600">
                         Com tudo centralizado, veja gargalos, tempos de resposta e performance real da equipe.
                     </BenefitCard>
-                    <BenefitCard icon={<Briefcase />} title="Profissionalismo Total" iconBg="bg-[#92D639]/10" iconColor="text-[#92D639]">
+                    <BenefitCard icon={<Briefcase />} title="Profissionalismo Total" iconBg="bg-primary/10" iconColor="text-primary">
                         Transmita confiança. Uma operação organizada reflete profissionalismo e aumenta o fechamento.
                     </BenefitCard>
                     <BenefitCard icon={<Eye />} title="Auditoria em Tempo Real" iconBg="bg-purple-100" iconColor="text-purple-600">
@@ -308,16 +313,13 @@ export function MultiWhatsapp() {
                     </BenefitCard>
                 </div>
                 <div className="w-full">
-                     <Button size="lg" className="w-full group relative h-auto px-8 py-4 bg-[#92D639] text-black rounded-xl font-bold text-base hover:bg-[#82c232] transition-all shadow-lg shadow-[#92D639]/30 hover:shadow-xl hover:shadow-[#92D639]/40 hover:-translate-y-1">
-                        <UserPlus size={20} />
-                        Assinar Agora
-                        <ArrowRight className="inline-block ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                    <p className="text-gray-500 text-xs mt-3 text-center flex items-center justify-center gap-1.5">
-                        <ShieldCheck className="w-3.5 h-3.5 text-[#92D639]" /> 7 dias de garantia.
-                    </p>
+                    <a href="#pricing" className="inline-flex items-center gap-2.5 rounded-xl bg-primary px-8 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)] transition-all">
+                        Ver planos
+                        <ArrowRight className="w-5 h-5" />
+                    </a>
                 </div>
             </div>
+            </AnimateIn>
 
         </div>
       </div>
@@ -357,10 +359,10 @@ export function MultiWhatsapp() {
             border-radius: 2px;
         }
         .sidebar-icon {
-            @apply text-gray-400 hover:text-[#92D639] text-lg transition-colors cursor-pointer; 
+            @apply text-gray-400 hover:text-primary text-lg transition-colors cursor-pointer; 
         }
         .active-sidebar-item .sidebar-icon {
-            color: #92D639;
+            color: #17C75A;
         }
         .active-sidebar-item .active-bar {
             display: block;
@@ -372,7 +374,7 @@ export function MultiWhatsapp() {
             top: 0;
             bottom: 0;
             width: 4px; 
-            background-color: #92D639;
+            background-color: #17C75A;
             border-top-right-radius: 4px;
             border-bottom-right-radius: 4px;
         }
@@ -395,11 +397,21 @@ const BenefitCard = ({
   iconBg: string;
   iconColor: string;
 }) => (
-    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all hover:border-[#92D639]/30 group h-full">
-        <div className={`w-10 h-10 rounded-lg ${iconBg} flex items-center justify-center ${iconColor} mb-3`}>
+    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all hover:border-primary/30 group h-full">
+        <div
+            className={cn(
+                'w-10 h-10 rounded-lg flex items-center justify-center mb-3',
+                iconBg === 'bg-gray-100' ? 'bg-emerald-50' : iconBg,
+                iconColor === 'text-gray-600' ? 'text-emerald-600' : iconColor,
+                iconBg === 'bg-purple-100' ? 'bg-lime-100' : '',
+                iconColor === 'text-purple-600' ? 'text-lime-700' : ''
+            )}
+        >
             {icon}
         </div>
         <h4 className="font-bold text-gray-900 text-base mb-1">{title}</h4>
         <p className="text-xs text-gray-500 leading-relaxed">{children}</p>
     </div>
 );
+
+

@@ -7,10 +7,11 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { HelpCircle } from 'lucide-react';
+import { AnimateIn } from '@/components/ui/animate-in';
 
 const faqItems = [
   {
-    question: 'Qual é o tempo médio para configurar e começar a usar o Respondechat?',
+    question: 'Qual é o tempo médio para configurar e começar a usar o Sagazchatbot?',
     answer: 'A configuração inicial é super rápida! Em menos de 10 minutos, você consegue conectar seu número de WhatsApp e começar a usar as funcionalidades básicas. Para criar fluxos de automação mais complexos, o tempo pode variar, mas nossa interface intuitiva de arrastar e soltar torna o processo muito ágil.',
   },
   {
@@ -23,7 +24,7 @@ const faqItems = [
   },
   {
     question: 'Como funcionam os webhooks e para que servem?',
-    answer: 'Webhooks são como "notificações automáticas" entre sistemas. Por exemplo, quando uma venda é aprovada na sua plataforma de pagamento (Hotmart, Kiwify, etc.), ela envia um webhook para o Respondechat, que pode então iniciar um fluxo automático para enviar os dados de acesso ao cliente, tudo sem intervenção manual.',
+    answer: 'Webhooks são como "notificações automáticas" entre sistemas. Por exemplo, quando uma venda é aprovada na sua plataforma de pagamento (Hotmart, Kiwify, etc.), ela envia um webhook para o Sagazchatbot, que pode então iniciar um fluxo automático para enviar os dados de acesso ao cliente, tudo sem intervenção manual.',
   },
   {
     question: 'Existe algum contrato de fidelidade ou posso cancelar quando quiser?',
@@ -33,39 +34,45 @@ const faqItems = [
 
 export function FaqSection() {
   return (
-    <section className="py-20 lg:py-32 bg-[#050505] text-white">
+    <section className="py-20 lg:py-32 bg-white text-slate-900">
       <div className="container mx-auto px-6 max-w-4xl">
-        <div className="text-center mb-12 flex flex-col items-center">
-          <div className="mb-4 w-16 h-16 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center">
-            <HelpCircle className="w-8 h-8 text-primary" />
+        <AnimateIn>
+          <div className="text-center mb-12 flex flex-col items-center">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-4">
+              FAQ
+            </p>
+            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900">
+              Perguntas Frequentes
+            </h2>
+            <p className="text-base text-slate-600 mt-4 max-w-2xl mx-auto">
+              Tirando todas as suas dúvidas para você tomar a melhor decisão.
+            </p>
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-            Perguntas Frequentes
-          </h2>
-          <p className="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">
-            Tirando todas as suas dúvidas para você tomar a melhor decisão.
-          </p>
-        </div>
+        </AnimateIn>
 
+        <AnimateIn delay={200}>
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="w-full space-y-2">
             {faqItems.map((item, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-card border border-white/10 rounded-xl px-6 transition-colors hover:bg-white/5"
+                className="bg-slate-50 border border-slate-200 rounded-xl px-6 transition-colors hover:bg-slate-100"
               >
                 <AccordionTrigger className="text-left font-semibold text-base hover:no-underline">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-400 pt-2 leading-relaxed">
+                <AccordionContent className="text-slate-600 pt-2 leading-relaxed">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
         </div>
+        </AnimateIn>
       </div>
     </section>
   );
 }
+
+

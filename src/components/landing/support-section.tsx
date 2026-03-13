@@ -8,7 +8,7 @@ const supportItems = [
   {
     icon: <HelpCircle className="w-6 h-6 text-primary" />,
     title: 'FAQ Completo',
-    description: 'Respostas para as dúvidas mais comuns sobre a plataforma Respondechat.',
+    description: 'Respostas para as dúvidas mais comuns sobre a plataforma Sagazchat.',
     linkText: 'Acessar FAQ',
     href: '#',
   },
@@ -33,10 +33,10 @@ export function SupportSection() {
     <section className="py-20 lg:py-32 bg-[#0A0F13] text-white">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15]">
             SUPORTE E RECURSOS
           </h2>
-          <p className="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className="text-base text-gray-400 mt-4 max-w-2xl mx-auto">
             Estamos aqui para ajudar você em cada passo da jornada. Conte com nosso suporte dedicado e materiais de apoio.
           </p>
         </div>
@@ -64,3 +64,5 @@ export function SupportSection() {
     </section>
   );
 }
+
+

@@ -45,7 +45,7 @@ export default function IntegrationsSection() {
             Seu Ecossistema de Vendas, Totalmente Integrado via Webhooks.
           </h2>
           <p className="text-gray-400 max-w-3xl mx-auto">
-            De CRMs a plataformas de pagamento, o Respondechat se integra com as ferramentas que você ama, automatizando seu fluxo de trabalho e centralizando suas operações.
+            De CRMs a plataformas de pagamento, o Sagazchat se integra com as ferramentas que você ama, automatizando seu fluxo de trabalho e centralizando suas operações.
           </p>
         </div>
 
@@ -76,7 +76,7 @@ export default function IntegrationsSection() {
         </div>
 
         <div className="mt-20 text-center">
-          <Button size="lg" className="group w-full sm:w-auto relative px-8 py-4 bg-[#92D639] text-black rounded-lg font-bold text-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1 h-auto">
+          <Button size="lg" className="group w-full sm:w-auto relative px-8 py-4 bg-primary text-black rounded-lg font-bold text-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1 h-auto">
             <UserPlus size={20} />
             Assinar Agora
             <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -86,4 +86,6 @@ export default function IntegrationsSection() {
     </section>
   );
 }
+
+
 

@@ -1,4 +1,4 @@
-import type {Config} from 'tailwindcss';
+import type { Config } from 'tailwindcss';
 
 export default {
   darkMode: ['class'],
@@ -6,6 +6,7 @@ export default {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    '!./src/components/landing/interactive-chat.tsx',
   ],
   theme: {
     container: {
@@ -17,7 +18,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['var(--font-sans)', 'Manrope', 'sans-serif'],
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -69,30 +70,47 @@ export default {
           to: { height: '0' },
         },
         'fade-in-up': {
-            '0%': {
-                opacity: '0',
-                transform: 'translateY(20px)'
-            },
-            '100%': {
-                opacity: '1',
-                transform: 'translateY(0)'
-            },
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(20px)'
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)'
+          },
         },
         'float': {
-            '0%, 100%': {
-                transform: 'translateY(0px)'
-            },
-            '50%': {
-                transform: 'translateY(-10px)'
-            },
+          '0%, 100%': {
+            transform: 'translateY(0px)'
+          },
+          '50%': {
+            transform: 'translateY(-10px)'
+          },
         },
         'horizontal-travel': {
-            '0%': { transform: 'translateX(-150%)' },
-            '100%': { transform: 'translateX(150%)' },
+          '0%': { transform: 'translateX(-150%)' },
+          '100%': { transform: 'translateX(150%)' },
         },
         'checkpoint-glow': {
-            '0%, 100%': { boxShadow: '0 0 12px hsl(var(--primary) / 0.4), 0 0 20px hsl(var(--primary) / 0.3)' },
-            '50%': { boxShadow: '0 0 24px hsl(var(--primary) / 0.6), 0 0 40px hsl(var(--primary) / 0.4)' },
+          '0%, 100%': { boxShadow: '0 0 12px hsl(var(--primary) / 0.4), 0 0 20px hsl(var(--primary) / 0.3)' },
+          '50%': { boxShadow: '0 0 24px hsl(var(--primary) / 0.6), 0 0 40px hsl(var(--primary) / 0.4)' },
+        },
+        'orbit': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        'counter-orbit': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(-360deg)' },
+        },
+        'radar-pulse': {
+          '0%': { transform: 'scale(0.8)', opacity: '0.8' },
+          '100%': { transform: 'scale(1.5)', opacity: '0' },
+        },
+        'particle-in': {
+          '0%': { transform: 'translateY(-180px) scale(0)', opacity: '0' },
+          '20%': { opacity: '1', transform: 'translateY(-180px) scale(1)' },
+          '100%': { transform: 'translateY(-50px) scale(0.5)', opacity: '0' },
         },
       },
       animation: {
@@ -102,6 +120,10 @@ export default {
         'float': 'float 6s ease-in-out infinite',
         'horizontal-travel': 'horizontal-travel 3s linear infinite',
         'checkpoint-glow': 'checkpoint-glow 2.5s ease-in-out infinite',
+        'orbit': 'orbit 25s linear infinite',
+        'counter-orbit': 'counter-orbit 25s linear infinite',
+        'radar-pulse': 'radar-pulse 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+        'particle-in': 'particle-in 3s ease-in infinite',
       },
       perspective: {
         '1000': '1000px',

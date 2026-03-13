@@ -1,66 +1,134 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { MessageCircle, Menu, X, ArrowRight, UserPlus } from 'lucide-react';
+import { ArrowRight, Menu, X } from 'lucide-react';
+
+import { Logo } from '../brand/logo';
+import { LANDING_CTA } from './cta-links';
+
+const navItems = [
+  { href: '#hero', label: 'Início' },
+  { href: LANDING_CTA.featuresAnchor, label: 'Produto' },
+  { href: LANDING_CTA.pricingAnchor, label: 'Planos' },
+  { href: LANDING_CTA.testimonialsAnchor, label: 'Resultados' },
+];
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const handleLinkClick = () => setIsMenuOpen(false);
 
   return (
-    <header className="relative z-50 w-full border-b border-white/10 backdrop-blur-md bg-[#050505]/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo Area */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#92D639] to-[#7ab828] rounded-md flex items-center justify-center shadow-lg shadow-[#92D639]/20">
-              <MessageCircle className="text-black w-6 h-6" />
-            </div>
-            <span className="text-2xl font-bold tracking-tight">
-              RESPONDE<span className="text-[#92D639]">ZAP.AI</span>
-            </span>
+    <header className="fixed top-0 left-0 z-50 w-full">
+      <div className="mx-auto max-w-7xl px-4 pt-3 sm:px-6">
+        <div
+          className={`relative mx-auto flex h-[60px] items-center justify-between rounded-[14px] border px-5 transition-all duration-300 ${
+            scrolled
+              ? 'border-slate-200 bg-white/95 shadow-sm backdrop-blur-xl'
+              : 'border-slate-200/60 bg-white/80 backdrop-blur-md'
+          }`}
+        >
+          <Link href="/" className="flex shrink-0 items-center" aria-label="Sagazchat - página inicial">
+            <Logo height={20} variant="black" />
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="#" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Home</Link>
-            <Link href="#" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Planos</Link>
-            <Link href="#" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Funcionalidades</Link>
-            <Link href="#" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Para você</Link>
-            <Link href="#" className="text-sm font-medium text-[#92D639] hover:text-[#aaff44] transition-colors flex items-center gap-1">
-              Área do Cliente <ArrowRight size={14} />
+          {/* Desktop nav */}
+          <nav className="hidden items-center gap-1 lg:flex">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-lg px-3.5 py-1.5 text-[13px] font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Desktop actions */}
+          <div className="hidden items-center gap-3 lg:flex">
+            <div className="h-6 w-px bg-slate-200" />
+
+            <Link
+              href={LANDING_CTA.app}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg border border-slate-300 px-4 py-1.5 text-[13px] font-medium text-slate-600 transition-colors hover:border-slate-400 hover:text-slate-900"
+            >
+              Entrar
+            </Link>
+
+            <Link
+              href={LANDING_CTA.pricingAnchor}
+              className="inline-flex h-9 items-center gap-1.5 rounded-lg bg-primary px-4 text-[13px] font-semibold text-white transition-colors hover:bg-primary/90"
+            >
+              Começar agora
+              <ArrowRight className="h-3 w-3" />
             </Link>
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
-            <Button variant="outline" className="bg-white/5 border-white/10 hover:bg-white/10">
-              Fale com vendas
-            </Button>
-            <Button className="bg-[#92D639] text-black font-bold text-base px-6 py-3 h-auto hover:bg-[#82c232] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#92D639]/30">
-              <UserPlus size={16} /> Assinar Agora
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-300 hover:text-white">
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          {/* Mobile toggle */}
+          <button
+            type="button"
+            aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-landing-menu"
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900 lg:hidden"
+          >
+            {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Dropdown */}
+      {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-[#0A0A0B] border-b border-white/10 px-4 pt-2 pb-6 space-y-4 absolute w-full shadow-2xl">
-          <Link href="#" className="block text-gray-300 hover:text-[#92D639] py-2">Home</Link>
-          <Link href="#" className="block text-gray-300 hover:text-[#92D639] py-2">Planos</Link>
-          <Link href="#" className="block text-gray-300 hover:text-[#92D639] py-2">Funcionalidades</Link>
-          <Button className="w-full mt-4 bg-[#92D639] hover:bg-[#82c232] text-black py-3 h-auto text-base font-bold">
-            Começar Agora
-          </Button>
+        <div className="px-4 pt-2 sm:px-6 lg:hidden">
+          <div
+            id="mobile-landing-menu"
+            className="overflow-hidden rounded-[14px] border border-slate-200 bg-white/95 p-2 shadow-lg backdrop-blur-xl"
+          >
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={handleLinkClick}
+                className="block rounded-lg px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900"
+              >
+                {item.label}
+              </Link>
+            ))}
+
+            <div className="mt-2 border-t border-slate-100 pt-3 px-1 pb-1">
+              <Link
+                href={LANDING_CTA.pricingAnchor}
+                onClick={handleLinkClick}
+                className="flex h-11 items-center justify-center gap-1.5 rounded-lg bg-primary text-sm font-semibold text-white transition-colors hover:bg-primary/90"
+              >
+                Começar agora
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+
+              <a
+                href={LANDING_CTA.app}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleLinkClick}
+                className="mt-1 flex items-center justify-center gap-1 py-2.5 text-sm text-slate-400 transition-colors hover:text-slate-600"
+              >
+                Área do cliente
+              </a>
+            </div>
+          </div>
         </div>
       )}
     </header>

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import {
   Carousel,
   CarouselContent,
@@ -9,8 +10,10 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import Image from 'next/image';
-import { PlayCircle, Star, ArrowRight, UserPlus, Quote } from 'lucide-react';
+import { PlayCircle, Star, ArrowRight, Quote } from 'lucide-react';
+import { AnimateIn } from '@/components/ui/animate-in';
 import { Button } from '../ui/button';
+import { LANDING_CTA } from './cta-links';
 
 const testimonials = [
   {
@@ -53,24 +56,23 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section className="py-20 lg:py-32 bg-[#050505] text-white relative">
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f13] via-[#050505] to-[#050505] z-0"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(146,214,57,0.04)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none z-0"></div>
-
-
+    <section id="testimonials" className="py-20 lg:py-32 bg-white text-slate-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#92D639]/10 border border-[#92D639]/30 text-[#92D639] text-[11px] font-bold uppercase tracking-wider mb-6">
-            <Quote size={12} fill="currentColor" /> Prova Social
+        <AnimateIn>
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-6">
+              Resultados
+            </p>
+            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900 mb-4">
+              Quem usa, confia e <span className="text-primary">vende mais.</span>
+            </h2>
+            <p className="text-base text-slate-400">
+              Veja como o Sagazchat está a transformar a operação de vendas de centenas de empresas no Brasil.
+            </p>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
-            Quem usa, confia e <span className="text-[#92D639]">vende mais.</span>
-          </h2>
-          <p className="text-lg text-slate-400">
-            Veja como o Respondechat está a transformar a operação de vendas de centenas de empresas no Brasil.
-          </p>
-        </div>
+        </AnimateIn>
 
+        <AnimateIn from="scale" delay={200} duration={700}>
         <Carousel
           opts={{
             align: 'start',
@@ -81,12 +83,12 @@ export function TestimonialsSection() {
           <CarouselContent className="-ml-4">
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index} className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/5 group">
-                <div className="relative aspect-[9/16] w-full rounded-2xl overflow-hidden border border-white/10 shadow-lg transition-transform duration-300 group-hover:scale-105 group-hover:shadow-[#92D639]/10">
+                <div className="relative aspect-[9/16] w-full rounded-2xl overflow-hidden border border-slate-200 shadow-md transition-shadow duration-300 hover:shadow-lg">
                   <Image
                     src={testimonial.videoThumbnailUrl}
                     alt={`Depoimento de ${testimonial.name}`}
                     fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="object-cover"
                     data-ai-hint={testimonial.aiHint}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
@@ -107,18 +109,14 @@ export function TestimonialsSection() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute left-[-1rem] top-1/2 -translate-y-1/2 z-10 bg-white/10 border-white/20 text-white hover:bg-white/20" />
-          <CarouselNext className="absolute right-[-1rem] top-1/2 -translate-y-1/2 z-10 bg-white/10 border-white/20 text-white hover:bg-white/20" />
+          <CarouselPrevious className="absolute left-[-1rem] top-1/2 -translate-y-1/2 z-10 bg-white border-slate-200 text-slate-600 hover:bg-slate-50" />
+          <CarouselNext className="absolute right-[-1rem] top-1/2 -translate-y-1/2 z-10 bg-white border-slate-200 text-slate-600 hover:bg-slate-50" />
         </Carousel>
+        </AnimateIn>
 
-        <div className="mt-16 text-center">
-          <Button size="lg" className="group w-full sm:w-auto relative px-8 py-4 bg-[#92D639] text-black rounded-lg font-bold text-lg hover:bg-[#82c232] transition-all shadow-[0_0_20px_rgba(146,214,57,0.4)] hover:shadow-[0_0_40px_rgba(146,214,57,0.6)] hover:-translate-y-1 h-auto">
-            <UserPlus size={20} />
-            Quero vender mais também
-            <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
-        </div>
       </div>
     </section>
   );
 }
+
+

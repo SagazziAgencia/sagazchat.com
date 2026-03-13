@@ -29,7 +29,7 @@ const prompt = ai.definePrompt({
   name: 'aiHelpfulAssistantPrompt',
   input: { schema: AIHelpfulAssistantInputSchema },
   output: { schema: AIHelpfulAssistantOutputSchema },
-  prompt: `You are a helpful AI assistant on the Respondechat landing page. Answer questions about Respondechat.
+  prompt: `You are a helpful AI assistant on the Sagazchat landing page. Answer questions about Sagazchat.
 
 User query: {{{query}}}`,
 });

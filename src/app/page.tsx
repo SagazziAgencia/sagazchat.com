@@ -1,5 +1,3 @@
-'use client';
-
 import { Header } from '@/components/landing/header';
 import { Hero } from '@/components/landing/hero';
 import { FlowBuilderSection } from '@/components/landing/flow-builder-section';
@@ -7,34 +5,35 @@ import { FeaturesTicker } from '@/components/landing/features-ticker';
 import { MultiWhatsapp } from '@/components/landing/multi-whatsapp';
 import { InstagramSection } from '@/components/landing/instagram-section';
 import { WebhookSection } from '@/components/landing/webhook-section';
-import { ShortcutSection } from '@/components/landing/shortcut-section';
 import { CrmKanbanSection } from '@/components/landing/crm-kanban-section';
-import { RemarketingSection } from '@/components/landing/remarketing-section';
-import { GroupManagerSection } from '@/components/landing/group-manager-section';
 import { TestimonialsSection } from '@/components/landing/testimonials-section';
 import { PricingSection } from '@/components/landing/pricing-section';
-import { SupportSection } from '@/components/landing/support-section';
 import { FaqSection } from '@/components/landing/faq-section';
 import { Footer } from '@/components/landing/footer';
+import { AiChatbotSection } from '@/components/landing/ai-chatbot-section';
+import { BroadcastSection } from '@/components/landing/broadcast-section';
+import { ShortcutSection } from '@/components/landing/shortcut-section';
+import { RemarketingSection } from '@/components/landing/remarketing-section';
 
-export default function RespondechatLanding() {
+export default function SagazchatLanding() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-white font-sans" style={{ overflowX: 'clip' }}>
       <Header />
+      <Hero />
+
       <main>
-        <Hero />
-        <FlowBuilderSection />
         <FeaturesTicker />
+        <FlowBuilderSection />
         <MultiWhatsapp />
         <InstagramSection />
+        <AiChatbotSection />
         <WebhookSection />
-        <ShortcutSection />
+        <BroadcastSection />
         <CrmKanbanSection />
+        <ShortcutSection />
         <RemarketingSection />
-        <GroupManagerSection />
         <TestimonialsSection />
         <PricingSection />
-        <SupportSection />
         <FaqSection />
         <Footer />
       </main>

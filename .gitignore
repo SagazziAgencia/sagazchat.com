@@ -43,3 +43,9 @@ next-env.d.ts
 # firebase
 firebase-debug.log
 firestore-debug.log
+
+# tooling / local
+.agent/
+.claude/
+.codex-skill-staging/
+.playwright-mcp/

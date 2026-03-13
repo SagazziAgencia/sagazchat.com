@@ -1,26 +1,46 @@
+import { AnimateIn } from '@/components/ui/animate-in';
+
+const metrics = [
+  {
+    label: 'Atendimento',
+    title: 'Equipe em paralelo no mesmo numero',
+    value: 'Multiatendimento',
+  },
+  {
+    label: 'Automação',
+    title: 'Fluxos, tags e webhooks no mesmo painel',
+    value: 'Operação integrada',
+  },
+  {
+    label: 'CRM',
+    title: 'Pipeline para acompanhar lead até o fechamento',
+    value: 'Visibilidade real',
+  },
+  {
+    label: 'Escala',
+    title: 'Base pronta para campanhas e remarketing',
+    value: 'Crescimento previsível',
+  },
+];
+
 export function FeaturesTicker() {
-   return (
-      <div className="border-y border-[#92D639]/20 bg-[#92D639]/10 backdrop-blur-sm py-8 relative z-20">
-         <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-[#92D639]/20">
-               <div className="flex flex-col items-center gap-2 group cursor-default">
-                  <span className="text-2xl md:text-3xl font-bold text-white group-hover:text-white/80 transition-colors">24/7</span>
-                  <span className="text-xs text-[#92D639] uppercase tracking-widest">Vendas Automáticas</span>
-               </div>
-               <div className="flex flex-col items-center gap-2 group cursor-default">
-                  <span className="text-2xl md:text-3xl font-bold text-white group-hover:text-white/80 transition-colors">+30%</span>
-                  <span className="text-xs text-[#92D639] uppercase tracking-widest">Conversão Média</span>
-               </div>
-               <div className="flex flex-col items-center gap-2 group cursor-default">
-                  <span className="text-2xl md:text-3xl font-bold text-white group-hover:text-white/80 transition-colors">Zero</span>
-                  <span className="text-xs text-[#92D639] uppercase tracking-widest">Leads Perdidos</span>
-               </div>
-               <div className="flex flex-col items-center gap-2 group cursor-default">
-                  <span className="text-2xl md:text-3xl font-bold text-white group-hover:text-white/80 transition-colors">Breve</span>
-                  <span className="text-xs text-[#92D639] uppercase tracking-widest">API Oficial</span>
-               </div>
-            </div>
-         </div>
+  return (
+    <section className="relative z-20 border-y border-slate-200 bg-slate-50 py-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          {metrics.map((item, index) => (
+            <AnimateIn key={item.label} delay={index * 80}>
+              <div className="rounded-2xl border border-slate-200 bg-white px-4 py-4">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
+                  {item.label}
+                </p>
+                <p className="mt-1 text-sm font-semibold text-slate-900">{item.value}</p>
+                <p className="mt-1 text-xs leading-5 text-slate-500">{item.title}</p>
+              </div>
+            </AnimateIn>
+          ))}
+        </div>
       </div>
-   );
+    </section>
+  );
 }

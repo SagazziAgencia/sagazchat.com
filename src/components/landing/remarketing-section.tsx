@@ -128,7 +128,7 @@ export const RemarketingSection = () => {
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
 
                     {/* Left Content */}
-                    <div className="order-2 lg:order-1 space-y-8">
+                    <div className="space-y-8">
                         <AnimateIn from="left" delay={0}>
                             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
                                 Remarketing
@@ -136,7 +136,7 @@ export const RemarketingSection = () => {
                         </AnimateIn>
 
                         <AnimateIn from="left" delay={100}>
-                            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15]">
+                            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900">
                                 Cada &quot;não&quot; de hoje pode virar uma <span className="text-primary">venda amanhã.</span>
                             </h2>
                         </AnimateIn>
@@ -176,7 +176,7 @@ export const RemarketingSection = () => {
 
                     {/* Right Content - Mockup Panel */}
                     <AnimateIn from="right" delay={200} duration={700}>
-                        <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+                        <div className="lg:order-2 flex justify-center lg:justify-end">
                             <div className="relative w-full max-w-[520px] bg-white rounded-2xl border border-slate-200 shadow-xl overflow-hidden flex flex-col min-h-[480px]">
 
                                 {/* Panel Header with Toggle */}

@@ -60,7 +60,7 @@ export const AiChatbotSection = () => {
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
                     {/* Left — Copy */}
-                    <div className="order-2 lg:order-1">
+                    <div>
                         <AnimateIn from="left" delay={0}>
                             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-6">
                                 Inteligência Artificial
@@ -108,7 +108,7 @@ export const AiChatbotSection = () => {
 
                     {/* Right — Chat Mockup */}
                     <AnimateIn from="right" delay={200} duration={700}>
-                    <div className="order-1 lg:order-2 flex justify-center">
+                    <div className="lg:order-2 flex justify-center">
                         <div className="w-full max-w-[380px]">
                             <div className="bg-[#111921] rounded-2xl border border-gray-800 shadow-2xl overflow-hidden">
                                 {/* Chat Header */}

@@ -66,7 +66,7 @@ export function TestimonialsSection() {
             <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900 mb-4">
               Quem usa, confia e <span className="text-primary">vende mais.</span>
             </h2>
-            <p className="text-base text-slate-400">
+            <p className="text-base text-slate-600 leading-relaxed">
               Veja como o Sagazchat está a transformar a operação de vendas de centenas de empresas no Brasil.
             </p>
           </div>

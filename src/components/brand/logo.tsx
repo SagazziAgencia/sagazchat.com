@@ -25,12 +25,12 @@ export function Logo({ className, variant = 'default', height = 32 }: LogoProps)
 
     return (
         <svg
-            width="auto"
             height={height}
             viewBox="0 0 440 58"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className={cn("w-auto h-auto", className)}
+            className={cn("h-auto max-w-full", className)}
+            style={{ height: typeof height === 'number' ? `${height}px` : height }}
         >
             <path d="M358.165 51.3282C355.956 51.3282 354.165 49.5373 354.165 47.3282V7.55217H341.813V0.576172H385.229L378.789 6.49686C378.051 7.17553 377.085 7.55217 376.082 7.55217H362.229V51.3282H358.165Z" fill="#17C75A" />
             <path d="M332.662 51.3278L329.782 38.5918H310.39L307.126 51.3278H299.638L311.222 8.51175C311.82 6.33575 312.438 4.67175 313.078 3.51975C313.718 2.32509 314.636 1.49309 315.83 1.02375C317.025 0.554419 318.689 0.341085 320.822 0.383751L328.758 0.575752L340.726 51.3278H332.662ZM318.262 8.38375L312.118 31.6798H328.246L322.678 7.48775H319.158C318.646 7.48775 318.348 7.78642 318.262 8.38375Z" fill="#17C75A" />

@@ -12,7 +12,11 @@ interface AnimateInProps {
   from?: "bottom" | "left" | "right" | "scale";
 }
 
-function getHiddenTransform(from: "bottom" | "left" | "right" | "scale"): string {
+function getHiddenTransform(from: "bottom" | "left" | "right" | "scale", isMobile: boolean): string {
+  // On mobile, horizontal animations cause overflow — fall back to vertical
+  if (isMobile && (from === "left" || from === "right")) {
+    return "translateY(24px)";
+  }
   switch (from) {
     case "bottom": return "translateY(24px)";
     case "left":   return "translateX(-24px)";
@@ -32,6 +36,11 @@ export function AnimateIn({
 }: AnimateInProps) {
   const ref = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 1024);
+  }, []);
 
   useEffect(() => {
     const el = ref.current;
@@ -63,7 +72,7 @@ export function AnimateIn({
       className={className}
       style={{
         opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "translate3d(0,0,0) scale(1)" : getHiddenTransform(from),
+        transform: isVisible ? "translate3d(0,0,0) scale(1)" : getHiddenTransform(from, isMobile),
         transition: `opacity ${duration}ms cubic-bezier(0.16,1,0.3,1) ${delay}ms, transform ${duration}ms cubic-bezier(0.16,1,0.3,1) ${delay}ms`,
         willChange: isVisible ? "auto" : "opacity, transform",
       }}

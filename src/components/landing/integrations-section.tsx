@@ -41,10 +41,13 @@ export default function IntegrationsSection() {
     <section id="integrations" className="py-20 bg-[#0a0f13] text-white overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-6">
+            Integrações
+          </p>
+          <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-white mb-4">
             Seu Ecossistema de Vendas, Totalmente Integrado via Webhooks.
           </h2>
-          <p className="text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base text-slate-400 leading-relaxed max-w-3xl mx-auto">
             De CRMs a plataformas de pagamento, o Sagazchat se integra com as ferramentas que você ama, automatizando seu fluxo de trabalho e centralizando suas operações.
           </p>
         </div>

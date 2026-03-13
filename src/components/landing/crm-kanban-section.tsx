@@ -102,7 +102,7 @@ export const CrmKanbanSection = () => {
             </p>
 
             <h2 className="font-[family-name:var(--font-display)] mt-4 text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900">
-              Não organize apenas leads. <br />
+              Não organize apenas leads.{' '}
               <span className="text-primary">
                 Organize seu dinheiro.
               </span>

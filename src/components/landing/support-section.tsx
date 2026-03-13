@@ -33,10 +33,13 @@ export function SupportSection() {
     <section className="py-20 lg:py-32 bg-[#0A0F13] text-white">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center mb-12">
-          <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15]">
-            SUPORTE E RECURSOS
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-6">
+            Suporte
+          </p>
+          <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-white">
+            Suporte e Recursos
           </h2>
-          <p className="text-base text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className="text-base text-slate-400 leading-relaxed mt-4 max-w-2xl mx-auto">
             Estamos aqui para ajudar você em cada passo da jornada. Conte com nosso suporte dedicado e materiais de apoio.
           </p>
         </div>

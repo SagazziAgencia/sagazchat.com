@@ -65,37 +65,37 @@ export const ShortcutSection = () => {
     return (
         <section className="py-24 bg-white text-slate-900 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
                     {/* Left Content */}
-                    <div className="order-2 lg:order-1 space-y-8">
-                        <AnimateIn from="left" delay={0}>
+                    <div className="space-y-6 lg:space-y-8">
+                        <AnimateIn delay={0}>
                             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
                                 Resposta Rápida
                             </p>
                         </AnimateIn>
 
-                        <AnimateIn from="left" delay={100}>
-                            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15]">
+                        <AnimateIn delay={100}>
+                            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900">
                                 Atenda em <span className="text-primary">segundos</span>, não em minutos.
                             </h2>
                         </AnimateIn>
 
-                        <AnimateIn from="left" delay={200}>
+                        <AnimateIn delay={200}>
                             <p className="text-base text-slate-600 leading-relaxed">
                                 Sua equipe não precisa digitar a mesma resposta pela centésima vez. Com respostas rápidas, qualquer atendente envia texto, áudio, vídeo, PDF ou até um fluxo inteiro — com um único clique.
                             </p>
                         </AnimateIn>
 
-                        <AnimateIn from="left" delay={300}>
+                        <AnimateIn delay={300}>
                             <ul className="space-y-4">
                                 {[
                                     "Envio instantâneo de mídia: áudio, vídeo e PDF sem buscar arquivos.",
                                     "Dispare fluxos completos direto da conversa, sem trocar de tela.",
                                     "Toda a equipe respondendo com a mesma qualidade e agilidade."
                                 ].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-slate-700">
-                                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                    <li key={i} className="flex items-start gap-3 text-slate-700">
+                                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 mt-0.5">
                                             <CheckCircle2 size={14} />
                                         </div>
                                         {item}
@@ -104,7 +104,7 @@ export const ShortcutSection = () => {
                             </ul>
                         </AnimateIn>
 
-                        <AnimateIn from="left" delay={400}>
+                        <AnimateIn delay={400}>
                             <div className="pt-4">
                                 <a href="#pricing" className="inline-flex items-center gap-2.5 rounded-xl bg-primary px-8 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)] transition-all">
                                     Ver planos
@@ -115,8 +115,8 @@ export const ShortcutSection = () => {
                     </div>
 
                     {/* Right Content - Settings Panel Mockup */}
-                    <AnimateIn from="right" delay={200} duration={700}>
-                        <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+                    <AnimateIn delay={200} duration={700}>
+                        <div className="lg:order-2 flex justify-center lg:justify-end">
                             <div className="relative w-full max-w-[480px] bg-white rounded-2xl border border-slate-200 shadow-xl overflow-hidden">
 
                                 {/* Panel Header */}

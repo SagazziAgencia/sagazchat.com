@@ -24,7 +24,7 @@ export function InstagramSection() {
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
 
                     {/* Left Content */}
-                    <div className="order-2 lg:order-1 space-y-8">
+                    <div className="space-y-8">
                         <AnimateIn from="left" delay={0}>
                             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#C13584]">
                                 Automação para Instagram
@@ -32,7 +32,7 @@ export function InstagramSection() {
                         </AnimateIn>
 
                         <AnimateIn from="left" delay={100}>
-                            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15]">
+                            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900">
                                 Do <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500">Comentário</span> ao <span className="text-primary">Direct</span> em segundos.
                             </h2>
                         </AnimateIn>
@@ -72,7 +72,7 @@ export function InstagramSection() {
 
                     {/* Right Content - Visual Demo */}
                     <AnimateIn from="right" delay={200} duration={700}>
-                    <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+                    <div className="lg:order-2 flex justify-center lg:justify-end">
                         <div className="relative w-fit">
                             {/* Phone Frame */}
                             <div className="relative border-slate-300 bg-white border-[8px] rounded-[2.5rem] h-[600px] w-[320px] shadow-2xl flex flex-col overflow-hidden">

@@ -112,6 +112,10 @@ export default {
           '20%': { opacity: '1', transform: 'translateY(-180px) scale(1)' },
           '100%': { transform: 'translateY(-50px) scale(0.5)', opacity: '0' },
         },
+        'marquee': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -124,6 +128,7 @@ export default {
         'counter-orbit': 'counter-orbit 25s linear infinite',
         'radar-pulse': 'radar-pulse 2s cubic-bezier(0, 0, 0.2, 1) infinite',
         'particle-in': 'particle-in 3s ease-in infinite',
+        'marquee': 'marquee 40s linear infinite',
       },
       perspective: {
         '1000': '1000px',

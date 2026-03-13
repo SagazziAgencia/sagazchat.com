@@ -539,12 +539,12 @@ export function PricingSection() {
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <AnimateIn>
-        <div className="text-center mb-20 max-w-3xl mx-auto">
+        <div className="text-center mb-12 lg:mb-20 max-w-3xl mx-auto">
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-6">
             Planos
           </p>
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900 mb-6">
-            Escolha o plano ideal e<br />
+            Escolha o plano ideal e{' '}
             <span className="text-primary">comece a vender mais</span>
           </h2>
           <p className="text-base text-slate-600 max-w-xl mx-auto">
@@ -555,7 +555,7 @@ export function PricingSection() {
 
         {/* Toggle WhatsApp vs WhatsApp + Instagram */}
         <AnimateIn from="scale" delay={150}>
-        <div className="flex justify-center mb-12">
+        <div className="flex justify-center mb-8 lg:mb-12">
           <div className="inline-flex items-center p-1 rounded-xl bg-white border border-slate-200 shadow-sm">
             <button
               onClick={() => setIncludeInstagram(false)}

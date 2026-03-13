@@ -60,7 +60,7 @@ const features = [
 
 export function GroupManagerSection() {
   return (
-    <section className="py-20 lg:py-32 bg-white text-gray-800 relative bg-pattern">
+    <section className="py-20 lg:py-32 bg-white text-slate-800 relative bg-pattern">
        <div className="pattern-mask-light"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-1 gap-16 items-center">
@@ -68,11 +68,14 @@ export function GroupManagerSection() {
           {/* Left Column */}
           <div className="space-y-10">
             <div className="space-y-4 text-center">
-              <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-gray-900">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
+                Gerente de Grupos
+              </p>
+              <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900">
                 Transforme Grupos do WhatsApp em{' '}
                 <span className="text-primary">Comunidades Lucrativas</span>
               </h2>
-              <p className="text-base text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-base text-slate-600 leading-relaxed max-w-3xl mx-auto">
                 Assuma o controle total da sua comunicação em grupos. Importe, gerencie, exporte membros e automatize interações com o nosso poderoso Gerente de Grupos.
               </p>
             </div>

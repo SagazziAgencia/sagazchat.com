@@ -138,19 +138,22 @@ export function MultiWhatsapp() {
 
 
   return (
-    <section className="py-20 lg:py-32 bg-white text-gray-800 relative bg-pattern">
+    <section className="py-20 lg:py-32 bg-white text-slate-800 relative bg-pattern overflow-hidden">
       <div className="pattern-mask"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center gap-12">
         
         {/* TOPO: Texto Centralizado */}
         <AnimateIn>
         <div className="text-center max-w-4xl mx-auto mb-8">
-            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] mb-4 text-gray-900">
-                Múltiplos WhatsApps.<br/>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-6">
+                Múltiplos WhatsApps
+            </p>
+            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] mb-4 text-slate-900">
+                Múltiplos WhatsApps.{' '}
                 <span className="text-primary">Uma única tela.</span>
             </h2>
 
-            <p className="text-base text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
                 Centralize seu <span className="font-bold text-gray-800">time comercial</span> em uma <span className="font-bold text-gray-800">única tela</span>. Monitore atendimentos, elimine gargalos e transforme seu WhatsApp em uma <span className="font-bold text-gray-800">máquina de lucro previsível</span>.
             </p>
         </div>
@@ -160,7 +163,7 @@ export function MultiWhatsapp() {
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 items-center justify-center">
 
             {/* COLUNA 1 (ESQUERDA): Mockup do App com SLIDER */}
-            <AnimateIn from="left" delay={150}>
+            <AnimateIn delay={150}>
             <div className="relative w-full flex justify-center lg:justify-end order-2 lg:order-1">
                 <div ref={appWindowRef} id="app-window" className="bg-white border border-gray-200 rounded-2xl shadow-soft hover:shadow-lg transition-shadow duration-300 h-[580px] w-full max-w-[500px] flex flex-col overflow-hidden">
                     
@@ -296,7 +299,7 @@ export function MultiWhatsapp() {
             </AnimateIn>
 
             {/* COLUNA 2 (DIREITA): 4 Benefícios em Grid + CTA */}
-            <AnimateIn from="right" delay={250}>
+            <AnimateIn delay={250}>
             <div className="flex flex-col gap-8 order-1 lg:order-2 w-full max-w-[500px] lg:max-w-none mx-auto lg:pl-2">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4"> 
                     <BenefitCard icon={<Layers />} title="Fim da Mistura de Conversas" iconBg="bg-primary/10" iconColor="text-primary">

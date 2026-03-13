@@ -20,16 +20,16 @@ export function Footer() {
     <footer className="bg-slate-900 text-white pt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimateIn from="scale" duration={700}>
-        <div className="bg-slate-800 border border-slate-700 rounded-2xl p-8 lg:p-12">
+        <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 lg:p-12 overflow-hidden">
           <div className="grid lg:grid-cols-1 gap-8 items-center">
             <div className="space-y-6 text-center">
-              <h2 className="text-3xl md:text-4xl font-extrabold">Fale com um Especialista Agora</h2>
-              <p className="text-gray-400 max-w-lg mx-auto">
+              <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-white">Fale com um Especialista Agora</h2>
+              <p className="text-base text-slate-400 leading-relaxed max-w-lg mx-auto">
                 Clique no botão e seja direcionado para o WhatsApp. Nossa equipe está pronta para tirar suas dúvidas e criar um plano de ação para o seu negócio.
               </p>
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-auto px-8 py-4 text-lg font-bold">
-                <WhatsAppIcon className="w-5 h-5 mr-2" />
-                Iniciar Conversa no WhatsApp
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-auto px-6 sm:px-8 py-4 text-base sm:text-lg font-bold w-full sm:w-auto">
+                <WhatsAppIcon className="w-5 h-5 mr-2 shrink-0" />
+                <span>Iniciar Conversa no WhatsApp</span>
               </Button>
             </div>
           </div>
@@ -50,9 +50,9 @@ export function Footer() {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-slate-400 hover:text-white transition-colors"><Facebook size={20} /></span>
-            <span className="text-slate-400 hover:text-white transition-colors"><Instagram size={20} /></span>
-            <span className="text-slate-400 hover:text-white transition-colors"><Linkedin size={20} /></span>
+            <a href="#" aria-label="Facebook" className="text-slate-400 hover:text-white transition-colors p-1"><Facebook size={20} /></a>
+            <a href="#" aria-label="Instagram" className="text-slate-400 hover:text-white transition-colors p-1"><Instagram size={20} /></a>
+            <a href="#" aria-label="LinkedIn" className="text-slate-400 hover:text-white transition-colors p-1"><Linkedin size={20} /></a>
           </div>
         </div>
         </AnimateIn>

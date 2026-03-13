@@ -60,8 +60,8 @@ export const BroadcastSection = () => {
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
                     {/* Left — Mockup */}
-                    <AnimateIn from="left" delay={150} duration={700}>
-                    <div className="order-2 lg:order-1 flex justify-center">
+                    <AnimateIn from="left" delay={150} duration={700} className="order-2 lg:order-1">
+                    <div className="flex justify-center">
                         <div className="w-full max-w-[420px]">
                             <div className="bg-slate-50 rounded-2xl border border-slate-200 shadow-xl overflow-hidden">
                                 {/* Header */}
@@ -152,7 +152,7 @@ export const BroadcastSection = () => {
                         </AnimateIn>
 
                         <AnimateIn from="right" delay={200}>
-                        <p className="text-base text-slate-500 leading-relaxed mb-10 max-w-lg">
+                        <p className="text-base text-slate-600 leading-relaxed mb-10 max-w-lg">
                             Envie transmissões personalizadas com agendamento inteligente e proteção anti-bloqueio. Importe planilhas, escolha o fluxo e deixe o sistema trabalhar.
                         </p>
                         </AnimateIn>

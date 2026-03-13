@@ -58,20 +58,20 @@ export function WebhookSection() {
                             Webhooks
                         </p>
                         <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900">
-                            Transforme Checkouts Abandonados em<br />
+                            Transforme Checkouts Abandonados em{' '}
                             <span className="text-primary">
                                 Dinheiro no Seu Bolso
                             </span>
                         </h2>
-                        <p className="text-base text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
+                        <p className="text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
                             Integração nativa entre <strong>Deposita.Ai</strong> e <strong>Sagazchat</strong>. Recupere vendas automaticamente sem mover um dedo.
                         </p>
                     </div>
                 </AnimateIn>
 
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-                    <AnimateIn from="left" delay={150}>
-                    <div className="w-full lg:w-1/2 flex flex-col gap-8">
+                    <AnimateIn from="left" delay={150} className="w-full lg:w-1/2">
+                    <div className="flex flex-col gap-8">
                         <div className="relative space-y-4 w-full">
                             <div className="absolute left-[1.65rem] top-8 bottom-8 w-px bg-slate-200 z-0"></div>
                             <div
@@ -170,8 +170,8 @@ export function WebhookSection() {
                     </div>
                     </AnimateIn>
 
-                    <AnimateIn from="right" delay={200} duration={700}>
-                    <div className="w-full lg:w-1/2 flex justify-center items-center">
+                    <AnimateIn from="right" delay={200} duration={700} className="w-full lg:w-1/2">
+                    <div className="flex justify-center items-center">
                         <PhoneMockupAnimation />
                     </div>
                     </AnimateIn>

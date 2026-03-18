@@ -88,6 +88,8 @@ export function TestimonialsSection() {
                     src={testimonial.videoThumbnailUrl}
                     alt={`Depoimento de ${testimonial.name}`}
                     fill
+                    quality={100}
+                    sizes="(min-width: 1280px) 18vw, (min-width: 1024px) 22vw, (min-width: 640px) 44vw, 92vw"
                     className="object-cover"
                     data-ai-hint={testimonial.aiHint}
                   />

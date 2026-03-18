@@ -1,391 +1,187 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import {
-  Layers,
-  BarChart,
-  Briefcase,
-  Eye,
+  MessageCircle,
+  Instagram,
+  Mail,
+  Shield,
   ArrowRight,
-  Check,
-  PanelLeft,
-  MessageSquare,
-  EllipsisVertical,
-  Bot,
-  User,
-  Users,
-  Megaphone,
-  Network,
-  GitBranch,
-  Play,
-  Settings,
-  ShieldCheck,
-  Search,
-  Filter,
-  ChevronLeft,
-  ChevronRight,
-  Columns,
-  LayoutGrid,
-  MessagesSquare,
-  Share2,
-  UserCog,
+  MonitorSmartphone,
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { AnimateIn } from '@/components/ui/animate-in';
 
-const sidebarItems = [
-    { icon: <LayoutGrid size={20} />, title: "Dashboard", id: 'nav-dashboard'},
-    { icon: <MessagesSquare size={20} />, title: "Bate Papo", id: 'nav-chat'},
-    { icon: <Columns size={20} />, title: "Kanban" },
-    { icon: <Bot size={20} />, title: "Atendimento IA" },
-    { icon: <Share2 size={20} />, title: "Fluxos" },
-    { icon: <Megaphone size={20} />, title: "Transmissão" },
-    { icon: <Users size={20} />, title: "Audiência" },
-    { icon: <UserCog size={20} />, title: "Gerente" },
-    { icon: <Play size={20} />, title: "Automação" },
-];
+/* ╔═══════════════════════════════════════════════════════════╗
+   ║  CONFIGURAÇÃO DA IMAGEM                                   ║
+   ║  Troque a URL abaixo pela imagem que quiser.              ║
+   ║  Aceita URL externa ou caminho local (/images/xxx.png)    ║
+   ╚═══════════════════════════════════════════════════════════╝ */
 
-const connectionCards = [
-    { name: "Iarley", role: "Gerente Comercial", phone: "+55 (31) 86...950", timestamp: "26/11/25 13:21" },
-    { name: "Ana", role: "Suporte N1", phone: "+55 (11) 99...123", timestamp: "26/11/25 14:05" },
-    { name: "Pedro", role: "Vendas", phone: "+55 (21) 97...888", timestamp: "26/11/25 12:45" },
-    { name: "Sofia", role: "Financeiro", phone: "+55 (41) 96...555", timestamp: "26/11/25 10:30" },
-];
+const MULTI_WHATSAPP_IMAGE = 'https://i.ibb.co/60Y4RGQc/Group-4.png';
 
-const chatItems = [
-    {
-        name: "Carlos Mendes",
-        lastMessage: "Fico no aguardo, Carlos!",
-        author: "Iarley",
-        time: "15:21",
-        tags: [
-            { name: "Comercial", color: "bg-emerald-600" },
-            { name: "Iarley", color: "bg-primary" }
-        ],
-        active: true
-    },
-    {
-        name: "Julia Pereira",
-        lastMessage: "Já abri seu chamado.",
-        author: "Ana",
-        time: "14:30",
-        tags: [
-            { name: "Suporte", color: "bg-green-600" },
-            { name: "Ana", color: "bg-primary" }
-        ]
-    },
-    {
-        name: "Ricardo Silva",
-        lastMessage: "Qual o valor do plano anual?",
-        author: null,
-        time: "12:45",
-        tags: [
-            { name: "Vendas", color: "bg-lime-700" },
-            { name: "Pedro", color: "bg-primary" }
-        ]
-    },
-    {
-        name: "Tech Solutions",
-        lastMessage: "Boleto enviado!",
-        author: "Sofia",
-        time: "10:15",
-        tags: [
-            { name: "Financeiro", color: "bg-teal-700" },
-            { name: "Sofia", color: "bg-primary" }
-        ]
-    },
-]
+/* ── Safe image with fallback ──────────────────────────── */
 
+function SafeImage({ src, alt }: { src: string; alt: string }) {
+  const [error, setError] = useState(false);
+  const isExternal = /^https?:\/\//i.test(src);
 
-export function MultiWhatsapp() {
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const intervalRef = useRef<NodeJS.Timeout | null>(null);
-    const appWindowRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    setError(false);
+  }, [src]);
 
-    const stopAutoplay = () => {
-        if (intervalRef.current) clearInterval(intervalRef.current);
-    };
+  if (error) {
+    return (
+      <div className="flex h-full w-full flex-col items-center justify-center gap-4 bg-gradient-to-br from-slate-50 to-slate-100 p-8 text-center">
+        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/80 shadow-sm ring-1 ring-emerald-100">
+          <MonitorSmartphone className="h-7 w-7 text-primary" />
+        </div>
+        <p className="text-lg font-bold text-slate-700">Screenshot</p>
+        <p className="mt-1 text-sm text-slate-400">
+          {isExternal
+            ? 'Verifique a URL configurada em multi-whatsapp.tsx'
+            : `Adicione a imagem em /public${src}`}
+        </p>
+      </div>
+    );
+  }
 
-    const startAutoplay = () => {
-        stopAutoplay();
-        intervalRef.current = setInterval(() => {
-            setCurrentSlide(prev => (prev === 0 ? 1 : 0));
-        }, 3000);
-    };
-
-    const goToSlide = (index: number) => {
-        setCurrentSlide(index);
-        // Reset autoplay timer on manual interaction
-        startAutoplay();
-    };
-
-    useEffect(() => {
-        startAutoplay();
-        const appWindow = appWindowRef.current;
-        if (appWindow) {
-            appWindow.addEventListener('mouseenter', stopAutoplay);
-            appWindow.addEventListener('mouseleave', startAutoplay);
-        }
-        return () => {
-            stopAutoplay();
-             if (appWindow) {
-                appWindow.removeEventListener('mouseenter', stopAutoplay);
-                appWindow.removeEventListener('mouseleave', startAutoplay);
-            }
-        };
-    }, []);
-
+  if (isExternal) {
+    return (
+      <img
+        src={src}
+        alt={alt}
+        className="h-full w-full object-cover object-left-top"
+        loading="lazy"
+        decoding="async"
+        onError={() => setError(true)}
+      />
+    );
+  }
 
   return (
-    <section className="py-20 lg:py-32 bg-white text-slate-800 relative bg-pattern overflow-hidden">
-      <div className="pattern-mask"></div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center gap-12">
-        
-        {/* TOPO: Texto Centralizado */}
-        <AnimateIn>
-        <div className="text-center max-w-4xl mx-auto mb-8">
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      quality={100}
+      sizes="(min-width: 1024px) 60vw, 95vw"
+      className="object-cover object-left-top"
+      onError={() => setError(true)}
+    />
+  );
+}
+
+/* ── Main component ────────────────────────────────────── */
+
+export function MultiWhatsapp() {
+  return (
+    <section className="relative overflow-hidden bg-white py-20 lg:py-28">
+      <div className="mx-auto max-w-[90rem] px-4 sm:px-6 lg:px-8 relative z-10">
+
+        {/* ── Header ── */}
+        <div className="mx-auto max-w-3xl text-center mb-14 sm:mb-16">
+          <AnimateIn>
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-6">
-                Múltiplos WhatsApps
+              Integrações Multicanal
             </p>
+          </AnimateIn>
+
+          <AnimateIn delay={100}>
             <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] mb-4 text-slate-900">
-                Múltiplos WhatsApps.{' '}
-                <span className="text-primary">Uma única tela.</span>
+              Todos os canais.{' '}
+              <span className="text-primary">Uma única plataforma.</span>
             </h2>
+          </AnimateIn>
 
+          <AnimateIn delay={200}>
             <p className="text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-                Centralize seu <span className="font-bold text-gray-800">time comercial</span> em uma <span className="font-bold text-gray-800">única tela</span>. Monitore atendimentos, elimine gargalos e transforme seu WhatsApp em uma <span className="font-bold text-gray-800">máquina de lucro previsível</span>.
+              Conecte{' '}
+              <span className="font-bold text-gray-800">WhatsApp, WhatsApp Business API, Instagram, e-mail</span>{' '}
+              e mais canais em um só lugar. Centralize toda a comunicação da sua equipe e nunca perca uma oportunidade.
             </p>
+          </AnimateIn>
         </div>
-        </AnimateIn>
 
-        {/* ABAIXO: Grid de 2 Colunas */}
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 items-center justify-center">
+        {/* ── Content: Image Left + Cards Right ── */}
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1.32fr)_minmax(280px,0.68fr)] lg:gap-16 xl:grid-cols-[minmax(0,1.36fr)_minmax(300px,0.64fr)]">
 
-            {/* COLUNA 1 (ESQUERDA): Mockup do App com SLIDER */}
-            <AnimateIn delay={150}>
-            <div className="relative w-full flex justify-center lg:justify-end order-2 lg:order-1">
-                <div ref={appWindowRef} id="app-window" className="bg-white border border-gray-200 rounded-2xl shadow-soft hover:shadow-lg transition-shadow duration-300 h-[580px] w-full max-w-[500px] flex flex-col overflow-hidden">
-                    
-                    {/* Barra de Título */}
-                    <div className="flex justify-between items-center px-4 py-3 bg-gray-50 border-b border-gray-200 h-12 flex-shrink-0">
-                        <div className="flex gap-1.5">
-                            <div className="w-2.5 h-2.5 rounded-full bg-red-400 border border-red-200"></div>
-                            <div className="w-2.5 h-2.5 rounded-full bg-yellow-400 border border-yellow-200"></div>
-                            <div className="w-2.5 h-2.5 rounded-full bg-green-400 border border-green-200"></div>
-                        </div>
-                        <div className="flex gap-1.5 cursor-pointer">
-                            <div onClick={() => goToSlide(0)} className={cn("w-2 h-2 rounded-full transition-all duration-300 hover:scale-125", currentSlide === 0 ? 'bg-primary' : 'bg-gray-300')}></div>
-                            <div onClick={() => goToSlide(1)} className={cn("w-2 h-2 rounded-full transition-all duration-300 hover:scale-125", currentSlide === 1 ? 'bg-primary' : 'bg-gray-300')}></div>
-                        </div>
-                    </div>
-
-                     {/* Corpo do App */}
-                    <div className="flex flex-1 overflow-hidden">
-                        
-                        {/* SIDEBAR FIXA */}
-                        <div className="w-16 bg-white border-r border-gray-200 flex flex-col items-center py-4 gap-4 z-10 flex-shrink-0 text-gray-400">
-                           {sidebarItems.map((item, index) => (
-                               <div key={index} id={item.id} className={cn("w-full flex justify-center py-3 relative", ( (currentSlide === 0 && item.id === 'nav-dashboard') || (currentSlide === 1 && item.id === 'nav-chat') ) && 'active-sidebar-item')}>
-                                   <div className="active-bar"></div>
-                                   <i className="sidebar-icon" title={item.title}>{item.icon}</i>
-                               </div>
-                           ))}
-                           <div className="w-full flex justify-center py-3 relative mt-auto">
-                                <div className="relative">
-                                    <i className="sidebar-icon" title="Configurações"><Settings size={20} /></i>
-                                    <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        {/* SLIDER DE CONTEÚDO */}
-                        <div className="flex-1 overflow-hidden relative">
-                            <div className="slider-container h-full" style={{ transform: `translateX(-${currentSlide * 50}%)` }} onClick={() => setCurrentSlide(s => s === 0 ? 1 : 0)}>
-                                
-                                {/* SLIDE 1: Conexões Ativas */}
-                                <div className="slide p-6 bg-gray-50 flex flex-col">
-                                    <div className="mb-8 pointer-events-none">
-                                        <h2 className="text-2xl font-bold text-gray-900 mb-2">Conexões Ativas</h2>
-                                        <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full border border-primary/20">
-                                            Gerencie os números da sua equipe
-                                        </span>
-                                    </div>
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pointer-events-none">
-                                        {connectionCards.map((card) => (
-                                            <div key={card.name} className="bg-white border border-gray-200 rounded-2xl p-4 flex flex-col items-center text-center shadow-sm">
-                                                <div className="w-full flex justify-between items-start mb-1">
-                                                    <Bot className="text-gray-400" size={16}/>
-                                                    <div className="flex items-center gap-1">
-                                                        <span className="w-2.5 h-2.5 rounded-full bg-primary"></span>
-                                                        <EllipsisVertical className="text-gray-400 ml-1" size={14}/>
-                                                    </div>
-                                                </div>
-                                                <div className="flex items-center gap-2 mb-3 justify-center w-full"> 
-                                                    <MessageSquare className="text-gray-800" size={16} />
-                                                    <span className="font-bold text-gray-800 text-base">{card.name}</span>
-                                                </div>
-                                                <Button variant="outline" className="w-full py-1.5 mb-3 border-red-300 text-red-500 text-[11px] rounded-full font-medium hover:bg-red-50 h-auto bg-transparent transition-colors">
-                                                    Desconectar
-                                                </Button>
-                                                <div className="text-center">
-                                                    <div className="font-bold text-sm text-gray-800">{card.role}</div>
-                                                    <div className="text-[10px] text-gray-500 mt-0.5 font-mono">{card.phone}</div>
-                                                    <div className="text-[9px] text-gray-400 mt-0.5">{card.timestamp}</div>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                {/* SLIDE 2: Bate Papo */}
-                                <div className="slide bg-white h-full flex flex-col">
-                                    <div className="px-5 pt-5 pb-2 pointer-events-none">
-                                        <h2 className="text-xl font-bold text-gray-900 mb-1">Bate Papo ao Vivo</h2>
-                                        <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full border border-primary/20">
-                                            Conversas separadas por conexão
-                                        </span>
-                                    </div>
-                                    <div className="px-3 py-3 border-b border-gray-100 flex flex-col gap-2 pointer-events-none">
-                                        <div className="flex items-center gap-2">
-                                            <div className="relative flex-1">
-                                                <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"/>
-                                                <input type="text" placeholder="Buscar atendimento e mensagens" className="w-full bg-[#f3f4f6] rounded-full py-2 pl-9 pr-3 text-xs text-gray-600 focus:outline-none placeholder-gray-500"/>
-                                            </div>
-                                            <Filter size={18} className="text-primary"/>
-                                        </div>
-                                    </div>
-                                    <div className="flex-1 overflow-y-auto chat-scroll pointer-events-none pb-6">
-                                        {chatItems.map((item, index) => (
-                                             <div key={index} className={cn("flex flex-col p-3 border-b border-gray-100 hover:bg-gray-50", item.active && "bg-gray-200/30 border-l-4 border-l-transparent hover:border-l-gray-300")}>
-                                                 <div className="flex items-start gap-3 w-full">
-                                                     <div className="w-10 h-10 rounded-full bg-[#bdbdbd] flex items-center justify-center flex-shrink-0 mt-1">
-                                                         <User size={20} className="text-white"/>
-                                                     </div>
-                                                     <div className="flex-1 min-w-0">
-                                                         <div className="flex justify-between items-start mb-1">
-                                                             <span className="text-sm font-medium text-gray-800">{item.name}</span>
-                                                             <div className="flex items-center gap-1 flex-wrap justify-end">
-                                                                {item.tags.map(tag => (
-                                                                    <span key={tag.name} className={`text-[9px] font-bold text-white px-2 py-0.5 rounded-full shadow-sm ${tag.color}`}>{tag.name}</span>
-                                                                ))}
-                                                             </div>
-                                                         </div>
-                                                         <div className="flex justify-between items-center">
-                                                             <p className="text-xs text-gray-600 truncate max-w-[150px]">
-                                                                {item.author ? <span className="font-bold text-gray-800">{item.author}:</span> : ''} {item.lastMessage}
-                                                             </p>
-                                                             <div className="flex items-center gap-1.5 text-gray-500 text-[10px]">
-                                                                 <span>{item.time}</span>
-                                                                 <ChevronLeft size={12} className="text-gray-400" />
-                                                                 <ChevronRight size={12} className="text-gray-400" />
-                                                             </div>
-                                                         </div>
-                                                     </div>
-                                                 </div>
-                                             </div>
-                                        ))}
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                     <div className="absolute bottom-3 left-1/2 -translate-x-1/2 text-[10px] text-gray-400 pointer-events-none opacity-50">
-                        Clique para alternar a tela
-                    </div>
-                </div>
+          {/* Left – Image */}
+          <AnimateIn from="left" delay={150}>
+            <div className="relative h-[360px] overflow-hidden rounded-2xl sm:h-[460px] lg:h-[580px] xl:h-[620px]">
+              <SafeImage
+                src={MULTI_WHATSAPP_IMAGE}
+                alt="Múltiplos WhatsApps em uma única tela"
+              />
             </div>
-            </AnimateIn>
+          </AnimateIn>
 
-            {/* COLUNA 2 (DIREITA): 4 Benefícios em Grid + CTA */}
-            <AnimateIn delay={250}>
-            <div className="flex flex-col gap-8 order-1 lg:order-2 w-full max-w-[500px] lg:max-w-none mx-auto lg:pl-2">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4"> 
-                    <BenefitCard icon={<Layers />} title="Fim da Mistura de Conversas" iconBg="bg-primary/10" iconColor="text-primary">
-                        Cada departamento tem seu espaço. Separe vendas de suporte e mantenha tudo organizado.
-                    </BenefitCard>
-                    <BenefitCard icon={<BarChart />} title="Decisões Baseadas em Dados" iconBg="bg-gray-100" iconColor="text-gray-600">
-                        Com tudo centralizado, veja gargalos, tempos de resposta e performance real da equipe.
-                    </BenefitCard>
-                    <BenefitCard icon={<Briefcase />} title="Profissionalismo Total" iconBg="bg-primary/10" iconColor="text-primary">
-                        Transmita confiança. Uma operação organizada reflete profissionalismo e aumenta o fechamento.
-                    </BenefitCard>
-                    <BenefitCard icon={<Eye />} title="Auditoria em Tempo Real" iconBg="bg-purple-100" iconColor="text-purple-600">
-                        Monitore o que sua equipe fala. Corrija erros na hora e garanta o padrão de qualidade do seu atendimento.
-                    </BenefitCard>
-                </div>
-                <div className="w-full">
-                    <a href="#pricing" className="inline-flex items-center gap-2.5 rounded-xl bg-primary px-8 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)] transition-all">
-                        Ver planos
-                        <ArrowRight className="w-5 h-5" />
-                    </a>
-                </div>
+          {/* Right – Benefits + CTA */}
+          <AnimateIn from="right" delay={250}>
+            <div className="flex flex-col gap-8">
+              <div className="flex items-center gap-2.5">
+                <span className="h-2 w-2 rounded-full bg-primary" />
+                <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
+                  Canais conectados
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <BenefitCard
+                  icon={<MessageCircle />}
+                  title="WhatsApp & API Oficial"
+                  iconBg="bg-primary/10"
+                  iconColor="text-primary"
+                >
+                  Conecte múltiplos números WhatsApp e a API oficial do WhatsApp
+                  Business na mesma plataforma.
+                </BenefitCard>
+                <BenefitCard
+                  icon={<Instagram />}
+                  title="Instagram Direct"
+                  iconBg="bg-pink-50"
+                  iconColor="text-pink-600"
+                >
+                  Responda mensagens do Instagram Direct sem sair da plataforma.
+                  Centralize o atendimento das suas redes sociais.
+                </BenefitCard>
+                <BenefitCard
+                  icon={<Mail />}
+                  title="E-mail Integrado"
+                  iconBg="bg-blue-50"
+                  iconColor="text-blue-600"
+                >
+                  Gerencie e-mails junto com seus outros canais. Uma caixa de
+                  entrada unificada para toda a equipe.
+                </BenefitCard>
+                <BenefitCard
+                  icon={<Shield />}
+                  title="Controle Total"
+                  iconBg="bg-lime-100"
+                  iconColor="text-lime-700"
+                >
+                  Monitore todos os canais em tempo real. Audite conversas,
+                  acompanhe métricas e garanta qualidade no atendimento.
+                </BenefitCard>
+              </div>
+
+              <a
+                href="#pricing"
+                className="inline-flex w-fit items-center gap-2.5 rounded-xl bg-primary px-7 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)]"
+              >
+                Ver planos
+                <ArrowRight className="h-5 w-5" />
+              </a>
             </div>
-            </AnimateIn>
-
+          </AnimateIn>
         </div>
       </div>
-       <style jsx>{`
-        .bg-pattern {
-            background-image: radial-gradient(#e5e7eb 1.5px, transparent 1.5px);
-            background-size: 24px 24px;
-        }
-        .pattern-mask {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, transparent 0%, white 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
-        .slider-container {
-            display: flex;
-            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-            width: 200%; /* 2 slides */
-            cursor: pointer;
-        }
-        .slide {
-            width: 50%; 
-            flex-shrink: 0;
-        }
-        .chat-scroll::-webkit-scrollbar {
-            width: 4px;
-        }
-        .chat-scroll::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .chat-scroll::-webkit-scrollbar-thumb {
-            background: #d1d5db;
-            border-radius: 2px;
-        }
-        .sidebar-icon {
-            @apply text-gray-400 hover:text-primary text-lg transition-colors cursor-pointer; 
-        }
-        .active-sidebar-item .sidebar-icon {
-            color: #17C75A;
-        }
-        .active-sidebar-item .active-bar {
-            display: block;
-        }
-        .active-bar {
-            display: none;
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px; 
-            background-color: #17C75A;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-        }
-       `}</style>
     </section>
   );
 }
 
+/* ── Benefit Card ──────────────────────────────────────── */
 
 const BenefitCard = ({
   icon,
@@ -400,21 +196,17 @@ const BenefitCard = ({
   iconBg: string;
   iconColor: string;
 }) => (
-    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all hover:border-primary/30 group h-full">
-        <div
-            className={cn(
-                'w-10 h-10 rounded-lg flex items-center justify-center mb-3',
-                iconBg === 'bg-gray-100' ? 'bg-emerald-50' : iconBg,
-                iconColor === 'text-gray-600' ? 'text-emerald-600' : iconColor,
-                iconBg === 'bg-purple-100' ? 'bg-lime-100' : '',
-                iconColor === 'text-purple-600' ? 'text-lime-700' : ''
-            )}
-        >
-            {icon}
-        </div>
-        <h4 className="font-bold text-gray-900 text-base mb-1">{title}</h4>
-        <p className="text-xs text-gray-500 leading-relaxed">{children}</p>
+  <div className="rounded-xl border border-gray-100 bg-white p-5 shadow-sm transition-all hover:border-primary/30 hover:shadow-md h-full">
+    <div
+      className={cn(
+        'mb-3 flex h-10 w-10 items-center justify-center rounded-lg',
+        iconBg,
+        iconColor
+      )}
+    >
+      {icon}
     </div>
+    <h4 className="mb-1 text-base font-bold text-gray-900">{title}</h4>
+    <p className="text-xs leading-relaxed text-gray-500">{children}</p>
+  </div>
 );
-
-

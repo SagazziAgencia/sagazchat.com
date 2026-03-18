@@ -1,7 +1,7 @@
 import { Header } from '@/components/landing/header';
 import { Hero } from '@/components/landing/hero';
-import { FlowBuilderSection } from '@/components/landing/flow-builder-section';
-import { FeaturesTicker } from '@/components/landing/features-ticker';
+
+import { IntegrationsTicker, FeaturesTicker } from '@/components/landing/features-ticker';
 import { MultiWhatsapp } from '@/components/landing/multi-whatsapp';
 import { InstagramSection } from '@/components/landing/instagram-section';
 import { WebhookSection } from '@/components/landing/webhook-section';
@@ -22,8 +22,8 @@ export default function SagazchatLanding() {
       <Hero />
 
       <main>
+        <IntegrationsTicker />
         <FeaturesTicker />
-        <FlowBuilderSection />
         <MultiWhatsapp />
         <InstagramSection />
         <AiChatbotSection />

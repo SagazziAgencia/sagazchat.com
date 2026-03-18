@@ -1,10 +1,15 @@
+import path from 'path';
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  turbopack: {
+    root: path.join(__dirname),
+  },
   typescript: {
     ignoreBuildErrors: true,
   },
   images: {
+    qualities: [75, 100],
     remotePatterns: [
       {
         protocol: 'https',

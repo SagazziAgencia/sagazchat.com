@@ -69,6 +69,8 @@ export default function IntegrationsSection() {
                     src={integration.src}
                     alt={`${integration.name} logo`}
                     fill
+                    quality={100}
+                    sizes="64px"
                     className="object-contain p-2"
                     data-ai-hint={integration.hint}
                   />

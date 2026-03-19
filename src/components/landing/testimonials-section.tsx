@@ -111,8 +111,8 @@ export function TestimonialsSection() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute left-[-1rem] top-1/2 -translate-y-1/2 z-10 bg-white border-slate-200 text-slate-600 hover:bg-slate-50" />
-          <CarouselNext className="absolute right-[-1rem] top-1/2 -translate-y-1/2 z-10 bg-white border-slate-200 text-slate-600 hover:bg-slate-50" />
+          <CarouselPrevious className="absolute left-0 sm:left-[-1rem] top-1/2 -translate-y-1/2 z-10 bg-white border-slate-200 text-slate-600 hover:bg-slate-50 hidden sm:flex" />
+          <CarouselNext className="absolute right-0 sm:right-[-1rem] top-1/2 -translate-y-1/2 z-10 bg-white border-slate-200 text-slate-600 hover:bg-slate-50 hidden sm:flex" />
         </Carousel>
         </AnimateIn>
 

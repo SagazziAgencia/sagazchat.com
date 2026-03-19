@@ -117,7 +117,7 @@ export const CrmKanbanSection = () => {
 
               <div className="text-base text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0 lg:border-l-4 border-primary lg:pl-6">
                 <p>
-                  O novo <strong>CRM Kanban</strong> do Sagazchatbot faz o cálculo automático de cada etapa do seu funil. Saiba exatamente quanto valor está em negociação e tome decisões baseadas em números reais.
+                  O novo <strong>CRM Kanban</strong> do Sagazchat faz o cálculo automático de cada etapa do seu funil. Saiba exatamente quanto valor está em negociação e tome decisões baseadas em números reais.
                 </p>
               </div>
 
@@ -157,7 +157,7 @@ export const CrmKanbanSection = () => {
             <AnimateIn from="right" delay={200} duration={700}>
             <div className="relative flex justify-center order-1 lg:order-2 mb-12 lg:mb-0">
 
-              <div className="w-[340px] md:w-[380px] bg-white rounded-xl border border-slate-200 shadow-xl overflow-hidden flex flex-col relative p-4">
+              <div className="w-full max-w-[340px] md:max-w-[380px] bg-white rounded-xl border border-slate-200 shadow-xl overflow-hidden flex flex-col relative p-4">
 
                 {/* Kanban Column Header (The highlight) */}
                 <div className="bg-primary rounded-lg p-3 flex items-center justify-between shadow-lg shadow-primary/20 relative overflow-hidden group">
@@ -182,7 +182,7 @@ export const CrmKanbanSection = () => {
                         <p className="text-[10px] text-primary uppercase tracking-wider font-bold mb-2">Lead qualificado</p>
                         <div className="flex justify-between items-center mb-3">
                           <p className="font-bold text-sm text-gray-900 leading-tight">{card.name}</p>
-                          <p className="font-mono text-gray-800 font-bold text-sm">
+                          <p className="text-gray-800 font-bold text-sm">
                             R$ {card.value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                           </p>
                         </div>

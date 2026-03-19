@@ -50,9 +50,9 @@ export function Footer() {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <a href="#" aria-label="Facebook" className="text-slate-400 hover:text-white transition-colors p-1"><Facebook size={20} /></a>
-            <a href="#" aria-label="Instagram" className="text-slate-400 hover:text-white transition-colors p-1"><Instagram size={20} /></a>
-            <a href="#" aria-label="LinkedIn" className="text-slate-400 hover:text-white transition-colors p-1"><Linkedin size={20} /></a>
+            <a href="#" aria-label="Facebook" className="text-slate-400 hover:text-white transition-colors p-2.5"><Facebook size={20} /></a>
+            <a href="#" aria-label="Instagram" className="text-slate-400 hover:text-white transition-colors p-2.5"><Instagram size={20} /></a>
+            <a href="#" aria-label="LinkedIn" className="text-slate-400 hover:text-white transition-colors p-2.5"><Linkedin size={20} /></a>
           </div>
         </div>
         </AnimateIn>

@@ -174,12 +174,22 @@ export const BroadcastSection = () => {
                         </AnimateIn>
 
                         <AnimateIn from="right" delay={400}>
-                        <a href="#pricing" className="inline-flex items-center gap-2.5 rounded-xl bg-primary px-8 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)] transition-all">
-                            Ver planos
-                            <ArrowRight className="w-5 h-5" />
-                        </a>
+                        <div className="hidden lg:block">
+                            <a href="#pricing" className="inline-flex items-center gap-2.5 rounded-xl bg-primary px-8 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)] transition-all">
+                                Ver planos
+                                <ArrowRight className="w-5 h-5" />
+                            </a>
+                        </div>
                         </AnimateIn>
                     </div>
+                </div>
+
+                {/* CTA mobile — appears after mockup */}
+                <div className="mt-8 text-center lg:hidden">
+                    <a href="#pricing" className="inline-flex items-center gap-2.5 rounded-xl bg-primary px-8 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)] transition-all">
+                        Ver planos
+                        <ArrowRight className="w-5 h-5" />
+                    </a>
                 </div>
             </div>
         </section>

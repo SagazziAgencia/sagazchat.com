@@ -125,7 +125,7 @@ export const RemarketingSection = () => {
     return (
         <section className="py-24 bg-slate-50 text-slate-900 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
                     {/* Left Content */}
                     <div className="space-y-8">
@@ -165,7 +165,7 @@ export const RemarketingSection = () => {
                         </AnimateIn>
 
                         <AnimateIn from="left" delay={400}>
-                            <div className="pt-4">
+                            <div className="pt-4 hidden lg:block">
                                 <a href="#pricing" className="inline-flex items-center gap-2.5 rounded-xl bg-primary px-8 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)] transition-all">
                                     Ver planos
                                     <ArrowRight className="w-5 h-5" />
@@ -336,6 +336,14 @@ export const RemarketingSection = () => {
                             </div>
                         </div>
                     </AnimateIn>
+                </div>
+
+                {/* CTA mobile — appears after mockup */}
+                <div className="mt-8 text-center lg:hidden">
+                    <a href="#pricing" className="inline-flex items-center gap-2.5 rounded-xl bg-primary px-8 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)] transition-all">
+                        Ver planos
+                        <ArrowRight className="w-5 h-5" />
+                    </a>
                 </div>
             </div>
         </section>

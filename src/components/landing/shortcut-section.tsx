@@ -1,185 +1,143 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { MessageSquare, Mic, Video, FileText, GitBranch, ArrowRight, CheckCircle2, Plus, Search, MoreVertical } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight, CheckCircle2, MonitorSmartphone } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
 
-const quickReplies = [
-    {
-        icon: MessageSquare,
-        iconColor: 'text-primary',
-        iconBg: 'bg-primary/10',
-        name: 'Boas-vindas',
-        trigger: '/boasvindas',
-        type: 'Texto',
-        preview: 'Olá! Seja bem-vindo(a) ao Sagazchat! Como posso te ajudar hoje?',
-    },
-    {
-        icon: Mic,
-        iconColor: 'text-emerald-600',
-        iconBg: 'bg-emerald-50',
-        name: 'Apresentação da empresa',
-        trigger: '/apresentacao',
-        type: 'Áudio',
-        preview: 'audio_apresentacao.mp3 · 0:45',
-    },
-    {
-        icon: Video,
-        iconColor: 'text-lime-700',
-        iconBg: 'bg-lime-100',
-        name: 'Tour do produto',
-        trigger: '/tour',
-        type: 'Vídeo',
-        preview: 'tour_plataforma.mp4 · 2:30',
-    },
-    {
-        icon: FileText,
-        iconColor: 'text-green-700',
-        iconBg: 'bg-green-50',
-        name: 'Tabela de preços',
-        trigger: '/precos',
-        type: 'PDF',
-        preview: 'Tabela_Precos_2025.pdf',
-    },
-    {
-        icon: GitBranch,
-        iconColor: 'text-primary',
-        iconBg: 'bg-primary/10',
-        name: 'Qualificação de lead',
-        trigger: '/qualificar',
-        type: 'Fluxo',
-        preview: 'Fluxo: Qualificação Automática',
-    },
-];
+/* ╔═══════════════════════════════════════════════════════════╗
+   ║  CONFIGURAÇÃO DA IMAGEM                                   ║
+   ║  Troque a URL abaixo pela imagem que quiser.              ║
+   ║  Aceita URL externa ou caminho local (/images/xxx.png)    ║
+   ╚═══════════════════════════════════════════════════════════╝ */
+
+const SHORTCUT_IMAGE = 'https://i.ibb.co/whwkgZ5j/Captura-de-tela-2026-03-18-180806.png';
+
+/* ── Safe image with fallback ──────────────────────────── */
+
+function SafeImage({ src, alt }: { src: string; alt: string }) {
+  const [error, setError] = useState(false);
+  const isExternal = /^https?:\/\//i.test(src);
+
+  useEffect(() => {
+    setError(false);
+  }, [src]);
+
+  if (!src || error) {
+    return (
+      <div className="flex h-full w-full flex-col items-center justify-center gap-4 bg-gradient-to-br from-slate-50 to-slate-100 p-8 text-center">
+        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/80 shadow-sm ring-1 ring-emerald-100">
+          <MonitorSmartphone className="h-7 w-7 text-primary" />
+        </div>
+        <p className="text-lg font-bold text-slate-700">Screenshot</p>
+        <p className="mt-1 text-sm text-slate-400">
+          {isExternal
+            ? 'Verifique a URL configurada em shortcut-section.tsx'
+            : 'Configure SHORTCUT_IMAGE em shortcut-section.tsx'}
+        </p>
+      </div>
+    );
+  }
+
+  if (isExternal) {
+    return (
+      <img
+        src={src}
+        alt={alt}
+        className="h-full w-full object-cover object-left-top"
+        loading="lazy"
+        decoding="async"
+        onError={() => setError(true)}
+      />
+    );
+  }
+
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      quality={100}
+      sizes="(min-width: 1024px) 60vw, 95vw"
+      className="object-cover object-left-top"
+      onError={() => setError(true)}
+    />
+  );
+}
+
+/* ── Main component ────────────────────────────────────── */
 
 export const ShortcutSection = () => {
-    const [activeIndex, setActiveIndex] = useState(0);
+  return (
+    <section className="relative overflow-hidden bg-white py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10">
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setActiveIndex((prev) => (prev + 1) % quickReplies.length);
-        }, 2500);
-        return () => clearInterval(interval);
-    }, []);
+          {/* Left – Text */}
+          <AnimateIn from="left" delay={150}>
+            <div className="flex w-full max-w-[34rem] flex-col gap-6">
+              <div className="flex items-center gap-2.5">
+                <span className="h-2 w-2 rounded-full bg-primary" />
+                <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
+                  Atalhos Inteligentes
+                </span>
+              </div>
 
-    return (
-        <section className="py-24 bg-white text-slate-900 relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <h3 className="font-[family-name:var(--font-display)] text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-[3rem]">
+                100x a mesma resposta.
+                <br />
+                <span className="text-primary">E se fosse 1 clique?</span>
+              </h3>
 
-                    {/* Left Content */}
-                    <div className="space-y-6 lg:space-y-8">
-                        <AnimateIn delay={0}>
-                            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
-                                Resposta Rápida
-                            </p>
-                        </AnimateIn>
+              <p className="max-w-xl text-base leading-relaxed text-slate-600">
+                Respostas rápidas eliminam o trabalho repetitivo do atendimento. Configure uma vez e qualquer atendente envia texto, áudio, vídeo, PDF ou um fluxo completo — instantaneamente.
+              </p>
 
-                        <AnimateIn delay={100}>
-                            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900">
-                                Atenda em <span className="text-primary">segundos</span>, não em minutos.
-                            </h2>
-                        </AnimateIn>
-
-                        <AnimateIn delay={200}>
-                            <p className="text-base text-slate-600 leading-relaxed">
-                                Sua equipe não precisa digitar a mesma resposta pela centésima vez. Com respostas rápidas, qualquer atendente envia texto, áudio, vídeo, PDF ou até um fluxo inteiro — com um único clique.
-                            </p>
-                        </AnimateIn>
-
-                        <AnimateIn delay={300}>
-                            <ul className="space-y-4">
-                                {[
-                                    "Envio instantâneo de mídia: áudio, vídeo e PDF sem buscar arquivos.",
-                                    "Dispare fluxos completos direto da conversa, sem trocar de tela.",
-                                    "Toda a equipe respondendo com a mesma qualidade e agilidade."
-                                ].map((item, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-slate-700">
-                                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 mt-0.5">
-                                            <CheckCircle2 size={14} />
-                                        </div>
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </AnimateIn>
-
-                        <AnimateIn delay={400}>
-                            <div className="pt-4">
-                                <a href="#pricing" className="inline-flex items-center gap-2.5 rounded-xl bg-primary px-8 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)] transition-all">
-                                    Ver planos
-                                    <ArrowRight className="w-5 h-5" />
-                                </a>
-                            </div>
-                        </AnimateIn>
+              <ul className="space-y-3">
+                {[
+                  "Envie qualquer mídia em 1 clique — sem buscar arquivo, sem perder tempo.",
+                  "Dispare fluxos de qualificação ou follow-up direto da conversa.",
+                  "Padronize a qualidade: novato ou veterano, a resposta é sempre a mesma."
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
+                    <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 mt-0.5">
+                      <CheckCircle2 size={12} />
                     </div>
+                    {item}
+                  </li>
+                ))}
+              </ul>
 
-                    {/* Right Content - Settings Panel Mockup */}
-                    <AnimateIn delay={200} duration={700}>
-                        <div className="lg:order-2 flex justify-center lg:justify-end">
-                            <div className="relative w-full max-w-[480px] bg-white rounded-2xl border border-slate-200 shadow-xl overflow-hidden">
-
-                                {/* Panel Header */}
-                                <div className="px-5 py-4 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
-                                    <div>
-                                        <h3 className="text-sm font-bold text-slate-900">Respostas Rápidas</h3>
-                                        <p className="text-xs text-slate-500 mt-0.5">{quickReplies.length} respostas configuradas</p>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-600 cursor-pointer">
-                                            <Search size={14} />
-                                        </div>
-                                        <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white cursor-pointer">
-                                            <Plus size={14} strokeWidth={3} />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Quick Reply List */}
-                                <div className="divide-y divide-slate-100">
-                                    {quickReplies.map((reply, index) => {
-                                        const Icon = reply.icon;
-                                        const isActive = index === activeIndex;
-
-                                        return (
-                                            <div
-                                                key={index}
-                                                className={`px-5 py-3.5 flex items-center gap-4 transition-all duration-500 cursor-pointer ${isActive ? 'bg-primary/5 border-l-2 border-l-primary' : 'border-l-2 border-l-transparent hover:bg-slate-50'}`}
-                                            >
-                                                <div className={`w-10 h-10 rounded-lg ${reply.iconBg} flex items-center justify-center shrink-0 transition-transform duration-300 ${isActive ? 'scale-110' : ''}`}>
-                                                    <Icon size={18} className={reply.iconColor} />
-                                                </div>
-
-                                                <div className="flex-1 min-w-0">
-                                                    <div className="flex items-center gap-2">
-                                                        <span className="text-sm font-semibold text-slate-900">{reply.name}</span>
-                                                        <span className="text-[10px] font-medium text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded">{reply.type}</span>
-                                                    </div>
-                                                    <div className="flex items-center gap-2 mt-0.5">
-                                                        <code className="text-[11px] text-primary font-mono">{reply.trigger}</code>
-                                                        <span className="text-[10px] text-slate-300">·</span>
-                                                        <span className="text-xs text-slate-500 truncate">{reply.preview}</span>
-                                                    </div>
-                                                </div>
-
-                                                <div className="shrink-0 text-slate-300 hover:text-slate-500">
-                                                    <MoreVertical size={16} />
-                                                </div>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-
-                                {/* Panel Footer */}
-                                <div className="px-5 py-3 border-t border-slate-200 bg-slate-50 flex items-center justify-between">
-                                    <span className="text-xs text-slate-400">Configurações → Respostas Rápidas</span>
-                                    <span className="text-xs text-primary font-medium cursor-pointer hover:text-primary/80">Ver todas</span>
-                                </div>
-                            </div>
-                        </div>
-                    </AnimateIn>
-                </div>
+              <a
+                href="#pricing"
+                className="hidden lg:inline-flex w-fit items-center gap-2.5 rounded-xl bg-primary px-7 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)]"
+              >
+                Ver planos
+                <ArrowRight className="h-5 w-5" />
+              </a>
             </div>
-        </section>
-    );
+          </AnimateIn>
+
+          {/* Right – Image */}
+          <AnimateIn from="right" delay={230}>
+            <div className="relative h-[360px] overflow-hidden rounded-2xl sm:h-[460px] lg:h-[460px]">
+              <SafeImage src={SHORTCUT_IMAGE} alt="Atalhos inteligentes do Sagazchat" />
+            </div>
+          </AnimateIn>
+
+        </div>
+
+        {/* CTA mobile — appears after image */}
+        <div className="mt-8 text-center lg:hidden">
+          <a
+            href="#pricing"
+            className="inline-flex items-center gap-2.5 rounded-xl bg-primary px-7 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)]"
+          >
+            Ver planos
+            <ArrowRight className="h-5 w-5" />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
 };

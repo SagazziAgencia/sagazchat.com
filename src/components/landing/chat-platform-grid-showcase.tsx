@@ -323,7 +323,7 @@ export function ChatPlatformGridShowcase() {
       <div className="pointer-events-none absolute -left-8 top-8 h-44 w-44 rounded-full bg-emerald-50/80 blur-3xl" />
       <div className="pointer-events-none absolute -right-8 top-16 h-44 w-44 rounded-full bg-emerald-50/60 blur-3xl" />
       <div className="pointer-events-none absolute inset-x-12 bottom-1 h-10 rounded-full bg-slate-900/10 blur-2xl" />
-      <div className="relative flex min-h-[590px] items-end justify-center">
+      <div className="relative flex lg:min-h-[590px] items-end justify-center">
         <PhoneMockupChat
           key={activeTheme.id}
           theme={activeTheme}

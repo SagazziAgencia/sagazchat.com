@@ -21,7 +21,7 @@ export function InstagramSection() {
         <section className="py-24 bg-slate-50 text-slate-900 relative overflow-hidden">
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
                     {/* Left Content */}
                     <div className="space-y-8">
@@ -61,7 +61,7 @@ export function InstagramSection() {
                         </AnimateIn>
 
                         <AnimateIn from="left" delay={400}>
-                            <div className="pt-4">
+                            <div className="pt-4 hidden lg:block">
                                 <a href="#pricing" className="inline-flex items-center gap-2.5 rounded-xl bg-primary px-8 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)] transition-all">
                                     Ver planos com Instagram
                                     <ArrowRight className="w-5 h-5" />
@@ -75,7 +75,7 @@ export function InstagramSection() {
                     <div className="lg:order-2 flex justify-center lg:justify-end">
                         <div className="relative w-fit">
                             {/* Phone Frame */}
-                            <div className="relative border-slate-300 bg-white border-[8px] rounded-[2.5rem] h-[600px] w-[320px] shadow-2xl flex flex-col overflow-hidden">
+                            <div className="relative border-slate-300 bg-white border-[8px] rounded-[2.5rem] h-[600px] w-full max-w-[320px] shadow-2xl flex flex-col overflow-hidden">
                                 {/* Instagram Header Mockup */}
                                 <div className="bg-white px-3 py-4 flex justify-between items-center border-b border-slate-200 z-10">
                                     <span className="font-bold text-sm text-slate-900">Sagazchat</span>
@@ -165,6 +165,14 @@ export function InstagramSection() {
                         </div>
                     </div>
                     </AnimateIn>
+                </div>
+
+                {/* CTA mobile — appears after mockup */}
+                <div className="mt-8 text-center lg:hidden">
+                    <a href="#pricing" className="inline-flex items-center gap-2.5 rounded-xl bg-primary px-8 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)] transition-all">
+                        Ver planos com Instagram
+                        <ArrowRight className="w-5 h-5" />
+                    </a>
                 </div>
             </div>
         </section>

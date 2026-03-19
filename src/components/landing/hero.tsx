@@ -68,8 +68,8 @@ export function Hero() {
 
             {/* Trust line */}
             <AnimateIn delay={460}>
-              <p className="-mt-1 text-[13px] text-slate-400">
-                Setup em 2 minutos &nbsp;•&nbsp; Suporte dedicado &nbsp;•&nbsp; Resultado comprovado
+              <p className="-mt-1 text-[13px] text-slate-400 flex flex-wrap gap-x-1">
+                <span>Setup em 2 minutos</span> <span className="hidden sm:inline">&nbsp;•&nbsp;</span> <span>Suporte dedicado</span> <span className="hidden sm:inline">&nbsp;•&nbsp;</span> <span>Resultado comprovado</span>
               </p>
             </AnimateIn>
 

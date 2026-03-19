@@ -1,6 +1,6 @@
 'use client';
 
-import { CheckCircle, Zap, ArrowRight, DollarSign, Crown, Brain, Instagram } from 'lucide-react';
+import { CheckCircle, Zap, ArrowRight, DollarSign, Crown, Brain, Instagram, ShieldCheck, HeartHandshake, Headphones } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -272,14 +272,14 @@ export function PricingSection() {
     <div
       className={cn(
         'group relative rounded-xl flex flex-col h-full transition-all duration-500',
-        'bg-gradient-to-b from-[#0d0d0d] to-[#0a0a0a]',
-        'border border-white/[0.08]',
-        'hover:border-primary/30 hover:shadow-[0_0_60px_-15px_rgba(146,214,57,0.3)]',
-        isRecommended && 'border-primary/50 shadow-[0_0_80px_-20px_rgba(146,214,57,0.4)] scale-[1.02] lg:scale-105'
+        'bg-white',
+        'border border-slate-200 shadow-sm',
+        'hover:border-primary/30 hover:shadow-lg',
+        isRecommended && 'border-primary/50 shadow-lg shadow-primary/10 ring-1 ring-primary/20 lg:scale-105'
       )}
     >
       {/* Subtle glow effect */}
-      <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-primary/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       {/* Recommended badge */}
       {isRecommended && (
@@ -288,13 +288,13 @@ export function PricingSection() {
             <div className="absolute inset-0 bg-primary blur-lg opacity-50" />
             <span className="relative flex items-center gap-1.5 bg-gradient-to-r from-primary to-[#7BC62B] text-black text-xs font-bold py-2 px-5 rounded-full shadow-lg">
               <Crown size={14} />
-              RECOMENDADO
+              MAIS POPULAR
             </span>
           </div>
         </div>
       )}
 
-      <div className="relative p-7 flex flex-col h-full">
+      <div className="relative p-5 sm:p-7 flex flex-col h-full">
         {/* Icon badge */}
         <div className={cn(
           "w-12 h-12 rounded-2xl flex items-center justify-center mb-5",
@@ -305,31 +305,31 @@ export function PricingSection() {
         </div>
 
         {/* Plan name */}
-        <h3 className="text-xl font-bold text-white mb-1 tracking-tight">{plan.name}</h3>
+        <h3 className="text-xl font-bold text-slate-900 mb-1 tracking-tight">{plan.name}</h3>
 
         {/* Price */}
         <div className="mb-5">
           <div className="flex items-baseline gap-1">
-            <span className="text-sm font-medium text-gray-500">R$</span>
-            <span className="text-4xl font-extrabold text-white tracking-tight">{plan.price.split(',')[0]}</span>
-            <span className="text-xl font-bold text-white">,{plan.price.split(',')[1]}</span>
-            <span className="text-sm font-medium text-gray-500">{plan.priceSuffix}</span>
+            <span className="text-sm font-medium text-slate-400">R$</span>
+            <span className="text-4xl font-extrabold text-slate-900 tracking-tight">{plan.price.split(',')[0]}</span>
+            <span className="text-xl font-bold text-slate-900">,{plan.price.split(',')[1]}</span>
+            <span className="text-sm font-medium text-slate-400">{plan.priceSuffix}</span>
           </div>
-          <p className="text-xs text-gray-600 mt-1">{plan.subtext}</p>
+          <p className="text-xs text-slate-500 mt-1">{plan.subtext}</p>
         </div>
 
         {/* Connection selector */}
         <div className="mb-5">
-          <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider block mb-2">
+          <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">
             Número de Conexões
           </label>
           <Select value={selectValue} onValueChange={onSelectChange}>
-            <SelectTrigger className="w-full bg-[#111111] border-white/10 text-white hover:border-primary/30 transition-colors rounded-xl h-11">
+            <SelectTrigger className="w-full bg-slate-50 border-slate-200 text-slate-900 hover:border-primary/30 transition-colors rounded-xl h-11">
               <SelectValue placeholder="Selecione..." />
             </SelectTrigger>
-            <SelectContent className="bg-[#111111] border-white/10 text-white">
+            <SelectContent className="bg-white border-slate-200 text-slate-900">
               {plansData.map(p => (
-                <SelectItem key={p.id} value={p.id} className="text-white hover:bg-primary/10 focus:bg-primary/10 focus:text-white">
+                <SelectItem key={p.id} value={p.id} className="text-slate-900 hover:bg-primary/10 focus:bg-primary/10 focus:text-slate-900">
                   {p.connections} Conexão(ões)
                 </SelectItem>
               ))}
@@ -347,28 +347,8 @@ export function PricingSection() {
           </div>
         )}
 
-        {/* CTA Button */}
-        <Button
-          asChild
-          size="lg"
-          className={cn(
-            "group/btn w-full relative font-bold text-sm h-11 mb-5 rounded-lg overflow-hidden",
-            "bg-gradient-to-r from-primary to-[#7BC62B] text-black",
-            "hover:shadow-[0_0_30px_rgba(146,214,57,0.5)]",
-            "transition-all duration-300"
-          )}
-        >
-          <a href={plan.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-            <span>Assinar Agora</span>
-            <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-          </a>
-        </Button>
-
-        {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-5" />
-
         {/* Features list */}
-        <ul className="space-y-3 text-sm flex-grow">
+        <ul className="space-y-3 text-sm flex-grow mb-5">
           {features.map((feature) => {
             let featureText: React.ReactNode;
             if (feature.key === 'connections') {
@@ -385,11 +365,31 @@ export function PricingSection() {
                 <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-primary/20 transition-colors">
                   <CheckCircle className="h-3 w-3 text-primary" />
                 </div>
-                <span className="text-gray-400 group-hover/item:text-gray-300 transition-colors">{featureText}</span>
+                <span className="text-slate-600 group-hover/item:text-slate-900 transition-colors">{featureText}</span>
               </li>
             );
           })}
         </ul>
+
+        {/* Divider */}
+        <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent mb-5" />
+
+        {/* CTA Button — always at the bottom */}
+        <Button
+          asChild
+          size="lg"
+          className={cn(
+            "group/btn w-full relative font-bold text-sm h-11 rounded-lg overflow-hidden mt-auto",
+            "bg-gradient-to-r from-primary to-[#7BC62B] text-white",
+            "hover:shadow-[0_8px_24px_rgba(23,199,90,0.3)]",
+            "transition-all duration-300"
+          )}
+        >
+          <a href={plan.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+            <span>Quero começar</span>
+            <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+          </a>
+        </Button>
       </div>
     </div>
   );
@@ -415,14 +415,14 @@ export function PricingSection() {
     <div
       className={cn(
         'group relative rounded-xl flex flex-col h-full transition-all duration-500',
-        'bg-gradient-to-b from-[#0d0d0d] to-[#0a0a0a]',
-        'border border-white/[0.08]',
-        'hover:border-primary/30 hover:shadow-[0_0_60px_-15px_rgba(146,214,57,0.3)]',
-        isRecommended && 'border-primary/50 shadow-[0_0_80px_-20px_rgba(146,214,57,0.4)] scale-[1.02] lg:scale-105'
+        'bg-white',
+        'border border-slate-200 shadow-sm',
+        'hover:border-primary/30 hover:shadow-lg',
+        isRecommended && 'border-primary/50 shadow-lg shadow-primary/10 ring-1 ring-primary/20 lg:scale-105'
       )}
     >
       {/* Subtle glow effect */}
-      <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-primary/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       {/* Recommended badge */}
       {isRecommended && (
@@ -431,13 +431,13 @@ export function PricingSection() {
             <div className="absolute inset-0 bg-primary blur-lg opacity-50" />
             <span className="relative flex items-center gap-1.5 bg-gradient-to-r from-primary to-[#7BC62B] text-black text-xs font-bold py-2 px-5 rounded-full shadow-lg">
               <Crown size={14} />
-              RECOMENDADO
+              MAIS POPULAR
             </span>
           </div>
         </div>
       )}
 
-      <div className="relative p-7 flex flex-col h-full">
+      <div className="relative p-5 sm:p-7 flex flex-col h-full">
         {/* Icon badge */}
         <div className={cn(
           "w-12 h-12 rounded-2xl flex items-center justify-center mb-5",
@@ -448,31 +448,31 @@ export function PricingSection() {
         </div>
 
         {/* Plan name */}
-        <h3 className="text-xl font-bold text-white mb-1 tracking-tight">{plan.name}</h3>
+        <h3 className="text-xl font-bold text-slate-900 mb-1 tracking-tight">{plan.name}</h3>
 
         {/* Price */}
         <div className="mb-5">
           <div className="flex items-baseline gap-1">
-            <span className="text-sm font-medium text-gray-500">R$</span>
-            <span className="text-4xl font-extrabold text-white tracking-tight">{plan.price.split(',')[0]}</span>
-            <span className="text-xl font-bold text-white">,{plan.price.split(',')[1]}</span>
-            <span className="text-sm font-medium text-gray-500">{plan.priceSuffix}</span>
+            <span className="text-sm font-medium text-slate-400">R$</span>
+            <span className="text-4xl font-extrabold text-slate-900 tracking-tight">{plan.price.split(',')[0]}</span>
+            <span className="text-xl font-bold text-slate-900">,{plan.price.split(',')[1]}</span>
+            <span className="text-sm font-medium text-slate-400">{plan.priceSuffix}</span>
           </div>
-          <p className="text-xs text-gray-600 mt-1">{plan.subtext}</p>
+          <p className="text-xs text-slate-500 mt-1">{plan.subtext}</p>
         </div>
 
         {/* Connection selector */}
         <div className="mb-5">
-          <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider block mb-2">
+          <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">
             Número de Conexões
           </label>
           <Select value={selectValue} onValueChange={onSelectChange}>
-            <SelectTrigger className="w-full bg-[#111111] border-white/10 text-white hover:border-primary/30 transition-colors rounded-xl h-11">
+            <SelectTrigger className="w-full bg-slate-50 border-slate-200 text-slate-900 hover:border-primary/30 transition-colors rounded-xl h-11">
               <SelectValue placeholder="Selecione..." />
             </SelectTrigger>
-            <SelectContent className="bg-[#111111] border-white/10 text-white">
+            <SelectContent className="bg-white border-slate-200 text-slate-900">
               {plansData.map(p => (
-                <SelectItem key={p.id} value={p.id} className="text-white hover:bg-primary/10 focus:bg-primary/10 focus:text-white">
+                <SelectItem key={p.id} value={p.id} className="text-slate-900 hover:bg-primary/10 focus:bg-primary/10 focus:text-slate-900">
                   {p.connections} Conexão(ões)
                 </SelectItem>
               ))}
@@ -490,45 +490,45 @@ export function PricingSection() {
           </div>
         )}
 
-        {/* CTA Button */}
-        <Button
-          asChild
-          size="lg"
-          className={cn(
-            "group/btn w-full relative font-bold text-sm h-11 mb-5 rounded-lg overflow-hidden",
-            "bg-gradient-to-r from-primary to-[#7BC62B] text-black",
-            "hover:shadow-[0_0_30px_rgba(146,214,57,0.5)]",
-            "transition-all duration-300"
-          )}
-        >
-          <a href={plan.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-            <span>Assinar Agora</span>
-            <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-          </a>
-        </Button>
-
-        {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-5" />
-
         {/* Base plan indicator */}
-        <div className="mb-4 p-3 bg-white/5 rounded-xl border border-white/10">
-          <p className="text-sm font-semibold text-white flex items-center gap-2">
+        <div className="mb-4 p-3 bg-slate-50 rounded-xl border border-slate-200">
+          <p className="text-sm font-semibold text-slate-900 flex items-center gap-2">
             <CheckCircle className="h-4 w-4 text-primary" />
             Tudo do {extras.basePlan} +
           </p>
         </div>
 
         {/* Extra features list */}
-        <ul className="space-y-3 text-sm flex-grow">
+        <ul className="space-y-3 text-sm flex-grow mb-5">
           {extras.features.map((feature, i) => (
             <li key={i} className="flex items-start gap-3 group/item">
               <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-primary/30 transition-colors">
                 <CheckCircle className="h-3 w-3 text-primary" />
               </div>
-              <span className="text-white font-medium group-hover/item:text-primary transition-colors">{feature}</span>
+              <span className="text-slate-700 font-medium group-hover/item:text-primary transition-colors">{feature}</span>
             </li>
           ))}
         </ul>
+
+        {/* Divider */}
+        <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent mb-5" />
+
+        {/* CTA Button — always at the bottom */}
+        <Button
+          asChild
+          size="lg"
+          className={cn(
+            "group/btn w-full relative font-bold text-sm h-11 rounded-lg overflow-hidden mt-auto",
+            "bg-gradient-to-r from-primary to-[#7BC62B] text-white",
+            "hover:shadow-[0_8px_24px_rgba(23,199,90,0.3)]",
+            "transition-all duration-300"
+          )}
+        >
+          <a href={plan.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+            <span>Quero começar</span>
+            <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+          </a>
+        </Button>
       </div>
     </div>
   );
@@ -536,19 +536,19 @@ export function PricingSection() {
   return (
     <section id="pricing" className="py-24 bg-slate-50 relative overflow-hidden">
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
         <AnimateIn>
         <div className="text-center mb-12 lg:mb-20 max-w-3xl mx-auto">
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-6">
-            Planos
+            Planos e Preços
           </p>
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900 mb-6">
-            Escolha o plano ideal e{' '}
-            <span className="text-primary">comece a vender mais</span>
+            O plano certo para o tamanho{' '}
+            <span className="text-primary">da sua operação.</span>
           </h2>
           <p className="text-base text-slate-600 max-w-xl mx-auto">
-            Todos os planos incluem acesso completo à plataforma. Cancele quando quiser, sem fidelidade.
+            Acesso completo à plataforma em todos os planos. Sem fidelidade, sem surpresas — cancele quando quiser.
           </p>
         </div>
         </AnimateIn>
@@ -556,30 +556,30 @@ export function PricingSection() {
         {/* Toggle WhatsApp vs WhatsApp + Instagram */}
         <AnimateIn from="scale" delay={150}>
         <div className="flex justify-center mb-8 lg:mb-12">
-          <div className="inline-flex items-center p-1 rounded-xl bg-white border border-slate-200 shadow-sm">
+          <div className="inline-flex items-center p-1 rounded-xl bg-white border border-slate-200 shadow-sm max-w-full">
             <button
               onClick={() => setIncludeInstagram(false)}
               className={cn(
-                "flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300",
+                "flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300",
                 !includeInstagram
                   ? "bg-primary text-white shadow-sm"
                   : "text-slate-500 hover:text-slate-900"
               )}
             >
-              <Zap size={16} />
-              Só WhatsApp
+              <Zap size={16} className="shrink-0" />
+              WhatsApp
             </button>
             <button
               onClick={() => setIncludeInstagram(true)}
               className={cn(
-                "flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300",
+                "flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300",
                 includeInstagram
                   ? "bg-gradient-to-r from-[#E1306C] to-[#F77737] text-white shadow-sm"
                   : "text-slate-500 hover:text-slate-900"
               )}
             >
-              <Instagram size={16} />
-              WhatsApp + Instagram
+              <Instagram size={16} className="shrink-0" />
+              <span className="hidden sm:inline">WhatsApp + </span>Instagram
             </button>
           </div>
         </div>
@@ -680,6 +680,24 @@ export function PricingSection() {
               />
             </>
           )}
+        </div>
+        </AnimateIn>
+
+        {/* Trust bar */}
+        <AnimateIn delay={400}>
+        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 mt-10 lg:mt-14">
+          <div className="flex items-center gap-2 text-slate-500 text-sm">
+            <ShieldCheck size={18} className="text-primary" />
+            <span>Pagamento seguro</span>
+          </div>
+          <div className="flex items-center gap-2 text-slate-500 text-sm">
+            <HeartHandshake size={18} className="text-primary" />
+            <span>Sem fidelidade</span>
+          </div>
+          <div className="flex items-center gap-2 text-slate-500 text-sm">
+            <Headphones size={18} className="text-primary" />
+            <span>Suporte humanizado</span>
+          </div>
         </div>
         </AnimateIn>
       </div>

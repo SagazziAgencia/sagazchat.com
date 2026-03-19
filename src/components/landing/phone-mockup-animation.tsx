@@ -81,7 +81,7 @@ export function PhoneMockupAnimation() {
 
     return (
         <div className="relative flex items-center justify-center py-4 sm:p-10 font-sans">
-            <div className="w-[320px] h-[650px] max-w-[calc(100vw-3rem)] bg-black rounded-[50px] p-3 relative shadow-[0_0_0_2px_#333,0_0_0_4px_#1a1a1a,inset_0_0_20px_rgba(255,255,255,0.1)] z-10">
+            <div className="w-[320px] h-[650px] max-w-[calc(100vw-3rem)] max-h-[calc(100vh-8rem)] bg-black rounded-[50px] p-3 relative shadow-[0_0_0_2px_#333,0_0_0_4px_#1a1a1a,inset_0_0_20px_rgba(255,255,255,0.1)] z-10">
                 <div className="absolute top-[22px] left-1/2 -translate-x-1/2 w-[90px] h-6 bg-black rounded-xl z-20"></div>
                 <div className="w-full h-full bg-gradient-to-b from-[#1E3A8A] via-50% via-[#020938] to-[#020938] rounded-[38px] overflow-hidden relative flex flex-col">
                     <div className="h-11 w-full flex justify-between items-center px-6 pt-1 text-white text-[15px] font-semibold z-20 tracking-tighter">

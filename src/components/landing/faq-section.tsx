@@ -11,7 +11,7 @@ import { AnimateIn } from '@/components/ui/animate-in';
 
 const faqItems = [
   {
-    question: 'Qual é o tempo médio para configurar e começar a usar o Sagazchatbot?',
+    question: 'Qual é o tempo médio para configurar e começar a usar o Sagazchat?',
     answer: 'A configuração inicial é super rápida! Em menos de 10 minutos, você consegue conectar seu número de WhatsApp e começar a usar as funcionalidades básicas. Para criar fluxos de automação mais complexos, o tempo pode variar, mas nossa interface intuitiva de arrastar e soltar torna o processo muito ágil.',
   },
   {
@@ -24,7 +24,7 @@ const faqItems = [
   },
   {
     question: 'Como funcionam os webhooks e para que servem?',
-    answer: 'Webhooks são como "notificações automáticas" entre sistemas. Por exemplo, quando uma venda é aprovada na sua plataforma de pagamento (Hotmart, Kiwify, etc.), ela envia um webhook para o Sagazchatbot, que pode então iniciar um fluxo automático para enviar os dados de acesso ao cliente, tudo sem intervenção manual.',
+    answer: 'Webhooks são como "notificações automáticas" entre sistemas. Por exemplo, quando uma venda é aprovada na sua plataforma de pagamento (Hotmart, Kiwify, etc.), ela envia um webhook para o Sagazchat, que pode então iniciar um fluxo automático para enviar os dados de acesso ao cliente, tudo sem intervenção manual.',
   },
   {
     question: 'Existe algum contrato de fidelidade ou posso cancelar quando quiser?',
@@ -35,7 +35,7 @@ const faqItems = [
 export function FaqSection() {
   return (
     <section className="py-20 lg:py-32 bg-white text-slate-900">
-      <div className="container mx-auto px-6 max-w-4xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
         <AnimateIn>
           <div className="text-center mb-12 flex flex-col items-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-4">

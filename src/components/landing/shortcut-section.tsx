@@ -84,20 +84,22 @@ export const ShortcutSection = () => {
               </div>
 
               <h3 className="font-[family-name:var(--font-display)] text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-[3rem]">
-                100x a mesma resposta.
+                Sua equipe não precisa
                 <br />
-                <span className="text-primary">E se fosse 1 clique?</span>
+                <span className="text-primary">recomeçar a mesma conversa do zero.</span>
               </h3>
 
               <p className="max-w-xl text-base leading-relaxed text-slate-600">
-                Respostas rápidas eliminam o trabalho repetitivo do atendimento. Configure uma vez e qualquer atendente envia texto, áudio, vídeo, PDF ou um fluxo completo — instantaneamente.
+                Atalhos inteligentes tiram peso do atendimento repetitivo. Configure
+                uma vez e qualquer pessoa da equipe envia a resposta certa, com o
+                mesmo padrão e sem perder tempo procurando material.
               </p>
 
               <ul className="space-y-3">
                 {[
-                  "Envie qualquer mídia em 1 clique — sem buscar arquivo, sem perder tempo.",
-                  "Dispare fluxos de qualificação ou follow-up direto da conversa.",
-                  "Padronize a qualidade: novato ou veterano, a resposta é sempre a mesma."
+                  "Envie texto, áudio, vídeo, PDF ou fluxo completo sem sair da conversa.",
+                  "Dispare qualificação, proposta ou follow-up no momento exato do atendimento.",
+                  "Padronize a operação: novato ou veterano, a experiência do cliente continua consistente."
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
                     <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 mt-0.5">

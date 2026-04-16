@@ -9,28 +9,28 @@ const features = [
     {
         icon: Send,
         title: 'Envio Personalizado',
-        description: 'Escolha o fluxo, a lista de contatos e o número de WhatsApp que vai disparar.',
+        description: 'Escolha o fluxo, o público e o número certo para cada campanha sem improviso.',
         color: 'text-primary',
         bg: 'bg-primary/10',
     },
     {
         icon: Clock,
         title: 'Agendamento Inteligente',
-        description: 'Programe data e hora exata para os disparos. Envie no momento certo.',
+        description: 'Programe data e hora com precisão para falar com a base no momento mais favorável.',
         color: 'text-emerald-600',
         bg: 'bg-emerald-500/10',
     },
     {
         icon: ShieldCheck,
         title: 'Sistema Anti-Bloqueio',
-        description: 'Intervalo randômico entre mensagens e pausa entre lotes protegem seu número.',
+        description: 'Intervalos e pausas ajudam a proteger o número e a manter a operação estável.',
         color: 'text-green-600',
         bg: 'bg-emerald-500/10',
     },
     {
         icon: FileSpreadsheet,
         title: 'Importação de Planilha',
-        description: 'Importe listas CSV/XLSX com nome, telefone, e-mail e etiquetas.',
+        description: 'Suba listas em CSV ou XLSX e segmente os disparos sem depender de processo manual.',
         color: 'text-lime-600',
         bg: 'bg-lime-500/10',
     },
@@ -143,17 +143,19 @@ export const BroadcastSection = () => {
 
                         <AnimateIn from="right" delay={100}>
                         <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900 mb-6">
-                            Alcance{' '}
+                            Fale com sua base no{' '}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-600">
-                                milhares de leads
+                                momento certo
                             </span>{' '}
-                            com um clique.
+                            sem transformar campanha em bagunça.
                         </h2>
                         </AnimateIn>
 
                         <AnimateIn from="right" delay={200}>
                         <p className="text-base text-slate-600 leading-relaxed mb-10 max-w-lg">
-                            Envie transmissões personalizadas com agendamento inteligente e proteção anti-bloqueio. Importe planilhas, escolha o fluxo e deixe o sistema trabalhar.
+                            Dispare campanhas com segmentação, agendamento e controle
+                            de envio para reativar contatos, empurrar ofertas e manter
+                            consistência comercial na base.
                         </p>
                         </AnimateIn>
 

@@ -102,9 +102,9 @@ export const CrmKanbanSection = () => {
             </p>
 
             <h2 className="font-[family-name:var(--font-display)] mt-4 text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900">
-              Não organize apenas leads.{' '}
+              Não acompanhe só conversas.{' '}
               <span className="text-primary">
-                Organize seu dinheiro.
+                Enxergue o pipeline com valor real.
               </span>
             </h2>
           </div>
@@ -117,7 +117,9 @@ export const CrmKanbanSection = () => {
 
               <div className="text-base text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0 lg:border-l-4 border-primary lg:pl-6">
                 <p>
-                  O novo <strong>CRM Kanban</strong> do Sagazchat faz o cálculo automático de cada etapa do seu funil. Saiba exatamente quanto valor está em negociação e tome decisões baseadas em números reais.
+                  O <strong>CRM Kanban</strong> do Sagazchat mostra onde cada lead está,
+                  quanto cada etapa representa e quais negociações merecem atenção
+                  imediata para o time vender com previsibilidade.
                 </p>
               </div>
 
@@ -126,11 +128,11 @@ export const CrmKanbanSection = () => {
                   <div className="w-10 h-10 shrink-0 rounded-lg bg-primary/10 flex items-center justify-center">
                     <Calculator className="w-5 h-5 text-primary" />
                   </div>
-                  <div className="text-left">
-                    <p className="font-bold text-slate-900 leading-none mb-1">Soma Automática</p>
-                    <p className="text-xs text-slate-500">Valores atualizados ao arrastar</p>
+                    <div className="text-left">
+                      <p className="font-bold text-slate-900 leading-none mb-1">Soma Automática</p>
+                      <p className="text-xs text-slate-500">Valores atualizados em cada etapa</p>
+                    </div>
                   </div>
-                </div>
 
                 <div className="hidden sm:block w-px h-12 bg-slate-200"></div>
 
@@ -138,11 +140,11 @@ export const CrmKanbanSection = () => {
                   <div className="w-10 h-10 shrink-0 rounded-lg bg-primary/10 flex items-center justify-center">
                     <TrendingUp className="w-5 h-5 text-primary" />
                   </div>
-                  <div className="text-left">
-                    <p className="font-bold text-slate-900 leading-none mb-1">Previsibilidade</p>
-                    <p className="text-xs text-slate-500">Controle total do pipeline</p>
+                    <div className="text-left">
+                      <p className="font-bold text-slate-900 leading-none mb-1">Previsibilidade</p>
+                      <p className="text-xs text-slate-500">Visão clara do que está para fechar</p>
+                    </div>
                   </div>
-                </div>
               </div>
 
               <div className="pt-4 flex justify-center lg:justify-start">

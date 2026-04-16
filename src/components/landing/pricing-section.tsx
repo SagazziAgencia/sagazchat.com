@@ -386,7 +386,7 @@ export function PricingSection() {
           )}
         >
           <a href={plan.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-            <span>Quero começar</span>
+            <span>Escolher este plano</span>
             <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
           </a>
         </Button>
@@ -525,7 +525,7 @@ export function PricingSection() {
           )}
         >
           <a href={plan.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-            <span>Quero começar</span>
+            <span>Escolher este plano</span>
             <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
           </a>
         </Button>
@@ -544,11 +544,13 @@ export function PricingSection() {
             Planos e Preços
           </p>
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900 mb-6">
-            O plano certo para o tamanho{' '}
-            <span className="text-primary">da sua operação.</span>
+            Escolha o plano pela fase{' '}
+            <span className="text-primary">da sua operação, não pelo improviso.</span>
           </h2>
           <p className="text-base text-slate-600 max-w-xl mx-auto">
-            Acesso completo à plataforma em todos os planos. Sem fidelidade, sem surpresas — cancele quando quiser.
+            Todos os planos partem da mesma base de automação. Você adiciona IA,
+            Instagram e mais conexões conforme a operação cresce. Sem fidelidade e
+            com cancelamento quando quiser.
           </p>
         </div>
         </AnimateIn>

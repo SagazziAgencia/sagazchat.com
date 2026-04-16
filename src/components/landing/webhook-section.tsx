@@ -32,14 +32,13 @@ export function WebhookSection() {
                             Webhooks
                         </p>
                         <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900">
-                            Transforme Checkouts Abandonados em{' '}
-                            <br />
-                            <span className="text-primary">
-                                Dinheiro no Seu Bolso
-                            </span>
+                            <span className="text-primary">Recupere vendas</span>{' '}
+                            e automatize ações por evento
                         </h2>
                         <p className="text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                            Integração nativa entre <strong>Validapay</strong> e <strong>Sagazchat</strong>. Recupere vendas automaticamente sem mover um dedo.
+                            Receba eventos do checkout, CRM ou qualquer sistema conectado e
+                            dispare mensagens, alertas e fluxos automáticos no instante certo.
+                            Com <strong>Validapay</strong>, a recuperação de checkout fica pronta para rodar.
                         </p>
                     </div>
                 </AnimateIn>
@@ -70,7 +69,7 @@ export function WebhookSection() {
                                         {activeStep === 1 && <span className="text-[9px] font-bold text-violet-600 bg-violet-50 px-2 py-0.5 rounded-full">Pendente</span>}
                                     </div>
                                     <p className={`text-sm leading-relaxed ${activeStep === 1 ? 'text-slate-600' : 'text-slate-400'}`}>
-                                        O cliente gera um Pix ou Boleto no checkout mas sai sem pagar.
+                                        O cliente gera o pagamento no checkout, mas sai antes de concluir.
                                     </p>
                                 </div>
                             </div>
@@ -89,7 +88,7 @@ export function WebhookSection() {
                                         {activeStep === 2 && <span className="text-[9px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full animate-pulse">Recebendo...</span>}
                                     </div>
                                     <p className={`text-sm leading-relaxed ${activeStep === 2 ? 'text-slate-600' : 'text-slate-400'}`}>
-                                        A plataforma envia os dados (Nome, Telefone) para o Sagazchat instantaneamente.
+                                        O evento chega no Sagazchat com dados para identificar o lead e iniciar a automação.
                                     </p>
                                 </div>
                             </div>
@@ -108,7 +107,7 @@ export function WebhookSection() {
                                         {activeStep === 3 && <span className="text-[9px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Enviada</span>}
                                     </div>
                                     <p className={`text-sm leading-relaxed mb-2 ${activeStep === 3 ? 'text-slate-600' : 'text-slate-400'}`}>
-                                        O Sagazchat envia a mensagem de recuperação no WhatsApp do cliente.
+                                        O Sagazchat dispara a mensagem certa para recuperar a compra sem ação manual da equipe.
                                     </p>
 
                                     <div className={`text-xs inline-flex items-center gap-2 bg-slate-50 px-2 py-1.5 rounded-lg border border-slate-100 text-slate-500 transition-opacity ${activeStep === 3 ? 'opacity-100' : 'opacity-40'}`}>
@@ -131,7 +130,7 @@ export function WebhookSection() {
                                         {activeStep === 4 && <span className="text-[9px] font-bold text-white bg-primary px-2 py-0.5 rounded-full">Sucesso</span>}
                                     </div>
                                     <p className={`text-sm leading-relaxed ${activeStep === 4 ? 'text-slate-600' : 'text-slate-400'}`}>
-                                        O cliente paga e você recebe a notificação da Validapay.
+                                        O cliente conclui o pagamento e sua operação recebe a confirmação em tempo real.
                                     </p>
                                 </div>
                             </div>

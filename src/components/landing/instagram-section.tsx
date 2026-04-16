@@ -33,22 +33,24 @@ export function InstagramSection() {
 
                         <AnimateIn from="left" delay={100}>
                             <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900">
-                                Do <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500">Comentário</span> ao <span className="text-primary">Direct</span> em segundos.
+                                Comentou no post? O <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500">atendimento começa</span> antes do lead esfriar.
                             </h2>
                         </AnimateIn>
 
                         <AnimateIn from="left" delay={200}>
                             <p className="text-base text-slate-600 leading-relaxed">
-                                Não deixe seus seguidores esperando. Nossa IA monitora seus posts 24 horas por dia. Quando alguém comenta uma palavra-chave, a mágica acontece:
+                                Transforme comentários em conversa no direct sem depender
+                                de alguém online. Quando o lead interage com a palavra-chave
+                                certa, o fluxo entra em ação na hora:
                             </p>
                         </AnimateIn>
 
                         <AnimateIn from="left" delay={300}>
                             <ul className="space-y-4">
                                 {[
-                                    "Resposta automática e personalizada no comentário.",
-                                    "Envio imediato de mensagem no Direct (DM).",
-                                    "Captação do lead e envio para o CRM."
+                                    "Resposta automática no comentário para manter o engajamento.",
+                                    "Mensagem imediata no direct para continuar a conversa no privado.",
+                                    "Lead capturado e enviado para o CRM com contexto da origem."
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-center gap-3 text-slate-700">
                                         <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary">

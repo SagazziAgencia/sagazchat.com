@@ -1,0 +1,3248 @@
+{
+  "version": "2.10",
+  "children": [
+    {
+      "type": "frame",
+      "id": "rJWGx",
+      "x": 0,
+      "y": 0,
+      "name": "PetCare OS - Commanding Iarley",
+      "clip": true,
+      "width": 375,
+      "height": 812,
+      "fill": "$bg_main",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "775D0",
+          "name": "header",
+          "width": "fill_container",
+          "padding": [
+            56,
+            24,
+            12,
+            24
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "end",
+          "children": [
+            {
+              "type": "frame",
+              "id": "TbFVz",
+              "name": "hLeft",
+              "layout": "vertical",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Vc5yl",
+                  "name": "t1",
+                  "fill": "$brand_accent",
+                  "content": "ECOSSISTEMA",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "800",
+                  "letterSpacing": 1.5
+                },
+                {
+                  "type": "text",
+                  "id": "Kch4F",
+                  "name": "t2",
+                  "fill": "$text_heading",
+                  "content": "Gerenciar Família",
+                  "fontFamily": "Inter",
+                  "fontSize": 28,
+                  "fontWeight": "800",
+                  "letterSpacing": -0.8
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 8,
+              "id": "UUdeF",
+              "name": "avatar",
+              "fill": "#1E293B",
+              "width": 40,
+              "height": 40,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border_tactile"
+              }
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "tVOIv",
+          "name": "petSection",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": 24,
+          "children": [
+            {
+              "type": "frame",
+              "id": "k7iPE",
+              "name": "petGrid",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "oCz2v",
+                  "name": "p1",
+                  "width": 158,
+                  "fill": "$bg_surface",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$border_tactile"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ihGSb",
+                      "name": "p1Header",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "Sij6M",
+                          "name": "p1Img",
+                          "fill": "#1E293B",
+                          "width": 32,
+                          "height": 32
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "Lqqmb",
+                          "name": "p1Dot",
+                          "fill": "#10B981",
+                          "width": 6,
+                          "height": 6
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "uXwmr",
+                      "name": "p1Info",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "r0C2V",
+                          "name": "p1Name",
+                          "fill": "$text_heading",
+                          "content": "MAX",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "JwLKl",
+                          "name": "p1Breed",
+                          "fill": "#64748B",
+                          "content": "GOLDEN RETRIEVER",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "600",
+                          "letterSpacing": 0.5
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "yOMGC",
+                      "name": "p1Data",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "6ChBz",
+                          "name": "p1DataT",
+                          "fill": "#10B981",
+                          "content": "Saúde: 98%",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ehtD9",
+                  "name": "p2",
+                  "width": 158,
+                  "fill": "$bg_surface",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$border_tactile"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "NLcMO",
+                      "name": "p2Header",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "zBxYG",
+                          "name": "p2Img",
+                          "fill": "#1E293B",
+                          "width": 32,
+                          "height": 32
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "Rhtd0",
+                          "name": "p2Dot",
+                          "fill": "#EF4444",
+                          "width": 6,
+                          "height": 6
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "dzPky",
+                      "name": "p2Info",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "jbR2K",
+                          "name": "p2Name",
+                          "fill": "$text_heading",
+                          "content": "LUNA",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "cHQlw",
+                          "name": "p2Breed",
+                          "fill": "#64748B",
+                          "content": "GATO SIAMÊS",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "600",
+                          "letterSpacing": 0.5
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "lF1Bl",
+                      "name": "p2Data",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "tL1nz",
+                          "name": "p2DataT",
+                          "fill": "#EF4444",
+                          "content": "Ação requerida",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "sgycI",
+          "name": "alertSec",
+          "width": "fill_container",
+          "layout": "vertical",
+          "padding": [
+            0,
+            24,
+            32,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "IPEWs",
+              "name": "alertCard",
+              "width": "fill_container",
+              "fill": "#EF444415",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#EF444430"
+              },
+              "padding": 16,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "12EDP",
+                  "name": "aLeft",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "9T5Za",
+                      "name": "aIcon",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "circle-alert",
+                      "iconFontFamily": "lucide",
+                      "fill": "#EF4444"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VOJ3j",
+                      "name": "aT1",
+                      "fill": "#EF4444",
+                      "content": "VACINA V4 PENDENTE (LUNA)",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "700",
+                      "letterSpacing": 0.8
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "veVwT",
+                  "name": "aBtn",
+                  "fill": "#EF4444",
+                  "cornerRadius": 6,
+                  "padding": [
+                    8,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "fdLuJ",
+                      "name": "aBtnT",
+                      "fill": "$text_heading",
+                      "content": "AGENDAR",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "zCj5D",
+          "name": "srvSec",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            0,
+            24,
+            32,
+            24
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "hjkOU",
+              "name": "sTitle",
+              "fill": "$text_heading",
+              "content": "Centro de Serviços",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700",
+              "letterSpacing": -0.5
+            },
+            {
+              "type": "frame",
+              "id": "OWKY6",
+              "name": "sGrid",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "TiCaa",
+                  "name": "s1",
+                  "width": 158,
+                  "fill": "$bg_surface",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$border_tactile"
+                  },
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "UfqR8",
+                      "name": "s1Icon",
+                      "width": 24,
+                      "height": 24,
+                      "iconFontName": "stethoscope",
+                      "iconFontFamily": "lucide",
+                      "fill": "$brand_accent"
+                    },
+                    {
+                      "type": "text",
+                      "id": "M787k",
+                      "name": "s1T1",
+                      "fill": "$text_heading",
+                      "content": "Clínica Veterinária",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "wcq83",
+                      "name": "s1T2",
+                      "fill": "#64748B",
+                      "content": "Próxima: 12 Abr",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "82zha",
+                  "name": "s2",
+                  "width": 158,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "yrbGl",
+                      "name": "s2a",
+                      "width": "fill_container",
+                      "fill": "$bg_surface",
+                      "cornerRadius": 12,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$border_tactile"
+                      },
+                      "gap": 12,
+                      "padding": 16,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "qLdaR",
+                          "name": "s2ai",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "bath",
+                          "iconFontFamily": "lucide",
+                          "fill": "#0284C7"
+                        },
+                        {
+                          "type": "text",
+                          "id": "NtWwW",
+                          "name": "s2at",
+                          "fill": "$text_heading",
+                          "content": "Banho & Tosa",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "w7oMg",
+                      "name": "s2b",
+                      "width": "fill_container",
+                      "fill": "$bg_surface",
+                      "cornerRadius": 12,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$border_tactile"
+                      },
+                      "gap": 12,
+                      "padding": 16,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "fWON0",
+                          "name": "s2bi",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "shopping-bag",
+                          "iconFontFamily": "lucide",
+                          "fill": "#7C3AED"
+                        },
+                        {
+                          "type": "text",
+                          "id": "QnESr",
+                          "name": "s2bt",
+                          "fill": "$text_heading",
+                          "content": "Marketplace",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "XH8Lx",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 722,
+          "name": "nav",
+          "width": 375,
+          "height": 90,
+          "fill": "#0F172A90",
+          "stroke": {
+            "thickness": {
+              "top": 1
+            },
+            "fill": "$border_tactile"
+          },
+          "effect": {
+            "type": "background_blur",
+            "radius": 20
+          },
+          "padding": [
+            12,
+            24,
+            34,
+            24
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon_font",
+              "id": "rGHlg",
+              "name": "n1",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "layout-dashboard",
+              "iconFontFamily": "lucide",
+              "fill": "$text_heading"
+            },
+            {
+              "type": "icon_font",
+              "id": "dhDX8",
+              "name": "n2",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "calendar",
+              "iconFontFamily": "lucide",
+              "fill": "#64748B"
+            },
+            {
+              "type": "icon_font",
+              "id": "i7pp8",
+              "name": "n3",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "heart",
+              "iconFontFamily": "lucide",
+              "fill": "#64748B"
+            },
+            {
+              "type": "icon_font",
+              "id": "VZKIN",
+              "name": "n4",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "user",
+              "iconFontFamily": "lucide",
+              "fill": "#64748B"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "ncNeO",
+      "x": 0,
+      "y": -1900,
+      "name": "PetCare — Dashboard",
+      "clip": true,
+      "width": 375,
+      "height": 812,
+      "fill": "$bg_light",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Y3axe",
+          "name": "header",
+          "width": "fill_container",
+          "fill": "$navy",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "SHCPP",
+              "name": "statusBar",
+              "width": "fill_container",
+              "height": 44,
+              "padding": [
+                0,
+                20
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "wgN4e",
+                  "fill": "#FFFFFF",
+                  "content": "9:41",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "UiUK9",
+                  "name": "statusIcons",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "NtZjt",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "signal",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "Vt9CO",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "wifi",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "6cv31",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "battery-full",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Z2IwK",
+              "name": "headerRow",
+              "width": "fill_container",
+              "padding": [
+                4,
+                20,
+                20,
+                20
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "bk5mX",
+                  "name": "greetCol",
+                  "layout": "vertical",
+                  "gap": 3,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "kZ9N0",
+                      "fill": "#FFFFFF",
+                      "content": "Olá, João! 👋",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "5rbL7",
+                      "fill": "#FFFFFFB3",
+                      "content": "Como estão seus pets hoje?",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "GONK3",
+                  "name": "headerActions",
+                  "gap": 14,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "2tcqa",
+                      "width": 24,
+                      "height": 24,
+                      "iconFontName": "bell",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "NpkGJ",
+                      "name": "avatar",
+                      "width": 36,
+                      "height": 36,
+                      "fill": "$brand",
+                      "cornerRadius": 18,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "JfsYb",
+                          "fill": "#FFFFFF",
+                          "content": "J",
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 15,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Y8lPk",
+          "name": "bannerWrap",
+          "width": "fill_container",
+          "padding": [
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "3MmtV",
+              "name": "banner",
+              "width": "fill_container",
+              "fill": "#FEF3C7",
+              "cornerRadius": 12,
+              "gap": 12,
+              "padding": [
+                12,
+                14
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "YjOIu",
+                  "width": 20,
+                  "height": 20,
+                  "iconFontName": "triangle-alert",
+                  "iconFontFamily": "lucide",
+                  "fill": "#D97706"
+                },
+                {
+                  "type": "frame",
+                  "id": "nG7xW",
+                  "name": "bannerText",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "3y6PI",
+                      "fill": "#92400E",
+                      "content": "Alerta de Saúde",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "JbUl7",
+                      "fill": "#92400E",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Rex precisa da vacina V10 em 3 dias",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "icon_font",
+                  "id": "poFs6",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "chevron-right",
+                  "iconFontFamily": "lucide",
+                  "fill": "#D97706"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Eie0b",
+          "name": "petsSection",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "rzTp6",
+              "name": "petsHeader",
+              "width": "fill_container",
+              "padding": [
+                16,
+                20,
+                12,
+                20
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Roqs4",
+                  "fill": "$text_primary",
+                  "content": "Meus Pets",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "wbTjM",
+                  "fill": "$brand",
+                  "content": "Ver todos",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "WCqjj",
+              "name": "petCards",
+              "width": "fill_container",
+              "gap": 12,
+              "padding": [
+                0,
+                20,
+                16,
+                20
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "EiHwP",
+                  "name": "card1",
+                  "width": 100,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": [
+                    14,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "PthOQ",
+                      "name": "avatarPet1",
+                      "width": 52,
+                      "height": 52,
+                      "fill": "#DBEAFE",
+                      "cornerRadius": 26,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "vKPCX",
+                          "width": 26,
+                          "height": 26,
+                          "iconFontName": "paw-print",
+                          "iconFontFamily": "lucide",
+                          "fill": "$brand"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "H7m1g",
+                      "fill": "$text_primary",
+                      "content": "Rex",
+                      "textAlign": "center",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "bsSMm",
+                      "name": "badge1",
+                      "fill": "#D1FAE5",
+                      "cornerRadius": 20,
+                      "gap": 4,
+                      "padding": [
+                        3,
+                        8
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "hxMe3",
+                          "width": 10,
+                          "height": 10,
+                          "iconFontName": "circle-check",
+                          "iconFontFamily": "lucide",
+                          "fill": "#059669"
+                        },
+                        {
+                          "type": "text",
+                          "id": "3n21M",
+                          "fill": "#059669",
+                          "content": "Em dia",
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 10,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dloeh",
+                  "name": "card2",
+                  "width": 100,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": [
+                    14,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "eAMtL",
+                      "name": "avatarPet2",
+                      "width": 52,
+                      "height": 52,
+                      "fill": "#FDE8D8",
+                      "cornerRadius": 26,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "vINii",
+                          "width": 26,
+                          "height": 26,
+                          "iconFontName": "paw-print",
+                          "iconFontFamily": "lucide",
+                          "fill": "#EA580C"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "zdnEz",
+                      "fill": "$text_primary",
+                      "content": "Mia",
+                      "textAlign": "center",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "4e9Y7",
+                      "name": "badge2",
+                      "fill": "#FEF3C7",
+                      "cornerRadius": 20,
+                      "gap": 4,
+                      "padding": [
+                        3,
+                        8
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "B0nAO",
+                          "width": 10,
+                          "height": 10,
+                          "iconFontName": "triangle-alert",
+                          "iconFontFamily": "lucide",
+                          "fill": "#D97706"
+                        },
+                        {
+                          "type": "text",
+                          "id": "NoV8c",
+                          "fill": "#D97706",
+                          "content": "Alerta",
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 10,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "YvzCJ",
+          "name": "quickSection",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "E0Dau",
+              "name": "quickHeader",
+              "width": "fill_container",
+              "padding": [
+                4,
+                20,
+                12,
+                20
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "e8dtY",
+                  "fill": "$text_primary",
+                  "content": "Acesso Rápido",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "R4T2z",
+              "name": "row1",
+              "width": "fill_container",
+              "gap": 12,
+              "padding": [
+                0,
+                20,
+                12,
+                20
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "uGmmd",
+                  "name": "tile1",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": [
+                    16,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "aEiMr",
+                      "name": "tileIcon1",
+                      "width": 40,
+                      "height": 40,
+                      "fill": "#EFF6FF",
+                      "cornerRadius": 20,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "Mex1E",
+                          "width": 22,
+                          "height": 22,
+                          "iconFontName": "stethoscope",
+                          "iconFontFamily": "lucide",
+                          "fill": "$brand"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "JhNdr",
+                      "fill": "$text_primary",
+                      "content": "Veterinário",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "mfbT5",
+                  "name": "tile2",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": [
+                    16,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "f6SoX",
+                      "name": "tileIcon2",
+                      "width": 40,
+                      "height": 40,
+                      "fill": "#F0FDF4",
+                      "cornerRadius": 20,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "kFYwV",
+                          "width": 22,
+                          "height": 22,
+                          "iconFontName": "scissors",
+                          "iconFontFamily": "lucide",
+                          "fill": "#16A34A"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "yOAqg",
+                      "fill": "$text_primary",
+                      "content": "Banho & Tosa",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "QlbLI",
+              "name": "row2",
+              "width": "fill_container",
+              "gap": 12,
+              "padding": [
+                0,
+                20,
+                20,
+                20
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Fo9I8",
+                  "name": "tile3",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": [
+                    16,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "MVCTw",
+                      "name": "tileIcon3",
+                      "width": 40,
+                      "height": 40,
+                      "fill": "#FFF7ED",
+                      "cornerRadius": 20,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "gnH5D",
+                          "width": 22,
+                          "height": 22,
+                          "iconFontName": "map-pin",
+                          "iconFontFamily": "lucide",
+                          "fill": "#EA580C"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "Tn4Rc",
+                      "fill": "$text_primary",
+                      "content": "Passeio",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "H7fv8",
+                  "name": "tile4",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": [
+                    16,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "MC4ez",
+                      "name": "tileIcon4",
+                      "width": 40,
+                      "height": 40,
+                      "fill": "#FDF4FF",
+                      "cornerRadius": 20,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "8q5P8",
+                          "width": 22,
+                          "height": 22,
+                          "iconFontName": "shopping-bag",
+                          "iconFontFamily": "lucide",
+                          "fill": "#9333EA"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "RIo7C",
+                      "fill": "$text_primary",
+                      "content": "Loja",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "pkFsM",
+          "name": "bottomNav",
+          "width": "fill_container",
+          "height": 82,
+          "fill": "#FFFFFF",
+          "padding": [
+            12,
+            0,
+            0,
+            0
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "frame",
+              "id": "onHSr",
+              "name": "navHome",
+              "width": "fill_container",
+              "height": 58,
+              "layout": "vertical",
+              "gap": 4,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "NsXVd",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "house",
+                  "iconFontFamily": "lucide",
+                  "fill": "$brand"
+                },
+                {
+                  "type": "text",
+                  "id": "B68wQ",
+                  "fill": "$brand",
+                  "content": "Início",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 10,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "905xv",
+              "name": "navPets",
+              "width": "fill_container",
+              "height": 58,
+              "layout": "vertical",
+              "gap": 4,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "2WMY1",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "paw-print",
+                  "iconFontFamily": "lucide",
+                  "fill": "$text_secondary"
+                },
+                {
+                  "type": "text",
+                  "id": "cL6od",
+                  "fill": "$text_secondary",
+                  "content": "Pets",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "xlYe6",
+              "name": "navAgenda",
+              "width": "fill_container",
+              "height": 58,
+              "layout": "vertical",
+              "gap": 4,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "zKUx5",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "calendar",
+                  "iconFontFamily": "lucide",
+                  "fill": "$text_secondary"
+                },
+                {
+                  "type": "text",
+                  "id": "1f4Wq",
+                  "fill": "$text_secondary",
+                  "content": "Agenda",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "rpn4c",
+              "name": "navLoja",
+              "width": "fill_container",
+              "height": 58,
+              "layout": "vertical",
+              "gap": 4,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "K7Dup",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "shopping-bag",
+                  "iconFontFamily": "lucide",
+                  "fill": "$text_secondary"
+                },
+                {
+                  "type": "text",
+                  "id": "HyRxI",
+                  "fill": "$text_secondary",
+                  "content": "Loja",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "GQv3s",
+              "name": "navPerfil",
+              "width": "fill_container",
+              "height": 58,
+              "layout": "vertical",
+              "gap": 4,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "R431c",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "user",
+                  "iconFontFamily": "lucide",
+                  "fill": "$text_secondary"
+                },
+                {
+                  "type": "text",
+                  "id": "prwoN",
+                  "fill": "$text_secondary",
+                  "content": "Perfil",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "kYzJP",
+      "x": 415,
+      "y": -1900,
+      "name": "PetCare — Perfil do Pet",
+      "clip": true,
+      "width": 375,
+      "height": 812,
+      "fill": "$bg_light",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "AkxkA",
+          "name": "petProfHeaderArea",
+          "width": "fill_container",
+          "fill": "$navy",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "cUmYg",
+              "name": "petProfStatus",
+              "width": "fill_container",
+              "height": 44,
+              "padding": [
+                0,
+                20
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "yDgAV",
+                  "fill": "#FFFFFF",
+                  "content": "9:41",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "yQ0Ge",
+                  "name": "petProfStatusIcons",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "JmVWV",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "signal",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "ie6zf",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "wifi",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "th1X8",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "battery-full",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "sUgri",
+              "name": "petProfNavBar",
+              "width": "fill_container",
+              "padding": [
+                4,
+                20,
+                16,
+                20
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "EPBpa",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "arrow-left",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FFFFFF"
+                },
+                {
+                  "type": "text",
+                  "id": "i3qKe",
+                  "fill": "#FFFFFF",
+                  "content": "Perfil do Pet",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 17,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "KyxHG",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "ellipsis",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FFFFFF"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "xYQDj",
+          "name": "petHero",
+          "width": "fill_container",
+          "fill": "$navy",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            24,
+            20,
+            20,
+            20
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "6DzeQ",
+              "name": "petAvatarBig",
+              "width": 88,
+              "height": 88,
+              "fill": "#DBEAFE",
+              "cornerRadius": 44,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "xZnK4",
+                  "width": 44,
+                  "height": 44,
+                  "iconFontName": "paw-print",
+                  "iconFontFamily": "lucide",
+                  "fill": "$brand"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "WomCE",
+              "fill": "#FFFFFF",
+              "content": "Rex",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 22,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "01eQ0",
+              "fill": "#FFFFFFB3",
+              "content": "Golden Retriever • 3 anos",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "HrIQb",
+              "name": "heroBadge",
+              "fill": "#D1FAE5",
+              "cornerRadius": 20,
+              "gap": 6,
+              "padding": [
+                5,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "eakht",
+                  "width": 14,
+                  "height": 14,
+                  "iconFontName": "circle-check",
+                  "iconFontFamily": "lucide",
+                  "fill": "#059669"
+                },
+                {
+                  "type": "text",
+                  "id": "pE0Uu",
+                  "fill": "#059669",
+                  "content": "Saúde em dia",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "xwbTb",
+          "name": "statsRow",
+          "width": "fill_container",
+          "gap": 12,
+          "padding": [
+            16,
+            16,
+            0,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "649Sh",
+              "name": "stat1",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                14,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Wee1L",
+                  "fill": "$text_primary",
+                  "content": "28 kg",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "vSMET",
+                  "fill": "$text_secondary",
+                  "content": "Peso",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "9FfHJ",
+              "name": "stat2",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                14,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "cTTkQ",
+                  "fill": "$text_primary",
+                  "content": "3 anos",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "LX1Ks",
+                  "fill": "$text_secondary",
+                  "content": "Idade",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "6vsXk",
+              "name": "stat3",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                14,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "MjKIO",
+                  "fill": "$text_primary",
+                  "content": "Jun 12",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "IFiJq",
+                  "fill": "$text_secondary",
+                  "content": "Última consulta",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "uPXfL",
+          "name": "nextAppt",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            16,
+            16,
+            8,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "bt49v",
+              "name": "apptHeader",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "jVLY5",
+                  "fill": "$text_primary",
+                  "content": "Próximas Consultas",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "aAblR",
+                  "fill": "$brand",
+                  "content": "+ Agendar",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "KS3jR",
+              "name": "apptCard",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "gap": 14,
+              "padding": [
+                14,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VHLOP",
+                  "name": "apptIconWrap",
+                  "width": 44,
+                  "height": 44,
+                  "fill": "#EFF6FF",
+                  "cornerRadius": 12,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "ILerQ",
+                      "width": 22,
+                      "height": 22,
+                      "iconFontName": "stethoscope",
+                      "iconFontFamily": "lucide",
+                      "fill": "$brand"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "qcB2S",
+                  "name": "apptInfo",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 3,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "A3MaX",
+                      "fill": "$text_primary",
+                      "content": "Consulta de Rotina",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "7sefh",
+                      "fill": "$text_secondary",
+                      "content": "Dr. Carlos • 15 Jul, 10h00",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "m9Gl5",
+                  "name": "apptBadge",
+                  "fill": "#EFF6FF",
+                  "cornerRadius": 20,
+                  "padding": [
+                    4,
+                    10
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "fJpAa",
+                      "fill": "$brand",
+                      "content": "Em 12d",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "XOxxM",
+          "name": "petProfNav",
+          "width": "fill_container",
+          "height": 82,
+          "fill": "#FFFFFF",
+          "padding": [
+            12,
+            0,
+            0,
+            0
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "frame",
+              "id": "wg5jz",
+              "name": "ppN1",
+              "width": "fill_container",
+              "height": 58,
+              "layout": "vertical",
+              "gap": 4,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "uFHlN",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "house",
+                  "iconFontFamily": "lucide",
+                  "fill": "$text_secondary"
+                },
+                {
+                  "type": "text",
+                  "id": "S8PKN",
+                  "fill": "$text_secondary",
+                  "content": "Início",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ir6vc",
+              "name": "ppN2",
+              "width": "fill_container",
+              "height": 58,
+              "layout": "vertical",
+              "gap": 4,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "F2Mkk",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "paw-print",
+                  "iconFontFamily": "lucide",
+                  "fill": "$brand"
+                },
+                {
+                  "type": "text",
+                  "id": "0nNaQ",
+                  "fill": "$brand",
+                  "content": "Pets",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 10,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "OnWZD",
+      "x": 830,
+      "y": -1900,
+      "name": "PetCare — Serviços",
+      "clip": true,
+      "width": 375,
+      "height": 812,
+      "fill": "$bg_light",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "WmyHP",
+          "name": "svcHeaderArea",
+          "width": "fill_container",
+          "fill": "$navy",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "0UuQp",
+              "name": "svcStatus",
+              "width": "fill_container",
+              "height": 44,
+              "padding": [
+                0,
+                20
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "2SLb4",
+                  "fill": "#FFFFFF",
+                  "content": "9:41",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "T3zoy",
+                  "name": "svcStatusIcons",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "20TAc",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "signal",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "XbTBd",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "wifi",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "spcNU",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "battery-full",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "LTL07",
+              "name": "svcTopBar",
+              "width": "fill_container",
+              "padding": [
+                4,
+                20,
+                16,
+                20
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "4vAwV",
+                  "fill": "#FFFFFF",
+                  "content": "Serviços",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 20,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "V0ufL",
+                  "width": 22,
+                  "height": 22,
+                  "iconFontName": "sliders-horizontal",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FFFFFF"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "HYTvT",
+          "name": "searchBar",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "gap": 10,
+          "padding": [
+            12,
+            16
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "PxcsN",
+              "name": "searchInner",
+              "width": "fill_container",
+              "fill": "$bg_light",
+              "cornerRadius": 12,
+              "gap": 10,
+              "padding": [
+                10,
+                14
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "qoXjo",
+                  "width": 18,
+                  "height": 18,
+                  "iconFontName": "search",
+                  "iconFontFamily": "lucide",
+                  "fill": "$text_secondary"
+                },
+                {
+                  "type": "text",
+                  "id": "bD6uV",
+                  "fill": "$text_secondary",
+                  "content": "Buscar serviços...",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "NBt3Y",
+          "name": "catRow",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "gap": 8,
+          "padding": [
+            4,
+            16,
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "MDE1E",
+              "name": "cat1",
+              "fill": "$brand",
+              "cornerRadius": 20,
+              "padding": [
+                7,
+                14
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "aLfdq",
+                  "fill": "#FFFFFF",
+                  "content": "Todos",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "FvVC0",
+              "name": "cat2",
+              "fill": "$bg_light",
+              "cornerRadius": 20,
+              "padding": [
+                7,
+                14
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "10mAS",
+                  "fill": "$text_secondary",
+                  "content": "Veterinário",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "zgpKH",
+              "name": "cat3",
+              "fill": "$bg_light",
+              "cornerRadius": 20,
+              "padding": [
+                7,
+                14
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "RgmnI",
+                  "fill": "$text_secondary",
+                  "content": "Banho",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vsxD1",
+              "name": "cat4",
+              "fill": "$bg_light",
+              "cornerRadius": 20,
+              "padding": [
+                7,
+                14
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "8ynR4",
+                  "fill": "$text_secondary",
+                  "content": "Passeio",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "XaPV3",
+          "name": "svcList",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            100,
+            16,
+            16,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "plENx",
+              "name": "svcCard1",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "gap": 14,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "d4gox",
+                  "name": "svcIcon1",
+                  "width": 52,
+                  "height": 52,
+                  "fill": "#EFF6FF",
+                  "cornerRadius": 14,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "rMuJl",
+                      "width": 26,
+                      "height": 26,
+                      "iconFontName": "stethoscope",
+                      "iconFontFamily": "lucide",
+                      "fill": "$brand"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "2oN3C",
+                  "name": "svcInfo1",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ZFGFZ",
+                      "fill": "$text_primary",
+                      "content": "Consulta Veterinária",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 15,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "bStNz",
+                      "fill": "$text_secondary",
+                      "content": "Clínica PetSaúde • 1.2 km",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "JFSja",
+                  "name": "svcPrice1",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "HRz0D",
+                      "fill": "$text_primary",
+                      "content": "R$ 120",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 15,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "MuihW",
+                      "fill": "#F59E0B",
+                      "content": "★ 4.9",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Ow787",
+              "name": "svcCard2",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "gap": 14,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "qzXOE",
+                  "name": "svcIcon2",
+                  "width": 52,
+                  "height": 52,
+                  "fill": "#F0FDF4",
+                  "cornerRadius": 14,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "J210I",
+                      "width": 26,
+                      "height": 26,
+                      "iconFontName": "scissors",
+                      "iconFontFamily": "lucide",
+                      "fill": "#16A34A"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "azOcG",
+                  "name": "svcInfo2",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "3kXrd",
+                      "fill": "$text_primary",
+                      "content": "Banho & Tosa Completo",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 15,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ZmLIM",
+                      "fill": "$text_secondary",
+                      "content": "PetShop Central • 0.8 km",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gAufT",
+                  "name": "svcPrice2",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "kKws5",
+                      "fill": "$text_primary",
+                      "content": "R$ 80",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 15,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "fsqo8",
+                      "fill": "#F59E0B",
+                      "content": "★ 4.7",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "PqF5N",
+              "name": "svcCard3",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "gap": 14,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Hn4S4",
+                  "name": "svcIcon3",
+                  "width": 52,
+                  "height": 52,
+                  "fill": "#FFF7ED",
+                  "cornerRadius": 14,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "5RAEZ",
+                      "width": 26,
+                      "height": 26,
+                      "iconFontName": "map-pin",
+                      "iconFontFamily": "lucide",
+                      "fill": "#EA580C"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "O9brF",
+                  "name": "svcInfo3",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "QzUig",
+                      "fill": "$text_primary",
+                      "content": "Passeio Diário",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 15,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "C5llD",
+                      "fill": "$text_secondary",
+                      "content": "DogWalk • Disponível agora",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "E2ttN",
+                  "name": "svcPrice3",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "lMSLX",
+                      "fill": "$text_primary",
+                      "content": "R$ 35",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 15,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "fm9oY",
+                      "fill": "#F59E0B",
+                      "content": "★ 4.8",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "GvtkV",
+      "x": 1245,
+      "y": -1900,
+      "name": "PetCare — Loja",
+      "clip": true,
+      "width": 375,
+      "height": 812,
+      "fill": "$bg_light",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "YkSf2",
+          "name": "shopHeaderArea",
+          "width": "fill_container",
+          "fill": "$navy",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "hwF5m",
+              "name": "shopStatus",
+              "width": "fill_container",
+              "height": 44,
+              "padding": [
+                0,
+                20
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "uvS0f",
+                  "fill": "#FFFFFF",
+                  "content": "9:41",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "1fKJJ",
+                  "name": "shopStatusIcons",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "pdnl5",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "signal",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "F6bXc",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "wifi",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "KOIe1",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "battery-full",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "iGqpx",
+              "name": "shopTopBar",
+              "width": "fill_container",
+              "padding": [
+                4,
+                20,
+                16,
+                20
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "xLVWh",
+                  "fill": "#FFFFFF",
+                  "content": "Loja",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 20,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "Ck0tu",
+                  "name": "cartBtn",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "PP4XI",
+                      "width": 22,
+                      "height": 22,
+                      "iconFontName": "shopping-cart",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "KIclv",
+                      "name": "cartBadge",
+                      "width": 18,
+                      "height": 18,
+                      "fill": "#EF4444",
+                      "cornerRadius": 9,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "vCpd8",
+                          "fill": "#FFFFFF",
+                          "content": "2",
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 10,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "OWZWI",
+          "name": "shopSearch",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "padding": [
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "ZTyrb",
+              "name": "shopSearchInner",
+              "width": "fill_container",
+              "fill": "$bg_light",
+              "cornerRadius": 12,
+              "gap": 10,
+              "padding": [
+                10,
+                14
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "mKs4G",
+                  "width": 18,
+                  "height": 18,
+                  "iconFontName": "search",
+                  "iconFontFamily": "lucide",
+                  "fill": "$text_secondary"
+                },
+                {
+                  "type": "text",
+                  "id": "Z7SZm",
+                  "fill": "$text_secondary",
+                  "content": "Buscar produtos...",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "BA54U",
+          "name": "featBanner",
+          "width": "fill_container",
+          "padding": [
+            0,
+            16,
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "L4AEl",
+              "name": "featBannerInner",
+              "width": "fill_container",
+              "height": 96,
+              "fill": "$brand",
+              "cornerRadius": 16,
+              "padding": 20,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ZkiDG",
+                  "name": "featText",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "bMXoT",
+                      "fill": "#FFFFFF",
+                      "content": "Ração Premium",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "CiIwH",
+                      "fill": "#FFFFFFB3",
+                      "content": "20% off • Oferta do dia",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "CXCGL",
+                  "name": "featCta",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 20,
+                  "padding": [
+                    8,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "GpFeP",
+                      "fill": "$brand",
+                      "content": "Ver oferta",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "VU4xM",
+          "name": "prodSection",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            0,
+            16,
+            100,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "KcepP",
+              "name": "prodHeader",
+              "width": "fill_container",
+              "padding": [
+                0,
+                0,
+                4,
+                0
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "sZPfp",
+                  "fill": "$text_primary",
+                  "content": "Mais Vendidos",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "UpmsU",
+                  "fill": "$brand",
+                  "content": "Ver todos",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "OfF0m",
+              "name": "prodRow1",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "5fGg6",
+                  "name": "prod1",
+                  "clip": true,
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Y4upN",
+                      "name": "prod1Img",
+                      "width": "fill_container",
+                      "height": 120,
+                      "fill": "#DBEAFE",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "BTL85",
+                          "width": 40,
+                          "height": 40,
+                          "iconFontName": "package",
+                          "iconFontFamily": "lucide",
+                          "fill": "$brand"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xPt2Z",
+                      "name": "prod1Info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": [
+                        10,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "hAvKf",
+                          "fill": "$text_primary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Ração Golden Adult",
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "LO1nv",
+                          "fill": "$text_secondary",
+                          "content": "15 kg",
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "nV9LL",
+                          "name": "prod1Bottom",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "iWeTt",
+                              "fill": "$text_primary",
+                              "content": "R$ 189",
+                              "fontFamily": "Plus Jakarta Sans",
+                              "fontSize": 15,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "DTct3",
+                              "name": "buyBtn1",
+                              "width": 32,
+                              "height": 32,
+                              "fill": "$brand",
+                              "cornerRadius": 10,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "dZlgv",
+                                  "width": 18,
+                                  "height": 18,
+                                  "iconFontName": "plus",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#FFFFFF"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "oA6Sy",
+                  "name": "prod2",
+                  "clip": true,
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "DJUKp",
+                      "name": "prod2Img",
+                      "width": "fill_container",
+                      "height": 120,
+                      "fill": "#FDE8D8",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "bPNLp",
+                          "width": 40,
+                          "height": 40,
+                          "iconFontName": "droplets",
+                          "iconFontFamily": "lucide",
+                          "fill": "#EA580C"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "6icaR",
+                      "name": "prod2Info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": [
+                        10,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "LjQwB",
+                          "fill": "$text_primary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Shampoo Pet Premium",
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "X3Q1z",
+                          "fill": "$text_secondary",
+                          "content": "500 ml",
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "T7lCf",
+                          "name": "prod2Bottom",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Ddd19",
+                              "fill": "$text_primary",
+                              "content": "R$ 34",
+                              "fontFamily": "Plus Jakarta Sans",
+                              "fontSize": 15,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "SMo1H",
+                              "name": "buyBtn2",
+                              "width": 32,
+                              "height": 32,
+                              "fill": "$brand",
+                              "cornerRadius": 10,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "kyyvQ",
+                                  "width": 18,
+                                  "height": 18,
+                                  "iconFontName": "plus",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#FFFFFF"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "brand": {
+      "type": "color",
+      "value": "#3B82F6"
+    },
+    "danger": {
+      "type": "color",
+      "value": "#EF4444"
+    },
+    "radius": {
+      "type": "number",
+      "value": 12
+    },
+    "space_lg": {
+      "type": "number",
+      "value": 24
+    },
+    "space_md": {
+      "type": "number",
+      "value": 16
+    },
+    "space_sm": {
+      "type": "number",
+      "value": 8
+    },
+    "success": {
+      "type": "color",
+      "value": "#10B981"
+    },
+    "surface": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "text_primary": {
+      "type": "color",
+      "value": "#0F172A"
+    },
+    "text_secondary": {
+      "type": "color",
+      "value": "#64748B"
+    },
+    "warning": {
+      "type": "color",
+      "value": "#F59E0B"
+    },
+    "bg_deep": {
+      "type": "color",
+      "value": "#09090B"
+    },
+    "bg_surface": {
+      "type": "color",
+      "value": "#0F172A"
+    },
+    "border_subtle": {
+      "type": "color",
+      "value": "#27272A"
+    },
+    "text_dim": {
+      "type": "color",
+      "value": "#71717A"
+    },
+    "text_main": {
+      "type": "color",
+      "value": "#FAFAFA"
+    },
+    "bg_main": {
+      "type": "color",
+      "value": "#020617"
+    },
+    "border_tactile": {
+      "type": "color",
+      "value": "#1E293B"
+    },
+    "brand_accent": {
+      "type": "color",
+      "value": "#38BDF8"
+    },
+    "text_heading": {
+      "type": "color",
+      "value": "#F8FAFC"
+    },
+    "bg_light": {
+      "type": "color",
+      "value": "#F4F6FB"
+    },
+    "border_color": {
+      "type": "color",
+      "value": "#E2E8F0"
+    },
+    "navy": {
+      "type": "color",
+      "value": "#0D1B2A"
+    }
+  }
+}

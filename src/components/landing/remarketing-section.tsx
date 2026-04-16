@@ -137,22 +137,25 @@ export const RemarketingSection = () => {
 
                         <AnimateIn from="left" delay={100}>
                             <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900">
-                                Cada &quot;não&quot; de hoje pode virar uma <span className="text-primary">venda amanhã.</span>
+                                Lead frio não precisa virar lead perdido.
+                                <span className="text-primary"> Ele pode voltar no timing certo.</span>
                             </h2>
                         </AnimateIn>
 
                         <AnimateIn from="left" delay={200}>
                             <p className="text-base text-slate-600 leading-relaxed">
-                                Nem todo mundo compra no primeiro contato — e tudo bem. O remarketing automático reenvia a mensagem certa, no momento certo, para quem já demonstrou interesse. Sem você mover um dedo.
+                                Nem todo mundo compra no primeiro contato. O remarketing
+                                automático organiza reenvio, pausa, sequência e horário para
+                                continuar a conversa sem depender da memória do time.
                             </p>
                         </AnimateIn>
 
                         <AnimateIn from="left" delay={300}>
                             <ul className="space-y-4">
                                 {[
-                                    "Sua sequência roda sozinha — sem você precisar lembrar de nada.",
-                                    "Envio no dia e horário em que o cliente está mais propenso a comprar.",
-                                    "O \"talvez depois\" vira venda fechada, automaticamente."
+                                    "A sequência roda sozinha, sem alguém lembrar de cobrar manualmente.",
+                                    "Você define regra, dias e horário para insistir sem parecer aleatório.",
+                                    "O “depois eu vejo” volta para o funil com contexto e cadência."
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-center gap-3 text-slate-700">
                                         <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary">

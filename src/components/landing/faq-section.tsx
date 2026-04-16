@@ -12,23 +12,23 @@ import { AnimateIn } from '@/components/ui/animate-in';
 const faqItems = [
   {
     question: 'Qual é o tempo médio para configurar e começar a usar o Sagazchat?',
-    answer: 'A configuração inicial é super rápida! Em menos de 10 minutos, você consegue conectar seu número de WhatsApp e começar a usar as funcionalidades básicas. Para criar fluxos de automação mais complexos, o tempo pode variar, mas nossa interface intuitiva de arrastar e soltar torna o processo muito ágil.',
+    answer: 'A base da operação começa rápido: conectar o número, organizar a equipe e colocar as funções principais para rodar leva poucos minutos. Fluxos mais completos dependem da sua regra comercial, mas a estrutura visual acelera bastante esse processo.',
   },
   {
     question: 'Posso ter múltiplos atendentes usando o mesmo número de WhatsApp?',
-    answer: 'Sim! Esse é um dos nossos maiores diferenciais. Nossa plataforma foi projetada para equipes, permitindo que vários atendentes acessem a mesma caixa de entrada, colaborem em conversas e atendam clientes simultaneamente, tudo a partir de um único número de WhatsApp.',
+    answer: 'Sim. O Sagazchat foi feito para operação em equipe: mais de um atendente pode trabalhar no mesmo número, com histórico compartilhado, organização por setores e contexto preservado na conversa.',
   },
   {
-    question: 'Como a inteligência artificial ajuda a qualificar os leads?',
-    answer: 'Nossa IA pode ser configurada para fazer perguntas-chave aos seus leads assim que eles entram em contato. Com base nas respostas, a IA qualifica o lead, aplica etiquetas (ex: "Lead Quente", "Curioso") e o encaminha automaticamente para o vendedor ou departamento correto, otimizando o tempo da sua equipe.',
+    question: 'Preciso de equipe técnica para montar automações e usar a IA?',
+    answer: 'Não para começar. A plataforma foi desenhada para operação comercial e atendimento, com fluxos visuais e configuração guiada. Se quiser levar integrações e cenários avançados mais longe, aí sim pode envolver alguém técnico, mas o uso diário não depende disso.',
   },
   {
     question: 'Como funcionam os webhooks e para que servem?',
-    answer: 'Webhooks são como "notificações automáticas" entre sistemas. Por exemplo, quando uma venda é aprovada na sua plataforma de pagamento (Hotmart, Kiwify, etc.), ela envia um webhook para o Sagazchat, que pode então iniciar um fluxo automático para enviar os dados de acesso ao cliente, tudo sem intervenção manual.',
+    answer: 'Webhook é o gatilho que avisa ao Sagazchat que algo aconteceu em outro sistema. Com isso, você pode recuperar checkout, enviar mensagem pós-venda, atualizar dados do lead ou iniciar um fluxo sem depender de ação manual da equipe.',
   },
   {
     question: 'Existe algum contrato de fidelidade ou posso cancelar quando quiser?',
-    answer: 'Não há contrato de fidelidade. Nossos planos são baseados em assinaturas mensais e você tem total liberdade para cancelar a qualquer momento, sem taxas ou multas. Acreditamos na qualidade do nosso produto para manter você como nosso cliente.',
+    answer: 'Não existe fidelidade. Os planos são recorrentes e você pode cancelar quando quiser, sem multa contratual. A ideia é manter sua operação porque faz sentido, não porque ficou presa.',
   },
 ];
 
@@ -45,7 +45,7 @@ export function FaqSection() {
               Perguntas Frequentes
             </h2>
             <p className="text-base text-slate-600 mt-4 max-w-2xl mx-auto">
-              Tirando todas as suas dúvidas para você tomar a melhor decisão.
+              As objeções mais comuns antes de colocar atendimento e automação para rodar.
             </p>
           </div>
         </AnimateIn>

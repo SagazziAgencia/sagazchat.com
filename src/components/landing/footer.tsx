@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Logo } from '../brand/logo';
 import { AnimateIn } from '@/components/ui/animate-in';
+import { LANDING_CTA } from './cta-links';
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -23,13 +24,16 @@ export function Footer() {
         <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 lg:p-12 overflow-hidden">
           <div className="grid lg:grid-cols-1 gap-8 items-center">
             <div className="space-y-6 text-center">
-              <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-white">Fale com um Especialista Agora</h2>
+              <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-white">Pronto para tirar o atendimento do improviso?</h2>
               <p className="text-base text-slate-400 leading-relaxed max-w-lg mx-auto">
-                Clique no botão e seja direcionado para o WhatsApp. Nossa equipe está pronta para tirar suas dúvidas e criar um plano de ação para o seu negócio.
+                Veja os planos, entenda o que faz sentido para a sua operação e
+                comece com a estrutura certa para vender, atender e acompanhar o funil.
               </p>
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-auto px-6 sm:px-8 py-4 text-base sm:text-lg font-bold w-full sm:w-auto">
-                <WhatsAppIcon className="w-5 h-5 mr-2 shrink-0" />
-                <span>Iniciar Conversa no WhatsApp</span>
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-auto px-6 sm:px-8 py-4 text-base sm:text-lg font-bold w-full sm:w-auto">
+                <Link href={LANDING_CTA.salesContact}>
+                  <WhatsAppIcon className="w-5 h-5 mr-2 shrink-0" />
+                  <span>Ver planos e começar</span>
+                </Link>
               </Button>
             </div>
           </div>

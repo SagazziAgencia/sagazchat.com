@@ -1,99 +1,99 @@
-import Link from 'next/link';
-import { ArrowRight, PlayCircle } from 'lucide-react';
+﻿import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { AnimateIn } from '@/components/ui/animate-in';
-import { ChatPlatformGridShowcase } from './chat-platform-grid-showcase';
 import { LANDING_CTA } from './cta-links';
+import { HeroChatReplica } from './hero-chat-replica';
 
 export function Hero() {
   return (
     <section
       id="hero"
-      className="relative z-10 overflow-hidden bg-white pb-16 pt-24 border-b border-slate-100 scroll-mt-24 lg:pb-28 lg:pt-28"
+      className="border-b border-slate-100 bg-white px-6 pt-[80px] sm:px-8 sm:pt-[84px] lg:px-24 lg:pt-[88px]"
     >
+      <div className="mx-auto flex w-full max-w-[1320px] pb-16 pt-6 sm:pb-20 sm:pt-8 lg:pb-24 lg:pt-10">
+        <div className="flex w-full flex-col gap-12 lg:flex-row lg:items-center lg:gap-16">
+          <div className="flex-1 space-y-6 lg:min-w-[520px] xl:min-w-[580px]">
+            <AnimateIn delay={0}>
+              <p className="text-[12px] font-semibold uppercase tracking-[0.24em] text-slate-500">
+                Para empresas que querem escalar sem perder dinheiro
+              </p>
+            </AnimateIn>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_.9fr]">
-          <div className="space-y-5">
-            <div className="space-y-2">
-              {/* Badge */}
-              <AnimateIn delay={0}>
-                <div className="inline-flex items-center gap-2.5 rounded-lg border border-emerald-500/20 bg-emerald-50 px-3.5 py-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  <span className="text-[11px] font-semibold tracking-wide text-emerald-700">
-                    #1 em Automação para WhatsApp e Instagram
-                  </span>
-                </div>
-              </AnimateIn>
+            <AnimateIn delay={120}>
+              <h1 className="font-[family-name:var(--font-display)] text-[2.1rem] leading-[1.04] tracking-[-0.045em] text-slate-900 sm:text-[2.9rem] lg:text-[46px] lg:leading-[1.08]">
+                <span className="block font-medium">
+                  Você tem <span className="font-black">funil,</span>{' '}
+                  <span className="font-black">organização</span> e{' '}
+                  <span className="font-black">qualificação automática?</span>
+                </span>
+                <span className="mt-2 block font-medium text-primary">
+                  Se não, <span className="font-black">tá perdendo vendas.</span>
+                </span>
+              </h1>
+            </AnimateIn>
 
-              {/* Headline */}
-              <AnimateIn delay={120}>
-                <h1 className="font-[family-name:var(--font-display)] text-[1.875rem] font-bold leading-[1.15] tracking-tight text-slate-900 sm:text-[2.25rem] lg:text-[3.25rem]">
-                  Pare de perder vendas{' '}
-                  <br className="hidden sm:block" />
-                  no <span className="text-primary">WhatsApp</span> e{' '}
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888]">Instagram</span>
-                </h1>
-              </AnimateIn>
+            <AnimateIn delay={240}>
+              <p className="max-w-[620px] text-[15px] leading-[1.65] text-slate-500 lg:text-[17px]">
+                Centralize canais, organize atendimentos e acompanhe cada oportunidade em um só lugar para responder melhor e vender mais.
+              </p>
+            </AnimateIn>
 
-              {/* Subheadline */}
-              <AnimateIn delay={240}>
-                <p className="max-w-[34rem] text-base leading-relaxed text-slate-500 lg:text-[1.065rem]">
-                  Automatize atendimento com IA no WhatsApp e Instagram Direct.
-                  Fluxos inteligentes, CRM integrado — transforme cada conversa
-                  em receita.
-                </p>
-              </AnimateIn>
-            </div>
-
-            {/* CTAs */}
             <AnimateIn delay={360}>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <Button asChild size="lg" className="h-12 rounded-lg px-8 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-all shadow-[0_4px_14px_rgba(23,199,90,0.25)]">
+              <div className="flex flex-col items-stretch gap-4 sm:flex-row sm:items-center lg:justify-start">
+                <Button
+                  asChild
+                  size="lg"
+                  className="h-[54px] rounded-lg bg-primary px-9 text-[15px] font-semibold text-white shadow-[0_4px_14px_rgba(23,199,90,0.25)] transition-all hover:bg-primary/90"
+                >
                   <Link href={LANDING_CTA.pricingAnchor}>
-                    Começar agora
+                    Quero ver funcionando
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
 
-                <Button asChild size="lg" variant="outline" className="h-12 rounded-lg border border-slate-200 bg-white px-8 text-sm font-medium text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900">
-                  <Link href={LANDING_CTA.demo}>
-                    <PlayCircle className="mr-2 h-4 w-4" />
-                    Ver demonstração
-                  </Link>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="h-[54px] rounded-lg border-slate-300 px-9 text-[15px] font-semibold text-slate-900 transition-all hover:border-slate-400 hover:bg-slate-50"
+                >
+                  <Link href={LANDING_CTA.pricingAnchor}>Ver planos</Link>
                 </Button>
               </div>
             </AnimateIn>
 
-            {/* Trust line */}
             <AnimateIn delay={460}>
-              <p className="-mt-1 text-[13px] text-slate-400 flex flex-wrap gap-x-1">
-                <span>Setup em 2 minutos</span> <span className="hidden sm:inline">&nbsp;•&nbsp;</span> <span>Suporte dedicado</span> <span className="hidden sm:inline">&nbsp;•&nbsp;</span> <span>Resultado comprovado</span>
-              </p>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[12px] font-medium text-slate-400 sm:text-[13px] lg:justify-start">
+                <span>Sem fidelidade</span>
+                <span className="h-1 w-1 rounded-full bg-slate-300" />
+                <span>Onboarding guiado</span>
+                <span className="h-1 w-1 rounded-full bg-slate-300" />
+                <span>+19 integrações nativas</span>
+              </div>
             </AnimateIn>
 
-            {/* Social proof */}
-            <AnimateIn delay={540}>
-              <div className="-mt-1 flex flex-wrap items-center gap-x-4 gap-y-2">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-sm tracking-wide text-amber-400">★★★★★</span>
-                  <span className="text-[13px] font-medium text-slate-500">
-                    5.000+ empresas confiam no Sagazchat
-                  </span>
-                </div>
-                <span className="hidden h-4 w-px bg-slate-200 sm:block" />
-                <span className="text-[11px] font-medium text-slate-400">
-                  Visto no Google &nbsp;•&nbsp; Meta &nbsp;•&nbsp; WhatsApp
-                </span>
+            <AnimateIn delay={520}>
+              <div className="text-[13px] font-medium text-slate-500">
+                Integra com Hotmart, Kiwify, Meta, Google Sheets, n8n e mais
               </div>
             </AnimateIn>
           </div>
 
-          {/* Phone mockup — mantém animação WhatsApp + Instagram */}
-          <AnimateIn delay={300} duration={800}>
-            <div className="w-full flex justify-center lg:justify-end">
-              <ChatPlatformGridShowcase />
+          <AnimateIn delay={180} className="flex w-full justify-center lg:w-[min(820px,calc(100vw-800px))] lg:flex-none lg:justify-end">
+            <div className="w-full max-w-[660px] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_28px_72px_rgba(15,23,42,0.14)] lg:max-w-none lg:translate-x-[80px]">
+              <div className="flex items-center gap-2 border-b border-slate-200 bg-slate-50 px-4 py-3">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#EF4444]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#F59E0B]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#22C55E]" />
+                <div className="ml-2 flex-1 rounded-md bg-white px-3 py-1 text-[10px] font-medium text-slate-400 ring-1 ring-slate-200">
+                  app.sagazchatbot.ai/whatsapp
+                </div>
+              </div>
+              <div className="aspect-[4/5] lg:h-[540px] lg:aspect-auto">
+                <HeroChatReplica />
+              </div>
             </div>
           </AnimateIn>
         </div>

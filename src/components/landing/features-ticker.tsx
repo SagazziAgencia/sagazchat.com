@@ -138,7 +138,7 @@ export function IntegrationsTicker() {
 
 export function FeaturesTicker() {
   return (
-    <section className="relative overflow-hidden bg-white py-20 lg:py-28">
+    <section id="features" className="relative overflow-hidden bg-white py-20 lg:py-28">
       {/* ── Header ── */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
@@ -153,15 +153,16 @@ export function FeaturesTicker() {
 
           <AnimateIn delay={100}>
             <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold leading-[1.15] tracking-tight text-slate-900 sm:text-4xl lg:text-[3rem]">
-              Veja como a plataforma{' '}
-              <span className="text-primary">funciona.</span>
+              Tudo o que sua operação precisa para{' '}
+              <span className="text-primary">vender, atender e recuperar oportunidades.</span>
             </h2>
           </AnimateIn>
 
           <AnimateIn delay={200}>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
-              Explore cada funcionalidade e descubra como o Sagazchat pode
-              transformar o atendimento da sua empresa.
+              Em vez de juntar várias ferramentas e planilhas, centralize a jornada
+              comercial em uma plataforma feita para conversas, automações e
+              acompanhamento de resultados.
             </p>
           </AnimateIn>
         </div>
@@ -217,7 +218,7 @@ export function FeaturesTicker() {
                       href="#pricing"
                       className="inline-flex w-fit items-center gap-2.5 rounded-xl bg-primary px-7 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)]"
                     >
-                      Saiba mais
+                      Ver planos
                       <ArrowRight className="h-4 w-4" />
                     </a>
                   </div>

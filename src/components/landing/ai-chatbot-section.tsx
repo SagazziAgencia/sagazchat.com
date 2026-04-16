@@ -16,28 +16,28 @@ const features = [
     {
         icon: Brain,
         title: 'Base de Conhecimento',
-        description: 'Treine a IA com preços, políticas e FAQs. Ela responde com precisão.',
+        description: 'Treine com preços, objeções, políticas e contexto do negócio para responder com segurança.',
         color: 'text-primary',
         bg: 'bg-primary/10',
     },
     {
         icon: MessageSquare,
         title: 'Múltiplos Agentes',
-        description: 'Crie personas diferentes: "Ana do Suporte", "Beto de Vendas".',
+        description: 'Separe atendimento, vendas e suporte com agentes preparados para cada etapa.',
         color: 'text-emerald-500',
         bg: 'bg-emerald-500/10',
     },
     {
         icon: Sparkles,
         title: 'Memória de Contexto',
-        description: 'Lembra de toda a conversa. Nunca perde o fio da meada.',
+        description: 'Entende o histórico da conversa e evita respostas soltas ou repetidas.',
         color: 'text-lime-600',
         bg: 'bg-lime-500/10',
     },
     {
         icon: ShieldCheck,
         title: 'Privacidade Absoluta',
-        description: 'Cada conversa é isolada. Zero vazamento entre clientes.',
+        description: 'Cada conversa é isolada para preservar contexto e dados de cada cliente.',
         color: 'text-green-600',
         bg: 'bg-emerald-500/10',
     },
@@ -69,16 +69,18 @@ export const AiChatbotSection = () => {
 
                         <AnimateIn from="left" delay={100}>
                             <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900 mb-6">
-                                Um Agente de IA que{' '}
+                                IA treinada no seu negócio para{' '}
                                 <span className="text-primary">
-                                    nunca dorme.
+                                    responder, qualificar e encaminhar sem parecer um robô perdido.
                                 </span>
                             </h2>
                         </AnimateIn>
 
                         <AnimateIn from="left" delay={200}>
                             <p className="text-base text-slate-600 leading-relaxed mb-10 max-w-lg">
-                                Treine a IA com os dados da sua empresa e deixe ela atender, negociar e vender 24h por dia. Cada conversa é isolada e segura.
+                                Entregue contexto para a IA e deixe ela fazer o primeiro
+                                atendimento, tirar dúvidas, qualificar interesse e chamar o
+                                humano certo quando a conversa pedir.
                             </p>
                         </AnimateIn>
 

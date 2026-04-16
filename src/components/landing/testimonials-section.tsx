@@ -17,38 +17,38 @@ import { LANDING_CTA } from './cta-links';
 
 const testimonials = [
   {
-    name: 'Gabriel Lima',
-    company: 'DropShip Inc.',
+    name: 'Recuperação de checkout',
+    company: 'Fluxo de venda automática',
     videoThumbnailUrl: 'https://picsum.photos/seed/t1/270/480',
     aiHint: 'man portrait',
   },
   {
-    name: 'Juliana Alves',
-    company: 'E-commerce Experts',
+    name: 'Atendimento com IA',
+    company: 'Qualificação e handoff',
     videoThumbnailUrl: 'https://picsum.photos/seed/t2/270/480',
     aiHint: 'woman portrait',
   },
   {
-    name: 'Marcos Rocha',
-    company: 'Agência Criativa',
+    name: 'Instagram no direct',
+    company: 'Captação por comentário',
     videoThumbnailUrl: 'https://picsum.photos/seed/t3/270/480',
     aiHint: 'man office',
   },
   {
-    name: 'Fernanda Dias',
-    company: 'InfoProdutora Digital',
+    name: 'CRM com valor',
+    company: 'Pipeline comercial visível',
     videoThumbnailUrl: 'https://picsum.photos/seed/t4/270/480',
     aiHint: 'woman smiling',
   },
   {
-    name: 'Ricardo Mendes',
-    company: 'Consultoria de Vendas',
+    name: 'Disparos em massa',
+    company: 'Campanhas com segmentação',
     videoThumbnailUrl: 'https://picsum.photos/seed/t5/270/480',
     aiHint: 'man talking',
   },
   {
-    name: 'Carla Souza',
-    company: 'Startup de SaaS',
+    name: 'Operação multicanal',
+    company: 'WhatsApp, Instagram e e-mail',
     videoThumbnailUrl: 'https://picsum.photos/seed/t6/270/480',
     aiHint: 'woman tech',
   },
@@ -61,13 +61,15 @@ export function TestimonialsSection() {
         <AnimateIn>
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-6">
-              Resultados
+              Demonstrações
             </p>
             <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900 mb-4">
-              Quem usa, confia e <span className="text-primary">vende mais.</span>
+              Veja o Sagazchat aplicado nas rotinas que mais travam
+              <span className="text-primary"> a operação comercial.</span>
             </h2>
             <p className="text-base text-slate-600 leading-relaxed">
-              Veja como o Sagazchat está a transformar a operação de vendas de centenas de empresas no Brasil.
+              Em vez de promessa genérica, aqui está o tipo de fluxo que a plataforma
+              ajuda a executar no dia a dia.
             </p>
           </div>
         </AnimateIn>

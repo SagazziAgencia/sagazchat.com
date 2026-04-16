@@ -21,23 +21,23 @@ export type FeatureSlide = {
 export const features: FeatureSlide[] = [
   {
     label: 'Automações',
-    title: 'Automatize webhook, remarketing e Instagram',
+    title: 'Automatize a jornada inteira, do primeiro contato ao pós-venda',
     description:
-      'Crie automações para webhook, remarketing, Instagram e outras jornadas com gatilhos inteligentes. Dispare mensagens, recupere oportunidades e mantenha sua operação rodando sem depender de ações manuais.',
+      'Dispare mensagens por evento, recupere leads que esfriaram, responda comentários no Instagram e mantenha o atendimento rodando sem depender de tarefas manuais.',
     imageUrl: 'https://i.ibb.co/270YPZs0/Group-1.png',
   },
   {
     label: 'Criador de Fluxos',
-    title: 'Crie automações visuais sem código',
+    title: 'Monte fluxos visuais sem depender de programador',
     description:
-      'Monte fluxos de atendimento inteligentes com nosso editor visual drag & drop. Conecte condições, respostas automáticas e integrações em minutos.',
+      'Crie menus, condições, respostas automáticas, handoff para humanos e integrações em um editor drag and drop que sua equipe entende rápido.',
     imageUrl: 'https://i.ibb.co/zWB2VBfR/Captura-de-tela-2026-03-18-123058.png',
   },
   {
     label: 'Visão Completa',
-    title: 'Tenha controle total da operação',
+    title: 'Acompanhe atendimento, funil e performance em uma única visão',
     description:
-      'Acompanhe cada conversa, analise performance da equipe e identifique gargalos. Tudo que você precisa para escalar seu atendimento.',
+      'Veja o que entrou, o que está em negociação, onde o time trava e quais oportunidades precisam de ação para a operação escalar com previsibilidade.',
     imageUrl: 'https://i.ibb.co/BVRqmkZf/Captura-de-tela-2026-03-18-110447.png',
   },
 

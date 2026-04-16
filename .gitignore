@@ -49,3 +49,20 @@ firestore-debug.log
 .claude/
 .codex-skill-staging/
 .playwright-mcp/
+
+# large/local artifacts
+data/
+.codex-artifacts/
+.playwright-cli/
+.tmp-pencilexport/
+output/
+output_dev_stderr.log
+output_dev_stdout.log
+
+# screenshots / debug artifacts (root level)
+/desktop-*.png
+/mobile-*.png
+/live-*.png
+/localhost-*.png
+/pw-*.png
+/pw-*.mjs

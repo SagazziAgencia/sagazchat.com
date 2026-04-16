@@ -235,7 +235,7 @@ function PhoneMockupChat({
   return (
     <div className="relative">
       <div
-        className={`relative h-[560px] w-[286px] rounded-[1.75rem] border-[5px] border-slate-900 bg-slate-900 p-[2px] shadow-[0_0_0_1px_#1f2937,0_0_0_2px_#0f172a,0_40px_80px_-40px_rgba(2,6,23,0.5)] transition-all duration-300 ${
+        className={`relative h-[560px] w-[286px] rounded-[1.75rem] border-[5px] border-slate-900 bg-slate-900 p-[2px] shadow-[0_0_0_1px_#1f2937,0_0_0_2px_#0f172a] transition-all duration-300 ${
           isActive ? 'sm:-translate-y-1' : 'opacity-95'
         }`}
       >
@@ -302,9 +302,14 @@ function PhoneMockupChat({
   );
 }
 
-export function ChatPlatformGridShowcase() {
+export function ChatPlatformGridShowcase({
+  initialPlatformIndex = 0,
+}: {
+  /** 0 = WhatsApp, 1 = Instagram */
+  initialPlatformIndex?: number;
+} = {}) {
   const prefersReducedMotion = usePrefersReducedMotion();
-  const [activePhoneIndex, setActivePhoneIndex] = useState(0);
+  const [activePhoneIndex, setActivePhoneIndex] = useState(initialPlatformIndex);
 
   useEffect(() => {
     if (prefersReducedMotion) return;
@@ -322,7 +327,6 @@ export function ChatPlatformGridShowcase() {
     <div className="relative w-full max-w-[560px]">
       <div className="pointer-events-none absolute -left-8 top-8 h-44 w-44 rounded-full bg-emerald-50/80 blur-3xl" />
       <div className="pointer-events-none absolute -right-8 top-16 h-44 w-44 rounded-full bg-emerald-50/60 blur-3xl" />
-      <div className="pointer-events-none absolute inset-x-12 bottom-1 h-10 rounded-full bg-slate-900/10 blur-2xl" />
       <div className="relative flex lg:min-h-[590px] items-end justify-center">
         <PhoneMockupChat
           key={activeTheme.id}

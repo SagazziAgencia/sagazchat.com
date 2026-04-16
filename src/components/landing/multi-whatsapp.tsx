@@ -90,8 +90,8 @@ export function MultiWhatsapp() {
 
           <AnimateIn delay={100}>
             <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] mb-4 text-slate-900">
-              Todos os canais.{' '}
-              <span className="text-primary">Uma única plataforma.</span>
+              Pare de perder contexto entre abas, números e atendentes.
+              <span className="text-primary"> Centralize tudo em um só lugar.</span>
             </h2>
           </AnimateIn>
 
@@ -99,7 +99,8 @@ export function MultiWhatsapp() {
             <p className="text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
               Conecte{' '}
               <span className="font-bold text-gray-800">WhatsApp, WhatsApp Business API, Instagram, e-mail</span>{' '}
-              e mais canais em um só lugar. Centralize toda a comunicação da sua equipe e nunca perca uma oportunidade.
+              e mais canais em um só lugar. Sua equipe responde com histórico,
+              contexto e controle total da operação, sem conversa perdida no caminho.
             </p>
           </AnimateIn>
         </div>
@@ -134,8 +135,8 @@ export function MultiWhatsapp() {
                   iconBg="bg-primary/10"
                   iconColor="text-primary"
                 >
-                  Conecte múltiplos números WhatsApp e a API oficial do WhatsApp
-                  Business na mesma plataforma.
+                  Conecte múltiplos números e a API oficial na mesma operação,
+                  sem dividir atendimento entre ferramentas diferentes.
                 </BenefitCard>
                 <BenefitCard
                   icon={<Instagram />}
@@ -143,8 +144,8 @@ export function MultiWhatsapp() {
                   iconBg="bg-pink-50"
                   iconColor="text-pink-600"
                 >
-                  Responda mensagens do Instagram Direct sem sair da plataforma.
-                  Centralize o atendimento das suas redes sociais.
+                  Responda mensagens do direct no mesmo painel e transforme
+                  interação social em conversa comercial de verdade.
                 </BenefitCard>
                 <BenefitCard
                   icon={<Mail />}
@@ -152,8 +153,8 @@ export function MultiWhatsapp() {
                   iconBg="bg-blue-50"
                   iconColor="text-blue-600"
                 >
-                  Gerencie e-mails junto com seus outros canais. Uma caixa de
-                  entrada unificada para toda a equipe.
+                  Traga e-mail para a mesma rotina de atendimento e mantenha a
+                  equipe olhando para uma única fila de trabalho.
                 </BenefitCard>
                 <BenefitCard
                   icon={<Shield />}
@@ -161,8 +162,8 @@ export function MultiWhatsapp() {
                   iconBg="bg-lime-100"
                   iconColor="text-lime-700"
                 >
-                  Monitore todos os canais em tempo real. Audite conversas,
-                  acompanhe métricas e garanta qualidade no atendimento.
+                  Monitore canais, acompanhe métricas e audite conversas para
+                  manter velocidade, padrão e previsibilidade na operação.
                 </BenefitCard>
               </div>
 
@@ -170,7 +171,7 @@ export function MultiWhatsapp() {
                 href="#pricing"
                 className="inline-flex w-fit items-center gap-2.5 rounded-xl bg-primary px-7 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)]"
               >
-                Ver planos
+                Centralizar minha operação
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>

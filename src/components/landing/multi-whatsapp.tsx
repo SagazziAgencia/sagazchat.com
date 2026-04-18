@@ -2,15 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import {
-  MessageCircle,
-  Instagram,
-  Mail,
-  Shield,
-  ArrowRight,
-  MonitorSmartphone,
-} from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { ArrowRight, MonitorSmartphone } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
 
 /* ╔═══════════════════════════════════════════════════════════╗
@@ -20,6 +12,13 @@ import { AnimateIn } from '@/components/ui/animate-in';
    ╚═══════════════════════════════════════════════════════════╝ */
 
 const MULTI_WHATSAPP_IMAGE = 'https://i.ibb.co/60Y4RGQc/Group-4.png';
+
+const CHANNELS = [
+  'WhatsApp — até 10 números simultâneos',
+  'Instagram — DMs e comentários automáticos',
+  'Histórico unificado por contato',
+  'Transferência entre atendentes sem perda',
+];
 
 /* ── Safe image with fallback ──────────────────────────── */
 
@@ -66,7 +65,7 @@ function SafeImage({ src, alt }: { src: string; alt: string }) {
       alt={alt}
       fill
       quality={100}
-      sizes="(min-width: 1024px) 60vw, 95vw"
+      sizes="(min-width: 1024px) 50vw, 95vw"
       className="object-cover object-left-top"
       onError={() => setError(true)}
     />
@@ -77,137 +76,53 @@ function SafeImage({ src, alt }: { src: string; alt: string }) {
 
 export function MultiWhatsapp() {
   return (
-    <section className="relative overflow-hidden bg-white py-20 lg:py-28">
-      <div className="mx-auto max-w-[90rem] px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="bg-[#F8FAFC] px-6 sm:px-8 lg:px-24 lg:min-h-screen">
+      <div className="mx-auto flex min-h-screen max-w-[1320px] flex-col items-center gap-12 py-20 lg:flex-row lg:items-center lg:gap-16 lg:py-0">
+        {/* Left – Mockup */}
+        <AnimateIn from="left" delay={100} className="w-full lg:w-[55%] lg:flex-none">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-200">
+            <SafeImage
+              src={MULTI_WHATSAPP_IMAGE}
+              alt="Painel multicanal do Sagazchat"
+            />
+          </div>
+        </AnimateIn>
 
-        {/* ── Header ── */}
-        <div className="mx-auto max-w-3xl text-center mb-14 sm:mb-16">
-          <AnimateIn>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-6">
+        {/* Right – Copy */}
+        <AnimateIn from="right" delay={200} className="w-full lg:flex-1">
+          <div className="flex flex-col gap-7">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">
               Integrações Multicanal
             </p>
-          </AnimateIn>
 
-          <AnimateIn delay={100}>
-            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] mb-4 text-slate-900">
+            <h2 className="max-w-[520px] font-[family-name:var(--font-display)] text-[1.85rem] font-extrabold leading-[1.15] tracking-[-0.03em] text-slate-900 sm:text-[2.5rem] lg:text-[36px]">
               Pare de perder contexto entre abas, números e atendentes.
-              <span className="text-primary"> Centralize tudo em um só lugar.</span>
             </h2>
-          </AnimateIn>
 
-          <AnimateIn delay={200}>
-            <p className="text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Conecte{' '}
-              <span className="font-bold text-gray-800">WhatsApp, WhatsApp Business API, Instagram, e-mail</span>{' '}
-              e mais canais em um só lugar. Sua equipe responde com histórico,
-              contexto e controle total da operação, sem conversa perdida no caminho.
+            <p className="max-w-[460px] text-[16px] leading-[1.65] text-slate-500">
+              Centralize WhatsApp, Instagram e e-mail em um painel único. Cada
+              conversa tem histórico completo, independente do canal.
             </p>
-          </AnimateIn>
-        </div>
 
-        {/* ── Content: Image Left + Cards Right ── */}
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1.32fr)_minmax(280px,0.68fr)] lg:gap-16 xl:grid-cols-[minmax(0,1.36fr)_minmax(300px,0.64fr)]">
+            <ul className="flex flex-col gap-4 pt-2">
+              {CHANNELS.map((ch) => (
+                <li key={ch} className="flex items-center gap-3">
+                  <span className="h-2 w-2 flex-shrink-0 rounded-sm bg-primary" />
+                  <span className="text-[15px] text-slate-900">{ch}</span>
+                </li>
+              ))}
+            </ul>
 
-          {/* Left – Image */}
-          <AnimateIn from="left" delay={150}>
-            <div className="relative h-[360px] overflow-hidden rounded-2xl sm:h-[460px] lg:h-[580px] xl:h-[620px]">
-              <SafeImage
-                src={MULTI_WHATSAPP_IMAGE}
-                alt="Múltiplos WhatsApps em uma única tela"
-              />
-            </div>
-          </AnimateIn>
-
-          {/* Right – Benefits + CTA */}
-          <AnimateIn from="right" delay={250}>
-            <div className="flex flex-col gap-8">
-              <div className="flex items-center gap-2.5">
-                <span className="h-2 w-2 rounded-full bg-primary" />
-                <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
-                  Canais conectados
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <BenefitCard
-                  icon={<MessageCircle />}
-                  title="WhatsApp & API Oficial"
-                  iconBg="bg-primary/10"
-                  iconColor="text-primary"
-                >
-                  Conecte múltiplos números e a API oficial na mesma operação,
-                  sem dividir atendimento entre ferramentas diferentes.
-                </BenefitCard>
-                <BenefitCard
-                  icon={<Instagram />}
-                  title="Instagram Direct"
-                  iconBg="bg-pink-50"
-                  iconColor="text-pink-600"
-                >
-                  Responda mensagens do direct no mesmo painel e transforme
-                  interação social em conversa comercial de verdade.
-                </BenefitCard>
-                <BenefitCard
-                  icon={<Mail />}
-                  title="E-mail Integrado"
-                  iconBg="bg-blue-50"
-                  iconColor="text-blue-600"
-                >
-                  Traga e-mail para a mesma rotina de atendimento e mantenha a
-                  equipe olhando para uma única fila de trabalho.
-                </BenefitCard>
-                <BenefitCard
-                  icon={<Shield />}
-                  title="Controle Total"
-                  iconBg="bg-lime-100"
-                  iconColor="text-lime-700"
-                >
-                  Monitore canais, acompanhe métricas e audite conversas para
-                  manter velocidade, padrão e previsibilidade na operação.
-                </BenefitCard>
-              </div>
-
-              <a
-                href="#pricing"
-                className="inline-flex w-fit items-center gap-2.5 rounded-xl bg-primary px-7 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)]"
-              >
-                Centralizar minha operação
-                <ArrowRight className="h-5 w-5" />
-              </a>
-            </div>
-          </AnimateIn>
-        </div>
+            <a
+              href="#pricing"
+              className="mt-4 inline-flex w-fit items-center gap-2.5 rounded-[10px] bg-primary px-8 py-4 text-[15px] font-semibold text-white shadow-[0_4px_14px_rgba(23,199,90,0.25)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.35)]"
+            >
+              Centralizar minha operação
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        </AnimateIn>
       </div>
     </section>
   );
 }
-
-/* ── Benefit Card ──────────────────────────────────────── */
-
-const BenefitCard = ({
-  icon,
-  title,
-  children,
-  iconBg,
-  iconColor,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  children: React.ReactNode;
-  iconBg: string;
-  iconColor: string;
-}) => (
-  <div className="rounded-xl border border-gray-100 bg-white p-5 shadow-sm transition-all hover:border-primary/30 hover:shadow-md h-full">
-    <div
-      className={cn(
-        'mb-3 flex h-10 w-10 items-center justify-center rounded-lg',
-        iconBg,
-        iconColor
-      )}
-    >
-      {icon}
-    </div>
-    <h4 className="mb-1 text-base font-bold text-gray-900">{title}</h4>
-    <p className="text-xs leading-relaxed text-gray-500">{children}</p>
-  </div>
-);

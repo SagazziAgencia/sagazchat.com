@@ -14,6 +14,7 @@ import { AiChatbotSection } from '@/components/landing/ai-chatbot-section';
 import { BroadcastSection } from '@/components/landing/broadcast-section';
 import { ShortcutSection } from '@/components/landing/shortcut-section';
 import { RemarketingSection } from '@/components/landing/remarketing-section';
+import { ProductGrid } from '@/components/landing/product-grid';
 
 export default function SagazchatLanding() {
   return (
@@ -23,7 +24,7 @@ export default function SagazchatLanding() {
 
       <main>
         <IntegrationsTicker />
-        <FeaturesTicker />
+        <ProductGrid />
         <MultiWhatsapp />
         <InstagramSection />
         <AiChatbotSection />

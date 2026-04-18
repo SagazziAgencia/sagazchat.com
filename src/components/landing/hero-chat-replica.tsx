@@ -91,10 +91,17 @@ function nextId() {
 }
 
 /* ─── sub-components ─── */
-function TypingDots() {
+function TypingDots({ sender }: { sender: MsgSender }) {
+  const isCustomer = sender === "customer";
   return (
-    <div className="flex justify-end">
-      <div className="flex items-center gap-1 rounded-[10px] rounded-br-[2px] bg-[#F1FDD4] px-4 py-2.5">
+    <div className={`flex ${isCustomer ? "justify-start" : "justify-end"}`}>
+      <div
+        className={`flex items-center gap-1 rounded-[10px] px-4 py-2.5 ${
+          isCustomer
+            ? "rounded-bl-[2px] bg-white ring-1 ring-[#E2E8F0]"
+            : "rounded-br-[2px] bg-[#F1FDD4]"
+        }`}
+      >
         <span className="typing-dot h-[6px] w-[6px] rounded-full bg-[#94A3B8]" style={{ animationDelay: "0ms" }} />
         <span className="typing-dot h-[6px] w-[6px] rounded-full bg-[#94A3B8]" style={{ animationDelay: "150ms" }} />
         <span className="typing-dot h-[6px] w-[6px] rounded-full bg-[#94A3B8]" style={{ animationDelay: "300ms" }} />
@@ -363,9 +370,10 @@ function QuickReplyPanel({
 
             {/* Message templates */}
             <div className="mt-2 space-y-1">
-              {currentItems.map((msg) => (
+              {currentItems.map((msg, idx) => (
                 <button
                   key={`${activeMedia}-${msg}`}
+                  data-qr-idx={idx}
                   onClick={() => onPickMessage(msg)}
                   className="flex w-full items-center justify-between px-0.5 py-1.5 text-left"
                 >
@@ -404,7 +412,7 @@ function QuickReplyPanel({
 /* ─── main component ─── */
 export function HeroChatReplica() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const [typing, setTyping] = useState<"agent" | "bot" | null>(null);
+  const [typing, setTyping] = useState<MsgSender | null>(null);
   const [quickReplies, setQuickReplies] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [inputEnabled, setInputEnabled] = useState(false);
@@ -413,6 +421,11 @@ export function HeroChatReplica() {
   /* sidebar state */
   const [sidebarMode, setSidebarMode] = useState<"contact" | "quick-reply">("contact");
   const [qrTab, setQrTab] = useState<"mensagens" | "fluxos">("mensagens");
+
+  /* cursor state */
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [cursor, setCursor] = useState<{ x: number; y: number; clicking: boolean } | null>(null);
+  const cursorTimersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   const chatRef = useRef<HTMLDivElement>(null);
   const stepRef = useRef(0);
@@ -433,17 +446,69 @@ export function HeroChatReplica() {
     scrollToBottom();
   }, [messages, typing, scrollToBottom]);
 
+  /* cursor helpers */
+  const clearCursorTimers = useCallback(() => {
+    cursorTimersRef.current.forEach(clearTimeout);
+    cursorTimersRef.current = [];
+  }, []);
+
+  const moveCursorTo = useCallback((selector: string) => {
+    if (!containerRef.current) return;
+    const el = containerRef.current.querySelector(selector) as HTMLElement | null;
+    if (!el) return;
+    const cr = containerRef.current.getBoundingClientRect();
+    const er = el.getBoundingClientRect();
+    setCursor({
+      x: er.left - cr.left + er.width * 0.6,
+      y: er.top - cr.top + er.height * 0.5,
+      clicking: false,
+    });
+  }, []);
+
+  const doCursorClick = useCallback(() => {
+    setCursor((prev) => (prev ? { ...prev, clicking: true } : null));
+    const t = setTimeout(() => setCursor((prev) => (prev ? { ...prev, clicking: false } : null)), 400);
+    cursorTimersRef.current.push(t);
+  }, []);
+
   /* add message helper */
   const addMessage = useCallback((sender: MsgSender, text?: string, rich?: ChatMessage["rich"]) => {
     setMessages((prev) => [...prev, { id: nextId(), sender, text, rich }]);
   }, []);
+
+  /* ref to hold processStep for cross-referencing with resetAndRestart */
+  const processStepRef = useRef<() => void>(() => {});
+
+  /* reset everything and restart loop */
+  const resetAndRestart = useCallback(() => {
+    if (!mountedRef.current) return;
+    setMessages([]);
+    setTyping(null);
+    setQuickReplies([]);
+    setInputValue("");
+    setInputEnabled(false);
+    setSidebarMode("contact");
+    setQrTab("mensagens");
+    setCursor(null);
+    clearCursorTimers();
+    stepRef.current = 0;
+    waitingRef.current = false;
+    if (autoTimerRef.current) {
+      clearTimeout(autoTimerRef.current);
+      autoTimerRef.current = null;
+    }
+    setTimeout(() => {
+      if (mountedRef.current) processStepRef.current();
+    }, 800);
+  }, [clearCursorTimers]);
 
   /* process a single script step */
   const processStep = useCallback(() => {
     if (!mountedRef.current) return;
     const idx = stepRef.current;
     if (idx >= SCRIPT.length) {
-      setInputEnabled(true);
+      // Loop: wait 3s then restart
+      setTimeout(() => resetAndRestart(), 3000);
       return;
     }
 
@@ -452,18 +517,16 @@ export function HeroChatReplica() {
     if (step.action === "msg") {
       setTimeout(() => {
         if (!mountedRef.current) return;
-        setTyping(null);
         addMessage(step.sender, step.text, step.rich);
         stepRef.current++;
-        processStep();
+        setTimeout(() => processStep(), 50);
       }, step.delay);
     } else if (step.action === "typing") {
-      setTyping(step.sender);
+      // Silent pause (no visual indicator)
       setTimeout(() => {
         if (!mountedRef.current) return;
-        setTyping(null);
         stepRef.current++;
-        processStep();
+        setTimeout(() => processStep(), 50);
       }, step.duration);
     } else if (step.action === "wait") {
       waitingRef.current = true;
@@ -472,13 +535,34 @@ export function HeroChatReplica() {
       setSidebarMode("quick-reply");
       setQrTab("mensagens");
 
+      const pickIdx = step.quickReplies.indexOf(step.pick);
+
+      // Cursor: move to QR item
+      const ct1 = setTimeout(() => {
+        if (!mountedRef.current || !waitingRef.current) return;
+        moveCursorTo(`[data-qr-idx="${pickIdx}"]`);
+      }, step.autoDelay - 1400);
+
+      // Cursor: click effect
+      const ct2 = setTimeout(() => {
+        if (!mountedRef.current || !waitingRef.current) return;
+        doCursorClick();
+      }, step.autoDelay - 600);
+
+      cursorTimersRef.current.push(ct1, ct2);
+
       autoTimerRef.current = setTimeout(() => {
         if (!mountedRef.current || !waitingRef.current) return;
+        setCursor(null);
+        clearCursorTimers();
         handleAgentSend(step.pick);
       }, step.autoDelay);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [addMessage]);
+  }, [addMessage, resetAndRestart, moveCursorTo, doCursorClick, clearCursorTimers]);
+
+  // keep ref in sync
+  processStepRef.current = processStep;
 
   /* handle agent sending (quick reply pick, typed, or auto-advance) — always RIGHT */
   const handleAgentSend = useCallback(
@@ -487,6 +571,8 @@ export function HeroChatReplica() {
         clearTimeout(autoTimerRef.current);
         autoTimerRef.current = null;
       }
+      setCursor(null);
+      clearCursorTimers();
       waitingRef.current = false;
       setQuickReplies([]);
       setInputEnabled(false);
@@ -494,11 +580,10 @@ export function HeroChatReplica() {
       setSidebarMode("contact");
 
       addMessage("agent", text);
-
       stepRef.current++;
       setTimeout(() => processStep(), 600);
     },
-    [addMessage, processStep]
+    [addMessage, processStep, clearCursorTimers]
   );
 
   /* handle free-text after script ends — agent side (RIGHT) */
@@ -557,12 +642,40 @@ export function HeroChatReplica() {
       mountedRef.current = false;
       clearTimeout(timer);
       if (autoTimerRef.current) clearTimeout(autoTimerRef.current);
+      clearCursorTimers();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div className="flex h-full overflow-hidden bg-[#FAFAFA]">
+    <div ref={containerRef} className="relative flex h-full overflow-hidden bg-[#FAFAFA]">
+      {/* ── Cursor overlay ── */}
+      {cursor && (
+        <div
+          className="pointer-events-none absolute z-50 transition-all duration-500 ease-out"
+          style={{ left: cursor.x, top: cursor.y }}
+        >
+          {cursor.clicking && (
+            <span className="absolute left-0 top-0 h-6 w-6 -translate-x-1/2 -translate-y-1/2 animate-ping rounded-full bg-primary/30" />
+          )}
+          <svg
+            width="16"
+            height="20"
+            viewBox="0 0 16 20"
+            fill="none"
+            className="drop-shadow-md"
+          >
+            <path
+              d="M1.5 1l12 7.5-5 1.5-2.5 5.5L1.5 1z"
+              fill="white"
+              stroke="#1e293b"
+              strokeWidth="1.3"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
+      )}
+
       {/* ── Chat area ── */}
       <div className="flex min-w-0 flex-1 flex-col overflow-hidden bg-[#FAFAFA]">
         {/* Header */}
@@ -583,13 +696,7 @@ export function HeroChatReplica() {
                   Iarley
                 </span>
               </div>
-              <p className="text-[11px] text-[#64748B]">
-                {typing === "agent"
-                  ? "Digitando..."
-                  : typing === "bot"
-                    ? "🤖 Bot respondendo..."
-                    : "Atendente: Iarley"}
-              </p>
+              <p className="text-[11px] text-[#64748B]">Atendente: Iarley</p>
             </div>
           </div>
           <div className="flex items-center gap-2.5">
@@ -619,7 +726,7 @@ export function HeroChatReplica() {
           {messages.map((msg) => (
             <MessageBubble key={msg.id} msg={msg} time={time} />
           ))}
-          {typing && <TypingDots />}
+          {/* typing dots removed — doesn't exist in real product */}
         </div>
 
         {/* Input bar */}
@@ -671,7 +778,7 @@ export function HeroChatReplica() {
             tab={qrTab}
             onTabChange={setQrTab}
             onClose={() => setSidebarMode("contact")}
-            messages={["Teste"]}
+            messages={quickReplies.length > 0 ? quickReplies : ["Teste"]}
             flows={FLOWS_LIST}
             onPickMessage={handlePanelPick}
             onPickFlow={handlePanelPick}

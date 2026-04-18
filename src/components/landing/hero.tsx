@@ -10,26 +10,25 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="border-b border-slate-100 bg-white px-6 pt-[80px] sm:px-8 sm:pt-[84px] lg:px-24 lg:pt-[88px]"
+      className="border-b border-slate-100 bg-white px-6 pt-[80px] sm:px-8 sm:pt-[84px] lg:min-h-screen lg:px-24 lg:pt-[88px]"
     >
-      <div className="mx-auto flex w-full max-w-[1320px] pb-16 pt-6 sm:pb-20 sm:pt-8 lg:pb-24 lg:pt-10">
-        <div className="flex w-full flex-col gap-12 lg:flex-row lg:items-center lg:gap-16">
-          <div className="flex-1 space-y-6 lg:min-w-[520px] xl:min-w-[580px]">
+      <div className="mx-auto flex w-full max-w-[1320px] pb-16 pt-6 sm:pb-20 sm:pt-8 lg:min-h-[calc(100svh-130px)] lg:items-center lg:pb-24 lg:pt-10">
+        <div className="flex w-full flex-col gap-12 lg:flex-row lg:items-center lg:gap-10">
+          <div className="flex-1 space-y-6 lg:min-w-[560px] xl:min-w-[610px]">
             <AnimateIn delay={0}>
               <p className="text-[12px] font-semibold uppercase tracking-[0.24em] text-slate-500">
-                Para empresas que querem escalar sem perder dinheiro
+                PARA EMPRESAS QUE QUEREM ESCALAR SEM PERDER DINHEIRO
               </p>
             </AnimateIn>
 
             <AnimateIn delay={120}>
-              <h1 className="font-[family-name:var(--font-display)] text-[2.1rem] leading-[1.04] tracking-[-0.045em] text-slate-900 sm:text-[2.9rem] lg:text-[46px] lg:leading-[1.08]">
-                <span className="block font-medium">
-                  Você tem <span className="font-black">funil,</span>{' '}
-                  <span className="font-black">organização</span> e{' '}
-                  <span className="font-black">qualificação automática?</span>
+              <h1 className="font-[family-name:var(--font-display)] text-[1.9rem] leading-[1.08] tracking-[-0.04em] text-slate-900 sm:text-[2.55rem] lg:text-[44px] lg:leading-[1.1]">
+                <span className="block font-medium lg:whitespace-nowrap">Sem CRM e automação,</span>
+                <span className="mt-1 block font-medium lg:whitespace-nowrap">
+                  você <span className="font-black">perde vendas</span> todo dia.
                 </span>
-                <span className="mt-2 block font-medium text-primary">
-                  Se não, <span className="font-black">tá perdendo vendas.</span>
+                <span className="mt-1 block font-medium text-primary lg:whitespace-nowrap">
+                  Com <span className="font-black">Sagazchat</span>, isso muda.
                 </span>
               </h1>
             </AnimateIn>
@@ -65,24 +64,14 @@ export function Hero() {
             </AnimateIn>
 
             <AnimateIn delay={460}>
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[12px] font-medium text-slate-400 sm:text-[13px] lg:justify-start">
-                <span>Sem fidelidade</span>
-                <span className="h-1 w-1 rounded-full bg-slate-300" />
-                <span>Onboarding guiado</span>
-                <span className="h-1 w-1 rounded-full bg-slate-300" />
-                <span>+19 integrações nativas</span>
-              </div>
-            </AnimateIn>
-
-            <AnimateIn delay={520}>
-              <div className="text-[13px] font-medium text-slate-500">
-                Integra com Hotmart, Kiwify, Meta, Google Sheets, n8n e mais
+              <div className="text-[12px] font-medium text-slate-400">
+                Sem fidelidade · Onboarding guiado · +19 integrações nativas
               </div>
             </AnimateIn>
           </div>
 
           <AnimateIn delay={180} className="flex w-full justify-center lg:w-[min(820px,calc(100vw-800px))] lg:flex-none lg:justify-end">
-            <div className="w-full max-w-[660px] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_28px_72px_rgba(15,23,42,0.14)] lg:max-w-none lg:translate-x-[80px]">
+            <div className="w-full max-w-[660px] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_28px_72px_rgba(15,23,42,0.14)] lg:max-w-none lg:translate-x-[20px]">
               <div className="flex items-center gap-2 border-b border-slate-200 bg-slate-50 px-4 py-3">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#EF4444]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#F59E0B]" />

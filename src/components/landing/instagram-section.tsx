@@ -79,8 +79,8 @@ export function InstagramSection() {
   }, []);
 
   return (
-    <section className="bg-white px-6 sm:px-8 lg:px-24">
-      <div className="mx-auto flex w-full max-w-[1320px] pb-16 pt-6 sm:pb-20 sm:pt-8 lg:min-h-[calc(100svh-130px)] lg:items-center lg:pb-24 lg:pt-10">
+    <section className="bg-white">
+      <div className="mx-auto flex w-full max-w-[1360px] px-4 pb-16 pt-6 sm:px-6 sm:pb-20 sm:pt-8 lg:min-h-[calc(100svh-130px)] lg:items-center lg:pb-24 lg:pt-10">
         <div className="flex w-full flex-col gap-12 lg:flex-row lg:items-center lg:gap-12">
           {/* Left – Copy */}
           <AnimateIn from="left" delay={100} className="w-full lg:w-[40%] lg:flex-none">
@@ -121,7 +121,7 @@ export function InstagramSection() {
           <AnimateIn
             from="right"
             delay={200}
-            className="flex w-full justify-center lg:flex-1 lg:justify-start"
+            className="flex w-full justify-center lg:flex-1 lg:justify-end"
           >
             <div className="relative flex items-center gap-4">
               {/* ── Phone 1: Instagram Feed ── */}

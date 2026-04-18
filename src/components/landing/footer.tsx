@@ -19,7 +19,7 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 export function Footer() {
   return (
     <footer className="bg-slate-900 text-white pt-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-6">
         <AnimateIn from="scale" duration={700}>
         <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 lg:p-12 overflow-hidden">
           <div className="grid lg:grid-cols-1 gap-8 items-center">

@@ -536,7 +536,7 @@ export function PricingSection() {
   return (
     <section id="pricing" className="py-24 bg-slate-50 relative overflow-hidden">
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
         <AnimateIn>
         <div className="text-center mb-12 lg:mb-20 max-w-3xl mx-auto">

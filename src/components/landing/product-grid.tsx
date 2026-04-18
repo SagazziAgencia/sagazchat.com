@@ -75,8 +75,8 @@ export function ProductGrid() {
   let moduleIndex = 0;
 
   return (
-    <section className="bg-white px-6 py-20 sm:px-8 lg:px-24 lg:py-[80px]">
-      <div className="mx-auto max-w-[1320px]">
+    <section className="bg-white py-20 lg:py-[80px]">
+      <div className="mx-auto max-w-[1360px] px-4 sm:px-6">
         {/* Header */}
         <div className="mx-auto max-w-[768px] text-center">
           <AnimateIn>

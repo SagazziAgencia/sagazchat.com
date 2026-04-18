@@ -57,7 +57,7 @@ const testimonials = [
 export function TestimonialsSection() {
   return (
     <section id="testimonials" className="py-20 lg:py-32 bg-white text-slate-900 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 relative z-10">
         <AnimateIn>
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-6">

@@ -100,7 +100,7 @@ function SafeImage({
 export function IntegrationsTicker() {
   return (
     <section className="relative z-20 overflow-hidden border-y border-slate-100 bg-gradient-to-b from-slate-50/80 to-white py-8 sm:py-10">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-5">
+      <div className="mx-auto max-w-[1360px] px-4 sm:px-6 mb-5">
         <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
           +19 integrações nativas com suas ferramentas favoritas
         </p>

@@ -10,9 +10,9 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="border-b border-slate-100 bg-white px-6 pt-[80px] sm:px-8 sm:pt-[84px] lg:min-h-screen lg:px-24 lg:pt-[88px]"
+      className="border-b border-slate-100 bg-white pt-[80px] sm:pt-[84px] lg:min-h-screen lg:pt-[88px]"
     >
-      <div className="mx-auto flex w-full max-w-[1320px] pb-16 pt-6 sm:pb-20 sm:pt-8 lg:min-h-[calc(100svh-130px)] lg:items-center lg:pb-24 lg:pt-10">
+      <div className="mx-auto flex w-full max-w-[1360px] px-4 pb-16 pt-6 sm:px-6 sm:pb-20 sm:pt-8 lg:min-h-[calc(100svh-130px)] lg:items-center lg:pb-24 lg:pt-10">
         <div className="flex w-full flex-col gap-12 lg:flex-row lg:items-center lg:gap-10">
           <div className="flex-1 space-y-6 lg:min-w-[560px] xl:min-w-[610px]">
             <AnimateIn delay={0}>

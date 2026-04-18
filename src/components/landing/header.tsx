@@ -29,7 +29,7 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 z-50 w-full">
-      <div className="mx-auto max-w-7xl px-4 pt-3 sm:px-6">
+      <div className="mx-auto max-w-[1360px] px-4 pt-3 sm:px-6">
         <div
           className={`relative mx-auto flex h-[60px] items-center justify-between rounded-[14px] border px-5 transition-all duration-300 ${
             scrolled

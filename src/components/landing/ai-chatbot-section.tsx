@@ -181,8 +181,8 @@ export const AiChatbotSection = () => {
   }, []);
 
   return (
-    <section className="bg-[#F8FAFC] px-6 sm:px-8 lg:px-24 lg:min-h-screen">
-      <div className="mx-auto flex min-h-screen max-w-[1320px] flex-col items-center gap-12 py-20 lg:flex-row lg:items-center lg:gap-16 lg:py-0">
+    <section className="bg-[#F8FAFC] lg:min-h-screen">
+      <div className="mx-auto flex min-h-screen max-w-[1360px] flex-col items-center gap-12 px-4 py-20 sm:px-6 lg:flex-row lg:items-center lg:gap-16 lg:py-0">
         {/* Left – Platform Chat Mockup */}
         <AnimateIn from="left" delay={100} className="w-full lg:w-[55%] lg:flex-none">
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-200">

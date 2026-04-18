@@ -5,6 +5,7 @@ import { IntegrationsTicker, FeaturesTicker } from '@/components/landing/feature
 import { MultiWhatsapp } from '@/components/landing/multi-whatsapp';
 import { InstagramSection } from '@/components/landing/instagram-section';
 import { WebhookSection } from '@/components/landing/webhook-section';
+import { EnterpriseSection } from '@/components/landing/enterprise-section';
 import { CrmKanbanSection } from '@/components/landing/crm-kanban-section';
 import { TestimonialsSection } from '@/components/landing/testimonials-section';
 import { PricingSection } from '@/components/landing/pricing-section';
@@ -12,7 +13,6 @@ import { FaqSection } from '@/components/landing/faq-section';
 import { Footer } from '@/components/landing/footer';
 import { AiChatbotSection } from '@/components/landing/ai-chatbot-section';
 import { BroadcastSection } from '@/components/landing/broadcast-section';
-import { ShortcutSection } from '@/components/landing/shortcut-section';
 import { RemarketingSection } from '@/components/landing/remarketing-section';
 import { ProductGrid } from '@/components/landing/product-grid';
 
@@ -29,9 +29,9 @@ export default function SagazchatLanding() {
         <InstagramSection />
         <AiChatbotSection />
         <WebhookSection />
+        <EnterpriseSection />
         <BroadcastSection />
         <CrmKanbanSection />
-        <ShortcutSection />
         <RemarketingSection />
         <TestimonialsSection />
         <PricingSection />

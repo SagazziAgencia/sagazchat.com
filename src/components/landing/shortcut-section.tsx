@@ -70,7 +70,7 @@ function SafeImage({ src, alt }: { src: string; alt: string }) {
 export const ShortcutSection = () => {
   return (
     <section className="relative overflow-hidden bg-white py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1360px] px-4 sm:px-6">
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10">
 
           {/* Left – Text */}

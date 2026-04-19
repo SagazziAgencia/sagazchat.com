@@ -23,7 +23,7 @@ export const viewport: Viewport = {
   ],
 };
 
-const SITE_URL = 'https://www.sagazchat.com.br';
+const SITE_URL = 'https://www.sagazchat.com';
 const SITE_NAME = 'Sagazchat';
 const SITE_DESCRIPTION =
   'Automatize atendimento no WhatsApp e Instagram. CRM kanban, disparos em massa, agente IA e multi-atendente em uma plataforma. Sem fidelidade.';

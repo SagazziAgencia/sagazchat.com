@@ -91,7 +91,7 @@ export function PricingSection() {
 
         {/* Controls bar — right above cards */}
         <AnimateIn delay={100}>
-          <div className="flex items-center justify-between gap-4 flex-wrap mb-4 px-1">
+          <div className="flex items-center justify-between gap-4 flex-wrap mb-6 sm:mb-4 px-1">
             <span className="hidden text-[12px] text-slate-500 sm:inline">
               Ajuste volume e canais para ver o preço do seu plano:
             </span>
@@ -163,8 +163,10 @@ export function PricingSection() {
                       'relative bg-white p-6 lg:p-7 flex flex-col border-t border-slate-200 transition-all group/card',
                       'lg:border-t-0 lg:border-l',
                       'md:even:border-l md:odd:border-l-0 lg:even:border-l',
-                      idx === 0 && 'lg:border-l-0 lg:rounded-l-2xl',
-                      idx === STEPS.length - 1 && 'lg:rounded-r-2xl',
+                      idx === 0 && 'rounded-t-2xl md:rounded-none md:rounded-tl-2xl lg:border-l-0 lg:rounded-tl-2xl lg:rounded-bl-2xl lg:rounded-tr-none',
+                      idx === 1 && 'md:rounded-tr-2xl lg:rounded-none',
+                      idx === 2 && 'md:rounded-bl-2xl lg:rounded-none',
+                      idx === STEPS.length - 1 && 'rounded-b-2xl md:rounded-none md:rounded-br-2xl lg:rounded-tr-2xl lg:rounded-br-2xl lg:rounded-bl-none',
                       isRec &&
                         'lg:-mt-3 lg:pb-10 lg:shadow-[0_20px_60px_-20px_rgba(23,199,90,0.25)] ring-1 ring-primary/20 lg:rounded-2xl lg:border-l-0 z-10'
                     )}

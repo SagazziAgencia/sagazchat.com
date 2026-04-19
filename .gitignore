@@ -66,3 +66,9 @@ output_dev_stdout.log
 /localhost-*.png
 /pw-*.png
 /pw-*.mjs
+
+# development screenshots and debug artifacts
+/*.png
+/*.md
+!/CLAUDE.md
+!/README.md

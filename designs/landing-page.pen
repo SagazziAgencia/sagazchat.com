@@ -21740,6 +21740,343 @@
           "fontSize": 12
         }
       ]
+    },
+    {
+      "type": "frame",
+      "id": "T6SGZ",
+      "x": 0,
+      "y": 0,
+      "name": "Branding V2: Guidance & Support",
+      "width": 1440,
+      "fill": "#0F1115",
+      "layout": "vertical",
+      "gap": 100,
+      "padding": 120,
+      "children": [
+        {
+          "type": "frame",
+          "id": "x8yi4",
+          "name": "title",
+          "layout": "vertical",
+          "gap": 16,
+          "children": [
+            {
+              "type": "text",
+              "id": "wN30b",
+              "fill": "#FFFFFF",
+              "content": "Branding Strategy: Guidance & Support",
+              "fontFamily": "Inter",
+              "fontSize": 48,
+              "fontWeight": "600",
+              "letterSpacing": -1.5
+            },
+            {
+              "type": "text",
+              "id": "mzLxG",
+              "fill": "#6B7280",
+              "content": "Visual metaphors for intermediation, translation, and technical vetting.",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "LKkEf",
+          "name": "c1",
+          "width": "fill_container",
+          "gap": 80,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "2PUJc",
+              "name": "c1Info",
+              "width": 400,
+              "layout": "vertical",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "YUlIC",
+                  "fill": "#6366F1",
+                  "content": "CONCEPT 04 / THE BEACON",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700",
+                  "letterSpacing": 1.5
+                },
+                {
+                  "type": "text",
+                  "id": "BXy59",
+                  "fill": "#FFFFFF",
+                  "content": "orientaduz",
+                  "fontFamily": "Inter",
+                  "fontSize": 28,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "XPnil",
+                  "fill": "#9CA3AF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "A minimalist beam of light. It represents the 'luz' (light) in the name, cutting through technical darkness to guide the client. It's clean, upward, and implies clarity.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "j7oXg",
+              "name": "c1LogoBg",
+              "clip": true,
+              "width": 720,
+              "height": 320,
+              "fill": "#161B22",
+              "cornerRadius": 16,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "path",
+                  "id": "jm9UZ",
+                  "x": 200,
+                  "y": 140,
+                  "opacity": 0.2,
+                  "geometry": "M24 0l24 48-48 0z",
+                  "viewBox": [
+                    0,
+                    0,
+                    48,
+                    48
+                  ],
+                  "fill": "#6366F1",
+                  "width": 40,
+                  "height": 40
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 2,
+                  "id": "qTJxR",
+                  "x": 218,
+                  "y": 140,
+                  "fill": "#6366F1",
+                  "width": 4,
+                  "height": 40
+                },
+                {
+                  "type": "text",
+                  "id": "JyWlS",
+                  "x": 250,
+                  "y": 135,
+                  "fill": "#FFFFFF",
+                  "content": "orientaduz",
+                  "fontFamily": "Inter",
+                  "fontSize": 44,
+                  "fontWeight": "500",
+                  "letterSpacing": -0.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "r7p7e",
+          "name": "c2",
+          "width": "fill_container",
+          "gap": 80,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "0RVxq",
+              "name": "c2Info",
+              "width": 400,
+              "layout": "vertical",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "B2Kug",
+                  "fill": "#10B981",
+                  "content": "CONCEPT 05 / THE CURATOR",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700",
+                  "letterSpacing": 1.5
+                },
+                {
+                  "type": "text",
+                  "id": "L3FiR",
+                  "fill": "#FFFFFF",
+                  "content": "projeto-ok",
+                  "fontFamily": "Inter",
+                  "fontSize": 28,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "MZUbn",
+                  "fill": "#9CA3AF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "A 'bracket' or 'holder' mark. It symbolizes the act of helping and holding the project together. The mark 'vets' the typography, ensuring everything stays within the right scope.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "EYdxj",
+              "name": "c2LogoBg",
+              "clip": true,
+              "width": 720,
+              "height": 320,
+              "fill": "#F3F4F6",
+              "cornerRadius": 16,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "path",
+                  "id": "EsNKb",
+                  "x": 180,
+                  "y": 135,
+                  "geometry": "M10 0l-10 0 0 40 10 0m20-40l10 0 0 40-10 0",
+                  "viewBox": [
+                    0,
+                    0,
+                    40,
+                    40
+                  ],
+                  "width": 50,
+                  "height": 50,
+                  "stroke": {
+                    "thickness": 4,
+                    "fill": "#10B981"
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "aDcwK",
+                  "x": 245,
+                  "y": 135,
+                  "fill": "#111827",
+                  "content": "projeto-ok",
+                  "fontFamily": "Inter",
+                  "fontSize": 44,
+                  "fontWeight": "600",
+                  "letterSpacing": -1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "y44If",
+          "name": "c3",
+          "width": "fill_container",
+          "gap": 80,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Wkl59",
+              "name": "c3Info",
+              "width": 400,
+              "layout": "vertical",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Xhp0f",
+                  "fill": "#F59E0B",
+                  "content": "CONCEPT 06 / THE PATHFINDER",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700",
+                  "letterSpacing": 1.5
+                },
+                {
+                  "type": "text",
+                  "id": "frTmx",
+                  "fill": "#FFFFFF",
+                  "content": "orientaduz",
+                  "fontFamily": "Inter",
+                  "fontSize": 28,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "7qOGj",
+                  "fill": "#9CA3AF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "An abstract arrow that is also a support pillar. It shows direction (orientation) and stability (help). It is a professional mark for a high-trust partnership.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vi5mG",
+              "name": "c3LogoBg",
+              "clip": true,
+              "width": 720,
+              "height": 320,
+              "fill": "#1E293B",
+              "cornerRadius": 16,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "path",
+                  "id": "y2Aur",
+                  "x": 190,
+                  "y": 138,
+                  "geometry": "M0 20l20-20 20 20m-20-20l0 40",
+                  "viewBox": [
+                    0,
+                    0,
+                    40,
+                    40
+                  ],
+                  "width": 44,
+                  "height": 44,
+                  "stroke": {
+                    "thickness": 5,
+                    "join": "round",
+                    "cap": "round",
+                    "fill": "#F59E0B"
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "JrUQW",
+                  "x": 255,
+                  "y": 135,
+                  "fill": "#FFFFFF",
+                  "content": "orientaduz",
+                  "fontFamily": "Inter",
+                  "fontSize": 44,
+                  "fontWeight": "300",
+                  "letterSpacing": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "variables": {

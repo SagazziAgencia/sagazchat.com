@@ -220,7 +220,7 @@ export const CrmKanbanSection = () => {
     <section className="bg-slate-50 py-20 md:py-28">
       <div className="mx-auto grid max-w-[1360px] grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
         {/* Left — Copy */}
-        <AnimateIn from="left" delay={100} className="order-2 lg:order-1">
+        <AnimateIn from="left" delay={100}>
           <div className="flex flex-col gap-6">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
               CRM Kanban
@@ -257,7 +257,7 @@ export const CrmKanbanSection = () => {
         </AnimateIn>
 
         {/* Right — Kanban UI Replica */}
-        <AnimateIn from="right" delay={200} duration={700} className="order-1 lg:order-2">
+        <AnimateIn from="right" delay={200} duration={700}>
           <KanbanMockup />
         </AnimateIn>
       </div>

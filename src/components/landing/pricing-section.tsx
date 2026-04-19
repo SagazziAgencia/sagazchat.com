@@ -92,10 +92,10 @@ export function PricingSection() {
         {/* Controls bar — right above cards */}
         <AnimateIn delay={100}>
           <div className="flex items-center justify-between gap-4 flex-wrap mb-4 px-1">
-            <span className="text-[12px] text-slate-500">
+            <span className="hidden text-[12px] text-slate-500 sm:inline">
               Ajuste volume e canais para ver o preço do seu plano:
             </span>
-            <div className="flex items-center gap-3 flex-wrap">
+            <div className="flex w-full items-center justify-end gap-3 flex-wrap sm:w-auto">
               <div className="inline-flex items-center gap-2 text-[12px] text-slate-600">
                 <span className="font-medium">Conexões</span>
                 <div className="flex items-center gap-0 rounded-full border border-slate-300 bg-white overflow-hidden">

@@ -125,7 +125,7 @@ export function InstagramSection() {
             delay={200}
             className="flex w-full justify-center lg:flex-1 lg:justify-end"
           >
-            <div className="relative flex items-center gap-4">
+            <div className="relative flex flex-col items-center gap-4 sm:flex-row">
               {/* ── Phone 1: Instagram Feed ── */}
               <div className="relative w-[260px] flex-none">
                 <div className="relative flex h-[540px] w-full flex-col overflow-hidden rounded-[1.5rem] border-[3px] border-slate-700 bg-black shadow-[0_20px_50px_rgba(0,0,0,0.3)]">

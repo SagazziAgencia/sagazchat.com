@@ -77,9 +77,9 @@ function SafeImage({ src, alt }: { src: string; alt: string }) {
 export function MultiWhatsapp() {
   return (
     <section className="bg-[#F8FAFC] lg:min-h-screen">
-      <div className="mx-auto flex min-h-screen max-w-[1360px] flex-col items-center gap-12 px-4 py-20 sm:px-6 lg:flex-row lg:items-center lg:gap-16 lg:py-0">
+      <div className="mx-auto flex max-w-[1360px] flex-col items-center gap-12 px-4 py-20 sm:px-6 lg:min-h-screen lg:flex-row lg:items-center lg:gap-16 lg:py-0">
         {/* Left – Mockup */}
-        <AnimateIn from="left" delay={100} className="w-full lg:w-[55%] lg:flex-none">
+        <AnimateIn from="left" delay={100} className="order-2 w-full lg:order-1 lg:w-[55%] lg:flex-none">
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-200">
             <SafeImage
               src={MULTI_WHATSAPP_IMAGE}
@@ -89,7 +89,7 @@ export function MultiWhatsapp() {
         </AnimateIn>
 
         {/* Right – Copy */}
-        <AnimateIn from="right" delay={200} className="w-full lg:flex-1">
+        <AnimateIn from="right" delay={200} className="order-1 w-full lg:order-2 lg:flex-1">
           <div className="flex flex-col gap-7">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
               Integrações Multicanal

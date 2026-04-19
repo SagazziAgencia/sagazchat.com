@@ -332,7 +332,7 @@ export const RemarketingSection = () => {
             <div className="mx-auto grid max-w-[1360px] grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
 
                 {/* Left Content */}
-                <div className="order-2 lg:order-1 space-y-8">
+                <div className="space-y-8">
                     <AnimateIn from="left" delay={0}>
                         <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
                             Remarketing
@@ -380,7 +380,7 @@ export const RemarketingSection = () => {
                 </div>
 
                 {/* Right Content - Mockup Panel */}
-                <AnimateIn from="right" delay={200} duration={700} className="order-1 lg:order-2">
+                <AnimateIn from="right" delay={200} duration={700}>
                     <div className="flex justify-center lg:justify-end">
                         <div
                             onMouseEnter={() => setHovered(true)}

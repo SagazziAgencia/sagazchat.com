@@ -16,15 +16,16 @@ export function EnterpriseSection() {
         {/* Left — Copy */}
         <AnimateIn from="left" delay={100}>
           <div className="flex flex-col gap-6">
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
               Para empresas
             </p>
 
-            <h2 className="max-w-[560px] text-[2rem] font-extrabold leading-[1.12] text-white sm:text-[2.5rem] lg:text-[2.5rem]">
-              Operação sob medida para equipes que precisam de escala.
+            <h2 className="max-w-[560px] font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.5rem] lg:text-[2.5rem]">
+              Operação sob medida{' '}
+              <span className="italic font-medium text-primary">para equipes que precisam de escala.</span>
             </h2>
 
-            <p className="max-w-[500px] text-[16px] leading-[1.6] text-slate-400">
+            <p className="max-w-xl text-[15px] leading-relaxed text-slate-400">
               Consultoria, diagnóstico, setup personalizado e proposta comercial para a sua realidade. Sem tabela fixa — o plano se adapta à operação.
             </p>
 

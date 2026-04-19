@@ -80,17 +80,18 @@ export function ProductGrid() {
         {/* Header */}
         <div className="mx-auto max-w-[768px] text-center">
           <AnimateIn>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
               Conheça por dentro
             </p>
           </AnimateIn>
           <AnimateIn delay={80}>
-            <h2 className="mt-3 font-[family-name:var(--font-display)] text-[1.75rem] font-extrabold leading-[1.15] tracking-[-0.03em] text-slate-900 sm:text-[2.25rem] lg:text-[42px]">
-              Tudo que sua operação precisa em uma plataforma.
+            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950">
+              Tudo que sua operação precisa{' '}
+              <span className="italic font-medium text-primary">em uma plataforma.</span>
             </h2>
           </AnimateIn>
           <AnimateIn delay={160}>
-            <p className="mx-auto mt-3 max-w-[600px] text-[15px] leading-[1.5] text-slate-500 lg:text-base">
+            <p className="mx-auto mt-3 max-w-xl text-[15px] leading-relaxed text-slate-600">
               Cada módulo resolve um problema real da operação. Sem firula, sem feature fantasma.
             </p>
           </AnimateIn>

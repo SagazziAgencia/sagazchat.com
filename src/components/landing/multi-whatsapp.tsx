@@ -91,17 +91,17 @@ export function MultiWhatsapp() {
         {/* Right – Copy */}
         <AnimateIn from="right" delay={200} className="w-full lg:flex-1">
           <div className="flex flex-col gap-7">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
               Integrações Multicanal
             </p>
 
-            <h2 className="max-w-[520px] font-[family-name:var(--font-display)] text-[1.85rem] font-extrabold leading-[1.15] tracking-[-0.03em] text-slate-900 sm:text-[2.5rem] lg:text-[36px]">
-              Pare de perder contexto entre abas, números e atendentes.
+            <h2 className="max-w-[520px] font-[family-name:var(--font-display)] text-[2rem] sm:text-[2.5rem] lg:text-[2.5rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950">
+              Pare de perder contexto{' '}
+              <span className="italic font-medium text-primary">entre abas, números e atendentes.</span>
             </h2>
 
-            <p className="max-w-[460px] text-[16px] leading-[1.65] text-slate-500">
-              Centralize WhatsApp, Instagram e e-mail em um painel único. Cada
-              conversa tem histórico completo, independente do canal.
+            <p className="max-w-xl text-[15px] leading-relaxed text-slate-600">
+              Centralize WhatsApp, Instagram e e-mail em um painel único. Cada conversa tem histórico completo, independente do canal.
             </p>
 
             <ul className="flex flex-col gap-4 pt-2">

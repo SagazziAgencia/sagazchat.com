@@ -260,15 +260,16 @@ export const AiChatbotSection = () => {
         {/* Right – Copy */}
         <AnimateIn from="right" delay={200} className="w-full lg:flex-1">
           <div className="flex flex-col gap-7">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
               Inteligência Artificial
             </p>
 
-            <h2 className="max-w-[520px] font-[family-name:var(--font-display)] text-[1.85rem] font-extrabold leading-[1.15] tracking-[-0.03em] text-slate-900 sm:text-[2.5rem] lg:text-[36px]">
-              Seu time não precisa responder toda mensagem. Só as que importam.
+            <h2 className="max-w-[520px] font-[family-name:var(--font-display)] text-[2rem] sm:text-[2.5rem] lg:text-[2.5rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950">
+              Seu time não precisa responder toda mensagem.{' '}
+              <span className="italic font-medium text-primary">Só as que importam.</span>
             </h2>
 
-            <p className="max-w-[460px] text-[16px] leading-[1.65] text-slate-500">
+            <p className="max-w-xl text-[15px] leading-relaxed text-slate-600">
               A IA do Sagazchat conhece seus preços, responde objeções e qualifica o lead. O humano só entra pra fechar.
             </p>
 

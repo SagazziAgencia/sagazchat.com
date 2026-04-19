@@ -60,16 +60,15 @@ export function TestimonialsSection() {
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 relative z-10">
         <AnimateIn>
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-6">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary mb-5 font-[family-name:var(--font-display)]">
               Demonstrações
             </p>
-            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-slate-900 mb-4">
-              Veja o Sagazchat aplicado nas rotinas que mais travam
-              <span className="text-primary"> a operação comercial.</span>
+            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-[-0.02em] leading-[1.1] text-slate-950 mb-5">
+              Veja o Sagazchat aplicado nas rotinas que mais travam{' '}
+              <span className="italic font-medium text-primary">a operação comercial.</span>
             </h2>
-            <p className="text-base text-slate-600 leading-relaxed">
-              Em vez de promessa genérica, aqui está o tipo de fluxo que a plataforma
-              ajuda a executar no dia a dia.
+            <p className="text-[15px] text-slate-600 leading-relaxed max-w-xl mx-auto">
+              Em vez de promessa genérica, aqui está o tipo de fluxo que a plataforma ajuda a executar no dia a dia.
             </p>
           </div>
         </AnimateIn>

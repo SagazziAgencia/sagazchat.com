@@ -85,16 +85,18 @@ export function InstagramSection() {
           {/* Left – Copy */}
           <AnimateIn from="left" delay={100} className="w-full lg:w-[40%] lg:flex-none">
             <div className="space-y-6">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#C13584]">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#C13584] font-[family-name:var(--font-display)]">
               Instagram
             </p>
 
-            <h2 className="max-w-[620px] font-[family-name:var(--font-display)] text-3xl font-semibold leading-[1.15] tracking-tight text-slate-800 sm:text-4xl lg:text-[3rem]">
-              Você não precisa estar online pra vender no{' '}
-              <span className={INSTAGRAM_HIGHLIGHT}>direct</span>.
+            <h2 className="max-w-[620px] font-[family-name:var(--font-display)] text-[2rem] sm:text-[2.5rem] lg:text-[2.5rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950">
+              Você não precisa estar online{' '}
+              <span className="italic font-medium text-primary">
+                pra vender no <span className={INSTAGRAM_HIGHLIGHT + ' not-italic'}>direct</span>.
+              </span>
             </h2>
 
-            <p className="max-w-[460px] text-[16px] leading-[1.65] text-slate-500">
+            <p className="max-w-xl text-[15px] leading-relaxed text-slate-600">
               O Sagazchat manda a oferta em 3 segundos pra cada comentário. 24h por dia.
             </p>
 

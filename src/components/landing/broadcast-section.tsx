@@ -108,15 +108,16 @@ export const BroadcastSection = () => {
         {/* Right — Copy */}
         <AnimateIn from="right" delay={200} className="order-1 lg:order-2">
           <div className="flex flex-col gap-6">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
               Disparos em massa
             </p>
 
-            <h2 className="max-w-[560px] font-[family-name:var(--font-display)] text-[2rem] font-extrabold leading-[1.12] tracking-[-0.03em] text-slate-900 sm:text-[2.5rem] lg:text-[2.5rem]">
-              Fale com sua base no momento certo, sem virar campanha em bagunça.
+            <h2 className="max-w-[560px] font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-[2.5rem] lg:text-[2.5rem]">
+              Fale com sua base no momento certo,{' '}
+              <span className="italic font-medium text-primary">sem virar campanha em bagunça.</span>
             </h2>
 
-            <p className="max-w-[500px] text-[16px] leading-[1.6] text-slate-500">
+            <p className="max-w-xl text-[15px] leading-relaxed text-slate-600">
               Campanhas com segmentação, agendamento e controle de envio pra reativar contatos, empurrar ofertas e manter a operação no ritmo.
             </p>
 

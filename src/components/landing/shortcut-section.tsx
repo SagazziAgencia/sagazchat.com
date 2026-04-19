@@ -78,21 +78,19 @@ export const ShortcutSection = () => {
             <div className="flex w-full max-w-[34rem] flex-col gap-6">
               <div className="flex items-center gap-2.5">
                 <span className="h-2 w-2 rounded-full bg-primary" />
-                <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
                   Atalhos Inteligentes
                 </span>
               </div>
 
-              <h3 className="font-[family-name:var(--font-display)] text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-[3rem]">
+              <h3 className="font-[family-name:var(--font-display)] text-3xl font-bold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-4xl lg:text-[3rem]">
                 Sua equipe não precisa
                 <br />
-                <span className="text-primary">recomeçar a mesma conversa do zero.</span>
+                <span className="italic font-medium text-primary">recomeçar a mesma conversa do zero.</span>
               </h3>
 
-              <p className="max-w-xl text-base leading-relaxed text-slate-600">
-                Atalhos inteligentes tiram peso do atendimento repetitivo. Configure
-                uma vez e qualquer pessoa da equipe envia a resposta certa, com o
-                mesmo padrão e sem perder tempo procurando material.
+              <p className="max-w-xl text-[15px] leading-relaxed text-slate-600">
+                Atalhos inteligentes tiram peso do atendimento repetitivo. Configure uma vez e qualquer pessoa da equipe envia a resposta certa, com o mesmo padrão e sem perder tempo procurando material.
               </p>
 
               <ul className="space-y-3">

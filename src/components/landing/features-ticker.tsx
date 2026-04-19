@@ -145,24 +145,22 @@ export function FeaturesTicker() {
           <AnimateIn>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5">
               <MonitorSmartphone className="h-4 w-4 text-primary" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
                 Conheça por dentro
               </span>
             </div>
           </AnimateIn>
 
           <AnimateIn delay={100}>
-            <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold leading-[1.15] tracking-tight text-slate-900 sm:text-4xl lg:text-[3rem]">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-4xl lg:text-[3rem]">
               Tudo o que sua operação precisa para{' '}
-              <span className="text-primary">vender, atender e recuperar oportunidades.</span>
+              <span className="italic font-medium text-primary">vender, atender e recuperar oportunidades.</span>
             </h2>
           </AnimateIn>
 
           <AnimateIn delay={200}>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
-              Em vez de juntar várias ferramentas e planilhas, centralize a jornada
-              comercial em uma plataforma feita para conversas, automações e
-              acompanhamento de resultados.
+            <p className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-slate-600">
+              Em vez de juntar várias ferramentas e planilhas, centralize a jornada comercial em uma plataforma feita para conversas, automações e acompanhamento de resultados.
             </p>
           </AnimateIn>
         </div>

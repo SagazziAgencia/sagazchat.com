@@ -159,13 +159,14 @@ export function WebhookSection() {
         {/* Header centered */}
         <AnimateIn>
           <div className="mx-auto flex max-w-[720px] flex-col items-center gap-5 text-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
               Webhooks e Recuperação
             </p>
-            <h2 className="font-[family-name:var(--font-display)] text-[2rem] font-extrabold leading-[1.1] tracking-[-0.03em] text-slate-900 sm:text-[2.75rem] lg:text-[3.25rem]">
-              Recupere vendas que saíram do seu funil.
+            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950">
+              Recupere vendas{' '}
+              <span className="italic font-medium text-primary">que saíram do seu funil.</span>
             </h2>
-            <p className="max-w-[580px] text-[16px] leading-[1.6] text-slate-500">
+            <p className="max-w-xl text-[15px] leading-relaxed text-slate-600">
               Automação baseada em eventos: abandono de checkout, pagamento recusado, boleto vencendo. Cada evento dispara o fluxo certo, na hora certa.
             </p>
           </div>

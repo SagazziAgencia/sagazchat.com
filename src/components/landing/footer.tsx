@@ -24,10 +24,12 @@ export function Footer() {
         <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 lg:p-12 overflow-hidden">
           <div className="grid lg:grid-cols-1 gap-8 items-center">
             <div className="space-y-6 text-center">
-              <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.15] text-white">Pronto para tirar o atendimento do improviso?</h2>
-              <p className="text-base text-slate-400 leading-relaxed max-w-lg mx-auto">
-                Veja os planos, entenda o que faz sentido para a sua operação e
-                comece com a estrutura certa para vender, atender e acompanhar o funil.
+              <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-[-0.02em] leading-[1.1] text-white">
+                Pronto para tirar o atendimento{' '}
+                <span className="italic font-medium text-primary">do improviso?</span>
+              </h2>
+              <p className="text-[15px] text-slate-400 leading-relaxed max-w-xl mx-auto">
+                Veja os planos, entenda o que faz sentido para a sua operação e comece com a estrutura certa para vender, atender e acompanhar o funil.
               </p>
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-auto px-6 sm:px-8 py-4 text-base sm:text-lg font-bold w-full sm:w-auto">
                 <Link href={LANDING_CTA.salesContact}>

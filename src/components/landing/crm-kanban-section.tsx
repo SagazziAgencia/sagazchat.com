@@ -19,7 +19,7 @@ const BULLETS = [
 
 type CardTag = { label: string; bg: string; text: string; dot: string };
 
-type KanbanColumn = {
+type KanbanColumnType = {
   title: string;
   total: string;
   count: number;
@@ -35,115 +35,128 @@ const TAG_QUENTE: CardTag = { label: 'Quente', bg: 'bg-rose-50', text: 'text-ros
 const TAG_REPOSTA: CardTag = { label: 'Resposta', bg: 'bg-slate-900', text: 'text-white', dot: 'bg-white' };
 const TAG_CLIENTE: CardTag = { label: 'Cliente', bg: 'bg-emerald-50', text: 'text-emerald-700', dot: 'bg-emerald-500' };
 
-const COLUMNS: KanbanColumn[] = [
+const COLUMNS: KanbanColumnType[] = [
   { title: 'Prospecção nova', total: 'R$ 0,00', count: 0, barColor: '#3B82F6' },
   {
-    title: 'Prospecção interna',
-    total: 'R$ 5,00',
+    title: 'Prospecção Interna',
+    total: 'R$ 50,00',
     count: 1,
-    barColor: '#60A5FA',
-    card: { tags: [TAG_QUENTE, TAG_REPOSTA], name: 'Silvia reacionaram f...', value: 'R$ 5,00' },
+    barColor: '#3B82F6',
+    card: { tags: [TAG_QUENTE, TAG_REPOSTA], name: 'Silvia rase do renan.f...', value: 'R$ 50,00' },
   },
   { title: 'Em orçamento', total: 'R$ 0,00', count: 0, barColor: '#3B82F6' },
   {
     title: 'Fechado',
     total: 'R$ 96,99',
     count: 1,
-    barColor: '#17C75A',
-    card: { tags: [TAG_QUENTE, TAG_CLIENTE], name: 'Jealano Kevinholzj gr...', value: 'R$ 96,99' },
+    barColor: '#3B82F6',
+    card: { tags: [TAG_QUENTE, TAG_CLIENTE], name: 'Josiane Krachinski pr...', value: 'R$ 96,99' },
   },
-  { title: 'Perdido', total: 'R$ 0,00', count: 0, barColor: '#475569' },
+  { title: 'Perdido', total: 'R$ 0,00', count: 0, barColor: '#3B82F6' },
 ];
 
-/* ─── Empty state illustration (documento cinza) ─── */
+/* ─── Empty state illustration ─── */
 function EmptyDocIcon() {
   return (
-    <svg viewBox="0 0 48 56" className="h-12 w-10" aria-hidden>
-      <defs>
-        <linearGradient id="docGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#E2E8F0" />
-          <stop offset="1" stopColor="#CBD5E1" />
-        </linearGradient>
-      </defs>
-      <path
-        d="M8 4h24l12 12v32a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z"
-        fill="url(#docGrad)"
-      />
-      <path d="M32 4v10a2 2 0 0 0 2 2h10" fill="#94A3B8" opacity="0.4" />
-      <rect x="11" y="26" width="20" height="2" rx="1" fill="#94A3B8" opacity="0.5" />
-      <rect x="11" y="32" width="26" height="2" rx="1" fill="#94A3B8" opacity="0.4" />
-      <rect x="11" y="38" width="16" height="2" rx="1" fill="#94A3B8" opacity="0.3" />
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-4 mb-2">
+      <rect x="14" y="20" width="26" height="32" rx="4" transform="rotate(-10 14 20)" fill="#CBD5E1" stroke="#F1F5F9" strokeWidth="2" />
+      <rect x="28" y="16" width="26" height="32" rx="4" transform="rotate(6 28 16)" fill="#94A3B8" stroke="#F1F5F9" strokeWidth="2" />
+      <rect x="18" y="14" width="26" height="32" rx="4" fill="#E2E8F0" stroke="#F1F5F9" strokeWidth="2" />
     </svg>
   );
 }
 
 function EmptyState() {
   return (
-    <div className="flex flex-col items-center gap-2 py-8 text-center">
+    <div className="flex flex-col items-center gap-1 py-4 text-center">
       <EmptyDocIcon />
-      <p className="text-[9.5px] leading-tight text-slate-400">Nenhum cartão de nível</p>
+      <p className="text-[11px] font-medium text-slate-400">Nenhum card adicionado</p>
     </div>
   );
 }
 
-function KanbanCard({ card }: { card: NonNullable<KanbanColumn['card']> }) {
+function KanbanCard({ card }: { card: NonNullable<KanbanColumnType['card']> }) {
   return (
-    <div className="space-y-2 rounded-md border border-slate-200 bg-white p-2.5 shadow-[0_1px_2px_rgba(15,23,42,0.04)]">
-      <div className="flex flex-wrap items-center gap-1">
-        {card.tags.map((tag) => (
-          <span
-            key={tag.label}
-            className={`inline-flex items-center gap-1 rounded px-1.5 py-[1px] text-[8px] font-semibold ${tag.bg} ${tag.text}`}
-          >
-            <span className={`h-[3px] w-[3px] rounded-full ${tag.dot}`} />
-            {tag.label}
-          </span>
-        ))}
-      </div>
-      <div className="flex items-center justify-between gap-2">
-        <p className="truncate text-[10px] font-medium text-slate-700">{card.name}</p>
-        <p className="whitespace-nowrap text-[10px] font-bold text-slate-900">{card.value}</p>
-      </div>
-      <div className="flex items-center gap-2 text-[8.5px] text-slate-400">
-        <svg viewBox="0 0 24 24" className="h-2.5 w-2.5" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-        </svg>
-        <span>0/19</span>
-        <span>·</span>
-        <span>1h</span>
-      </div>
-    </div>
-  );
-}
-
-function KanbanColumn({ column }: { column: KanbanColumn }) {
-  return (
-    <div className="flex w-[150px] flex-shrink-0 flex-col self-stretch overflow-hidden rounded-md border border-slate-200 bg-white">
-      {/* Top colored tab */}
-      <div className="h-[4px]" style={{ backgroundColor: column.barColor }} />
-
-      {/* Header */}
-      <div className="flex items-center justify-between px-2.5 py-2">
-        <div className="flex min-w-0 flex-col leading-tight">
-          <span className="truncate text-[10px] font-semibold text-slate-800">{column.title}</span>
-          <span className="text-[9px] text-slate-400">{column.total}</span>
+    <div className="flex flex-col gap-2.5 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+      <div className="flex items-start justify-between gap-2">
+        <div className="h-6 w-6 flex-shrink-0 overflow-hidden rounded-full bg-slate-200">
+          <div className="h-full w-full bg-gradient-to-tr from-slate-400 to-slate-300" />
         </div>
-        <div className="flex items-center gap-1.5 text-slate-400">
-          <span className="text-[9.5px] font-medium">{column.count}</span>
-          <RotateCw className="h-[11px] w-[11px]" strokeWidth={2} />
+        <div className="flex flex-wrap justify-end gap-1.5">
+          {card.tags.map((tag) => (
+            <span
+              key={tag.label}
+              className={`inline-flex items-center gap-1 rounded-md px-1.5 py-[2px] text-[8px] font-semibold ${tag.bg} ${tag.text}`}
+            >
+              <span className={`h-1.5 w-1.5 rounded-full ${tag.dot}`} />
+              {tag.label}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between gap-2">
+        <p className="truncate text-[11px] font-bold text-slate-800">{card.name}</p>
+        <p className="whitespace-nowrap text-[11px] font-bold text-slate-800">{card.value}</p>
+      </div>
+
+      <div className="flex items-center gap-3 text-[10px] font-medium text-slate-400">
+        <div className="flex items-center gap-1">
+          <svg viewBox="0 0 24 24" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+          </svg>
+        </div>
+        <div className="flex items-center gap-1">
+          <Check className="h-3 w-3" strokeWidth={3} />
+          <span>0/19</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <svg viewBox="0 0 24 24" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          <span>1h</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function KanbanColumn({ column }: { column: KanbanColumnType }) {
+  return (
+    <div className="flex w-[240px] flex-shrink-0 flex-col self-stretch overflow-hidden rounded-2xl bg-[#F1F5F9] p-3">
+      {/* Header */}
+      <div className="mb-4 flex items-start justify-between">
+        <div className="flex gap-2.5">
+          {/* Vertical Bar */}
+          <div className="h-6 w-1 rounded-full" style={{ backgroundColor: column.barColor }} />
+          <div className="flex min-w-0 flex-col leading-tight">
+            <span className="truncate text-[12px] font-bold text-slate-900">{column.title}</span>
+            <span className="text-[10px] text-slate-500">{column.total}</span>
+          </div>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="flex h-[22px] w-[22px] items-center justify-center rounded-full bg-white text-[10px] font-bold text-slate-700 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+            {column.count}
+          </span>
+          <div className="flex h-[22px] w-[22px] items-center justify-center rounded-full bg-white shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+            <svg viewBox="0 0 24 24" className="h-3 w-3 text-slate-400" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+              <line x1="7" y1="7" x2="7.01" y2="7" />
+            </svg>
+          </div>
         </div>
       </div>
 
       {/* Body */}
-      <div className="flex flex-1 flex-col justify-between gap-2 px-2 pb-2">
-        <div className="flex flex-col gap-2 pt-1">
-          {column.card ? <KanbanCard card={column.card} /> : <EmptyState />}
-        </div>
+      <div className="flex flex-1 flex-col gap-2">
+        {column.card ? <KanbanCard card={column.card} /> : <EmptyState />}
+        
         <button
           type="button"
-          className="flex items-center justify-center gap-1 rounded py-1.5 text-[9.5px] font-medium text-slate-400 hover:bg-slate-50 hover:text-primary"
+          className="mt-3 flex items-center justify-center gap-1.5 rounded-lg py-1.5 text-[11px] font-medium text-slate-400 hover:text-slate-700"
         >
-          <Plus className="h-2.5 w-2.5" strokeWidth={2.5} />
+          <Plus className="h-3 w-3" strokeWidth={2.5} />
           Novo card
         </button>
       </div>
@@ -153,41 +166,47 @@ function KanbanColumn({ column }: { column: KanbanColumn }) {
 
 function KanbanMockup() {
   return (
-    <div className="w-full overflow-hidden rounded-2xl border border-slate-200 bg-[#F5F6F8] shadow-[0_20px_50px_-12px_rgba(15,23,42,0.15)]">
+    <div className="w-full overflow-hidden rounded-[20px] bg-white shadow-[0_20px_50px_-12px_rgba(15,23,42,0.15)] ring-1 ring-slate-200">
       {/* Top bar */}
-      <div className="flex items-center justify-between border-b border-slate-200 bg-white px-4 py-2.5">
+      <div className="flex items-center justify-between px-5 py-4">
         <div className="flex items-center gap-2">
-          <div className="h-4 w-4 rounded-sm bg-slate-900" />
-          <ChevronLeft className="h-3.5 w-3.5 text-slate-400" strokeWidth={2.5} />
-          <span className="text-[12px] font-semibold text-slate-900">Comercial Dayane</span>
+          <ChevronLeft className="h-4 w-4 text-slate-800" strokeWidth={3} />
+          <span className="text-[14px] font-bold text-slate-900">Comercial Dayane</span>
         </div>
-        <div className="flex items-center gap-1.5">
-          <button className="flex items-center gap-1 rounded bg-slate-900 px-2 py-1 text-[9px] font-semibold text-white">
-            <span className="flex h-2 w-2 items-center gap-[1px]">
-              <span className="h-full w-[2px] bg-white" />
-              <span className="h-full w-[2px] bg-white" />
-              <span className="h-full w-[2px] bg-white" />
+        <div className="flex items-center gap-2">
+          <button className="flex items-center gap-2 rounded-md bg-slate-900 px-3 py-1.5 text-[11px] font-bold text-white transition-colors hover:bg-slate-800">
+            <span className="flex h-2.5 w-2.5 items-center gap-[1px]">
+              <span className="h-full w-[2px] rounded-sm bg-white" />
+              <span className="h-full w-[2px] rounded-sm bg-white" />
+              <span className="h-full w-[2px] rounded-sm bg-white" />
             </span>
             Criar coluna
           </button>
-          <button className="flex items-center gap-1 rounded bg-slate-900 px-2 py-1 text-[9px] font-semibold text-white">
-            <Plus className="h-2.5 w-2.5" strokeWidth={3} />
+          <button className="flex items-center gap-1.5 rounded-md bg-slate-900 px-3 py-1.5 text-[11px] font-bold text-white transition-colors hover:bg-slate-800">
+            <Plus className="h-3 w-3" strokeWidth={3} />
             Criar cartão
           </button>
         </div>
       </div>
 
       {/* Search row */}
-      <div className="flex items-center justify-between border-b border-slate-200 bg-white px-4 py-2">
-        <div className="flex items-center gap-2">
-          <Search className="h-3 w-3 text-slate-400" strokeWidth={2} />
-          <span className="text-[10px] text-slate-400">Procurar por nome</span>
+      <div className="flex items-center justify-between px-5 pb-4">
+        <div className="flex h-9 w-[260px] items-center gap-2 rounded-xl bg-[#F1F5F9] px-3">
+          <Search className="h-3.5 w-3.5 text-slate-400" strokeWidth={2.5} />
+          <input 
+            type="text" 
+            placeholder="Procure por nome" 
+            className="w-full bg-transparent text-[11px] font-medium text-slate-600 outline-none placeholder:text-slate-400"
+            disabled
+          />
         </div>
-        <RotateCw className="h-3 w-3 text-slate-400" strokeWidth={2} />
+        <button className="flex h-9 w-9 items-center justify-center rounded-xl bg-white shadow-[0_1px_3px_rgba(0,0,0,0.05)] ring-1 ring-slate-200">
+          <RotateCw className="h-3.5 w-3.5 text-slate-400" strokeWidth={2.5} />
+        </button>
       </div>
 
       {/* Board area */}
-      <div className="flex min-h-[380px] items-stretch gap-2.5 overflow-x-auto p-3">
+      <div className="flex min-h-[460px] items-stretch gap-4 overflow-x-auto p-5 pt-0">
         {COLUMNS.map((col) => (
           <KanbanColumn key={col.title} column={col} />
         ))}
@@ -203,15 +222,16 @@ export const CrmKanbanSection = () => {
         {/* Left — Copy */}
         <AnimateIn from="left" delay={100} className="order-2 lg:order-1">
           <div className="flex flex-col gap-6">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
               CRM Kanban
             </p>
 
-            <h2 className="max-w-[560px] font-[family-name:var(--font-display)] text-[2rem] font-extrabold leading-[1.12] tracking-[-0.03em] text-slate-900 sm:text-[2.5rem] lg:text-[2.5rem]">
-              Seu pipeline comercial com valor real, não só conversas.
+            <h2 className="max-w-[560px] font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-[2.5rem] lg:text-[2.5rem]">
+              Seu pipeline comercial com valor real,{' '}
+              <span className="italic font-medium text-primary">não só conversas.</span>
             </h2>
 
-            <p className="max-w-[500px] text-[16px] leading-[1.6] text-slate-500">
+            <p className="max-w-xl text-[15px] leading-relaxed text-slate-600">
               Cada lead entra com valor, cada etapa soma automático. Você vê o que vai fechar antes de fechar — e prioriza o que ainda pode virar venda.
             </p>
 

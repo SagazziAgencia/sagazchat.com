@@ -1,0 +1,17 @@
+import type { MetadataRoute } from 'next';
+
+const SITE_URL = 'https://www.sagazchat.com.br';
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/api/', '/pricing-compare'],
+      },
+    ],
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
+  };
+}

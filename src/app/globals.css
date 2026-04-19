@@ -45,6 +45,16 @@
     @apply bg-white text-foreground;
     font-family: var(--font-sans), 'Manrope', sans-serif;
   }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
 }
 
 @layer utilities {

@@ -166,7 +166,10 @@ function KanbanColumn({ column }: { column: KanbanColumnType }) {
 
 function KanbanMockup() {
   return (
-    <div className="w-full overflow-hidden rounded-[20px] bg-white shadow-[0_20px_50px_-12px_rgba(15,23,42,0.15)] ring-1 ring-slate-200">
+    <div
+      role="img"
+      aria-label="Prévia do CRM Kanban do Sagazchat com colunas de pipeline"
+      className="w-full overflow-hidden rounded-[20px] bg-white shadow-[0_20px_50px_-12px_rgba(15,23,42,0.15)] ring-1 ring-slate-200">
       {/* Top bar */}
       <div className="flex items-center justify-between px-5 py-4">
         <div className="flex items-center gap-2">

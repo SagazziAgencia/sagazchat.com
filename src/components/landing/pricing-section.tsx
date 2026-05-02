@@ -27,7 +27,7 @@ const STEPS: Step[] = [
     delta: [
       'Atendimento multi-atendente',
       'Disparos em massa + robôs',
-      '15k webhooks/mês por conexão',
+      '15.000 webhooks/mês por conexão',
       '2 kanbans · suporte humano',
     ],
   },
@@ -37,7 +37,7 @@ const STEPS: Step[] = [
     headline: 'Volume e integrações',
     base: 'Tudo do Basic',
     delta: [
-      '30k webhooks/mês por conexão',
+      '30.000 webhooks/mês por conexão',
       '20 acessos simultâneos',
       '5 kanbans · agenda',
       'Integração Post/Put/Get',
@@ -50,14 +50,14 @@ const STEPS: Step[] = [
     seq: '03',
     headline: 'Agente IA respondendo',
     base: 'Tudo do Basic',
-    delta: ['1 agente IA', '5 MM tokens/mês'],
+    delta: ['1 agente IA', '5 milhões de tokens/mês'],
   },
   {
     tier: 'proIa',
     seq: '04',
     headline: 'Operação inteira no automático',
     base: 'Tudo do PRO',
-    delta: ['2 agentes IA', '10 MM tokens/mês'],
+    delta: ['2 agentes IA', '10 milhões de tokens/mês'],
   },
 ];
 
@@ -80,11 +80,11 @@ export function PricingSection() {
               Planos e Preços
             </p>
             <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-[-0.02em] leading-[1.1] text-slate-950 mb-5">
-              Escolha o plano pela fase{' '}
-              <span className="italic font-medium text-primary">da sua operação, não pelo improviso.</span>
+              Escolha pelo tamanho{' '}
+              <span className="italic font-medium text-primary">da sua operação.</span>
             </h2>
             <p className="text-[15px] text-slate-600 leading-relaxed max-w-xl">
-              Todos os planos partem da mesma base de automação. Você adiciona IA, Instagram e mais conexões conforme a operação cresce. Sem fidelidade e com cancelamento quando quiser.
+              Comece com WhatsApp e CRM. Adicione IA, Instagram e mais conexões quando fizer sentido.
             </p>
           </div>
         </AnimateIn>
@@ -249,7 +249,7 @@ export function PricingSection() {
 
         <AnimateIn delay={300}>
           <div className="mt-10 text-center text-[12px] text-slate-500">
-            Sem fidelidade · cancele a qualquer momento · migre entre planos sem perder dado
+            Sem fidelidade · cancele quando quiser · migre sem perder dados
           </div>
         </AnimateIn>
       </div>

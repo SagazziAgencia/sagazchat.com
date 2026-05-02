@@ -200,7 +200,7 @@ function FlowDropdown({ value, onChange }: { value: string; onChange: (v: string
     );
 }
 
-export const RemarketingSection = () => {
+export function RemarketingMockup() {
     const [currentMode, setCurrentMode] = useState<'config' | 'live'>('config');
     const [progressHeight, setProgressHeight] = useState(0);
     const [animKey, setAnimKey] = useState(0);
@@ -328,66 +328,12 @@ export const RemarketingSection = () => {
     }, [hovered, startAutoCycle]);
 
     return (
-        <section className="py-24 bg-white text-slate-900 relative overflow-hidden">
-            <div className="mx-auto grid max-w-[1360px] grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
-
-                {/* Left Content */}
-                <div className="space-y-8">
-                    <AnimateIn from="left" delay={0}>
-                        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
-                            Remarketing
-                        </p>
-                    </AnimateIn>
-
-                    <AnimateIn from="left" delay={100}>
-                        <h2 className="font-[family-name:var(--font-display)] text-[2rem] sm:text-[2.5rem] lg:text-[2.5rem] font-bold tracking-[-0.02em] leading-[1.1] text-slate-950">
-                            Lead frio não precisa se perder.<br/>
-                            <span className="italic font-medium text-primary">Ele pode voltar no timing certo.</span>
-                        </h2>
-                    </AnimateIn>
-
-                    <AnimateIn from="left" delay={200}>
-                        <p className="max-w-xl text-[15px] text-slate-600 leading-relaxed">
-                            O remarketing automático organiza reenvio, pausa e horário. Você retoma oportunidades sem depender da memória do time.
-                        </p>
-                    </AnimateIn>
-
-                    <AnimateIn from="left" delay={300}>
-                        <ul className="space-y-4">
-                            {[
-                                "A sequência roda sozinha, sem alguém lembrar de cobrar manualmente.",
-                                "Você define regra, dias e horário para insistir sem parecer aleatório.",
-                                "O “depois eu vejo” volta para o funil com contexto e cadência."
-                            ].map((item, i) => (
-                                <li key={i} className="flex items-start gap-3 text-slate-700">
-                                    <div className="w-5 h-5 mt-0.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
-                                        <CheckCircle2 size={12} strokeWidth={3} />
-                                    </div>
-                                    <span className="text-[15px]">{item}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </AnimateIn>
-
-                    <AnimateIn from="left" delay={400}>
-                        <div className="pt-4">
-                            <a href="#pricing" className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 text-[15px] font-bold text-white transition-all hover:bg-primary/90 active:scale-[0.98]">
-                                Ver planos
-                                <ArrowRight className="w-5 h-5 ml-1" strokeWidth={2.5} />
-                            </a>
-                        </div>
-                    </AnimateIn>
-                </div>
-
-                {/* Right Content - Mockup Panel */}
-                <AnimateIn from="right" delay={200} duration={700}>
-                    <div className="flex justify-center lg:justify-end">
-                        <div
-                            onMouseEnter={() => setHovered(true)}
-                            onMouseLeave={() => setHovered(false)}
-                            onClick={() => setModalVisible(false)}
-                            className="relative w-full bg-[#F5F6F8] rounded-[24px] border border-slate-200 shadow-2xl overflow-hidden flex flex-col min-h-[580px] ring-1 ring-slate-200 select-none"
-                        >
+        <div
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            onClick={() => setModalVisible(false)}
+            className="relative w-full bg-[#F5F6F8] rounded-[24px] border border-slate-200 shadow-2xl overflow-hidden flex flex-col min-h-[580px] ring-1 ring-slate-200 select-none"
+        >
 
                                 {/* Panel Header with Toggle */}
                                 <div className="p-4 border-b border-slate-200 bg-white flex justify-between items-center">
@@ -545,9 +491,69 @@ export const RemarketingSection = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+        </div>
+    );
+}
+
+export const RemarketingSection = () => {
+    return (
+        <section className="py-24 bg-white text-slate-900 relative overflow-hidden">
+            <div className="mx-auto grid max-w-[1360px] grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
+
+                {/* Left Content */}
+                <div className="space-y-8">
+                    <AnimateIn from="left" delay={0}>
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
+                            Remarketing
+                        </p>
+                    </AnimateIn>
+
+                    <AnimateIn from="left" delay={100}>
+                        <h2 className="font-[family-name:var(--font-display)] text-[2rem] sm:text-[2.5rem] lg:text-[2.5rem] font-bold tracking-[-0.02em] leading-[1.1] text-slate-950">
+                            Lead frio ainda pode voltar.<br/>
+                            <span className="italic font-medium text-primary">No timing certo.</span>
+                        </h2>
+                    </AnimateIn>
+
+                    <AnimateIn from="left" delay={200}>
+                        <p className="max-w-xl text-[15px] text-slate-600 leading-relaxed">
+                            Configure a sequência uma vez. O Sagazchat cobra, espera e reativa sem depender da memória do time.
+                        </p>
+                    </AnimateIn>
+
+                    <AnimateIn from="left" delay={300}>
+                        <ul className="space-y-4">
+                            {[
+                                "Sequência automática após a última ação.",
+                                "Dias e horários definidos por regra.",
+                                "O “depois eu vejo” volta para o funil."
+                            ].map((item, i) => (
+                                <li key={i} className="flex items-start gap-3 text-slate-700">
+                                    <div className="w-5 h-5 mt-0.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
+                                        <CheckCircle2 size={12} strokeWidth={3} />
+                                    </div>
+                                    <span className="text-[15px]">{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </AnimateIn>
+
+                    <AnimateIn from="left" delay={400}>
+                        <div className="pt-4">
+                            <a href="#pricing" className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 text-[15px] font-bold text-white transition-all hover:bg-primary/90 active:scale-[0.98]">
+                                Ver planos
+                                <ArrowRight className="w-5 h-5 ml-1" strokeWidth={2.5} />
+                            </a>
                         </div>
                     </AnimateIn>
+                </div>
+
+                {/* Right Content - Mockup Panel */}
+                <AnimateIn from="right" delay={200} duration={700}>
+                    <div className="flex justify-center lg:justify-end">
+                        <RemarketingMockup />
+                    </div>
+                </AnimateIn>
             </div>
         </section>
     );

@@ -5,10 +5,10 @@ import { ArrowRight, Check, CheckCircle2, Megaphone, Users, Zap } from 'lucide-r
 import { AnimateIn } from '@/components/ui/animate-in';
 
 const BULLETS = [
-  'Segmentação por fluxo, etiqueta ou lista',
-  'Agendamento com data e hora exatos',
-  'Intervalos anti-bloqueio pra proteger o número',
-  'Upload de CSV e XLSX sem setup técnico',
+  'Segmentação por etiqueta ou lista',
+  'Agendamento com data e hora',
+  'Intervalos para proteger o número',
+  'Importação de CSV e XLSX',
 ];
 
 const progressSteps = [
@@ -18,7 +18,7 @@ const progressSteps = [
   { label: 'Disparando... 423/847', state: 'active' as const },
 ];
 
-export const BroadcastSection = () => {
+export function BroadcastMockup() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -29,79 +29,85 @@ export const BroadcastSection = () => {
   }, []);
 
   return (
+    <div className="w-full max-w-[420px]">
+      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-xl">
+        {/* Header */}
+        <div className="flex items-center justify-between border-b border-slate-100 bg-white px-6 py-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
+              <Megaphone size={18} className="text-primary" />
+            </div>
+            <div>
+              <div className="text-sm font-bold text-slate-800">Black Friday 2025</div>
+              <div className="text-[11px] text-slate-400">Transmissão ativa</div>
+            </div>
+          </div>
+          <div className="flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1">
+            <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
+            <span className="text-[10px] font-bold text-emerald-600">AO VIVO</span>
+          </div>
+        </div>
+
+        {/* Config Summary */}
+        <div className="space-y-3 p-5">
+          <div className="grid grid-cols-2 gap-3">
+            <div className="rounded-xl border border-slate-100 bg-white p-3">
+              <div className="mb-1 text-[10px] font-bold uppercase tracking-wider text-slate-400">Fluxo</div>
+              <div className="flex items-center gap-1.5 text-sm font-bold text-slate-700">
+                <Zap size={12} className="text-primary" /> Oferta Relâmpago
+              </div>
+            </div>
+            <div className="rounded-xl border border-slate-100 bg-white p-3">
+              <div className="mb-1 text-[10px] font-bold uppercase tracking-wider text-slate-400">Público</div>
+              <div className="flex items-center gap-1.5 text-sm font-bold text-slate-700">
+                <Users size={12} className="text-emerald-600" /> 847 leads
+              </div>
+            </div>
+          </div>
+
+          {/* Progress */}
+          <div className="rounded-xl border border-slate-100 bg-white p-4">
+            <div className="mb-3 flex items-center justify-between">
+              <span className="text-xs font-bold text-slate-600">Progresso</span>
+              <span className="text-xs font-bold text-primary">{Math.round(progress / 2)}%</span>
+            </div>
+            <div className="h-2 w-full overflow-hidden rounded-full bg-slate-100">
+              <div
+                className="h-full rounded-full bg-gradient-to-r from-primary to-[#baff68] transition-all duration-300"
+                style={{ width: `${progress / 2}%` }}
+              />
+            </div>
+          </div>
+
+          {/* Steps */}
+          <div className="space-y-2">
+            {progressSteps.map((step, i) => (
+              <div key={i} className="flex items-center gap-3 rounded-lg border border-slate-100 bg-white px-3 py-2.5">
+                {step.state === 'done' ? (
+                  <CheckCircle2 size={16} className="shrink-0 text-primary" />
+                ) : (
+                  <div className="h-4 w-4 shrink-0 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+                )}
+                <span className={`text-xs font-medium ${step.state === 'done' ? 'text-slate-500' : 'font-bold text-slate-800'}`}>
+                  {step.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export const BroadcastSection = () => {
+  return (
     <section className="bg-white py-20 md:py-28">
       <div className="mx-auto grid max-w-[1360px] grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
         {/* Left — Mockup */}
         <AnimateIn from="left" delay={150} duration={700} className="order-2 lg:order-1">
           <div className="flex justify-center lg:justify-start">
-            <div className="w-full max-w-[420px]">
-              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-xl">
-                {/* Header */}
-                <div className="flex items-center justify-between border-b border-slate-100 bg-white px-6 py-4">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
-                      <Megaphone size={18} className="text-primary" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-bold text-slate-800">Black Friday 2025</div>
-                      <div className="text-[11px] text-slate-400">Transmissão ativa</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1">
-                    <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
-                    <span className="text-[10px] font-bold text-emerald-600">AO VIVO</span>
-                  </div>
-                </div>
-
-                {/* Config Summary */}
-                <div className="space-y-3 p-5">
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="rounded-xl border border-slate-100 bg-white p-3">
-                      <div className="mb-1 text-[10px] font-bold uppercase tracking-wider text-slate-400">Fluxo</div>
-                      <div className="flex items-center gap-1.5 text-sm font-bold text-slate-700">
-                        <Zap size={12} className="text-primary" /> Oferta Relâmpago
-                      </div>
-                    </div>
-                    <div className="rounded-xl border border-slate-100 bg-white p-3">
-                      <div className="mb-1 text-[10px] font-bold uppercase tracking-wider text-slate-400">Público</div>
-                      <div className="flex items-center gap-1.5 text-sm font-bold text-slate-700">
-                        <Users size={12} className="text-emerald-600" /> 847 leads
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Progress */}
-                  <div className="rounded-xl border border-slate-100 bg-white p-4">
-                    <div className="mb-3 flex items-center justify-between">
-                      <span className="text-xs font-bold text-slate-600">Progresso</span>
-                      <span className="text-xs font-bold text-primary">{Math.round(progress / 2)}%</span>
-                    </div>
-                    <div className="h-2 w-full overflow-hidden rounded-full bg-slate-100">
-                      <div
-                        className="h-full rounded-full bg-gradient-to-r from-primary to-[#baff68] transition-all duration-300"
-                        style={{ width: `${progress / 2}%` }}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Steps */}
-                  <div className="space-y-2">
-                    {progressSteps.map((step, i) => (
-                      <div key={i} className="flex items-center gap-3 rounded-lg border border-slate-100 bg-white px-3 py-2.5">
-                        {step.state === 'done' ? (
-                          <CheckCircle2 size={16} className="shrink-0 text-primary" />
-                        ) : (
-                          <div className="h-4 w-4 shrink-0 animate-spin rounded-full border-2 border-primary border-t-transparent" />
-                        )}
-                        <span className={`text-xs font-medium ${step.state === 'done' ? 'text-slate-500' : 'font-bold text-slate-800'}`}>
-                          {step.label}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+            <BroadcastMockup />
           </div>
         </AnimateIn>
 
@@ -113,12 +119,12 @@ export const BroadcastSection = () => {
             </p>
 
             <h2 className="max-w-[560px] font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-[2.5rem] lg:text-[2.5rem]">
-              Fale com sua base no momento certo,{' '}
-              <span className="italic font-medium text-primary">sem virar campanha em bagunça.</span>
+              Dispare campanhas{' '}
+              <span className="italic font-medium text-primary">sem bagunçar a operação.</span>
             </h2>
 
             <p className="max-w-xl text-[15px] leading-relaxed text-slate-600">
-              Campanhas com segmentação, agendamento e controle de envio pra reativar contatos, empurrar ofertas e manter a operação no ritmo.
+              Segmente a base, agende o envio e controle o ritmo para reativar contatos com segurança.
             </p>
 
             <ul className="flex flex-col gap-3.5">

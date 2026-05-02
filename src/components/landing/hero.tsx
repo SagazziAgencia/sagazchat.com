@@ -17,25 +17,25 @@ export function Hero() {
           <div className="flex-1 space-y-6 lg:min-w-[560px] xl:min-w-[610px]">
             <AnimateIn delay={0}>
               <p className="text-[12px] font-semibold uppercase tracking-[0.24em] text-slate-500">
-                PARA EMPRESAS QUE QUEREM ESCALAR SEM PERDER DINHEIRO
+                WHATSAPP, CRM E IA NO MESMO PAINEL
               </p>
             </AnimateIn>
 
             <AnimateIn delay={120}>
               <h1 className="font-[family-name:var(--font-display)] text-[1.9rem] leading-[1.08] tracking-[-0.04em] text-slate-900 sm:text-[2.55rem] lg:text-[44px] lg:leading-[1.1]">
-                <span className="block font-medium lg:whitespace-nowrap">Sem CRM e automação,</span>
+                <span className="block font-medium lg:whitespace-nowrap">Atendimento bagunçado</span>
                 <span className="mt-1 block font-medium lg:whitespace-nowrap">
-                  você <span className="font-black">perde vendas</span> todo dia.
+                  faz você <span className="font-black">perder vendas</span>.
                 </span>
                 <span className="mt-1 block font-medium text-primary lg:whitespace-nowrap">
-                  Com <span className="font-black">Sagazchat</span>, isso muda.
+                  O <span className="font-black">Sagazchat</span> organiza.
                 </span>
               </h1>
             </AnimateIn>
 
             <AnimateIn delay={240}>
-              <p className="max-w-[620px] text-[15px] leading-[1.65] text-slate-500 lg:text-[17px]">
-                Centralize canais, organize atendimentos e acompanhe cada oportunidade em um só lugar para responder melhor e vender mais.
+              <p className="max-w-[560px] text-[15px] leading-[1.55] text-slate-500 lg:text-[17px]">
+                WhatsApp, Instagram, CRM e automações no mesmo lugar. Sua equipe responde rápido, acompanha cada lead e fecha mais.
               </p>
             </AnimateIn>
 
@@ -77,7 +77,7 @@ export function Hero() {
                 <span className="h-2.5 w-2.5 rounded-full bg-[#F59E0B]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#22C55E]" />
                 <div className="ml-2 flex-1 rounded-md bg-white px-3 py-1 text-[10px] font-medium text-slate-400 ring-1 ring-slate-200">
-                  app.sagazchatbot.ai/whatsapp
+                  app.sagazchat.com/whatsapp
                 </div>
               </div>
               <div className="aspect-[4/5] lg:h-[540px] lg:aspect-auto">

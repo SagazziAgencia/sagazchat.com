@@ -25,11 +25,11 @@ export function Footer() {
           <div className="grid lg:grid-cols-1 gap-8 items-center">
             <div className="space-y-6 text-center">
               <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-[-0.02em] leading-[1.1] text-white">
-                Pronto para tirar o atendimento{' '}
-                <span className="italic font-medium text-primary">do improviso?</span>
+                Tire o atendimento{' '}
+                <span className="italic font-medium text-primary">do improviso.</span>
               </h2>
               <p className="text-[15px] text-slate-400 leading-relaxed max-w-xl mx-auto">
-                Veja os planos, entenda o que faz sentido para a sua operação e comece com a estrutura certa para vender, atender e acompanhar o funil.
+                Escolha um plano e comece com WhatsApp, CRM e automações no mesmo lugar.
               </p>
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-auto px-6 sm:px-8 py-4 text-base sm:text-lg font-bold w-full sm:w-auto">
                 <Link href={LANDING_CTA.salesContact}>

@@ -63,9 +63,9 @@ const INSTAGRAM_HIGHLIGHT =
   'font-medium bg-gradient-to-r from-[#F58529] via-[#DD2A7B] to-[#8134AF] bg-clip-text text-transparent';
 
 const FEATURES = [
-  'Nenhum "EU QUERO" fica sem resposta — nem os de domingo às 2h',
-  'O lead recebe a oferta antes de sair do seu post',
-  'Cada conversa vai pro CRM com a campanha que gerou',
+  'Nenhum "EU QUERO" fica sem resposta',
+  'Oferta enviada antes do lead sair do post',
+  'Campanha e conversa salvas no CRM',
 ];
 
 export function InstagramSection() {
@@ -90,14 +90,12 @@ export function InstagramSection() {
             </p>
 
             <h2 className="max-w-[620px] font-[family-name:var(--font-display)] text-[2rem] sm:text-[2.5rem] lg:text-[2.5rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950">
-              Você não precisa estar online{' '}
-              <span className="italic font-medium text-primary">
-                pra vender no <span className={INSTAGRAM_HIGHLIGHT + ' not-italic'}>direct</span>.
-              </span>
+              Direct vendendo{' '}
+              <span className="italic font-medium text-primary">mesmo offline.</span>
             </h2>
 
             <p className="max-w-xl text-[15px] leading-relaxed text-slate-600">
-              O Sagazchat manda a oferta em 3 segundos pra cada comentário. 24h por dia.
+              Comentou no post, recebeu a oferta. Em segundos.
             </p>
 
             <ul className="flex flex-col gap-4 pt-2">
@@ -113,7 +111,7 @@ export function InstagramSection() {
               href="#pricing"
               className="mt-4 inline-flex w-fit items-center gap-2.5 rounded-[10px] bg-primary px-8 py-4 text-[15px] font-semibold text-white shadow-[0_4px_14px_rgba(23,199,90,0.25)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.35)]"
             >
-              Quero automatizar meu Instagram
+              Automatizar Instagram
               <ArrowRight className="h-4 w-4" />
             </a>
             </div>

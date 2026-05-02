@@ -14,10 +14,10 @@ import { AnimateIn } from '@/components/ui/animate-in';
 const MULTI_WHATSAPP_IMAGE = 'https://i.ibb.co/60Y4RGQc/Group-4.png';
 
 const CHANNELS = [
-  'WhatsApp — até 10 números simultâneos',
-  'Instagram — DMs e comentários automáticos',
-  'Histórico unificado por contato',
-  'Transferência entre atendentes sem perda',
+  'Até 10 números de WhatsApp',
+  'Instagram com DMs e comentários',
+  'Histórico único por contato',
+  'Transferência sem perder contexto',
 ];
 
 /* ── Safe image with fallback ──────────────────────────── */
@@ -96,12 +96,12 @@ export function MultiWhatsapp() {
             </p>
 
             <h2 className="max-w-[520px] font-[family-name:var(--font-display)] text-[2rem] sm:text-[2.5rem] lg:text-[2.5rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950">
-              Pare de perder contexto{' '}
-              <span className="italic font-medium text-primary">entre abas, números e atendentes.</span>
+              Todos os canais no mesmo{' '}
+              <span className="italic font-medium text-primary">atendimento.</span>
             </h2>
 
             <p className="max-w-xl text-[15px] leading-relaxed text-slate-600">
-              Centralize WhatsApp, Instagram e e-mail em um painel único. Cada conversa tem histórico completo, independente do canal.
+              Centralize WhatsApp e Instagram. O cliente muda de canal, mas o contexto continua ali.
             </p>
 
             <ul className="flex flex-col gap-4 pt-2">

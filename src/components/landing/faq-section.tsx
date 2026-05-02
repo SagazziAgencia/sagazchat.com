@@ -12,19 +12,19 @@ import { AnimateIn } from '@/components/ui/animate-in';
 const faqItems = [
   {
     question: 'Qual é o tempo médio para configurar e começar a usar o Sagazchat?',
-    answer: 'A base da operação começa rápido: conectar o número, organizar a equipe e colocar as funções principais para rodar leva poucos minutos. Fluxos mais completos dependem da sua regra comercial, mas a estrutura visual acelera bastante esse processo.',
+    answer: 'A base começa rápido: conecte o número, organize a equipe e coloque as funções principais para rodar. Fluxos mais completos dependem da sua regra comercial.',
   },
   {
     question: 'Posso ter múltiplos atendentes usando o mesmo número de WhatsApp?',
-    answer: 'Sim. O Sagazchat foi feito para operação em equipe: mais de um atendente pode trabalhar no mesmo número, com histórico compartilhado, organização por setores e contexto preservado na conversa.',
+    answer: 'Sim. Vários atendentes podem usar o mesmo número com histórico compartilhado, setores e contexto preservado.',
   },
   {
     question: 'Preciso de equipe técnica para montar automações e usar a IA?',
-    answer: 'Não para começar. A plataforma foi desenhada para operação comercial e atendimento, com fluxos visuais e configuração guiada. Se quiser levar integrações e cenários avançados mais longe, aí sim pode envolver alguém técnico, mas o uso diário não depende disso.',
+    answer: 'Não para começar. Os fluxos são visuais e a configuração é guiada. Cenários avançados podem envolver alguém técnico, mas o uso diário não depende disso.',
   },
   {
     question: 'Como funcionam os webhooks e para que servem?',
-    answer: 'Webhook é o gatilho que avisa ao Sagazchat que algo aconteceu em outro sistema. Com isso, você pode recuperar checkout, enviar mensagem pós-venda, atualizar dados do lead ou iniciar um fluxo sem depender de ação manual da equipe.',
+    answer: 'Webhook avisa ao Sagazchat que algo aconteceu em outro sistema. Assim você recupera checkout, envia pós-venda ou inicia um fluxo sem ação manual.',
   },
   {
     question: 'Existe algum contrato de fidelidade ou posso cancelar quando quiser?',
@@ -42,11 +42,11 @@ export function FaqSection() {
               FAQ
             </p>
             <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-[-0.02em] leading-[1.1] text-slate-950">
-              Dúvidas antes de colocar{' '}
-              <span className="italic font-medium text-primary">a operação pra rodar.</span>
+              Dúvidas antes de{' '}
+              <span className="italic font-medium text-primary">começar.</span>
             </h2>
             <p className="text-[15px] text-slate-600 leading-relaxed mt-5 max-w-xl mx-auto">
-              As objeções mais comuns antes de colocar atendimento e automação para rodar.
+              O que costuma travar antes de colocar atendimento e automação no ar.
             </p>
           </div>
         </AnimateIn>

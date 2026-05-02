@@ -107,13 +107,13 @@ function MessageBubble({ msg, time }: { msg: ChatMessage; time: string }) {
 
 /* ─── features ─── */
 const FEATURES = [
-  'Agentes com personalidade — treinados na sua base de conhecimento',
-  'Transcreve áudio e responde em texto, sem perder contexto',
-  'Transfere pro humano certo quando a conversa precisa de decisão',
+  'Agentes treinados na sua base',
+  'Áudio transcrito e contexto preservado',
+  'Handoff para humano quando precisa',
 ];
 
-/* ─── main component ─── */
-export const AiChatbotSection = () => {
+/* ─── exported mockup (auto-contido, reutilizável) ─── */
+export function AiChatMockup() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [typing, setTyping] = useState<MsgSender | null>(null);
   const [time] = useState(getTime);
@@ -181,80 +181,87 @@ export const AiChatbotSection = () => {
   }, []);
 
   return (
+    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-200">
+      <div className="absolute inset-0 flex flex-col bg-[#FAFAFA]">
+        {/* Header */}
+        <div className="flex shrink-0 items-center justify-between border-b border-[#E2E8F0] bg-white px-4 py-3">
+          <div className="flex items-center gap-2.5">
+            <div className="relative h-9 w-9 shrink-0">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500 text-[11px] font-bold text-white">
+                LC
+              </div>
+              <span className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[#25D366] ring-[1.5px] ring-white">
+                <Phone className="h-2 w-2 fill-white text-white" />
+              </span>
+            </div>
+            <div className="flex flex-col gap-[3px]">
+              <div className="flex items-center gap-2">
+                <span className="text-[14px] font-semibold text-[#0F172A]">Lead Curioso</span>
+                <span className="rounded bg-[#F1F5F9] px-1.5 py-0.5 text-[10px] font-medium text-[#64748B] ring-1 ring-[#E2E8F0]">
+                  Novo
+                </span>
+              </div>
+              <p className="text-[11px] text-[#64748B]">Agente IA — Ana (Vendas)</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2.5">
+            <Undo2 className="h-4 w-4 text-[#64748B]" />
+            <Zap className="h-4 w-4 text-[#17C75A]" />
+            <span className="flex items-center justify-center rounded-lg bg-[#17C75A] px-3 py-1.5">
+              <Check className="h-4 w-4 text-white" strokeWidth={3} />
+            </span>
+            <MoreVertical className="h-4 w-4 text-[#64748B]" />
+          </div>
+        </div>
+
+        {/* Tags bar */}
+        <div className="flex shrink-0 items-center gap-2 border-b border-[#E2E8F0] bg-white px-4 py-2">
+          <span className="text-[11px] font-semibold text-[#94A3B8]">Tags</span>
+          <span className="h-3.5 w-px bg-[#E2E8F0]" />
+          <span className="rounded-xl bg-[#ECFDF5] px-3 py-1 text-[11px] font-medium text-[#059669]">IA ativa</span>
+        </div>
+
+        {/* Messages */}
+        <div ref={chatRef} className="min-h-0 flex-1 space-y-2.5 overflow-y-auto px-4 py-4 scroll-smooth">
+          {messages.map((msg) => (
+            <MessageBubble key={msg.id} msg={msg} time={time} />
+          ))}
+          {typing && <TypingDots sender={typing} />}
+        </div>
+
+        {/* Input bar */}
+        <div className="shrink-0 bg-white px-4 pb-4 pt-3">
+          <div className="flex items-center gap-4 rounded-lg border border-[#E2E8F0] px-3 py-2">
+            <div className="flex items-center gap-4 text-[#64748B]">
+              <Smile className="h-[18px] w-[18px]" />
+              <Paperclip className="h-[18px] w-[18px]" />
+              <span className="flex items-center justify-center rounded-md bg-[#D9FDD3] p-1.5">
+                <Signature className="h-[18px] w-[18px] text-[#16A34A]" />
+              </span>
+              <CircleStop className="h-[18px] w-[18px]" />
+              <Zap className="h-[18px] w-[18px]" />
+            </div>
+            <span className="flex-1 truncate text-[11px] text-[#CBD5E1]">Escreva uma mensagem...</span>
+            <Mic className="h-[18px] w-[18px] shrink-0 text-[#64748B]" />
+            <span className="flex shrink-0 items-center gap-1.5 rounded-lg bg-[#E2E8F0] px-4 py-2 text-[12px] font-semibold text-[#64748B]">
+              <ArrowUp className="h-3.5 w-3.5" strokeWidth={3} />
+              Enviar
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── main component ─── */
+export const AiChatbotSection = () => {
+  return (
     <section className="bg-[#F8FAFC] lg:min-h-screen">
       <div className="mx-auto flex max-w-[1360px] flex-col items-center gap-12 px-4 py-20 sm:px-6 lg:min-h-screen lg:flex-row lg:items-center lg:gap-16 lg:py-0">
         {/* Left – Platform Chat Mockup */}
         <AnimateIn from="left" delay={100} className="order-2 w-full lg:order-1 lg:w-[55%] lg:flex-none">
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-200">
-            <div className="absolute inset-0 flex flex-col bg-[#FAFAFA]">
-              {/* Header */}
-              <div className="flex shrink-0 items-center justify-between border-b border-[#E2E8F0] bg-white px-4 py-3">
-                <div className="flex items-center gap-2.5">
-                  <div className="relative h-9 w-9 shrink-0">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500 text-[11px] font-bold text-white">
-                      LC
-                    </div>
-                    <span className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[#25D366] ring-[1.5px] ring-white">
-                      <Phone className="h-2 w-2 fill-white text-white" />
-                    </span>
-                  </div>
-                  <div className="flex flex-col gap-[3px]">
-                    <div className="flex items-center gap-2">
-                      <span className="text-[14px] font-semibold text-[#0F172A]">Lead Curioso</span>
-                      <span className="rounded bg-[#F1F5F9] px-1.5 py-0.5 text-[10px] font-medium text-[#64748B] ring-1 ring-[#E2E8F0]">
-                        Novo
-                      </span>
-                    </div>
-                    <p className="text-[11px] text-[#64748B]">Atendente: IA — Ana (Vendas)</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <Undo2 className="h-4 w-4 text-[#64748B]" />
-                  <Zap className="h-4 w-4 text-[#17C75A]" />
-                  <span className="flex items-center justify-center rounded-lg bg-[#17C75A] px-3 py-1.5">
-                    <Check className="h-4 w-4 text-white" strokeWidth={3} />
-                  </span>
-                  <MoreVertical className="h-4 w-4 text-[#64748B]" />
-                </div>
-              </div>
-
-              {/* Tags bar */}
-              <div className="flex shrink-0 items-center gap-2 border-b border-[#E2E8F0] bg-white px-4 py-2">
-                <span className="text-[11px] font-semibold text-[#94A3B8]">Tags</span>
-                <span className="h-3.5 w-px bg-[#E2E8F0]" />
-                <span className="rounded-xl bg-[#ECFDF5] px-3 py-1 text-[11px] font-medium text-[#059669]">IA ativa</span>
-              </div>
-
-              {/* Messages */}
-              <div ref={chatRef} className="min-h-0 flex-1 space-y-2.5 overflow-y-auto px-4 py-4 scroll-smooth">
-                {messages.map((msg) => (
-                  <MessageBubble key={msg.id} msg={msg} time={time} />
-                ))}
-                {typing && <TypingDots sender={typing} />}
-              </div>
-
-              {/* Input bar */}
-              <div className="shrink-0 bg-white px-4 pb-4 pt-3">
-                <div className="flex items-center gap-4 rounded-lg border border-[#E2E8F0] px-3 py-2">
-                  <div className="flex items-center gap-4 text-[#64748B]">
-                    <Smile className="h-[18px] w-[18px]" />
-                    <Paperclip className="h-[18px] w-[18px]" />
-                    <span className="flex items-center justify-center rounded-md bg-[#D9FDD3] p-1.5">
-                      <Signature className="h-[18px] w-[18px] text-[#16A34A]" />
-                    </span>
-                    <CircleStop className="h-[18px] w-[18px]" />
-                    <Zap className="h-[18px] w-[18px]" />
-                  </div>
-                  <span className="flex-1 truncate text-[11px] text-[#CBD5E1]">Escreva uma mensagem...</span>
-                  <Mic className="h-[18px] w-[18px] shrink-0 text-[#64748B]" />
-                  <span className="flex shrink-0 items-center gap-1.5 rounded-lg bg-[#E2E8F0] px-4 py-2 text-[12px] font-semibold text-[#64748B]">
-                    <ArrowUp className="h-3.5 w-3.5" strokeWidth={3} />
-                    Enviar
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <AiChatMockup />
         </AnimateIn>
 
         {/* Right – Copy */}
@@ -265,12 +272,12 @@ export const AiChatbotSection = () => {
             </p>
 
             <h2 className="max-w-[520px] font-[family-name:var(--font-display)] text-[2rem] sm:text-[2.5rem] lg:text-[2.5rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950">
-              Seu time não precisa responder toda mensagem.{' '}
-              <span className="italic font-medium text-primary">Só as que importam.</span>
+              A IA responde o repetitivo.{' '}
+              <span className="italic font-medium text-primary">Seu time fecha a venda.</span>
             </h2>
 
             <p className="max-w-xl text-[15px] leading-relaxed text-slate-600">
-              A IA do Sagazchat conhece seus preços, responde objeções e qualifica o lead. O humano só entra pra fechar.
+              Ela conhece preços, tira dúvidas e qualifica o lead antes do humano entrar.
             </p>
 
             <ul className="flex flex-col gap-4 pt-2">

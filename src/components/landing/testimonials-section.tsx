@@ -20,37 +20,31 @@ const testimonials = [
     name: 'Recuperação de checkout',
     company: 'Fluxo de venda automática',
     videoThumbnailUrl: 'https://picsum.photos/seed/t1/270/480',
-    aiHint: 'man portrait',
   },
   {
     name: 'Atendimento com IA',
     company: 'Qualificação e handoff',
     videoThumbnailUrl: 'https://picsum.photos/seed/t2/270/480',
-    aiHint: 'woman portrait',
   },
   {
     name: 'Instagram no direct',
     company: 'Captação por comentário',
     videoThumbnailUrl: 'https://picsum.photos/seed/t3/270/480',
-    aiHint: 'man office',
   },
   {
     name: 'CRM com valor',
     company: 'Pipeline comercial visível',
     videoThumbnailUrl: 'https://picsum.photos/seed/t4/270/480',
-    aiHint: 'woman smiling',
   },
   {
     name: 'Disparos em massa',
     company: 'Campanhas com segmentação',
     videoThumbnailUrl: 'https://picsum.photos/seed/t5/270/480',
-    aiHint: 'man talking',
   },
   {
     name: 'Operação multicanal',
     company: 'WhatsApp, Instagram e e-mail',
     videoThumbnailUrl: 'https://picsum.photos/seed/t6/270/480',
-    aiHint: 'woman tech',
   },
 ];
 
@@ -64,11 +58,11 @@ export function TestimonialsSection() {
               Demonstrações
             </p>
             <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-[-0.02em] leading-[1.1] text-slate-950 mb-5">
-              Veja o Sagazchat aplicado nas rotinas que mais travam{' '}
-              <span className="italic font-medium text-primary">a operação comercial.</span>
+              Veja o Sagazchat{' '}
+              <span className="italic font-medium text-primary">em rotinas reais.</span>
             </h2>
             <p className="text-[15px] text-slate-600 leading-relaxed max-w-xl mx-auto">
-              Em vez de promessa genérica, aqui está o tipo de fluxo que a plataforma ajuda a executar no dia a dia.
+              Fluxos de venda, atendimento, Instagram, IA e recuperação funcionando na prática.
             </p>
           </div>
         </AnimateIn>
@@ -92,7 +86,6 @@ export function TestimonialsSection() {
                     quality={100}
                     sizes="(min-width: 1280px) 18vw, (min-width: 1024px) 22vw, (min-width: 640px) 44vw, 92vw"
                     className="object-cover"
-                    data-ai-hint={testimonial.aiHint}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
 

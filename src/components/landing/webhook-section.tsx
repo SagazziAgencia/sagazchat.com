@@ -7,23 +7,23 @@ import { AnimateIn } from '@/components/ui/animate-in';
 const STEPS = [
   {
     kicker: 'Evento',
-    title: 'Plataforma dispara o webhook',
-    desc: 'Hotmart, Kiwify, Eduzz ou sua própria integração envia o evento em tempo real.',
+    title: 'Evento detectado',
+    desc: 'Checkout, boleto ou pagamento recusado chega em tempo real.',
   },
   {
     kicker: 'Recepção',
-    title: 'Sagazchat recebe os dados na chamada',
-    desc: 'Nome, telefone, produto e valor chegam prontos no payload — sem consulta nenhuma.',
+    title: 'Dados recebidos',
+    desc: 'Nome, telefone, produto e valor chegam prontos.',
   },
   {
     kicker: 'Ação',
-    title: 'Fluxo personalizado dispara',
-    desc: 'Mensagem contextualizada vai pro WhatsApp do cliente em menos de 5 segundos.',
+    title: 'Fluxo disparado',
+    desc: 'A mensagem certa vai para o WhatsApp em segundos.',
   },
   {
     kicker: 'Resultado',
     title: 'Venda recuperada',
-    desc: 'Lead responde, fecha o pagamento e volta pro funil sem intervenção humana.',
+    desc: 'O lead responde e volta para o funil sem trabalho manual.',
   },
 ];
 
@@ -164,10 +164,10 @@ export function WebhookSection() {
             </p>
             <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950">
               Recupere vendas{' '}
-              <span className="italic font-medium text-primary">que saíram do seu funil.</span>
+              <span className="italic font-medium text-primary">antes que esfriem.</span>
             </h2>
             <p className="max-w-xl text-[15px] leading-relaxed text-slate-600">
-              Automação baseada em eventos: abandono de checkout, pagamento recusado, boleto vencendo. Cada evento dispara o fluxo certo, na hora certa.
+              Abandono de checkout, boleto vencendo ou pagamento recusado viram mensagem automática no WhatsApp.
             </p>
           </div>
         </AnimateIn>
@@ -194,7 +194,7 @@ export function WebhookSection() {
                     <div className="relative aspect-[5/4] border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white">
                       {/* Step number badge */}
                       <span className="absolute left-4 top-4 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-white text-[12px] font-bold text-slate-900 shadow-[0_2px_8px_rgba(15,23,42,0.08)] ring-1 ring-slate-200">
-                        {String(i + 1).padStart(2, '0').slice(-1)}
+                        {String(i + 1).padStart(2, '0')}
                       </span>
                       {/* Visual content */}
                       <div className="absolute inset-0 px-5 pb-5 pt-12">

@@ -11,10 +11,10 @@ import {
 import { AnimateIn } from '@/components/ui/animate-in';
 
 const BULLETS = [
-  'Soma automática de valores por etapa',
-  'Previsibilidade do que está prestes a fechar',
-  'Histórico de contato dentro de cada card',
-  'Arraste leads entre etapas sem planilha',
+  'Valor somado por etapa',
+  'Prioridade clara para o time',
+  'Histórico dentro do card',
+  'Leads movidos sem planilha',
 ];
 
 type CardTag = { label: string; bg: string; text: string; dot: string };
@@ -164,7 +164,7 @@ function KanbanColumn({ column }: { column: KanbanColumnType }) {
   );
 }
 
-function KanbanMockup() {
+export function KanbanMockup() {
   return (
     <div
       role="img"
@@ -230,12 +230,12 @@ export const CrmKanbanSection = () => {
             </p>
 
             <h2 className="max-w-[560px] font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-[2.5rem] lg:text-[2.5rem]">
-              Seu pipeline comercial com valor real,{' '}
-              <span className="italic font-medium text-primary">não só conversas.</span>
+              Veja quais conversas{' '}
+              <span className="italic font-medium text-primary">podem virar receita.</span>
             </h2>
 
             <p className="max-w-xl text-[15px] leading-relaxed text-slate-600">
-              Cada lead entra com valor, cada etapa soma automático. Você vê o que vai fechar antes de fechar — e prioriza o que ainda pode virar venda.
+              Cada lead entra com valor. O time enxerga prioridade, etapa e potencial de venda.
             </p>
 
             <ul className="flex flex-col gap-3.5">

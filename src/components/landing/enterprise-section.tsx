@@ -2,11 +2,12 @@
 
 import { Check } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
+import { LANDING_CTA } from './cta-links';
 
 const BULLETS = [
-  'Diagnóstico + reunião consultiva',
-  'Implementação personalizada',
-  'Proposta comercial sob medida',
+  'Diagnóstico da operação',
+  'Setup personalizado',
+  'Plano comercial sob medida',
 ];
 
 export function EnterpriseSection() {
@@ -21,12 +22,12 @@ export function EnterpriseSection() {
             </p>
 
             <h2 className="max-w-[560px] font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.5rem] lg:text-[2.5rem]">
-              Operação sob medida{' '}
-              <span className="italic font-medium text-primary">para equipes que precisam de escala.</span>
+              Mais volume,{' '}
+              <span className="italic font-medium text-primary">menos improviso.</span>
             </h2>
 
             <p className="max-w-xl text-[15px] leading-relaxed text-slate-400">
-              Consultoria, diagnóstico, setup personalizado e proposta comercial para a sua realidade. Sem tabela fixa — o plano se adapta à operação.
+              Para equipes com regras, integrações ou volume que pedem uma implantação mais próxima.
             </p>
 
             <ul className="flex flex-col gap-3.5">
@@ -42,13 +43,13 @@ export function EnterpriseSection() {
 
             <div className="mt-2 flex flex-wrap gap-4">
               <a
-                href="#contato"
+                href={LANDING_CTA.salesContact}
                 className="inline-flex items-center rounded-[10px] bg-primary px-7 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-primary/90"
               >
                 Falar com especialista
               </a>
               <a
-                href="#contato"
+                href={LANDING_CTA.salesContact}
                 className="inline-flex items-center rounded-[10px] border border-slate-600 px-7 py-3.5 text-[15px] font-medium text-white transition-colors hover:bg-white/5"
               >
                 Agendar reunião

@@ -16,6 +16,7 @@ import {
   Video,
 } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
+import { ctaMobileFull, ctaPrimary } from './cta-styles';
 
 /* Instagram-style script logo */
 function InstagramLogo({ className }: { className?: string }) {
@@ -84,23 +85,25 @@ export function InstagramSection() {
         <div className="flex w-full flex-col gap-12 lg:flex-row lg:items-center lg:gap-12">
           {/* Left – Copy */}
           <AnimateIn from="left" delay={100} className="w-full lg:w-[40%] lg:flex-none">
-            <div className="space-y-6">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#C13584] font-[family-name:var(--font-display)]">
-              Instagram
-            </p>
+            <div className="space-y-7 text-center lg:text-left">
+            <div className="space-y-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#C13584] font-[family-name:var(--font-display)]">
+                Instagram
+              </p>
 
-            <h2 className="max-w-[620px] font-[family-name:var(--font-display)] text-[2rem] sm:text-[2.5rem] lg:text-[2.5rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950">
-              Direct vendendo{' '}
-              <span className="italic font-medium text-primary">mesmo offline.</span>
-            </h2>
+              <h2 className="mx-auto max-w-[560px] text-balance font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-[2.5rem] lg:mx-0 lg:text-[2.5rem]">
+                Direct vendendo{' '}
+                <span className="italic font-medium text-primary">mesmo offline.</span>
+              </h2>
 
-            <p className="max-w-xl text-[15px] leading-relaxed text-slate-600">
-              Comentou no post, recebeu a oferta. Em segundos.
-            </p>
+              <p className="mx-auto max-w-xl text-pretty text-[15px] leading-[1.6] text-slate-600 lg:mx-0">
+                Comentou no post, recebeu a oferta. Em segundos.
+              </p>
+            </div>
 
-            <ul className="flex flex-col gap-4 pt-2">
+            <ul className="flex w-full flex-col gap-4 pt-2 text-left">
               {FEATURES.map((feat, index) => (
-                <li key={index} className="flex items-center gap-3">
+                <li key={index} className="flex items-center justify-center gap-3 lg:justify-start">
                   <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#DD2A7B]" />
                   <span className="text-[15px] text-slate-700">{feat}</span>
                 </li>
@@ -109,7 +112,7 @@ export function InstagramSection() {
 
             <a
               href="#pricing"
-              className="mt-4 inline-flex w-fit items-center gap-2.5 rounded-[10px] bg-primary px-8 py-4 text-[15px] font-semibold text-white shadow-[0_4px_14px_rgba(23,199,90,0.25)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.35)]"
+              className={`${ctaPrimary} mt-2 hidden lg:inline-flex`}
             >
               Automatizar Instagram
               <ArrowRight className="h-4 w-4" />
@@ -350,6 +353,16 @@ export function InstagramSection() {
               </div>
             </div>
           </AnimateIn>
+
+          <div className="w-full lg:hidden">
+            <a
+              href="#pricing"
+              className={`${ctaPrimary} ${ctaMobileFull}`}
+            >
+              Automatizar Instagram
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       </div>
     </section>

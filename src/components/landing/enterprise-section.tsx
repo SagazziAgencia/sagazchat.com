@@ -3,6 +3,7 @@
 import { Check } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
 import { LANDING_CTA } from './cta-links';
+import { ctaMobileFull, ctaPrimary, ctaRow, ctaSecondaryDark } from './cta-styles';
 
 const BULLETS = [
   'Diagnóstico da operação',
@@ -16,23 +17,25 @@ export function EnterpriseSection() {
       <div className="mx-auto grid max-w-[1360px] grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
         {/* Left — Copy */}
         <AnimateIn from="left" delay={100}>
-          <div className="flex flex-col gap-6">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
-              Para empresas
-            </p>
+          <div className="flex flex-col gap-6 text-center lg:text-left">
+            <div className="space-y-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
+                Para empresas
+              </p>
 
-            <h2 className="max-w-[560px] font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.5rem] lg:text-[2.5rem]">
-              Mais volume,{' '}
-              <span className="italic font-medium text-primary">menos improviso.</span>
-            </h2>
+              <h2 className="mx-auto max-w-[560px] text-balance font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.5rem] lg:mx-0 lg:text-[2.5rem]">
+                Mais volume,{' '}
+                <span className="italic font-medium text-primary">menos improviso.</span>
+              </h2>
 
-            <p className="max-w-xl text-[15px] leading-relaxed text-slate-400">
-              Para equipes com regras, integrações ou volume que pedem uma implantação mais próxima.
-            </p>
+              <p className="mx-auto max-w-xl text-pretty text-[15px] leading-[1.6] text-slate-400 lg:mx-0">
+                Para equipes com regras, integrações ou volume que pedem uma implantação mais próxima.
+              </p>
+            </div>
 
-            <ul className="flex flex-col gap-3.5">
+            <ul className="flex w-full flex-col gap-3.5 text-left">
               {BULLETS.map((bullet) => (
-                <li key={bullet} className="flex items-center gap-2.5">
+                <li key={bullet} className="flex items-center justify-center gap-2.5 lg:justify-start">
                   <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary">
                     <Check className="h-3 w-3 text-white" strokeWidth={3.5} />
                   </span>
@@ -41,16 +44,16 @@ export function EnterpriseSection() {
               ))}
             </ul>
 
-            <div className="mt-2 flex flex-wrap gap-4">
+            <div className={`${ctaRow} mt-2 hidden lg:flex`}>
               <a
                 href={LANDING_CTA.salesContact}
-                className="inline-flex items-center rounded-[10px] bg-primary px-7 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-primary/90"
+                className={ctaPrimary}
               >
                 Falar com especialista
               </a>
               <a
                 href={LANDING_CTA.salesContact}
-                className="inline-flex items-center rounded-[10px] border border-slate-600 px-7 py-3.5 text-[15px] font-medium text-white transition-colors hover:bg-white/5"
+                className={ctaSecondaryDark}
               >
                 Agendar reunião
               </a>
@@ -70,6 +73,23 @@ export function EnterpriseSection() {
             </div>
           </div>
         </AnimateIn>
+
+        <div className="lg:hidden">
+          <div className={ctaRow}>
+            <a
+              href={LANDING_CTA.salesContact}
+              className={`${ctaPrimary} ${ctaMobileFull}`}
+            >
+              Falar com especialista
+            </a>
+            <a
+              href={LANDING_CTA.salesContact}
+              className={`${ctaSecondaryDark} ${ctaMobileFull}`}
+            >
+              Agendar reunião
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

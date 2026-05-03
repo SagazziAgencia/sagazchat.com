@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { AnimateIn } from '@/components/ui/animate-in';
+import { ctaMobileFull, ctaPrimary } from './cta-styles';
 
 type DelayMode = 'immediate' | 'delay';
 type WindowMode = 'anytime' | 'defined';
@@ -501,7 +502,7 @@ export const RemarketingSection = () => {
             <div className="mx-auto grid max-w-[1360px] grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
 
                 {/* Left Content */}
-                <div className="space-y-8">
+                <div className="space-y-8 text-center lg:text-left">
                     <AnimateIn from="left" delay={0}>
                         <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
                             Remarketing
@@ -509,26 +510,26 @@ export const RemarketingSection = () => {
                     </AnimateIn>
 
                     <AnimateIn from="left" delay={100}>
-                        <h2 className="font-[family-name:var(--font-display)] text-[2rem] sm:text-[2.5rem] lg:text-[2.5rem] font-bold tracking-[-0.02em] leading-[1.1] text-slate-950">
-                            Lead frio ainda pode voltar.<br/>
+                        <h2 className="mx-auto max-w-[560px] text-balance font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-[2.5rem] lg:mx-0 lg:text-[2.5rem]">
+                            Lead frio ainda pode voltar.{' '}
                             <span className="italic font-medium text-primary">No timing certo.</span>
                         </h2>
                     </AnimateIn>
 
                     <AnimateIn from="left" delay={200}>
-                        <p className="max-w-xl text-[15px] text-slate-600 leading-relaxed">
+                        <p className="mx-auto max-w-xl text-pretty text-[15px] leading-relaxed text-slate-600 lg:mx-0">
                             Configure a sequência uma vez. O Sagazchat cobra, espera e reativa sem depender da memória do time.
                         </p>
                     </AnimateIn>
 
                     <AnimateIn from="left" delay={300}>
-                        <ul className="space-y-4">
+                        <ul className="w-full space-y-4 text-left">
                             {[
                                 "Sequência automática após a última ação.",
                                 "Dias e horários definidos por regra.",
                                 "O “depois eu vejo” volta para o funil."
                             ].map((item, i) => (
-                                <li key={i} className="flex items-start gap-3 text-slate-700">
+                                <li key={i} className="flex items-start justify-center gap-3 text-slate-700 lg:justify-start">
                                     <div className="w-5 h-5 mt-0.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
                                         <CheckCircle2 size={12} strokeWidth={3} />
                                     </div>
@@ -539,8 +540,8 @@ export const RemarketingSection = () => {
                     </AnimateIn>
 
                     <AnimateIn from="left" delay={400}>
-                        <div className="pt-4">
-                            <a href="#pricing" className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 text-[15px] font-bold text-white transition-all hover:bg-primary/90 active:scale-[0.98]">
+                        <div className="hidden pt-2 lg:block">
+                            <a href="#pricing" className={ctaPrimary}>
                                 Ver planos
                                 <ArrowRight className="w-5 h-5 ml-1" strokeWidth={2.5} />
                             </a>
@@ -554,6 +555,13 @@ export const RemarketingSection = () => {
                         <RemarketingMockup />
                     </div>
                 </AnimateIn>
+
+                <div className="lg:hidden">
+                    <a href="#pricing" className={`${ctaPrimary} ${ctaMobileFull}`}>
+                        Ver planos
+                        <ArrowRight className="w-5 h-5 ml-1" strokeWidth={2.5} />
+                    </a>
+                </div>
             </div>
         </section>
     );

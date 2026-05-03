@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { Logo } from '../brand/logo';
 import { AnimateIn } from '@/components/ui/animate-in';
 import { LANDING_CTA } from './cta-links';
+import { ctaMobileFull, ctaPrimary } from './cta-styles';
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -24,16 +25,16 @@ export function Footer() {
         <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 lg:p-12 overflow-hidden">
           <div className="grid lg:grid-cols-1 gap-8 items-center">
             <div className="space-y-6 text-center">
-              <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-[-0.02em] leading-[1.1] text-white">
+              <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] text-balance font-bold tracking-[-0.02em] leading-[1.1] text-white">
                 Tire o atendimento{' '}
                 <span className="italic font-medium text-primary">do improviso.</span>
               </h2>
-              <p className="text-[15px] text-slate-400 leading-relaxed max-w-xl mx-auto">
+              <p className="text-[15px] text-slate-400 text-pretty leading-relaxed max-w-xl mx-auto">
                 Escolha um plano e comece com WhatsApp, CRM e automações no mesmo lugar.
               </p>
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-auto px-6 sm:px-8 py-4 text-base sm:text-lg font-bold w-full sm:w-auto">
+              <Button asChild size="lg" className={`${ctaPrimary} ${ctaMobileFull}`}>
                 <Link href={LANDING_CTA.salesContact}>
-                  <WhatsAppIcon className="w-5 h-5 mr-2 shrink-0" />
+                  <WhatsAppIcon className="w-5 h-5 shrink-0" />
                   <span>Ver planos e começar</span>
                 </Link>
               </Button>

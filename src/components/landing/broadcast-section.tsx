@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowRight, Check, CheckCircle2, Megaphone, Users, Zap } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
+import { ctaMobileFull, ctaPrimary } from './cta-styles';
 
 const BULLETS = [
   'Segmentação por etiqueta ou lista',
@@ -113,23 +114,25 @@ export const BroadcastSection = () => {
 
         {/* Right — Copy */}
         <AnimateIn from="right" delay={200} className="order-1 lg:order-2">
-          <div className="flex flex-col gap-6">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
-              Disparos em massa
-            </p>
+          <div className="flex flex-col gap-6 text-center lg:text-left">
+            <div className="space-y-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
+                Disparos em massa
+              </p>
 
-            <h2 className="max-w-[560px] font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-[2.5rem] lg:text-[2.5rem]">
-              Dispare campanhas{' '}
-              <span className="italic font-medium text-primary">sem bagunçar a operação.</span>
-            </h2>
+              <h2 className="mx-auto max-w-[560px] text-balance font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-[2.5rem] lg:mx-0 lg:text-[2.5rem]">
+                Dispare campanhas{' '}
+                <span className="italic font-medium text-primary">sem bagunçar a operação.</span>
+              </h2>
 
-            <p className="max-w-xl text-[15px] leading-relaxed text-slate-600">
-              Segmente a base, agende o envio e controle o ritmo para reativar contatos com segurança.
-            </p>
+              <p className="mx-auto max-w-xl text-pretty text-[15px] leading-[1.6] text-slate-600 lg:mx-0">
+                Segmente a base, agende o envio e controle o ritmo para reativar contatos com segurança.
+              </p>
+            </div>
 
-            <ul className="flex flex-col gap-3.5">
+            <ul className="flex w-full flex-col gap-3.5 text-left">
               {BULLETS.map((bullet) => (
-                <li key={bullet} className="flex items-center gap-2.5">
+                <li key={bullet} className="flex items-center justify-center gap-2.5 lg:justify-start">
                   <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary">
                     <Check className="h-3 w-3 text-white" strokeWidth={3.5} />
                   </span>
@@ -140,13 +143,23 @@ export const BroadcastSection = () => {
 
             <a
               href="#pricing"
-              className="mt-4 inline-flex w-fit items-center gap-2.5 rounded-[10px] bg-primary px-8 py-4 text-[15px] font-semibold text-white shadow-[0_4px_14px_rgba(23,199,90,0.25)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.35)]"
+              className={`${ctaPrimary} mt-2 hidden lg:inline-flex`}
             >
               Ver planos
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
         </AnimateIn>
+
+        <div className="order-3 lg:hidden">
+          <a
+            href="#pricing"
+            className={`${ctaPrimary} ${ctaMobileFull}`}
+          >
+            Ver planos
+            <ArrowRight className="h-4 w-4" />
+          </a>
+        </div>
       </div>
     </section>
   );

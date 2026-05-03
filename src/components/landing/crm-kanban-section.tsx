@@ -9,6 +9,7 @@ import {
   Search,
 } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
+import { ctaMobileFull, ctaPrimary } from './cta-styles';
 
 const BULLETS = [
   'Valor somado por etapa',
@@ -224,23 +225,25 @@ export const CrmKanbanSection = () => {
       <div className="mx-auto grid max-w-[1360px] grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
         {/* Left — Copy */}
         <AnimateIn from="left" delay={100}>
-          <div className="flex flex-col gap-6">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
-              CRM Kanban
-            </p>
+          <div className="flex flex-col gap-6 text-center lg:text-left">
+            <div className="space-y-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
+                CRM Kanban
+              </p>
 
-            <h2 className="max-w-[560px] font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-[2.5rem] lg:text-[2.5rem]">
-              Veja quais conversas{' '}
-              <span className="italic font-medium text-primary">podem virar receita.</span>
-            </h2>
+              <h2 className="mx-auto max-w-[560px] text-balance font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-[2.5rem] lg:mx-0 lg:text-[2.5rem]">
+                Veja quais conversas{' '}
+                <span className="italic font-medium text-primary">podem virar receita.</span>
+              </h2>
 
-            <p className="max-w-xl text-[15px] leading-relaxed text-slate-600">
-              Cada lead entra com valor. O time enxerga prioridade, etapa e potencial de venda.
-            </p>
+              <p className="mx-auto max-w-xl text-pretty text-[15px] leading-[1.6] text-slate-600 lg:mx-0">
+                Cada lead entra com valor. O time enxerga prioridade, etapa e potencial de venda.
+              </p>
+            </div>
 
-            <ul className="flex flex-col gap-3.5">
+            <ul className="flex w-full flex-col gap-3.5 text-left">
               {BULLETS.map((bullet) => (
-                <li key={bullet} className="flex items-center gap-2.5">
+                <li key={bullet} className="flex items-center justify-center gap-2.5 lg:justify-start">
                   <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary">
                     <Check className="h-3 w-3 text-white" strokeWidth={3.5} />
                   </span>
@@ -251,7 +254,7 @@ export const CrmKanbanSection = () => {
 
             <a
               href="#pricing"
-              className="mt-4 inline-flex w-fit items-center gap-2.5 rounded-[10px] bg-primary px-8 py-4 text-[15px] font-semibold text-white shadow-[0_4px_14px_rgba(23,199,90,0.25)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.35)]"
+              className={`${ctaPrimary} mt-2 hidden lg:inline-flex`}
             >
               Ver planos
               <ArrowRight className="h-4 w-4" />
@@ -263,6 +266,16 @@ export const CrmKanbanSection = () => {
         <AnimateIn from="right" delay={200} duration={700}>
           <KanbanMockup />
         </AnimateIn>
+
+        <div className="lg:hidden">
+          <a
+            href="#pricing"
+            className={`${ctaPrimary} ${ctaMobileFull}`}
+          >
+            Ver planos
+            <ArrowRight className="h-4 w-4" />
+          </a>
+        </div>
       </div>
     </section>
   );

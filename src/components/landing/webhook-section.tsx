@@ -2,6 +2,7 @@
 
 import { ArrowRight, Check, CheckCheck, Zap } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
+import { ctaMobileFull, ctaPrimary } from './cta-styles';
 
 /* ─── Copy ─── */
 const STEPS = [
@@ -162,11 +163,11 @@ export function WebhookSection() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
               Webhooks e Recuperação
             </p>
-            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950">
+            <h2 className="text-balance font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950">
               Recupere vendas{' '}
               <span className="italic font-medium text-primary">antes que esfriem.</span>
             </h2>
-            <p className="max-w-xl text-[15px] leading-relaxed text-slate-600">
+            <p className="max-w-xl text-pretty text-[15px] leading-relaxed text-slate-600">
               Abandono de checkout, boleto vencendo ou pagamento recusado viram mensagem automática no WhatsApp.
             </p>
           </div>
@@ -225,7 +226,7 @@ export function WebhookSection() {
           <div className="mt-12 flex justify-center lg:mt-16">
             <a
               href="#pricing"
-              className="inline-flex items-center gap-2.5 rounded-[10px] bg-primary px-8 py-4 text-[15px] font-semibold text-white shadow-[0_4px_14px_rgba(23,199,90,0.25)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.35)]"
+              className={`${ctaPrimary} ${ctaMobileFull}`}
             >
               Ver planos
               <ArrowRight className="h-4 w-4" />

@@ -17,6 +17,7 @@ import {
   Zap,
 } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
+import { ctaMobileFull, ctaPrimary } from './cta-styles';
 
 /* ─── types ─── */
 type MsgSender = 'customer' | 'bot';
@@ -266,23 +267,25 @@ export const AiChatbotSection = () => {
 
         {/* Right – Copy */}
         <AnimateIn from="right" delay={200} className="order-1 w-full lg:order-2 lg:flex-1">
-          <div className="flex flex-col gap-7">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
-              Inteligência Artificial
-            </p>
+          <div className="flex flex-col gap-7 text-center lg:text-left">
+            <div className="space-y-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
+                Inteligência Artificial
+              </p>
 
-            <h2 className="max-w-[520px] font-[family-name:var(--font-display)] text-[2rem] sm:text-[2.5rem] lg:text-[2.5rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950">
-              A IA responde o repetitivo.{' '}
-              <span className="italic font-medium text-primary">Seu time fecha a venda.</span>
-            </h2>
+              <h2 className="mx-auto max-w-[560px] text-balance font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-[2.5rem] lg:mx-0 lg:text-[2.5rem]">
+                A IA responde o repetitivo.{' '}
+                <span className="italic font-medium text-primary">Seu time fecha a venda.</span>
+              </h2>
 
-            <p className="max-w-xl text-[15px] leading-relaxed text-slate-600">
-              Ela conhece preços, tira dúvidas e qualifica o lead antes do humano entrar.
-            </p>
+              <p className="mx-auto max-w-xl text-pretty text-[15px] leading-[1.6] text-slate-600 lg:mx-0">
+                Ela conhece preços, tira dúvidas e qualifica o lead antes do humano entrar.
+              </p>
+            </div>
 
-            <ul className="flex flex-col gap-4 pt-2">
+            <ul className="flex w-full flex-col gap-4 pt-2 text-left">
               {FEATURES.map((feat) => (
-                <li key={feat} className="flex items-center gap-3">
+                <li key={feat} className="flex items-center justify-center gap-3 lg:justify-start">
                   <span className="h-2 w-2 flex-shrink-0 rounded-sm bg-primary" />
                   <span className="text-[15px] text-slate-900">{feat}</span>
                 </li>
@@ -291,13 +294,23 @@ export const AiChatbotSection = () => {
 
             <a
               href="#pricing"
-              className="mt-4 inline-flex w-fit items-center gap-2.5 rounded-[10px] bg-primary px-8 py-4 text-[15px] font-semibold text-white shadow-[0_4px_14px_rgba(23,199,90,0.25)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.35)]"
+              className={`${ctaPrimary} mt-2 hidden lg:inline-flex`}
             >
               Ver planos com IA
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
         </AnimateIn>
+
+        <div className="order-3 w-full lg:hidden">
+          <a
+            href="#pricing"
+            className={`${ctaPrimary} ${ctaMobileFull}`}
+          >
+            Ver planos com IA
+            <ArrowRight className="h-4 w-4" />
+          </a>
+        </div>
       </div>
     </section>
   );

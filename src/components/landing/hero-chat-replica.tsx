@@ -679,50 +679,50 @@ export function HeroChatReplica() {
       {/* ── Chat area ── */}
       <div className="flex min-w-0 flex-1 flex-col overflow-hidden bg-[#FAFAFA]">
         {/* Header */}
-        <div className="flex shrink-0 items-center justify-between border-b border-[#E2E8F0] bg-white px-4 py-3">
-          <div className="flex items-center gap-2.5">
-            <div className="relative h-9 w-9 shrink-0">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500 text-[11px] font-bold text-white">
+        <div className="flex shrink-0 items-center justify-between gap-2 border-b border-[#E2E8F0] bg-white px-3 py-2.5 sm:px-4 sm:py-3">
+          <div className="flex min-w-0 items-center gap-2 sm:gap-2.5">
+            <div className="relative h-8 w-8 shrink-0 sm:h-9 sm:w-9">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white sm:h-9 sm:w-9 sm:text-[11px]">
                 IS
               </div>
               <span className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[#25D366] ring-[1.5px] ring-white">
                 <Phone className="h-2 w-2 fill-white text-white" />
               </span>
             </div>
-            <div className="flex flex-col gap-[3px]">
+            <div className="flex min-w-0 flex-col gap-[3px]">
               <div className="flex items-center gap-2">
-                <span className="text-[14px] font-semibold text-[#0F172A]">Iarley Silva</span>
-                <span className="rounded bg-[#F1F5F9] px-1.5 py-0.5 text-[10px] font-medium text-[#64748B] ring-1 ring-[#E2E8F0]">
+                <span className="max-w-[108px] truncate text-[13px] font-semibold text-[#0F172A] sm:max-w-none sm:text-[14px]">Iarley Silva</span>
+                <span className="hidden rounded bg-[#F1F5F9] px-1.5 py-0.5 text-[10px] font-medium text-[#64748B] ring-1 ring-[#E2E8F0] min-[360px]:inline">
                   Iarley
                 </span>
               </div>
               <p className="text-[11px] text-[#64748B]">Atendente: Iarley</p>
             </div>
           </div>
-          <div className="flex items-center gap-2.5">
-            <Undo2 className="h-4 w-4 text-[#64748B]" />
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2.5">
+            <Undo2 className="hidden h-4 w-4 text-[#64748B] min-[360px]:block" />
             <button
               onClick={() => setSidebarMode(sidebarMode === "quick-reply" ? "contact" : "quick-reply")}
               className={`rounded p-0.5 transition-colors ${sidebarMode === "quick-reply" ? "bg-[#D9FDD3]" : ""}`}
             >
               <Zap className={`h-4 w-4 ${sidebarMode === "quick-reply" ? "text-[#17C75A]" : "text-[#64748B]"}`} />
             </button>
-            <span className="flex items-center justify-center rounded-lg bg-[#17C75A] px-3 py-1.5">
+            <span className="flex items-center justify-center rounded-lg bg-[#17C75A] px-2.5 py-1.5 sm:px-3">
               <Check className="h-4 w-4 text-white" strokeWidth={3} />
             </span>
-            <MoreVertical className="h-4 w-4 text-[#64748B]" />
+            <MoreVertical className="hidden h-4 w-4 text-[#64748B] min-[360px]:block" />
           </div>
         </div>
 
         {/* Tags bar */}
-        <div className="flex shrink-0 items-center gap-2 border-b border-[#E2E8F0] bg-white px-4 py-2">
+        <div className="flex shrink-0 items-center gap-2 border-b border-[#E2E8F0] bg-white px-3 py-2 sm:px-4">
           <span className="text-[11px] font-semibold text-[#94A3B8]">Tags</span>
           <span className="h-3.5 w-px bg-[#E2E8F0]" />
           <span className="rounded-xl bg-[#F8FAFC] px-3 py-1 text-[11px] text-[#94A3B8]">Etiquetas</span>
         </div>
 
         {/* Messages */}
-        <div ref={chatRef} className="min-h-0 flex-1 space-y-2.5 overflow-y-auto px-4 py-4 scroll-smooth">
+        <div ref={chatRef} className="min-h-0 flex-1 space-y-2.5 overflow-y-auto px-3 py-3 scroll-smooth sm:px-4 sm:py-4">
           {messages.map((msg) => (
             <MessageBubble key={msg.id} msg={msg} time={time} />
           ))}
@@ -730,15 +730,15 @@ export function HeroChatReplica() {
         </div>
 
         {/* Input bar */}
-        <div className="shrink-0 bg-white px-4 pb-4 pt-3">
-          <div className="flex items-center gap-4 rounded-lg border border-[#E2E8F0] px-3 py-2">
-            <div className="flex items-center gap-4 text-[#64748B]">
+        <div className="shrink-0 bg-white px-3 pb-3 pt-3 sm:px-4 sm:pb-4">
+          <div className="flex min-w-0 items-center gap-2 rounded-lg border border-[#E2E8F0] px-2.5 py-2 sm:gap-4 sm:px-3">
+            <div className="flex shrink-0 items-center gap-2.5 text-[#64748B] sm:gap-4">
               <Smile className="h-[18px] w-[18px]" />
               <Paperclip className="h-[18px] w-[18px]" />
               <span className="flex items-center justify-center rounded-md bg-[#D9FDD3] p-1.5">
                 <Signature className="h-[18px] w-[18px] text-[#16A34A]" />
               </span>
-              <CircleStop className="h-[18px] w-[18px]" />
+              <CircleStop className="hidden h-[18px] w-[18px] min-[360px]:block" />
               <button onClick={() => setSidebarMode(sidebarMode === "quick-reply" ? "contact" : "quick-reply")}>
                 <Zap
                   className={`h-[18px] w-[18px] transition-colors ${sidebarMode === "quick-reply" ? "text-[#17C75A]" : "text-[#64748B]"}`}
@@ -753,19 +753,19 @@ export function HeroChatReplica() {
                 if (e.key === "Enter" && inputEnabled) handleSend();
               }}
               placeholder="Escreva uma mensagem..."
-              className="flex-1 truncate bg-transparent text-[11px] text-[#0F172A] placeholder-[#CBD5E1] outline-none"
+              className="min-w-0 flex-1 truncate bg-transparent text-[10px] text-[#0F172A] placeholder-[#CBD5E1] outline-none sm:text-[11px]"
               disabled={!inputEnabled}
             />
-            <Mic className="h-[18px] w-[18px] shrink-0 text-[#64748B]" />
+            <Mic className="hidden h-[18px] w-[18px] shrink-0 text-[#64748B] min-[360px]:block" />
             <button
               onClick={handleSend}
               disabled={!inputEnabled || !inputValue.trim()}
-              className={`flex shrink-0 items-center gap-1.5 rounded-lg px-4 py-2 text-[12px] font-semibold transition-colors ${
+              className={`flex h-8 w-8 shrink-0 items-center justify-center gap-1.5 rounded-lg px-0 text-[12px] font-semibold transition-colors sm:w-auto sm:px-4 ${
                 inputEnabled && inputValue.trim() ? "bg-[#17C75A] text-white" : "bg-[#E2E8F0] text-[#64748B]"
               }`}
             >
               <ArrowUp className="h-3.5 w-3.5" strokeWidth={3} />
-              Enviar
+              <span className="hidden sm:inline">Enviar</span>
             </button>
           </div>
         </div>

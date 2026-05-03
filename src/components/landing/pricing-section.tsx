@@ -75,15 +75,15 @@ export function PricingSection() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         {/* Header */}
         <AnimateIn>
-          <div className="max-w-2xl mb-10">
+          <div className="mx-auto mb-10 max-w-2xl text-center lg:mx-0 lg:text-left">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary mb-5 font-[family-name:var(--font-display)]">
               Planos e Preços
             </p>
-            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-[-0.02em] leading-[1.1] text-slate-950 mb-5">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] text-balance font-bold tracking-[-0.02em] leading-[1.1] text-slate-950 mb-5">
               Escolha pelo tamanho{' '}
               <span className="italic font-medium text-primary">da sua operação.</span>
             </h2>
-            <p className="text-[15px] text-slate-600 leading-relaxed max-w-xl">
+            <p className="mx-auto max-w-xl text-pretty text-[15px] leading-relaxed text-slate-600 lg:mx-0">
               Comece com WhatsApp e CRM. Adicione IA, Instagram e mais conexões quando fizer sentido.
             </p>
           </div>

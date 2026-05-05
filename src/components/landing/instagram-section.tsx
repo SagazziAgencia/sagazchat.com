@@ -16,7 +16,7 @@ import {
   Video,
 } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
-import { ctaMobileFull, ctaPrimary } from './cta-styles';
+import { ctaDesktopInline, ctaMobileFull, ctaPrimary } from './cta-styles';
 
 /* Instagram-style script logo */
 function InstagramLogo({ className }: { className?: string }) {
@@ -112,7 +112,7 @@ export function InstagramSection() {
 
             <a
               href="#pricing"
-              className={`${ctaPrimary} mt-2 hidden lg:inline-flex`}
+              className={`${ctaPrimary} ${ctaDesktopInline}`}
             >
               Automatizar Instagram
               <ArrowRight className="h-4 w-4" />

@@ -4,6 +4,7 @@ import React, { useState, useMemo } from 'react';
 import { ArrowRight, Minus, Plus, Instagram, Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { AnimateIn } from '@/components/ui/animate-in';
+import { ctaPlanDark, ctaPlanPrimary } from './cta-styles';
 import {
   getPlan,
   tierMeta,
@@ -229,12 +230,7 @@ export function PricingSection() {
                         href={plan.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={cn(
-                          'group flex items-center justify-between w-full px-4 py-2.5 rounded-xl text-[13px] font-bold transition-all active:scale-[0.98]',
-                          isRec
-                            ? 'bg-primary text-white hover:bg-primary/90'
-                            : 'bg-slate-950 text-white hover:bg-slate-800'
-                        )}
+                        className={isRec ? ctaPlanPrimary : ctaPlanDark}
                       >
                         <span>Contratar</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" strokeWidth={2.5} />

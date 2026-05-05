@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import { Facebook, Instagram, Linkedin, MessageCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -32,12 +31,10 @@ export function Footer() {
               <p className="text-[15px] text-slate-400 text-pretty leading-relaxed max-w-xl mx-auto">
                 Escolha um plano e comece com WhatsApp, CRM e automações no mesmo lugar.
               </p>
-              <Button asChild size="lg" className={`${ctaPrimary} ${ctaMobileFull}`}>
-                <Link href={LANDING_CTA.salesContact}>
-                  <WhatsAppIcon className="w-5 h-5 shrink-0" />
-                  <span>Ver planos e começar</span>
-                </Link>
-              </Button>
+              <Link href={LANDING_CTA.salesContact} className={`${ctaPrimary} ${ctaMobileFull}`}>
+                <WhatsAppIcon className="h-5 w-5 shrink-0" />
+                <span>Ver planos e começar</span>
+              </Link>
             </div>
           </div>
         </div>

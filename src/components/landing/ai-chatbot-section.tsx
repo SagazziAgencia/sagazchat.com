@@ -17,7 +17,7 @@ import {
   Zap,
 } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
-import { ctaMobileFull, ctaPrimary } from './cta-styles';
+import { ctaDesktopInline, ctaMobileFull, ctaPrimary } from './cta-styles';
 
 /* ─── types ─── */
 type MsgSender = 'customer' | 'bot';
@@ -294,7 +294,7 @@ export const AiChatbotSection = () => {
 
             <a
               href="#pricing"
-              className={`${ctaPrimary} mt-2 hidden lg:inline-flex`}
+              className={`${ctaPrimary} ${ctaDesktopInline}`}
             >
               Ver planos com IA
               <ArrowRight className="h-4 w-4" />

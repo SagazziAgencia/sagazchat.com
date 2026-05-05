@@ -44,16 +44,16 @@ export function EnterpriseSection() {
               ))}
             </ul>
 
-            <div className={`${ctaRow} mt-2 hidden lg:flex`}>
+            <div className={`${ctaRow} mt-2 lg:justify-start`}>
               <a
                 href={LANDING_CTA.salesContact}
-                className={ctaPrimary}
+                className={`${ctaPrimary} ${ctaMobileFull}`}
               >
                 Falar com especialista
               </a>
               <a
                 href={LANDING_CTA.salesContact}
-                className={ctaSecondaryDark}
+                className={`${ctaSecondaryDark} ${ctaMobileFull}`}
               >
                 Agendar reunião
               </a>
@@ -73,23 +73,6 @@ export function EnterpriseSection() {
             </div>
           </div>
         </AnimateIn>
-
-        <div className="lg:hidden">
-          <div className={ctaRow}>
-            <a
-              href={LANDING_CTA.salesContact}
-              className={`${ctaPrimary} ${ctaMobileFull}`}
-            >
-              Falar com especialista
-            </a>
-            <a
-              href={LANDING_CTA.salesContact}
-              className={`${ctaSecondaryDark} ${ctaMobileFull}`}
-            >
-              Agendar reunião
-            </a>
-          </div>
-        </div>
       </div>
     </section>
   );

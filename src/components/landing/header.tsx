@@ -6,6 +6,7 @@ import { ArrowRight, Menu, X } from 'lucide-react';
 
 import { Logo } from '../brand/logo';
 import { LANDING_CTA } from './cta-links';
+import { ctaHeaderMobilePrimary, ctaHeaderPrimary, ctaHeaderSecondary } from './cta-styles';
 
 const navItems = [
   { href: '#hero', label: 'Início' },
@@ -62,14 +63,14 @@ export function Header() {
               href={LANDING_CTA.app}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg border border-slate-300 px-4 py-1.5 text-[13px] font-medium text-slate-600 transition-colors hover:border-slate-400 hover:text-slate-900"
+              className={ctaHeaderSecondary}
             >
               Entrar
             </Link>
 
             <Link
               href={LANDING_CTA.pricingAnchor}
-              className="inline-flex h-9 items-center gap-1.5 rounded-lg bg-primary px-4 text-[13px] font-semibold text-white transition-colors hover:bg-primary/90"
+              className={ctaHeaderPrimary}
             >
               Começar agora
               <ArrowRight className="h-3 w-3" />
@@ -112,7 +113,7 @@ export function Header() {
               <Link
                 href={LANDING_CTA.pricingAnchor}
                 onClick={handleLinkClick}
-                className="flex h-11 items-center justify-center gap-1.5 rounded-lg bg-primary text-sm font-semibold text-white transition-colors hover:bg-primary/90"
+                className={ctaHeaderMobilePrimary}
               >
                 Começar agora
                 <ArrowRight className="h-3.5 w-3.5" />

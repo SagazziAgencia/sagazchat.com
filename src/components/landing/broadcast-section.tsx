@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowRight, Check, CheckCircle2, Megaphone, Users, Zap } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
-import { ctaMobileFull, ctaPrimary } from './cta-styles';
+import { ctaDesktopInline, ctaMobileFull, ctaPrimary } from './cta-styles';
 
 const BULLETS = [
   'Segmentação por etiqueta ou lista',
@@ -143,7 +143,7 @@ export const BroadcastSection = () => {
 
             <a
               href="#pricing"
-              className={`${ctaPrimary} mt-2 hidden lg:inline-flex`}
+              className={`${ctaPrimary} ${ctaDesktopInline}`}
             >
               Ver planos
               <ArrowRight className="h-4 w-4" />

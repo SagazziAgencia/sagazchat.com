@@ -9,7 +9,7 @@ import {
   Search,
 } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
-import { ctaMobileFull, ctaPrimary } from './cta-styles';
+import { ctaDesktopInline, ctaMobileFull, ctaPrimary } from './cta-styles';
 
 const BULLETS = [
   'Valor somado por etapa',
@@ -254,7 +254,7 @@ export const CrmKanbanSection = () => {
 
             <a
               href="#pricing"
-              className={`${ctaPrimary} mt-2 hidden lg:inline-flex`}
+              className={`${ctaPrimary} ${ctaDesktopInline}`}
             >
               Ver planos
               <ArrowRight className="h-4 w-4" />

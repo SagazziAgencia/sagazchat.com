@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { ArrowRight, MonitorSmartphone } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
-import { ctaMobileFull, ctaPrimary } from './cta-styles';
+import { ctaDesktopInline, ctaMobileFull, ctaPrimary } from './cta-styles';
 
 /* ╔═══════════════════════════════════════════════════════════╗
    ║  CONFIGURAÇÃO DA IMAGEM                                   ║
@@ -118,7 +118,7 @@ export function MultiWhatsapp() {
 
             <a
               href="#pricing"
-              className={`${ctaPrimary} mt-2 hidden lg:inline-flex`}
+              className={`${ctaPrimary} ${ctaDesktopInline}`}
             >
               Centralizar minha operação
               <ArrowRight className="h-4 w-4" />

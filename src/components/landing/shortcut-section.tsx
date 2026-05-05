@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2, MonitorSmartphone } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
+import { ctaDesktopInline, ctaMobileFull, ctaPrimary } from './cta-styles';
 
 /* ╔═══════════════════════════════════════════════════════════╗
    ║  CONFIGURAÇÃO DA IMAGEM                                   ║
@@ -110,10 +111,10 @@ export const ShortcutSection = () => {
 
               <a
                 href="#pricing"
-                className="hidden lg:inline-flex w-fit items-center gap-2.5 rounded-xl bg-primary px-7 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)]"
+                className={`${ctaPrimary} ${ctaDesktopInline}`}
               >
                 Ver planos
-                <ArrowRight className="h-5 w-5" />
+                <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           </AnimateIn>
@@ -131,10 +132,10 @@ export const ShortcutSection = () => {
         <div className="mt-8 text-center lg:hidden">
           <a
             href="#pricing"
-            className="inline-flex items-center gap-2.5 rounded-xl bg-primary px-7 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)]"
+            className={`${ctaPrimary} ${ctaMobileFull}`}
           >
             Ver planos
-            <ArrowRight className="h-5 w-5" />
+            <ArrowRight className="h-4 w-4" />
           </a>
         </div>
       </div>

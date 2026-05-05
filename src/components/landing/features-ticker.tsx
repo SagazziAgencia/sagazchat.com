@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { ArrowRight, MonitorSmartphone } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
 import { cn } from '@/lib/utils';
+import { ctaPrimary } from './cta-styles';
 import { features } from './features-data';
 
 /* ── Integration logos (kept from original) ────────────── */
@@ -214,7 +215,7 @@ export function FeaturesTicker() {
 
                     <a
                       href="#pricing"
-                      className="inline-flex w-fit items-center gap-2.5 rounded-xl bg-primary px-7 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_14px_rgba(23,199,90,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.4)]"
+                      className={`${ctaPrimary} w-fit`}
                     >
                       Ver planos
                       <ArrowRight className="h-4 w-4" />

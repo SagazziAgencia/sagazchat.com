@@ -129,7 +129,7 @@ export const featureMatrix: Array<{
     category: 'Inteligência',
     rows: [
       { label: 'Agentes IA', basic: false, pro: false, basicIa: '1', proIa: '2' },
-      { label: 'Tokens por mês', basic: false, pro: false, basicIa: '5MM', proIa: '10MM' },
+      { label: 'Mensagens por mês (≈)', basic: false, pro: false, basicIa: '~5 mil (5M tokens)', proIa: '~10 mil (10M tokens)' },
     ],
   },
   {

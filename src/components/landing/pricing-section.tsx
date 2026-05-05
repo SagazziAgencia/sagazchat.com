@@ -54,14 +54,14 @@ const STEPS: Step[] = [
     seq: '03',
     headline: 'Agente IA respondendo',
     base: 'Tudo do Basic',
-    delta: ['1 agente IA', '5 milhões de tokens/mês'],
+    delta: ['1 agente IA', '~5 mil mensagens/mês (5M tokens)'],
   },
   {
     tier: 'proIa',
     seq: '04',
     headline: 'Operação inteira no automático',
     base: 'Tudo do PRO',
-    delta: ['2 agentes IA', '10 milhões de tokens/mês'],
+    delta: ['2 agentes IA', '~10 mil mensagens/mês (10M tokens)'],
   },
 ];
 

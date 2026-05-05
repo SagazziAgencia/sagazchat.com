@@ -31,7 +31,7 @@ export const features: FeatureSlide[] = [
     title: 'Monte fluxos visuais sem depender de programador',
     description:
       'Crie menus, condições, respostas automáticas, handoff para humanos e integrações em um editor drag and drop que sua equipe entende rápido.',
-    imageUrl: 'https://i.ibb.co/zWB2VBfR/Captura-de-tela-2026-03-18-123058.png',
+    imageUrl: 'https://i.ibb.co/NnLJjkmm/image-34.png',
   },
   {
     label: 'Visão Completa',

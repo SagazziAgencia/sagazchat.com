@@ -333,7 +333,7 @@ export function RemarketingMockup() {
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             onClick={() => setModalVisible(false)}
-            className="relative w-full bg-[#F5F6F8] rounded-[24px] border border-slate-200 shadow-2xl overflow-hidden flex flex-col min-h-[580px] ring-1 ring-slate-200 select-none"
+            className="relative w-full min-w-0 bg-[#F5F6F8] rounded-[24px] border border-slate-200 shadow-2xl overflow-hidden flex flex-col min-h-[580px] ring-1 ring-slate-200 select-none"
         >
 
                                 {/* Panel Header with Toggle */}
@@ -550,8 +550,8 @@ export const RemarketingSection = () => {
                 </div>
 
                 {/* Right Content - Mockup Panel */}
-                <AnimateIn from="right" delay={200} duration={700}>
-                    <div className="flex justify-center lg:justify-end">
+                <AnimateIn from="bottom" delay={200} duration={700}>
+                    <div className="mx-auto flex w-full max-w-[calc(100vw-32px)] justify-center overflow-hidden lg:mr-0 lg:max-w-none lg:justify-end">
                         <RemarketingMockup />
                     </div>
                 </AnimateIn>

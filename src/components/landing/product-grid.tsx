@@ -31,9 +31,25 @@ type MockupConfig = {
   align?: 'left' | 'center';
 };
 
+const FLOW_BUILDER_IMAGE = 'https://i.ibb.co/NnLJjkmm/image-34.png';
+
+function FlowBuilderMockup() {
+  return (
+    <img
+      src={FLOW_BUILDER_IMAGE}
+      alt="Criador de fluxos visual do Sagazchat"
+      width={8710}
+      height={6309}
+      loading="lazy"
+      decoding="async"
+      className="block h-auto w-full select-none"
+    />
+  );
+}
+
 const MOCKUP_MAP: Record<MockupKey, MockupConfig> = {
   Chat: { Component: HeroChatReplica, nativeWidth: 1100 },
-  Fluxos: { Component: null, nativeWidth: 0 },
+  Fluxos: { Component: FlowBuilderMockup, nativeWidth: 8710, align: 'center' },
   CRM: { Component: KanbanMockup, nativeWidth: 1280 },
   IA: { Component: AiChatMockup, nativeWidth: 720 },
   Disparos: { Component: BroadcastMockup, nativeWidth: 820, align: 'center' },

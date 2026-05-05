@@ -12,7 +12,7 @@ import { ctaDesktopInline, ctaMobileFull, ctaPrimary } from './cta-styles';
    ║  Aceita URL externa ou caminho local (/images/xxx.png)    ║
    ╚═══════════════════════════════════════════════════════════╝ */
 
-const MULTI_WHATSAPP_IMAGE = 'https://i.ibb.co/60Y4RGQc/Group-4.png';
+const MULTI_WHATSAPP_IMAGE = 'https://i.ibb.co/pcLYfFR/image-33.png';
 
 const CHANNELS = [
   'Até 20 slots de canal',

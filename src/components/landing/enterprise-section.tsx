@@ -1,19 +1,22 @@
 'use client';
 
-import { Check } from 'lucide-react';
-import Image from 'next/image';
+import { Check, Users, ClipboardList, Wrench, PackageCheck, ChevronRight } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
 import { LANDING_CTA } from './cta-links';
 import { ctaMobileFull, ctaPrimary, ctaRow, ctaSecondaryDark } from './cta-styles';
 
 const BULLETS = [
-  'Diagnóstico da operação',
-  'Setup personalizado',
-  'Plano comercial sob medida',
+  'Implantação conduzida por um especialista, não por documentação.',
+  'Integrações sob medida com seu CRM, ERP ou planilhas.',
+  'Treinamento ao vivo do time + 30 dias de acompanhamento.',
 ];
 
-const ENTERPRISE_SETUP_IMAGE =
-  '/images/enterprise-setup.png';
+const STEPS = [
+  { label: 'Reunião', icon: Users },
+  { label: 'Formulário', icon: ClipboardList },
+  { label: 'Criação', icon: Wrench },
+  { label: 'Entrega', icon: PackageCheck },
+];
 
 export function EnterpriseSection() {
   return (
@@ -24,26 +27,26 @@ export function EnterpriseSection() {
           <div className="flex flex-col gap-6 text-center lg:text-left">
             <div className="space-y-4">
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
-                Para empresas
+                Plano Enterprise
               </p>
 
               <h2 className="mx-auto max-w-[560px] text-balance font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.5rem] lg:mx-0 lg:text-[2.5rem]">
-                Mais volume,{' '}
-                <span className="italic font-medium text-primary">menos improviso.</span>
+                A gente monta o Sagaz{' '}
+                <span className="italic font-medium text-primary">dentro da sua operação.</span>
               </h2>
 
               <p className="mx-auto max-w-xl text-pretty text-[15px] leading-[1.6] text-slate-400 lg:mx-0">
-                Para equipes com regras, integrações ou volume que pedem uma implantação mais próxima.
+                Da primeira reunião à entrega: a gente cuida do briefing, monta as automações e entrega tudo pronto pra rodar — sem você virar especialista em automação.
               </p>
             </div>
 
             <ul className="flex w-full flex-col gap-3.5 text-left">
               {BULLETS.map((bullet) => (
-                <li key={bullet} className="flex items-center justify-center gap-2.5 lg:justify-start">
-                  <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary">
+                <li key={bullet} className="flex items-start justify-center gap-2.5 lg:justify-start">
+                  <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary">
                     <Check className="h-3 w-3 text-white" strokeWidth={3.5} />
                   </span>
-                  <span className="text-[15px] text-white">{bullet}</span>
+                  <span className="text-[15px] leading-[1.5] text-white">{bullet}</span>
                 </li>
               ))}
             </ul>
@@ -65,33 +68,48 @@ export function EnterpriseSection() {
           </div>
         </AnimateIn>
 
-        {/* Right — Placeholder visual (fiel ao wireframe) */}
+        {/* Right — Etapas do processo */}
         <AnimateIn from="right" delay={200}>
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative h-[340px] w-full max-w-[520px] overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-[0_28px_80px_rgba(0,0,0,0.35)]">
-              <Image
-                src={ENTERPRISE_SETUP_IMAGE}
-                alt="Equipe em setup de implantação com notebook"
-                fill
-                sizes="(min-width: 1024px) 520px, 92vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-950/20 via-slate-950/25 to-slate-950/80" />
-              <div className="absolute inset-x-5 bottom-5 rounded-xl border border-white/10 bg-slate-950/80 p-4 backdrop-blur-md">
-                <div className="mb-3 flex items-center justify-between gap-3">
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">
-                    Setup assistido
-                  </span>
-                  <span className="rounded-full bg-primary/15 px-2.5 py-1 text-[11px] font-bold text-primary">
-                    Empresa
-                  </span>
-                </div>
-                <div className="grid grid-cols-3 gap-2 text-[11px] font-medium text-slate-300">
-                  <span className="rounded-lg bg-white/5 px-2.5 py-2">Diagnóstico</span>
-                  <span className="rounded-lg bg-white/5 px-2.5 py-2">Integrações</span>
-                  <span className="rounded-lg bg-white/5 px-2.5 py-2">Treinamento</span>
-                </div>
+          <div className="relative">
+            <div className="absolute -inset-px -z-10 rounded-2xl bg-gradient-to-br from-primary/15 via-transparent to-transparent blur-2xl" />
+            <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-6 shadow-[0_28px_80px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:p-8">
+              <div className="mb-6 flex items-center justify-between">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
+                  Como funciona
+                </span>
+                <span className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 text-[11px] font-bold text-primary">
+                  até 14 dias
+                </span>
               </div>
+
+              <ol className="flex items-center justify-between gap-2">
+                {STEPS.map((step, idx) => {
+                  const Icon = step.icon;
+                  return (
+                    <li key={step.label} className="contents">
+                      <div className="flex flex-1 flex-col items-center gap-2.5">
+                        <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 text-primary sm:h-14 sm:w-14">
+                          <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.75} />
+                        </span>
+                        <span className="text-[12px] font-semibold text-white sm:text-[13px]">
+                          {step.label}
+                        </span>
+                      </div>
+                      {idx < STEPS.length - 1 && (
+                        <ChevronRight
+                          className="h-4 w-4 flex-shrink-0 text-slate-600 sm:h-5 sm:w-5"
+                          strokeWidth={2}
+                          aria-hidden
+                        />
+                      )}
+                    </li>
+                  );
+                })}
+              </ol>
+
+              <p className="mt-6 text-center text-[13px] leading-[1.5] text-slate-400">
+                Você participa do começo e do fim. O meio a gente resolve.
+              </p>
             </div>
           </div>
         </AnimateIn>

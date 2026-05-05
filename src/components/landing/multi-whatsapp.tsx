@@ -15,8 +15,8 @@ import { ctaDesktopInline, ctaMobileFull, ctaPrimary } from './cta-styles';
 const MULTI_WHATSAPP_IMAGE = 'https://i.ibb.co/60Y4RGQc/Group-4.png';
 
 const CHANNELS = [
-  'Até 10 números de WhatsApp',
-  'Instagram com DMs e comentários',
+  'Até 20 slots de canal',
+  'WhatsApp, Instagram, Email, Widget ou Messenger',
   'Histórico único por contato',
   'Transferência sem perder contexto',
 ];

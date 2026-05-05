@@ -17,8 +17,8 @@ export function Hero() {
         <div className="flex w-full flex-col items-center gap-6 text-center sm:gap-10 lg:gap-12">
           <div className="mx-auto w-full max-w-[1080px] space-y-4 sm:space-y-6">
             <AnimateIn delay={0}>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 sm:text-[12px]">
-                PARA EMPRESAS QUE QUEREM ESCALAR SEM PERDER DINHEIRO
+              <p className="font-[family-name:var(--font-display)] text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
+                Atendimento centralizado
               </p>
             </AnimateIn>
 
@@ -86,7 +86,7 @@ export function Hero() {
 
           <AnimateIn delay={460}>
             <div className="mx-auto max-w-[680px] text-[12px] font-medium leading-relaxed text-slate-400">
-              WhatsApp + Instagram · CRM visual · Automações, remarketing e IA no mesmo lugar
+              5 canais em slots livres · CRM visual · Automações, remarketing e IA no mesmo lugar
             </div>
           </AnimateIn>
         </div>

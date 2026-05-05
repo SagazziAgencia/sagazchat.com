@@ -1,5 +1,5 @@
 export const LANDING_CTA = {
-  salesContact: '#pricing',
+  salesContact: '#enterprise',
   demo: '#features',
   app: 'https://app.sagazchatbot.ai',
   pricingAnchor: '#pricing',

@@ -8,7 +8,7 @@ export const ctaPrimary =
   `${ctaBase} min-w-[220px] bg-primary text-white shadow-[0_4px_14px_rgba(23,199,90,0.25)] hover:bg-primary/90 hover:shadow-[0_6px_20px_rgba(23,199,90,0.35)]`;
 
 export const ctaSecondary =
-  `${ctaBase} min-w-[160px] border border-slate-300 bg-white text-slate-900 hover:border-slate-400 hover:bg-slate-50`;
+  `${ctaBase} min-w-[160px] border border-slate-300 bg-white text-slate-900 hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900`;
 
 export const ctaSecondaryDark =
   `${ctaBase} min-w-[160px] border border-slate-600 bg-transparent text-white hover:bg-white/5 focus-visible:ring-offset-slate-900`;

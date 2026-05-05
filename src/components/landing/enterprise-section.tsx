@@ -13,7 +13,7 @@ const BULLETS = [
 
 export function EnterpriseSection() {
   return (
-    <section className="bg-[#0F172A] py-20">
+    <section id="enterprise" className="bg-[#0F172A] py-20">
       <div className="mx-auto grid max-w-[1360px] grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
         {/* Left — Copy */}
         <AnimateIn from="left" delay={100}>

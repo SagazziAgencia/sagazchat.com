@@ -42,7 +42,7 @@ const SCRIPT: ScriptStep[] = [
   { action: 'msg', sender: 'bot', text: 'Transcreve automaticamente e responde em texto. O agente lembra da conversa inteira, então não perde contexto. 🚀', delay: 0 },
   { action: 'msg', sender: 'customer', text: 'Quanto custa?', delay: 2400 },
   { action: 'typing', sender: 'bot', duration: 1200 },
-  { action: 'msg', sender: 'bot', text: 'O Basic + IA sai R$ 267/mês com 5 milhões de tokens. O PRO + IA por R$ 347 com 10 milhões e 2 agentes.', delay: 0 },
+  { action: 'msg', sender: 'bot', text: 'O Basic + IA sai a partir de R$ 167 no 1º mês com 5 milhões de tokens. O PRO + IA parte de R$ 297 com 10 milhões e 2 agentes.', delay: 0 },
 ];
 
 /* ─── helpers ─── */

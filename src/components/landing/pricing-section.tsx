@@ -1,10 +1,11 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { ArrowRight, Minus, Plus, Instagram, Check } from 'lucide-react';
+import { ArrowRight, Minus, Plus, Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { AnimateIn } from '@/components/ui/animate-in';
 import { ctaPlanDark, ctaPlanPrimary } from './cta-styles';
+import { LANDING_CTA } from './cta-links';
 import {
   getPlan,
   tierMeta,
@@ -26,7 +27,8 @@ const STEPS: Step[] = [
     seq: '01',
     headline: 'O básico bem feito',
     delta: [
-      'Atendimento multi-atendente',
+      '5 acessos simultâneos',
+      '1 grupo por slot',
       'Disparos em massa + robôs',
       '15.000 webhooks/mês por conexão',
       '2 kanbans · suporte humano',
@@ -39,8 +41,9 @@ const STEPS: Step[] = [
     base: 'Tudo do Basic',
     delta: [
       '30.000 webhooks/mês por conexão',
-      '20 acessos simultâneos',
-      '5 kanbans · agenda',
+      '15 acessos simultâneos',
+      '3 grupos por slot',
+      '5 kanbans · agenda nativa',
       'Integração Post/Put/Get',
       '1 call de onboarding',
     ],
@@ -62,13 +65,42 @@ const STEPS: Step[] = [
   },
 ];
 
+const currencyFormatter = new Intl.NumberFormat('pt-BR', {
+  style: 'currency',
+  currency: 'BRL',
+  maximumFractionDigits: 0,
+});
+
+function parseCurrency(value: string) {
+  return Number(value.replace(/\./g, '').replace(',', '.'));
+}
+
+function getPlanPriceDiscount(
+  tier: Tier,
+  connections: number,
+  selectedPlan: { price: string }
+) {
+  if (connections <= 1) return null;
+
+  const singleConnectionPrice = parseCurrency(getPlan(tier, 1).price);
+  const selectedPrice = parseCurrency(selectedPlan.price);
+  const referencePrice = singleConnectionPrice * connections;
+  const savings = Math.max(referencePrice - selectedPrice, 0);
+
+  if (savings <= 0) return null;
+
+  return {
+    referencePrice: currencyFormatter.format(referencePrice),
+    savings: currencyFormatter.format(savings),
+  };
+}
+
 export function PricingSection() {
   const [connections, setConnections] = useState(1);
-  const [instagram, setInstagram] = useState(false);
 
   const planFor = useMemo(
-    () => (tier: Tier) => getPlan(tier, connections, instagram),
-    [connections, instagram]
+    () => (tier: Tier) => getPlan(tier, connections),
+    [connections]
   );
 
   return (
@@ -76,27 +108,27 @@ export function PricingSection() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         {/* Header */}
         <AnimateIn>
-          <div className="mx-auto mb-10 max-w-2xl text-center lg:mx-0 lg:text-left">
+          <div className="mx-auto mb-10 max-w-2xl text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary mb-5 font-[family-name:var(--font-display)]">
               Planos e Preços
             </p>
             <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] text-balance font-bold tracking-[-0.02em] leading-[1.1] text-slate-950 mb-5">
-              Escolha pelo tamanho{' '}
-              <span className="italic font-medium text-primary">da sua operação.</span>
+              Comece com a estrutura certa{' '}
+              <span className="italic font-medium text-primary">para vender mais.</span>
             </h2>
-            <p className="mx-auto max-w-xl text-pretty text-[15px] leading-relaxed text-slate-600 lg:mx-0">
-              Comece com WhatsApp e CRM. Adicione IA, Instagram e mais conexões quando fizer sentido.
+            <p className="mx-auto max-w-xl text-pretty text-[15px] leading-relaxed text-slate-600">
+              Cada conexão é um canal ativo da sua operação: WhatsApp, Instagram, Email, Widget ou Messenger. Escolha a quantidade, veja o preço na hora e ajuste quando crescer.
             </p>
           </div>
         </AnimateIn>
 
         {/* Controls bar — right above cards */}
         <AnimateIn delay={100}>
-          <div className="flex items-center justify-between gap-4 flex-wrap mb-6 sm:mb-4 px-1">
-            <span className="hidden text-[12px] text-slate-500 sm:inline">
-              Ajuste volume e canais para ver o preço do seu plano:
+          <div className="mb-8 flex flex-col items-center justify-center gap-3 px-1 text-center sm:mb-6">
+            <span className="text-[12px] font-medium text-slate-500">
+              Quantas conexões sua operação precisa agora?
             </span>
-            <div className="flex w-full items-center justify-end gap-3 flex-wrap sm:w-auto">
+            <div className="flex w-full items-center justify-center gap-3 flex-wrap sm:w-auto">
               <div className="inline-flex items-center gap-2 text-[12px] text-slate-600">
                 <span className="font-medium">Conexões</span>
                 <div className="flex items-center gap-0 rounded-full border border-slate-300 bg-white overflow-hidden">
@@ -104,7 +136,7 @@ export function PricingSection() {
                     type="button"
                     onClick={() => setConnections((c) => Math.max(1, c - 1))}
                     disabled={connections <= 1}
-                    aria-label="Menos uma conexão"
+                    aria-label="Menos um slot de canal"
                     className="w-9 h-9 flex items-center justify-center text-slate-600 hover:bg-slate-100 disabled:text-slate-300 disabled:cursor-not-allowed transition-colors active:scale-90"
                   >
                     <Minus className="w-3.5 h-3.5" />
@@ -114,29 +146,15 @@ export function PricingSection() {
                   </div>
                   <button
                     type="button"
-                    onClick={() => setConnections((c) => Math.min(10, c + 1))}
-                    disabled={connections >= 10}
-                    aria-label="Mais uma conexão"
+                    onClick={() => setConnections((c) => Math.min(20, c + 1))}
+                    disabled={connections >= 20}
+                    aria-label="Mais um slot de canal"
                     className="w-9 h-9 flex items-center justify-center text-slate-600 hover:bg-slate-100 disabled:text-slate-300 disabled:cursor-not-allowed transition-colors active:scale-90"
                   >
                     <Plus className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
-              <button
-                type="button"
-                onClick={() => setInstagram((v) => !v)}
-                aria-pressed={instagram}
-                className={cn(
-                  'inline-flex items-center gap-2 px-3.5 py-2 rounded-full border text-[12px] font-medium transition-all active:scale-[0.98]',
-                  instagram
-                    ? 'bg-slate-950 border-slate-950 text-white'
-                    : 'bg-white border-slate-300 text-slate-600 hover:border-slate-400'
-                )}
-              >
-                <Instagram className="w-3.5 h-3.5" />
-                {instagram ? 'Instagram incluso' : 'Adicionar Instagram'}
-              </button>
             </div>
           </div>
         </AnimateIn>
@@ -155,7 +173,10 @@ export function PricingSection() {
 
             <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative">
               {STEPS.map((step, idx) => {
-                const plan = planFor(step.tier);
+                const isIaPlan = step.tier === 'basicIa' || step.tier === 'proIa';
+                const needsCustomIa = isIaPlan && connections > 5;
+                const plan = needsCustomIa ? null : planFor(step.tier);
+                const priceDiscount = plan ? getPlanPriceDiscount(step.tier, connections, plan) : null;
                 const isRec = step.recommended;
                 return (
                   <li
@@ -193,7 +214,6 @@ export function PricingSection() {
                     <div className="mb-1">
                       <span className="font-[family-name:var(--font-display)] font-bold text-[22px] tracking-tight text-slate-950 leading-tight">
                         {tierMeta[step.tier].label}
-                        {instagram && <span className="text-slate-400"> + IG</span>}
                       </span>
                     </div>
                     <p className="text-[13px] text-slate-500 mb-6 leading-snug">{step.headline}</p>
@@ -215,24 +235,55 @@ export function PricingSection() {
                     </ul>
 
                     <div className="pt-5 border-t border-slate-100 mt-auto">
+                      {priceDiscount && (
+                        <div className="mb-1.5 flex items-center gap-2 text-[11px] font-medium text-slate-400">
+                          <span>De</span>
+                          <span className="tabular-nums line-through decoration-slate-400/80">
+                            {priceDiscount.referencePrice}
+                          </span>
+                          <span className="rounded-full bg-primary/10 px-1.5 py-0.5 text-[10px] font-bold text-primary">
+                            economize {priceDiscount.savings}
+                          </span>
+                        </div>
+                      )}
                       <div className="flex items-baseline gap-0.5 mb-1">
-                        <span className="text-slate-400 text-[11px]">R$</span>
-                        <span className="font-[family-name:var(--font-display)] font-bold text-[36px] tabular-nums text-slate-950 leading-none tracking-[-0.02em]">
-                          {plan.price.split(',')[0]}
-                        </span>
-                        <span className="font-[family-name:var(--font-display)] font-bold text-[16px] text-slate-500 tabular-nums">
-                          ,{plan.price.split(',')[1]}
-                        </span>
+                        {plan ? (
+                          <>
+                            <span className={cn('text-[11px]', priceDiscount ? 'text-primary' : 'text-slate-400')}>R$</span>
+                            <span
+                              className={cn(
+                                'font-[family-name:var(--font-display)] font-bold text-[36px] tabular-nums leading-none tracking-[-0.02em]',
+                                priceDiscount ? 'text-primary' : 'text-slate-950'
+                              )}
+                            >
+                              {plan.price.split(',')[0]}
+                            </span>
+                            <span
+                              className={cn(
+                                'font-[family-name:var(--font-display)] font-bold text-[16px] tabular-nums',
+                                priceDiscount ? 'text-primary' : 'text-slate-500'
+                              )}
+                            >
+                              ,{plan.price.split(',')[1]}
+                            </span>
+                          </>
+                        ) : (
+                          <span className="font-[family-name:var(--font-display)] font-bold text-[30px] text-slate-950 leading-none tracking-[-0.02em]">
+                            Sob consulta
+                          </span>
+                        )}
                       </div>
-                      <div className="text-[11px] text-slate-400 mb-4 leading-tight">{plan.subtext}</div>
+                      <div className="text-[11px] text-slate-400 mb-4 leading-tight">
+                        {plan ? plan.subtext : 'IA acima de 5 slots entra como implantação personalizada'}
+                      </div>
 
                       <a
-                        href={plan.link}
-                        target="_blank"
+                        href={plan ? plan.link : LANDING_CTA.salesContact}
+                        target={plan?.link.startsWith('http') ? '_blank' : undefined}
                         rel="noopener noreferrer"
                         className={isRec ? ctaPlanPrimary : ctaPlanDark}
                       >
-                        <span>Contratar</span>
+                        <span>{plan ? 'Contratar' : 'Falar com vendas'}</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" strokeWidth={2.5} />
                       </a>
                     </div>

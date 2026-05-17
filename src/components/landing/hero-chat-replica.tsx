@@ -2,15 +2,14 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import {
-  AtSign,
   ArrowUp,
+  CalendarClock,
   Check,
   CheckCheck,
   ChevronDown,
   ChevronRight,
   CircleStop,
   File,
-  Instagram,
   Image as ImageIcon,
   LayoutGrid,
   List,
@@ -31,6 +30,8 @@ import {
   X,
   Zap,
 } from "lucide-react";
+
+import { ConversationQueue } from "./conversation-queue";
 
 /* ─── types ─── */
 type MsgSender = "customer" | "agent" | "bot";
@@ -62,7 +63,7 @@ const SCRIPT: ScriptStep[] = [
   { action: "typing", sender: "bot", duration: 1200 },
   { action: "msg", sender: "bot", rich: "endereco-atualizado", delay: 0 },
   { action: "msg", sender: "customer", text: "Obrigado!", delay: 2000 },
-  { action: "wait", quickReplies: ["Precisando, é só chamar! 😊", "Avalie nosso atendimento ⭐", "Bom dia!"], pick: "Precisando, é só chamar! 😊", autoDelay: 3200 },
+  { action: "wait", quickReplies: ["Precisando, é só chamar!", "Avalie nosso atendimento", "Bom dia!"], pick: "Precisando, é só chamar!", autoDelay: 3200 },
 ];
 
 /* ─── quick reply panel data ─── */
@@ -269,11 +270,14 @@ function QuickReplyPanel({
   };
 
   return (
-    <div className="flex h-full flex-col bg-[#F7F8FA]">
+    <div className="hero-quick-panel flex h-full flex-col bg-[#F7F8FA]">
       {/* Header */}
       <div className="border-b border-[#D6DBE1] px-3 pb-2 pt-3">
         <div className="flex items-center justify-between">
-          <span className="text-[14px] font-semibold text-[#0F172A]">Iarley Silva</span>
+          <div className="min-w-0">
+            <span className="block truncate text-[14px] font-semibold text-[#0F172A]">Iarley Silva</span>
+            <span className="mt-0.5 block text-[10px] text-[#8A94A6]">Criado em 02/04/2026</span>
+          </div>
           <div className="inline-flex items-center gap-3 text-[#525A67]">
             <PenOff className="h-4 w-4" />
             <button onClick={onClose} className="text-[#525A67]">
@@ -281,7 +285,6 @@ function QuickReplyPanel({
             </button>
           </div>
         </div>
-        <p className="mt-0.5 text-[10px] text-[#8A94A6]">Criado em 02/04/2026</p>
       </div>
 
       {/* Tabs */}
@@ -375,7 +378,9 @@ function QuickReplyPanel({
                   key={`${activeMedia}-${msg}`}
                   data-qr-idx={idx}
                   onClick={() => onPickMessage(msg)}
-                  className="flex w-full items-center justify-between px-0.5 py-1.5 text-left"
+                  className={`hero-quick-row flex w-full items-center justify-between rounded-lg px-2 py-2 text-left transition-colors hover:bg-white ${
+                    idx === 0 ? "hero-quick-row-primary bg-white ring-1 ring-[#D8F8DF]" : ""
+                  }`}
                 >
                   <span className="flex items-center gap-2 truncate text-[13px] font-semibold text-[#111827]">
                     {renderTemplateIcon(activeMedia)}
@@ -393,7 +398,7 @@ function QuickReplyPanel({
               <button
                 key={flow}
                 onClick={() => onPickFlow(flow)}
-                className="flex w-full items-center justify-between px-0.5 py-1 text-left"
+                className="hero-quick-row flex w-full items-center justify-between rounded-lg px-2 py-2 text-left transition-colors hover:bg-white"
               >
                 <span className="flex items-center gap-2 truncate text-[13px] font-semibold text-[#1D1F24]">
                   <FlowNodeIcon className="h-4 w-4 shrink-0 text-[#1D1F24]" />
@@ -648,7 +653,7 @@ export function HeroChatReplica() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative flex h-full overflow-hidden bg-[#FAFAFA]">
+    <div ref={containerRef} className="hero-replica-stage relative flex h-full overflow-hidden bg-[#FAFAFA]">
       {/* ── Cursor overlay ── */}
       {cursor && (
         <div
@@ -676,10 +681,14 @@ export function HeroChatReplica() {
         </div>
       )}
 
+      {/* ── Conversation queue (left) ── */}
+      <ConversationQueue />
+
       {/* ── Chat area ── */}
-      <div className="flex min-w-0 flex-1 flex-col overflow-hidden bg-[#FAFAFA]">
+      <div className="hero-replica-chat relative flex min-w-0 flex-1 flex-col overflow-hidden bg-[#FAFAFA]">
         {/* Header */}
-        <div className="flex shrink-0 items-center justify-between gap-2 border-b border-[#E2E8F0] bg-white px-3 py-2.5 sm:px-4 sm:py-3">
+        <div className="hero-replica-topbar shrink-0 border-b border-[#E2E8F0] bg-white">
+          <div className="flex items-center justify-between gap-2 px-3 py-2.5 sm:px-4 sm:py-3">
           <div className="flex min-w-0 items-center gap-2 sm:gap-2.5">
             <div className="relative h-8 w-8 shrink-0 sm:h-9 sm:w-9">
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white sm:h-9 sm:w-9 sm:text-[11px]">
@@ -699,26 +708,52 @@ export function HeroChatReplica() {
               <p className="text-[11px] text-[#64748B]">Atendente: Iarley</p>
             </div>
           </div>
-          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2.5">
-            <Undo2 className="hidden h-4 w-4 text-[#64748B] min-[360px]:block" />
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+            <button
+              type="button"
+              className="hidden h-8 w-8 items-center justify-center rounded-lg border border-[#E2E8F0] bg-white text-[#64748B] transition-colors hover:bg-[#F8FAFC] min-[520px]:inline-flex"
+              aria-label="Desfazer"
+            >
+              <Undo2 className="h-3.5 w-3.5" />
+            </button>
             <button
               onClick={() => setSidebarMode(sidebarMode === "quick-reply" ? "contact" : "quick-reply")}
-              className={`rounded p-0.5 transition-colors ${sidebarMode === "quick-reply" ? "bg-[#D9FDD3]" : ""}`}
+              type="button"
+              aria-label="Abrir respostas e ações rápidas"
+              className={`hero-replica-action inline-flex h-8 w-8 items-center justify-center rounded-lg text-[11px] font-semibold transition-colors ${
+                sidebarMode === "quick-reply" ? "bg-[#D9FDD3] text-[#15803D]" : "bg-white text-[#64748B] ring-1 ring-[#E2E8F0]"
+              }`}
             >
               <Zap className={`h-4 w-4 ${sidebarMode === "quick-reply" ? "text-[#17C75A]" : "text-[#64748B]"}`} />
             </button>
-            <span className="flex items-center justify-center rounded-lg bg-[#17C75A] px-2.5 py-1.5 sm:px-3">
+            <button
+              type="button"
+              className="hero-replica-resolve flex h-8 w-10 items-center justify-center rounded-lg bg-[#17C75A] text-[11px] font-bold text-white"
+              aria-label="Marcar atendimento como resolvido"
+            >
               <Check className="h-4 w-4 text-white" strokeWidth={3} />
-            </span>
-            <MoreVertical className="hidden h-4 w-4 text-[#64748B] min-[360px]:block" />
+            </button>
+            <button
+              type="button"
+              className="hidden h-8 w-8 items-center justify-center rounded-lg border border-[#E2E8F0] bg-white text-[#64748B] min-[360px]:flex"
+              aria-label="Mais opções da conversa"
+            >
+              <MoreVertical className="h-4 w-4" />
+            </button>
+          </div>
           </div>
         </div>
 
         {/* Tags bar */}
-        <div className="flex shrink-0 items-center gap-2 border-b border-[#E2E8F0] bg-white px-3 py-2 sm:px-4">
+        <div className="hero-replica-tags flex shrink-0 items-center gap-2 border-b border-[#E2E8F0] bg-white px-3 py-2 sm:px-4">
           <span className="text-[11px] font-semibold text-[#94A3B8]">Tags</span>
           <span className="h-3.5 w-px bg-[#E2E8F0]" />
-          <span className="rounded-xl bg-[#F8FAFC] px-3 py-1 text-[11px] text-[#94A3B8]">Etiquetas</span>
+          <span className="rounded-xl bg-[#ECFDF5] px-3 py-1 text-[11px] font-semibold text-[#15803D] ring-1 ring-[#BBF7D0]">
+            Lead quente
+          </span>
+          <span className="hidden rounded-xl bg-[#F8FAFC] px-3 py-1 text-[11px] font-semibold text-[#64748B] ring-1 ring-[#E2E8F0] sm:inline">
+            Pedido #4521
+          </span>
         </div>
 
         {/* Messages */}
@@ -772,7 +807,7 @@ export function HeroChatReplica() {
       </div>
 
       {/* ── Sidebar — toggles between contact info and quick reply panel ── */}
-      <aside className="hidden w-[312px] shrink-0 overflow-hidden border-l border-[#E5E7EB] bg-[#F7F8FA] xl:block">
+      <aside className="hero-replica-sidebar hidden w-[312px] shrink-0 overflow-hidden border-l border-[#E5E7EB] bg-[#F7F8FA] xl:block">
         {sidebarMode === "quick-reply" ? (
           <QuickReplyPanel
             tab={qrTab}
@@ -808,9 +843,9 @@ export function HeroChatReplica() {
             </div>
 
             <div className="mt-4 space-y-2.5">
-              <ContactInfoRow icon={<Phone className="h-3.5 w-3.5" />} label="Telefone" value="+55 (98) 81201979" />
-              <ContactInfoRow icon={<AtSign className="h-3.5 w-3.5" />} label="E-mail" value="Não informado" mutedValue />
-              <ContactInfoRow icon={<Instagram className="h-3.5 w-3.5" />} label="Instagram" value="Não informado" mutedValue />
+              <ContactInfoRow icon={<Phone className="h-3.5 w-3.5" />} label="Canal" value="WhatsApp" />
+              <ContactInfoRow icon={<CalendarClock className="h-3.5 w-3.5" />} label="Criado em" value="02/04/2026" />
+              <ContactInfoRow icon={<File className="h-3.5 w-3.5" />} label="Etiqueta" value="Iarley" />
             </div>
 
             <div className="mt-3 space-y-2.5">

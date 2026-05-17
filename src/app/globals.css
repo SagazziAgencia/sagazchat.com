@@ -157,6 +157,175 @@
   animation: chatMsgIn 0.3s ease-out both;
 }
 
+@keyframes heroDeviceIn {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(28px) scale(0.985) rotateX(2deg);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1) rotateX(0);
+  }
+}
+
+.hero-device-shell {
+  transform-origin: 50% 90%;
+  animation: heroDeviceIn 900ms cubic-bezier(0.18, 0.9, 0.22, 1) both;
+}
+
+@keyframes heroChromeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-browser-chrome {
+  animation: heroChromeIn 520ms ease-out 260ms both;
+}
+
+@keyframes heroPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroPanelInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroPanelInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-replica-stage {
+  isolation: isolate;
+}
+
+.hero-replica-stage::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 35;
+  background:
+    linear-gradient(90deg, transparent, rgb(23 199 90 / 0.18), transparent) 0 0 / 36% 2px no-repeat,
+    radial-gradient(circle at 72% 0%, rgb(23 199 90 / 0.14), transparent 30%);
+  animation: heroScanLine 1900ms cubic-bezier(0.2, 0.7, 0.25, 1) 560ms both;
+}
+
+@keyframes heroScanLine {
+  from {
+    opacity: 0;
+    background-position: -36% 0, 72% 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    background-position: 136% 0, 72% 0;
+  }
+}
+
+.hero-replica-queue {
+  animation: heroPanelInLeft 620ms cubic-bezier(0.18, 0.9, 0.22, 1) 420ms both;
+}
+
+.hero-replica-chat {
+  animation: heroPanelIn 640ms cubic-bezier(0.18, 0.9, 0.22, 1) 520ms both;
+}
+
+.hero-replica-sidebar {
+  animation: heroPanelInRight 620ms cubic-bezier(0.18, 0.9, 0.22, 1) 680ms both;
+}
+
+.hero-replica-topbar {
+  animation: heroChromeIn 520ms ease-out 760ms both;
+}
+
+.hero-replica-action,
+.hero-replica-resolve {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-replica-action::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid rgb(23 199 90 / 0.35);
+  opacity: 0;
+  animation: heroActionRing 2100ms ease-out 1800ms infinite;
+}
+
+@keyframes heroActionRing {
+  0%, 68%, 100% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  12%, 36% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero-replica-resolve {
+  box-shadow: 0 10px 28px rgb(23 199 90 / 0.22);
+}
+
+.hero-quick-panel {
+  animation: heroPanelInRight 520ms cubic-bezier(0.18, 0.9, 0.22, 1) both;
+}
+
+.hero-quick-row-primary {
+  animation: heroQuickFocus 1800ms ease-in-out infinite;
+}
+
+@keyframes heroQuickFocus {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgb(23 199 90 / 0);
+  }
+
+  48% {
+    box-shadow: 0 0 0 4px rgb(23 199 90 / 0.1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

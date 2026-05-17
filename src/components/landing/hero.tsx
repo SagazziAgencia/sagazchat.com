@@ -10,74 +10,87 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="border-b border-slate-100 bg-white pt-[92px] sm:pt-[108px] lg:min-h-screen lg:pt-[118px]"
+      className="border-b border-slate-100 bg-[linear-gradient(180deg,#ffffff_0%,#f7fbf8_62%,#ffffff_100%)] pt-[92px] sm:pt-[108px] lg:min-h-screen lg:pt-[118px]"
     >
       <div className="mx-auto flex w-full max-w-[1360px] px-4 pb-10 pt-8 sm:px-6 sm:pb-20 sm:pt-10 lg:min-h-[calc(100svh-170px)] lg:items-center lg:pb-24 lg:pt-14">
-        <div className="flex w-full flex-col items-center gap-6 text-center sm:gap-10 lg:gap-12">
-          <div className="mx-auto w-full max-w-[1080px] space-y-4 sm:space-y-6">
-            <p className="font-[family-name:var(--font-display)] text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
-              Atendimento centralizado
+        <div className="flex w-full flex-col items-start gap-7 text-left sm:gap-10 lg:gap-12">
+          <div className="w-full max-w-[1120px] space-y-5 sm:space-y-6">
+            <p className="inline-flex rounded-full border border-primary/20 bg-white px-3 py-1.5 font-[family-name:var(--font-sans)] text-[11px] font-extrabold uppercase tracking-[0.16em] text-primary shadow-sm">
+              Atendimento, vendas e equipe no mesmo painel
             </p>
 
-            <h1 className="text-balance font-[family-name:var(--font-display)] text-[2rem] leading-[1.08] tracking-[-0.02em] text-slate-900 sm:text-[2.5rem] lg:text-[2.75rem]">
-              <span className="block">
-                <span className="block font-medium lg:whitespace-nowrap">
-                  Quando o atendimento fica bagunçado,
-                </span>
-                <span className="mt-2 block font-medium italic text-primary lg:whitespace-nowrap">
-                  seu time perde vendas e sua empresa perde dinheiro.
-                </span>
+            <h1 className="max-w-[1040px] text-balance font-[family-name:var(--font-sans)] text-[2.75rem] font-extrabold leading-[0.96] tracking-[-0.045em] text-[#07111F] sm:text-[4.5rem] lg:text-[5.35rem]">
+              <span className="block">Organize o WhatsApp da sua empresa</span>
+              <span className="block text-primary">
+                para atender melhor e vender mais.
               </span>
             </h1>
 
-            <p className="mx-auto max-w-[680px] text-pretty text-[14px] leading-[1.55] text-slate-600 sm:text-[15px] lg:text-[16px]">
-              O Sagazchat centraliza WhatsApp, Instagram, CRM, automações e IA em um só painel para responder mais rápido e transformar conversas em vendas.
+            <p className="max-w-[690px] text-pretty text-[15px] leading-[1.65] text-slate-600 sm:text-[16px] lg:text-[17px]">
+              O Sagazchat centraliza WhatsApp, CRM, automações e IA em um só painel para responder mais rápido e transformar conversas em vendas.
             </p>
+
+            <div className="w-full max-w-[620px]">
+              <div className={`${ctaRow} justify-start`}>
+                <Button
+                  asChild
+                  size="lg"
+                  className={`${ctaPrimary} ${ctaMobileFull}`}
+                >
+                  <Link href={LANDING_CTA.pricingAnchor}>
+                    <span className="hidden sm:inline">Quero organizar meu WhatsApp</span>
+                    <span className="sm:hidden">Organizar WhatsApp</span>
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className={`${ctaSecondary} ${ctaMobileFull} bg-white/80`}
+                >
+                  <Link href={LANDING_CTA.pricingAnchor}>Ver planos</Link>
+                </Button>
+              </div>
+            </div>
           </div>
 
           <div className="flex w-full justify-center">
-            <div className="w-[calc(100vw-8px)] max-w-[1296px] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_28px_72px_rgba(15,23,42,0.14)] sm:w-full">
-              <div className="flex items-center gap-2 border-b border-slate-200 bg-slate-50 px-4 py-3">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#EF4444]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#F59E0B]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#22C55E]" />
-                <div className="ml-2 flex-1 rounded-md bg-white px-3 py-1 text-[10px] font-medium text-slate-400 ring-1 ring-slate-200">
-                  app.sagazchat.com/whatsapp
+            <div className="w-[calc(100vw-8px)] max-w-[1320px] sm:w-full">
+              {/* Notebook screen + bezel */}
+              <div className="hero-device-shell relative rounded-[16px] bg-[#0a0a0a] p-[5px] pt-[14px] shadow-[0_36px_90px_rgba(15,23,42,0.32)] sm:rounded-[20px] sm:p-[7px] sm:pt-[18px] lg:rounded-[24px] lg:p-[9px] lg:pt-[22px]">
+                {/* Camera */}
+                <span
+                  aria-hidden
+                  className="absolute left-1/2 top-[5px] h-[4px] w-[4px] -translate-x-1/2 rounded-full bg-[#3f3f46] ring-[0.5px] ring-[#18181b] sm:top-[7px] sm:h-[5px] sm:w-[5px] lg:top-[9px] lg:h-[6px] lg:w-[6px]"
+                />
+                {/* Inner screen */}
+                <div className="overflow-hidden rounded-[10px] border border-slate-200 bg-white sm:rounded-[12px] lg:rounded-[14px]">
+                  <div className="hero-browser-chrome flex items-center gap-2 border-b border-slate-200 bg-slate-50 px-4 py-3">
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#EF4444]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#F59E0B]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#22C55E]" />
+                    <div className="ml-2 flex-1 rounded-md bg-white px-3 py-1 text-[10px] font-medium text-slate-400 ring-1 ring-slate-200">
+                      app.sagazchat.com/whatsapp
+                    </div>
+                  </div>
+                  <div className="h-[324px] min-[390px]:h-[348px] sm:h-[504px] lg:h-[648px]">
+                    <HeroChatReplica />
+                  </div>
                 </div>
               </div>
-              <div className="h-[324px] min-[390px]:h-[348px] sm:h-[504px] lg:h-[648px]">
-                <HeroChatReplica />
+
+              {/* Notebook base (hinge + lower body) */}
+              <div className="relative mx-auto -mt-[2px] h-[18px] w-full sm:h-[24px] lg:h-[30px]">
+                <div className="absolute inset-x-0 top-0 h-full rounded-b-[18px] bg-gradient-to-b from-[#e2e8f0] via-[#94a3b8] to-[#475569] shadow-[0_26px_44px_rgba(15,23,42,0.28)] sm:-inset-x-[2%]" />
+                <div className="absolute left-1/2 top-0 h-[4px] w-[100px] -translate-x-1/2 rounded-b-full bg-[#1e293b]/60 sm:w-[140px] lg:w-[180px]" />
               </div>
             </div>
           </div>
 
-          <div className="w-full max-w-[620px]">
-            <div className={ctaRow}>
-              <Button
-                asChild
-                size="lg"
-                className={`${ctaPrimary} ${ctaMobileFull}`}
-              >
-                <Link href={LANDING_CTA.pricingAnchor}>
-                  <span className="hidden sm:inline">Quero recuperar vendas</span>
-                  <span className="sm:hidden">Recuperar vendas</span>
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className={`${ctaSecondary} ${ctaMobileFull}`}
-              >
-                <Link href={LANDING_CTA.pricingAnchor}>Ver planos</Link>
-              </Button>
-            </div>
-          </div>
-
-          <div className="mx-auto max-w-[680px] text-[12px] font-medium leading-relaxed text-slate-400">
-            5 canais em slots livres · CRM visual · Automações, remarketing e IA no mesmo lugar
+          <div className="max-w-[680px] text-[12px] font-semibold leading-relaxed text-slate-400">
+            WhatsApp conectado · CRM visual · Automações, remarketing e IA no mesmo lugar
           </div>
         </div>
       </div>

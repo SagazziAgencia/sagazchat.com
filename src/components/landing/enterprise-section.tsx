@@ -26,13 +26,13 @@ export function EnterpriseSection() {
         <AnimateIn from="left" delay={100}>
           <div className="flex flex-col gap-6 text-center lg:text-left">
             <div className="space-y-4">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-sans)]">
                 Plano Enterprise
               </p>
 
-              <h2 className="mx-auto max-w-[560px] text-balance font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.5rem] lg:mx-0 lg:text-[2.5rem]">
+              <h2 className="mx-auto max-w-[560px] text-balance font-[family-name:var(--font-sans)] text-[2rem] font-extrabold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.5rem] lg:mx-0 lg:text-[2.5rem]">
                 A gente monta o Sagaz{' '}
-                <span className="italic font-medium text-primary">dentro da sua operação.</span>
+                <span className="font-extrabold text-primary">dentro da sua operação.</span>
               </h2>
 
               <p className="mx-auto max-w-xl text-pretty text-[15px] leading-[1.6] text-slate-400 lg:mx-0">

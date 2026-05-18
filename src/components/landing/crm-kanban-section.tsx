@@ -9,6 +9,7 @@ import {
   Search,
 } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
+import { ScrollStory } from '@/components/ui/scroll-story';
 import { ctaDesktopInline, ctaMobileFull, ctaPrimary } from './cta-styles';
 
 const BULLETS = [
@@ -78,7 +79,7 @@ function EmptyState() {
 
 function KanbanCard({ card }: { card: NonNullable<KanbanColumnType['card']> }) {
   return (
-    <div className="flex flex-col gap-2.5 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+    <div className="kanban-motion-card flex flex-col gap-2.5 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
       <div className="flex items-start justify-between gap-2">
         <div className="h-6 w-6 flex-shrink-0 overflow-hidden rounded-full bg-slate-200">
           <div className="h-full w-full bg-gradient-to-tr from-slate-400 to-slate-300" />
@@ -125,7 +126,7 @@ function KanbanCard({ card }: { card: NonNullable<KanbanColumnType['card']> }) {
 
 function KanbanColumn({ column }: { column: KanbanColumnType }) {
   return (
-    <div className="flex w-[240px] flex-shrink-0 flex-col self-stretch overflow-hidden rounded-2xl bg-[#F1F5F9] p-3">
+    <div className="kanban-motion-column flex w-[240px] flex-shrink-0 flex-col self-stretch overflow-hidden rounded-2xl bg-[#F1F5F9] p-3">
       {/* Header */}
       <div className="mb-4 flex items-start justify-between">
         <div className="flex gap-2.5">
@@ -170,7 +171,15 @@ export function KanbanMockup() {
     <div
       role="img"
       aria-label="Prévia do CRM Kanban do Sagazchat com colunas de pipeline"
-      className="w-full overflow-hidden rounded-[20px] bg-white shadow-[0_20px_50px_-12px_rgba(15,23,42,0.15)] ring-1 ring-slate-200">
+      className="kanban-motion-board relative w-full overflow-hidden rounded-[20px] bg-white shadow-[0_20px_50px_-12px_rgba(15,23,42,0.15)] ring-1 ring-slate-200">
+      <div aria-hidden="true" className="kanban-flight-card hidden lg:block">
+        <span className="inline-flex rounded-md bg-rose-50 px-1.5 py-[2px] text-[8px] font-semibold text-rose-600">
+          Quente
+        </span>
+        <strong>Lead qualificado</strong>
+        <small>R$ 246,99</small>
+      </div>
+
       {/* Top bar */}
       <div className="flex items-center justify-between px-5 py-4">
         <div className="flex items-center gap-2">
@@ -210,7 +219,7 @@ export function KanbanMockup() {
       </div>
 
       {/* Board area */}
-      <div className="flex min-h-[460px] items-stretch gap-4 overflow-x-auto p-5 pt-0">
+      <div className="kanban-motion-lanes flex min-h-[460px] items-stretch gap-4 overflow-x-auto p-5 pt-0">
         {COLUMNS.map((col) => (
           <KanbanColumn key={col.title} column={col} />
         ))}
@@ -221,19 +230,19 @@ export function KanbanMockup() {
 
 export const CrmKanbanSection = () => {
   return (
-    <section className="bg-slate-50 py-20 md:py-28">
+    <ScrollStory as="section" className="kanban-scroll-story bg-slate-50 py-20 md:py-28">
       <div className="mx-auto grid max-w-[1360px] grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
         {/* Left — Copy */}
         <AnimateIn from="left" delay={100}>
           <div className="flex flex-col gap-6 text-center lg:text-left">
             <div className="space-y-4">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-sans)]">
                 CRM Kanban
               </p>
 
-              <h2 className="mx-auto max-w-[560px] text-balance font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-[2.5rem] lg:mx-0 lg:text-[2.5rem]">
+              <h2 className="mx-auto max-w-[560px] text-balance font-[family-name:var(--font-sans)] text-[2rem] font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-[2.5rem] lg:mx-0 lg:text-[2.5rem]">
                 Veja quais conversas{' '}
-                <span className="italic font-medium text-primary">podem virar receita.</span>
+                <span className="font-extrabold text-primary">podem virar receita.</span>
               </h2>
 
               <p className="mx-auto max-w-xl text-pretty text-[15px] leading-[1.6] text-slate-600 lg:mx-0">
@@ -277,6 +286,6 @@ export const CrmKanbanSection = () => {
           </a>
         </div>
       </div>
-    </section>
+    </ScrollStory>
   );
 };

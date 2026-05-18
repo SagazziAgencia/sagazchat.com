@@ -15,13 +15,13 @@ interface AnimateInProps {
 function getHiddenTransform(from: "bottom" | "left" | "right" | "scale", isMobile: boolean): string {
   // On mobile, horizontal animations cause overflow — fall back to vertical
   if (isMobile && (from === "left" || from === "right")) {
-    return "translateY(24px)";
+    return "translateY(32px) scale(0.985)";
   }
   switch (from) {
-    case "bottom": return "translateY(24px)";
-    case "left":   return "translateX(-24px)";
-    case "right":  return "translateX(24px)";
-    case "scale":  return "scale(0.95)";
+    case "bottom": return "translateY(32px) scale(0.985)";
+    case "left":   return "translateX(-32px) scale(0.985)";
+    case "right":  return "translateX(32px) scale(0.985)";
+    case "scale":  return "scale(0.94)";
   }
 }
 
@@ -29,7 +29,7 @@ export function AnimateIn({
   children,
   className = "",
   delay = 0,
-  duration = 600,
+  duration = 760,
   as: Tag = "div",
   once = true,
   from = "bottom",
@@ -73,8 +73,9 @@ export function AnimateIn({
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "translate3d(0,0,0) scale(1)" : getHiddenTransform(from, isMobile),
-        transition: `opacity ${duration}ms cubic-bezier(0.16,1,0.3,1) ${delay}ms, transform ${duration}ms cubic-bezier(0.16,1,0.3,1) ${delay}ms`,
-        willChange: isVisible ? "auto" : "opacity, transform",
+        filter: isVisible ? "blur(0)" : "blur(6px)",
+        transition: `opacity ${duration}ms cubic-bezier(0.16,1,0.3,1) ${delay}ms, transform ${duration}ms cubic-bezier(0.16,1,0.3,1) ${delay}ms, filter ${duration}ms cubic-bezier(0.16,1,0.3,1) ${delay}ms`,
+        willChange: isVisible ? "auto" : "opacity, transform, filter",
       }}
     >
       {children}

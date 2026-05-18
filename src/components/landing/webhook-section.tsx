@@ -139,7 +139,7 @@ function VisualRecovered() {
         <div className="absolute inset-0 animate-ping rounded-full bg-emerald-400 opacity-20" />
         <Check className="relative h-7 w-7 text-emerald-600" strokeWidth={3} />
       </div>
-      <p className="font-[family-name:var(--font-display)] text-[22px] font-extrabold tracking-tight text-slate-900">
+      <p className="font-[family-name:var(--font-sans)] text-[22px] font-extrabold tracking-tight text-slate-900">
         R$ 297,00
       </p>
       <div className="flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-0.5 text-[10px] font-medium text-emerald-700 ring-1 ring-emerald-200">
@@ -160,12 +160,12 @@ export function WebhookSection() {
         {/* Header centered */}
         <AnimateIn>
           <div className="mx-auto flex max-w-[720px] flex-col items-center gap-5 text-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-sans)]">
               Webhooks e Recuperação
             </p>
-            <h2 className="text-balance font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950">
+            <h2 className="text-balance font-[family-name:var(--font-sans)] text-3xl sm:text-4xl lg:text-[3rem] font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-950">
               Recupere vendas{' '}
-              <span className="italic font-medium text-primary">antes que esfriem.</span>
+              <span className="font-extrabold text-primary">antes que esfriem.</span>
             </h2>
             <p className="max-w-xl text-pretty text-[15px] leading-relaxed text-slate-600">
               Abandono de checkout, boleto vencendo ou pagamento recusado viram mensagem automática no WhatsApp.

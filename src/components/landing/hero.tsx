@@ -10,28 +10,27 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="border-b border-slate-100 bg-[linear-gradient(180deg,#ffffff_0%,#f7fbf8_62%,#ffffff_100%)] pt-[92px] sm:pt-[108px] lg:min-h-screen lg:pt-[118px]"
+      className="border-b border-slate-100 bg-[linear-gradient(180deg,#ffffff_0%,#f7fbf8_62%,#ffffff_100%)] pt-[84px] sm:pt-[96px] lg:min-h-screen lg:pt-[104px]"
     >
-      <div className="mx-auto flex w-full max-w-[1360px] px-4 pb-10 pt-8 sm:px-6 sm:pb-20 sm:pt-10 lg:min-h-[calc(100svh-170px)] lg:items-center lg:pb-24 lg:pt-14">
-        <div className="flex w-full flex-col items-start gap-7 text-left sm:gap-10 lg:gap-12">
-          <div className="w-full max-w-[1120px] space-y-5 sm:space-y-6">
-            <p className="inline-flex rounded-full border border-primary/20 bg-white px-3 py-1.5 font-[family-name:var(--font-sans)] text-[11px] font-extrabold uppercase tracking-[0.16em] text-primary shadow-sm">
+      <div className="mx-auto flex w-full max-w-[1360px] px-4 pb-10 pt-7 sm:px-6 sm:pb-16 sm:pt-9 lg:min-h-[calc(100svh-150px)] lg:items-center lg:pb-20 lg:pt-10">
+        <div className="flex w-full flex-col items-center gap-7 text-center sm:gap-9 lg:gap-10">
+          <div className="mx-auto w-full max-w-[980px] space-y-5 sm:space-y-6">
+            <p className="hero-kicker mx-auto inline-flex rounded-full border border-primary/20 bg-white px-3 py-1.5 font-[family-name:var(--font-sans)] text-[11px] font-extrabold uppercase tracking-[0.16em] text-primary shadow-sm">
               Atendimento, vendas e equipe no mesmo painel
             </p>
 
-            <h1 className="max-w-[1040px] text-balance font-[family-name:var(--font-sans)] text-[2.75rem] font-extrabold leading-[0.96] tracking-[-0.045em] text-[#07111F] sm:text-[4.5rem] lg:text-[5.35rem]">
-              <span className="block">Organize o WhatsApp da sua empresa</span>
-              <span className="block text-primary">
-                para atender melhor e vender mais.
-              </span>
+            <h1 className="hero-title mx-auto max-w-[940px] font-[family-name:var(--font-sans)] text-[2rem] font-extrabold leading-[1.03] tracking-[-0.03em] text-[#07111F] sm:text-[3.4rem] lg:text-[4.25rem]">
+              <span className="block">Organize o WhatsApp</span>
+              <span className="block">atenda melhor</span>
+              <span className="block text-primary">e venda mais.</span>
             </h1>
 
-            <p className="max-w-[690px] text-pretty text-[15px] leading-[1.65] text-slate-600 sm:text-[16px] lg:text-[17px]">
+            <p className="hero-subcopy mx-auto max-w-[690px] text-pretty text-[15px] leading-[1.65] text-slate-600 sm:text-[16px] lg:text-[17px]">
               O Sagazchat centraliza WhatsApp, CRM, automações e IA em um só painel para responder mais rápido e transformar conversas em vendas.
             </p>
 
-            <div className="w-full max-w-[620px]">
-              <div className={`${ctaRow} justify-start`}>
+            <div className="hero-cta mx-auto w-full max-w-[620px]">
+              <div className={`${ctaRow} justify-center`}>
                 <Button
                   asChild
                   size="lg"
@@ -89,7 +88,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="max-w-[680px] text-[12px] font-semibold leading-relaxed text-slate-400">
+          <div className="hero-proof mx-auto max-w-[680px] text-center text-[12px] font-semibold leading-relaxed text-slate-400">
             WhatsApp conectado · CRM visual · Automações, remarketing e IA no mesmo lugar
           </div>
         </div>

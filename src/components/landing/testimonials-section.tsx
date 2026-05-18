@@ -1,118 +1,183 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
-import Image from 'next/image';
-import { PlayCircle, Star, ArrowRight, Quote } from 'lucide-react';
+import { useState } from 'react';
+import { Instagram, Quote } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
-import { Button } from '../ui/button';
-import { LANDING_CTA } from './cta-links';
 
-const testimonials = [
+type Testimonial = {
+  name: string;
+  handle: string;
+  instagramUrl: string;
+  avatarUrl?: string;
+  initials?: string;
+  company: string;
+  quote: string;
+};
+
+const testimonials: Testimonial[] = [
   {
-    name: 'Recuperação de checkout',
-    company: 'Fluxo de venda automática',
-    videoThumbnailUrl: 'https://picsum.photos/seed/t1/270/480',
-  },
-  {
-    name: 'Atendimento com IA',
-    company: 'Qualificação e handoff',
-    videoThumbnailUrl: 'https://picsum.photos/seed/t2/270/480',
-  },
-  {
-    name: 'Instagram no direct',
-    company: 'Captação por comentário',
-    videoThumbnailUrl: 'https://picsum.photos/seed/t3/270/480',
-  },
-  {
-    name: 'CRM com valor',
-    company: 'Pipeline comercial visível',
-    videoThumbnailUrl: 'https://picsum.photos/seed/t4/270/480',
-  },
-  {
-    name: 'Disparos em massa',
-    company: 'Campanhas com segmentação',
-    videoThumbnailUrl: 'https://picsum.photos/seed/t5/270/480',
-  },
-  {
-    name: 'Operação multicanal',
-    company: 'WhatsApp, Instagram e e-mail',
-    videoThumbnailUrl: 'https://picsum.photos/seed/t6/270/480',
+    name: 'N. Peixotto',
+    handle: '@npeixotto',
+    instagramUrl: 'https://www.instagram.com/npeixotto/',
+    avatarUrl: '/images/testimonials/npeixotto.jpg',
+    initials: 'NP',
+    company: 'Cliente Sagazchat',
+    quote:
+      'Mano, tô gostando bastante do bot. O suporte é muito bom também, isso faz toda a diferença.',
   },
 ];
 
+const rows = [
+  testimonials,
+  [...testimonials.slice(3), ...testimonials.slice(0, 3)],
+];
+
+function ProfilePhoto({ testimonial }: { testimonial: Testimonial }) {
+  const [hasError, setHasError] = useState(false);
+
+  if (!testimonial.avatarUrl || hasError) {
+    return (
+      <div
+        className="flex h-[88px] w-[88px] shrink-0 items-center justify-center rounded-[24px] bg-primary/10 text-xl font-extrabold text-primary shadow-[0_18px_44px_rgb(15_23_42/0.12)] ring-4 ring-white"
+        aria-label={`Foto de ${testimonial.name} pendente`}
+      >
+        {testimonial.initials}
+      </div>
+    );
+  }
+
+  return (
+    <span className="feedback-photo-frame">
+      <img
+        src={testimonial.avatarUrl}
+        alt={`Foto de ${testimonial.name}`}
+        width={88}
+        height={88}
+        loading="lazy"
+        referrerPolicy="no-referrer"
+        onError={() => setHasError(true)}
+        className="h-[88px] w-[88px] shrink-0 rounded-[24px] object-cover"
+      />
+    </span>
+  );
+}
+
+function FeedbackCard({
+  testimonial,
+  duplicate = false,
+}: {
+  testimonial: Testimonial;
+  duplicate?: boolean;
+}) {
+  return (
+    <figure
+      className="feedback-card w-[300px] shrink-0 rounded-[22px] border border-slate-200/80 bg-white p-5 shadow-[0_22px_70px_rgb(15_23_42/0.08)] sm:w-[350px]"
+      aria-hidden={duplicate || undefined}
+    >
+      <figcaption className="flex items-center gap-4">
+        <ProfilePhoto testimonial={testimonial} />
+
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-base font-extrabold text-slate-950">
+            {testimonial.name}
+          </p>
+          <p className="truncate text-xs font-medium text-slate-500">
+            {testimonial.company}
+          </p>
+          <Link
+            href={testimonial.instagramUrl}
+            target="_blank"
+            rel="noreferrer"
+            tabIndex={duplicate ? -1 : undefined}
+            className="mt-1 inline-flex text-xs font-bold text-primary hover:text-primary/80"
+          >
+            {testimonial.handle}
+          </Link>
+        </div>
+
+        <Link
+          href={testimonial.instagramUrl}
+          target="_blank"
+          rel="noreferrer"
+          tabIndex={duplicate ? -1 : undefined}
+          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition-colors hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
+          aria-label={`Abrir Instagram de ${testimonial.name}: ${testimonial.handle}`}
+        >
+          <Instagram className="h-4 w-4" />
+        </Link>
+      </figcaption>
+
+      <div className="mt-5 flex items-start gap-3 border-t border-slate-100 pt-5">
+        <Quote className="mt-0.5 h-5 w-5 shrink-0 text-primary" strokeWidth={2.25} />
+        <blockquote className="min-h-[118px] text-[15px] leading-relaxed text-slate-700">
+          “{testimonial.quote}”
+        </blockquote>
+      </div>
+    </figure>
+  );
+}
+
 export function TestimonialsSection() {
   return (
-    <section id="testimonials" className="py-20 lg:py-32 bg-white text-slate-900 relative">
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 relative z-10">
+    <section
+      id="testimonials"
+      className="relative overflow-hidden bg-white py-20 text-slate-900 lg:py-32"
+    >
+      <div className="relative z-10 mx-auto max-w-[1360px] px-4 sm:px-6">
         <AnimateIn>
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary mb-5 font-[family-name:var(--font-display)]">
-              Demonstrações
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <p className="mb-5 font-[family-name:var(--font-sans)] text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
+              Feedbacks
             </p>
-            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-[-0.02em] leading-[1.1] text-slate-950 mb-5">
-              Veja o Sagazchat{' '}
-              <span className="italic font-medium text-primary">em rotinas reais.</span>
+            <h2 className="mb-5 font-[family-name:var(--font-sans)] text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-4xl lg:text-[3rem]">
+              Feedbacks de quem já usa{' '}
+              <span className="font-extrabold text-primary">o Sagazchat no atendimento.</span>
             </h2>
-            <p className="text-[15px] text-slate-600 leading-relaxed max-w-xl mx-auto">
-              Fluxos de venda, atendimento, Instagram, IA e recuperação funcionando na prática.
+            <p className="mx-auto max-w-xl text-[15px] leading-relaxed text-slate-600">
+              Comentários diretos de quem colocou o Sagazchat para rodar no atendimento do dia a dia.
             </p>
           </div>
         </AnimateIn>
 
-        <AnimateIn from="scale" delay={200} duration={700}>
-        <Carousel
-          opts={{
-            align: 'start',
-            loop: true,
-          }}
-          className="w-full"
-        >
-          <CarouselContent className="-ml-4">
-            {testimonials.map((testimonial, index) => (
-              <CarouselItem key={index} className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/5 group">
-                <div className="relative aspect-[9/16] w-full rounded-2xl overflow-hidden border border-slate-200 shadow-md transition-shadow duration-300 hover:shadow-lg">
-                  <Image
-                    src={testimonial.videoThumbnailUrl}
-                    alt={`Depoimento de ${testimonial.name}`}
-                    fill
-                    quality={100}
-                    sizes="(min-width: 1280px) 18vw, (min-width: 1024px) 22vw, (min-width: 640px) 44vw, 92vw"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+        <AnimateIn from="scale" delay={180} duration={780}>
+          {testimonials.length > 1 ? (
+            <div className="feedback-marquee-shell relative">
+              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent sm:w-28" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent sm:w-28" />
 
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <PlayCircle
-                      size={64}
-                      className="text-white/60 backdrop-blur-sm rounded-full transition-all duration-300 group-hover:text-white group-hover:scale-110"
-                      strokeWidth={1}
-                    />
-                  </div>
-
-                  <div className="absolute bottom-0 left-0 p-5 text-white">
-                    <h3 className="font-bold text-lg">{testimonial.name}</h3>
-                    <p className="text-sm text-slate-300">{testimonial.company}</p>
+              {rows.map((row, rowIndex) => (
+                <div
+                  key={rowIndex}
+                  className={`feedback-marquee-row ${
+                    rowIndex === 0 ? 'feedback-marquee-row-left' : 'feedback-marquee-row-right mt-5'
+                  }`}
+                >
+                  <div className="feedback-marquee-track">
+                    {row.map((testimonial) => (
+                      <FeedbackCard
+                        key={`${rowIndex}-${testimonial.handle}`}
+                        testimonial={testimonial}
+                      />
+                    ))}
+                    {row.map((testimonial) => (
+                      <FeedbackCard
+                        key={`${rowIndex}-${testimonial.handle}-duplicate`}
+                        testimonial={testimonial}
+                        duplicate
+                      />
+                    ))}
                   </div>
                 </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="absolute left-0 sm:left-[-1rem] top-1/2 -translate-y-1/2 z-10 bg-white border-slate-200 text-slate-600 hover:bg-slate-50 hidden sm:flex" />
-          <CarouselNext className="absolute right-0 sm:right-[-1rem] top-1/2 -translate-y-1/2 z-10 bg-white border-slate-200 text-slate-600 hover:bg-slate-50 hidden sm:flex" />
-        </Carousel>
+              ))}
+            </div>
+          ) : (
+            <div className="flex justify-center">
+              <FeedbackCard testimonial={testimonials[0]} />
+            </div>
+          )}
         </AnimateIn>
-
       </div>
     </section>
   );
 }
-
-

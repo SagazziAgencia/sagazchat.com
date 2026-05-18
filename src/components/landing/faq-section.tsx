@@ -38,12 +38,12 @@ export function FaqSection() {
       <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
         <AnimateIn>
           <div className="text-center mb-12 flex flex-col items-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary mb-5 font-[family-name:var(--font-display)]">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary mb-5 font-[family-name:var(--font-sans)]">
               FAQ
             </p>
-            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-[-0.02em] leading-[1.1] text-slate-950">
+            <h2 className="font-[family-name:var(--font-sans)] text-3xl sm:text-4xl lg:text-[3rem] font-extrabold tracking-[-0.02em] leading-[1.1] text-slate-950">
               Dúvidas antes de{' '}
-              <span className="italic font-medium text-primary">começar.</span>
+              <span className="font-extrabold text-primary">começar.</span>
             </h2>
             <p className="text-[15px] text-slate-600 leading-relaxed mt-5 max-w-xl mx-auto">
               O que costuma travar antes de colocar atendimento e automação no ar.
@@ -75,5 +75,3 @@ export function FaqSection() {
     </section>
   );
 }
-
-

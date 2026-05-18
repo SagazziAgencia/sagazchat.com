@@ -24,9 +24,9 @@ export function Footer() {
         <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 lg:p-12 overflow-hidden">
           <div className="grid lg:grid-cols-1 gap-8 items-center">
             <div className="space-y-6 text-center">
-              <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] text-balance font-bold tracking-[-0.02em] leading-[1.1] text-white">
+              <h2 className="font-[family-name:var(--font-sans)] text-3xl sm:text-4xl lg:text-[3rem] text-balance font-extrabold tracking-[-0.02em] leading-[1.1] text-white">
                 Tire o atendimento{' '}
-                <span className="italic font-medium text-primary">do improviso.</span>
+                <span className="font-extrabold text-primary">do improviso.</span>
               </h2>
               <p className="text-[15px] text-slate-400 text-pretty leading-relaxed max-w-xl mx-auto">
                 Escolha um plano e comece com WhatsApp, CRM e automações no mesmo lugar.
@@ -64,5 +64,3 @@ export function Footer() {
     </footer>
   );
 }
-
-

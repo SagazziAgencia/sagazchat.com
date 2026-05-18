@@ -12,9 +12,11 @@ import {
   useLayoutEffect,
   useRef,
   useState,
+  type CSSProperties,
   type ComponentType,
 } from 'react';
 import { AnimateIn } from '@/components/ui/animate-in';
+import { ScrollStory } from '@/components/ui/scroll-story';
 import { HeroChatReplica } from '@/components/landing/hero-chat-replica';
 import { KanbanMockup } from '@/components/landing/crm-kanban-section';
 import { AiChatMockup } from '@/components/landing/ai-chatbot-section';
@@ -158,7 +160,7 @@ function MockupSlot({ mockupKey, large }: { mockupKey: MockupKey; large: boolean
   return (
     <div
       ref={slotRef}
-      className="relative mt-4 overflow-hidden bg-[#EDF2F7]"
+      className="product-motion-mockup relative mt-4 overflow-hidden bg-[#EDF2F7]"
       style={{ height: slotHeight }}
     >
       <div
@@ -183,19 +185,19 @@ export function ProductGrid() {
   let moduleIndex = 0;
 
   return (
-    <section className="bg-white py-20 lg:py-[80px]">
+    <ScrollStory as="section" className="product-scroll-story bg-white py-20 lg:py-[80px]">
       <div className="mx-auto max-w-[1360px] px-4 sm:px-6">
         {/* Header */}
         <div className="mx-auto max-w-[768px] text-center">
           <AnimateIn>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-display)]">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary font-[family-name:var(--font-sans)]">
               Conheça por dentro
             </p>
           </AnimateIn>
           <AnimateIn delay={80}>
-            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950">
+            <h2 className="mt-3 font-[family-name:var(--font-sans)] text-3xl sm:text-4xl lg:text-[3rem] font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-950">
               Sua operação comercial{' '}
-              <span className="italic font-medium text-primary">em um só painel.</span>
+              <span className="font-extrabold text-primary">em um só painel.</span>
             </h2>
           </AnimateIn>
           <AnimateIn delay={160}>
@@ -221,7 +223,10 @@ export function ProductGrid() {
                     delay={i * 80}
                     className={mod.large ? 'sm:col-span-3' : 'sm:col-span-2'}
                   >
-                    <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-[#F7F9FC] shadow-[0_1px_4px_rgba(0,0,0,0.04)]">
+                    <div
+                      className="product-motion-card flex h-full flex-col overflow-hidden rounded-2xl bg-[#F7F9FC] shadow-[0_1px_4px_rgba(0,0,0,0.04)]"
+                      style={{ '--motion-index': i } as CSSProperties}
+                    >
                       <div className="flex flex-col gap-3 p-7 pb-0">
                         <div className="flex items-center gap-2">
                           <Icon className="h-[18px] w-[18px] text-primary" />
@@ -242,6 +247,6 @@ export function ProductGrid() {
           ))}
         </div>
       </div>
-    </section>
+    </ScrollStory>
   );
 }

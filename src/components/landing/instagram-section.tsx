@@ -16,6 +16,7 @@ import {
   Video,
 } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
+import { ScrollStory } from '@/components/ui/scroll-story';
 import { ctaDesktopInline, ctaMobileFull, ctaPrimary } from './cta-styles';
 
 /* Instagram-style script logo */
@@ -80,20 +81,20 @@ export function InstagramSection() {
   }, []);
 
   return (
-    <section className="bg-white">
+    <ScrollStory as="section" className="instagram-scroll-story bg-white">
       <div className="mx-auto flex w-full max-w-[1360px] px-4 pb-16 pt-6 sm:px-6 sm:pb-20 sm:pt-8 lg:min-h-[calc(100svh-130px)] lg:items-center lg:pb-24 lg:pt-10">
         <div className="flex w-full flex-col gap-12 lg:flex-row lg:items-center lg:gap-12">
           {/* Left – Copy */}
           <AnimateIn from="left" delay={100} className="w-full lg:w-[40%] lg:flex-none">
             <div className="space-y-7 text-center lg:text-left">
             <div className="space-y-4">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#C13584] font-[family-name:var(--font-display)]">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#C13584] font-[family-name:var(--font-sans)]">
                 Instagram
               </p>
 
-              <h2 className="mx-auto max-w-[560px] text-balance font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-[2.5rem] lg:mx-0 lg:text-[2.5rem]">
+              <h2 className="mx-auto max-w-[560px] text-balance font-[family-name:var(--font-sans)] text-[2rem] font-extrabold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-[2.5rem] lg:mx-0 lg:text-[2.5rem]">
                 Direct vendendo{' '}
-                <span className="italic font-medium text-primary">mesmo offline.</span>
+                <span className="font-extrabold text-primary">mesmo offline.</span>
               </h2>
 
               <p className="mx-auto max-w-xl text-pretty text-[15px] leading-[1.6] text-slate-600 lg:mx-0">
@@ -126,9 +127,10 @@ export function InstagramSection() {
             delay={200}
             className="flex w-full justify-center lg:flex-1 lg:justify-end"
           >
-            <div className="relative flex flex-col items-center gap-4 sm:flex-row">
+            <div className="instagram-flow-stage relative flex flex-col items-center gap-4 sm:flex-row">
+              <div aria-hidden="true" className="instagram-flow-connector hidden sm:block" />
               {/* ── Phone 1: Instagram Feed ── */}
-              <div className="relative w-[260px] flex-none">
+              <div className="instagram-phone instagram-phone-feed relative w-[260px] flex-none">
                 <div className="relative flex h-[540px] w-full flex-col overflow-hidden rounded-[1.5rem] border-[3px] border-slate-700 bg-black shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
                   {/* Status bar + Dynamic Island */}
                   <div className="relative flex items-center justify-between bg-black px-4 pb-0.5 pt-2">
@@ -238,7 +240,7 @@ export function InstagramSection() {
               </div>
 
               {/* ── Badge "3s" entre os phones ── */}
-              <div className={`flex flex-col items-center gap-1.5 transition-all duration-500 ${step >= 2 ? 'opacity-100' : 'opacity-0'}`}>
+              <div className={`instagram-transfer-badge flex flex-col items-center gap-1.5 transition-all duration-500 ${step >= 2 ? 'opacity-100' : 'opacity-0'}`}>
                 <div className="h-8 w-px bg-gradient-to-b from-transparent via-slate-300 to-transparent" />
                 <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-[11px] font-bold text-white shadow-[0_4px_12px_rgba(23,199,90,0.3)]">
                   3s
@@ -247,7 +249,7 @@ export function InstagramSection() {
               </div>
 
               {/* ── Phone 2: Instagram DM ── */}
-              <div className="relative w-[260px] flex-none">
+              <div className="instagram-phone instagram-phone-dm relative w-[260px] flex-none">
                 <div className="relative flex h-[540px] w-full flex-col overflow-hidden rounded-[1.5rem] border-[3px] border-slate-700 bg-black shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
                   {/* Status bar + Dynamic Island */}
                   <div className="relative flex items-center justify-between bg-black px-4 pb-0.5 pt-2">
@@ -365,6 +367,6 @@ export function InstagramSection() {
           </div>
         </div>
       </div>
-    </section>
+    </ScrollStory>
   );
 }

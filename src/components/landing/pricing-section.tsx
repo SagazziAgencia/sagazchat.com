@@ -109,12 +109,12 @@ export function PricingSection() {
         {/* Header */}
         <AnimateIn>
           <div className="mx-auto mb-10 max-w-2xl text-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary mb-5 font-[family-name:var(--font-display)]">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary mb-5 font-[family-name:var(--font-sans)]">
               Planos e Preços
             </p>
-            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-[3rem] text-balance font-bold tracking-[-0.02em] leading-[1.1] text-slate-950 mb-5">
+            <h2 className="font-[family-name:var(--font-sans)] text-3xl sm:text-4xl lg:text-[3rem] text-balance font-extrabold tracking-[-0.02em] leading-[1.1] text-slate-950 mb-5">
               Comece com a estrutura certa{' '}
-              <span className="italic font-medium text-primary">para vender mais.</span>
+              <span className="font-extrabold text-primary">para vender mais.</span>
             </h2>
             <p className="mx-auto max-w-xl text-pretty text-[15px] leading-relaxed text-slate-600">
               Cada conexão é um canal ativo da sua operação: WhatsApp, Instagram, Email, Widget ou Messenger. Escolha a quantidade, veja o preço na hora e ajuste quando crescer.
@@ -141,7 +141,7 @@ export function PricingSection() {
                   >
                     <Minus className="w-3.5 h-3.5" />
                   </button>
-                  <div className="w-9 text-center font-[family-name:var(--font-display)] font-bold tabular-nums text-[15px] text-slate-900">
+                  <div className="w-9 text-center font-[family-name:var(--font-sans)] font-bold tabular-nums text-[15px] text-slate-900">
                     {connections}
                   </div>
                   <button
@@ -212,7 +212,7 @@ export function PricingSection() {
                     )}
 
                     <div className="mb-1">
-                      <span className="font-[family-name:var(--font-display)] font-bold text-[22px] tracking-tight text-slate-950 leading-tight">
+                      <span className="font-[family-name:var(--font-sans)] font-bold text-[22px] tracking-tight text-slate-950 leading-tight">
                         {tierMeta[step.tier].label}
                       </span>
                     </div>
@@ -252,7 +252,7 @@ export function PricingSection() {
                             <span className={cn('text-[11px]', priceDiscount ? 'text-primary' : 'text-slate-400')}>R$</span>
                             <span
                               className={cn(
-                                'font-[family-name:var(--font-display)] font-bold text-[36px] tabular-nums leading-none tracking-[-0.02em]',
+                                'font-[family-name:var(--font-sans)] font-bold text-[36px] tabular-nums leading-none tracking-[-0.02em]',
                                 priceDiscount ? 'text-primary' : 'text-slate-950'
                               )}
                             >
@@ -260,7 +260,7 @@ export function PricingSection() {
                             </span>
                             <span
                               className={cn(
-                                'font-[family-name:var(--font-display)] font-bold text-[16px] tabular-nums',
+                                'font-[family-name:var(--font-sans)] font-bold text-[16px] tabular-nums',
                                 priceDiscount ? 'text-primary' : 'text-slate-500'
                               )}
                             >
@@ -268,7 +268,7 @@ export function PricingSection() {
                             </span>
                           </>
                         ) : (
-                          <span className="font-[family-name:var(--font-display)] font-bold text-[30px] text-slate-950 leading-none tracking-[-0.02em]">
+                          <span className="font-[family-name:var(--font-sans)] font-bold text-[30px] text-slate-950 leading-none tracking-[-0.02em]">
                             Sob consulta
                           </span>
                         )}

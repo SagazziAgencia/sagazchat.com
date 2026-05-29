@@ -12,7 +12,7 @@ const navItems = [
   { href: '#hero', label: 'Início' },
   { href: LANDING_CTA.featuresAnchor, label: 'Produto' },
   { href: LANDING_CTA.pricingAnchor, label: 'Planos' },
-  { href: LANDING_CTA.testimonialsAnchor, label: 'Demonstrações' },
+  { href: LANDING_CTA.testimonialsAnchor, label: 'Feedbacks' },
 ];
 
 export function Header() {

@@ -7,8 +7,8 @@ import { AnimateIn } from '@/components/ui/animate-in';
 
 type Testimonial = {
   name: string;
-  handle: string;
-  instagramUrl: string;
+  handle?: string;
+  instagramUrl?: string;
   avatarUrl?: string;
   initials?: string;
   company: string;
@@ -22,9 +22,27 @@ const testimonials: Testimonial[] = [
     instagramUrl: 'https://www.instagram.com/npeixotto/',
     avatarUrl: '/images/testimonials/npeixotto.jpg',
     initials: 'NP',
-    company: 'Cliente Sagazchat',
+    company: 'Múltiplos 6 dígitos faturados',
     quote:
       'Mano, tô gostando bastante do bot. O suporte é muito bom também, isso faz toda a diferença.',
+  },
+  {
+    name: 'Italo',
+    handle: '@italomartinus',
+    instagramUrl: 'https://www.instagram.com/italomartinus/',
+    avatarUrl: '/images/testimonials/italo.jpg',
+    initials: 'IS',
+    company: 'Múltiplos 6 dígitos faturados',
+    quote:
+      'Só tenho a agradecer ao Sagaz e time. Consegui escalar minha operação com o suporte. Nem tudo é sobre ferramenta: você ter um suporte de qualidade diretamente pra sua operação me ajudou 1000%.',
+  },
+  {
+    name: 'Gabriel',
+    avatarUrl: '/images/testimonials/gabriel.png',
+    initials: 'G',
+    company: 'Múltiplos 6 dígitos faturados',
+    quote:
+      'Suporte bem prestativo, ferramenta boa, 0 reclamações! Recomendo.',
   },
 ];
 
@@ -85,27 +103,35 @@ function FeedbackCard({
           <p className="truncate text-xs font-medium text-slate-500">
             {testimonial.company}
           </p>
+          {testimonial.handle && testimonial.instagramUrl ? (
+            <Link
+              href={testimonial.instagramUrl}
+              target="_blank"
+              rel="noreferrer"
+              tabIndex={duplicate ? -1 : undefined}
+              className="mt-1 inline-flex text-xs font-bold text-primary hover:text-primary/80"
+            >
+              {testimonial.handle}
+            </Link>
+          ) : null}
+        </div>
+
+        {testimonial.instagramUrl ? (
           <Link
             href={testimonial.instagramUrl}
             target="_blank"
             rel="noreferrer"
             tabIndex={duplicate ? -1 : undefined}
-            className="mt-1 inline-flex text-xs font-bold text-primary hover:text-primary/80"
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition-colors hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
+            aria-label={`Abrir Instagram de ${testimonial.name}: ${testimonial.handle}`}
           >
-            {testimonial.handle}
+            <Instagram className="h-4 w-4" />
           </Link>
-        </div>
-
-        <Link
-          href={testimonial.instagramUrl}
-          target="_blank"
-          rel="noreferrer"
-          tabIndex={duplicate ? -1 : undefined}
-          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition-colors hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
-          aria-label={`Abrir Instagram de ${testimonial.name}: ${testimonial.handle}`}
-        >
-          <Instagram className="h-4 w-4" />
-        </Link>
+        ) : (
+          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-300">
+            <Instagram className="h-4 w-4" />
+          </span>
+        )}
       </figcaption>
 
       <div className="mt-5 flex items-start gap-3 border-t border-slate-100 pt-5">
@@ -156,13 +182,13 @@ export function TestimonialsSection() {
                   <div className="feedback-marquee-track">
                     {row.map((testimonial) => (
                       <FeedbackCard
-                        key={`${rowIndex}-${testimonial.handle}`}
+                        key={`${rowIndex}-${testimonial.name}`}
                         testimonial={testimonial}
                       />
                     ))}
                     {row.map((testimonial) => (
                       <FeedbackCard
-                        key={`${rowIndex}-${testimonial.handle}-duplicate`}
+                        key={`${rowIndex}-${testimonial.name}-duplicate`}
                         testimonial={testimonial}
                         duplicate
                       />

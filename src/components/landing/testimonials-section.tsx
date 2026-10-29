@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Instagram, Quote } from 'lucide-react';
@@ -15,6 +16,8 @@ type Testimonial = {
   quote: string;
 };
 
+// TODO [CONFIRMAR]: autorização de uso dos 3 depoimentos e a fonte do rótulo
+// "Múltiplos 6 dígitos faturados" (não achei nota de consentimento no vault).
 const testimonials: Testimonial[] = [
   {
     name: 'N. Peixotto',
@@ -38,17 +41,12 @@ const testimonials: Testimonial[] = [
   },
   {
     name: 'Gabriel',
-    avatarUrl: '/images/testimonials/gabriel.png',
+    avatarUrl: '/images/testimonials/gabriel.webp',
     initials: 'G',
     company: 'Múltiplos 6 dígitos faturados',
     quote:
       'Suporte bem prestativo, ferramenta boa, 0 reclamações! Recomendo.',
   },
-];
-
-const rows = [
-  testimonials,
-  [...testimonials.slice(3), ...testimonials.slice(0, 3)],
 ];
 
 function ProfilePhoto({ testimonial }: { testimonial: Testimonial }) {
@@ -57,7 +55,7 @@ function ProfilePhoto({ testimonial }: { testimonial: Testimonial }) {
   if (!testimonial.avatarUrl || hasError) {
     return (
       <div
-        className="flex h-[88px] w-[88px] shrink-0 items-center justify-center rounded-[24px] bg-primary/10 text-xl font-extrabold text-primary shadow-[0_18px_44px_rgb(15_23_42/0.12)] ring-4 ring-white"
+        className="flex h-[64px] w-[64px] shrink-0 items-center justify-center rounded-[18px] bg-primary/10 sm:h-[88px] sm:w-[88px] sm:rounded-[24px] text-xl font-extrabold text-primary shadow-[0_18px_44px_rgb(15_23_42/0.12)] ring-4 ring-white"
         aria-label={`Foto de ${testimonial.name} pendente`}
       >
         {testimonial.initials}
@@ -67,49 +65,34 @@ function ProfilePhoto({ testimonial }: { testimonial: Testimonial }) {
 
   return (
     <span className="feedback-photo-frame">
-      <img
+      <Image
         src={testimonial.avatarUrl}
         alt={`Foto de ${testimonial.name}`}
         width={88}
         height={88}
-        loading="lazy"
-        referrerPolicy="no-referrer"
+        sizes="88px"
         onError={() => setHasError(true)}
-        className="h-[88px] w-[88px] shrink-0 rounded-[24px] object-cover"
+        className="h-[64px] w-[64px] shrink-0 rounded-[18px] object-cover sm:h-[88px] sm:w-[88px] sm:rounded-[24px]"
       />
     </span>
   );
 }
 
-function FeedbackCard({
-  testimonial,
-  duplicate = false,
-}: {
-  testimonial: Testimonial;
-  duplicate?: boolean;
-}) {
+function FeedbackCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <figure
-      className="feedback-card w-[300px] shrink-0 rounded-[22px] border border-slate-200/80 bg-white p-5 shadow-[0_22px_70px_rgb(15_23_42/0.08)] sm:w-[350px]"
-      aria-hidden={duplicate || undefined}
-    >
+    <figure className="feedback-card flex h-full w-full flex-col rounded-[22px] border border-slate-200/80 bg-white p-5 shadow-[0_22px_70px_rgb(15_23_42/0.08)] sm:p-6">
       <figcaption className="flex items-center gap-4">
         <ProfilePhoto testimonial={testimonial} />
 
         <div className="min-w-0 flex-1">
-          <p className="truncate text-base font-extrabold text-slate-950">
-            {testimonial.name}
-          </p>
-          <p className="truncate text-xs font-medium text-slate-500">
-            {testimonial.company}
-          </p>
+          <p className="text-base font-extrabold text-slate-950">{testimonial.name}</p>
+          <p className="text-xs font-medium leading-snug text-slate-600">{testimonial.company}</p>
           {testimonial.handle && testimonial.instagramUrl ? (
             <Link
               href={testimonial.instagramUrl}
               target="_blank"
               rel="noreferrer"
-              tabIndex={duplicate ? -1 : undefined}
-              className="mt-1 inline-flex text-xs font-bold text-primary hover:text-primary/80"
+              className="mt-1 inline-flex text-xs font-bold text-primary hover:text-primary-dark"
             >
               {testimonial.handle}
             </Link>
@@ -121,22 +104,17 @@ function FeedbackCard({
             href={testimonial.instagramUrl}
             target="_blank"
             rel="noreferrer"
-            tabIndex={duplicate ? -1 : undefined}
-            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition-colors hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
+            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition-colors hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
             aria-label={`Abrir Instagram de ${testimonial.name}: ${testimonial.handle}`}
           >
             <Instagram className="h-4 w-4" />
           </Link>
-        ) : (
-          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-300">
-            <Instagram className="h-4 w-4" />
-          </span>
-        )}
+        ) : null}
       </figcaption>
 
-      <div className="mt-5 flex items-start gap-3 border-t border-slate-100 pt-5">
+      <div className="mt-4 flex flex-1 items-start gap-3 border-t border-slate-100 pt-4 sm:mt-5 sm:pt-5">
         <Quote className="mt-0.5 h-5 w-5 shrink-0 text-primary" strokeWidth={2.25} />
-        <blockquote className="min-h-[118px] text-[15px] leading-relaxed text-slate-700">
+        <blockquote className="text-[15px] leading-relaxed text-slate-700">
           “{testimonial.quote}”
         </blockquote>
       </div>
@@ -148,11 +126,11 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="relative overflow-hidden bg-white py-20 text-slate-900 lg:py-32"
+      className="relative overflow-hidden bg-white py-10 text-slate-900 sm:py-14 lg:py-24"
     >
       <div className="relative z-10 mx-auto max-w-[1360px] px-4 sm:px-6">
         <AnimateIn>
-          <div className="mx-auto mb-16 max-w-3xl text-center">
+          <div className="mx-auto mb-10 max-w-3xl text-center lg:mb-14">
             <p className="mb-5 font-[family-name:var(--font-sans)] text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
               Feedbacks
             </p>
@@ -160,49 +138,19 @@ export function TestimonialsSection() {
               Feedbacks de quem já usa{' '}
               <span className="font-extrabold text-primary">o Sagazchat no atendimento.</span>
             </h2>
-            <p className="mx-auto max-w-xl text-[15px] leading-relaxed text-slate-600">
+            <p className="mx-auto hidden max-w-xl text-[15px] leading-relaxed text-slate-600 sm:block">
               Comentários diretos de quem colocou o Sagazchat para rodar no atendimento do dia a dia.
             </p>
           </div>
         </AnimateIn>
 
-        <AnimateIn from="scale" delay={180} duration={780}>
-          {testimonials.length > 1 ? (
-            <div className="feedback-marquee-shell relative">
-              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent sm:w-28" />
-              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent sm:w-28" />
-
-              {rows.map((row, rowIndex) => (
-                <div
-                  key={rowIndex}
-                  className={`feedback-marquee-row ${
-                    rowIndex === 0 ? 'feedback-marquee-row-left' : 'feedback-marquee-row-right mt-5'
-                  }`}
-                >
-                  <div className="feedback-marquee-track">
-                    {row.map((testimonial) => (
-                      <FeedbackCard
-                        key={`${rowIndex}-${testimonial.name}`}
-                        testimonial={testimonial}
-                      />
-                    ))}
-                    {row.map((testimonial) => (
-                      <FeedbackCard
-                        key={`${rowIndex}-${testimonial.name}-duplicate`}
-                        testimonial={testimonial}
-                        duplicate
-                      />
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="flex justify-center">
-              <FeedbackCard testimonial={testimonials[0]} />
-            </div>
-          )}
-        </AnimateIn>
+        <div className="mx-auto grid max-w-[1120px] grid-cols-1 gap-5 md:grid-cols-3">
+          {testimonials.map((testimonial, index) => (
+            <AnimateIn key={testimonial.name} from="scale" delay={140 + index * 120} duration={780} className="h-full">
+              <FeedbackCard testimonial={testimonial} />
+            </AnimateIn>
+          ))}
+        </div>
       </div>
     </section>
   );

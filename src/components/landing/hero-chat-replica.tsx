@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect, useRef, useCallback } from "react";
 import {
   ArrowUp,
@@ -41,6 +42,8 @@ interface ChatMessage {
   sender: MsgSender;
   text?: string;
   rich?: "pedido-info" | "endereco-atualizado";
+  /** horário fixo (mensagens do estado inicial); sem ele usa o relógio do visitante */
+  time?: string;
 }
 
 type MediaQuickAction = "grid" | "text" | "file" | "audio" | "image" | "video" | "chat";
@@ -66,6 +69,18 @@ const SCRIPT: ScriptStep[] = [
   { action: "wait", quickReplies: ["Precisando, é só chamar!", "Avalie nosso atendimento", "Bom dia!"], pick: "Precisando, é só chamar!", autoDelay: 3200 },
 ];
 
+/* Estado inicial: a réplica abre JÁ com a conversa rolando (passos 0-4 do SCRIPT
+   concluídos) em vez de abrir vazia. A animação continua a partir do passo 5.
+   Horário fixo pra não divergir entre servidor e navegador. */
+const SEED_TIME = "09:41";
+const SEED_MESSAGES: ChatMessage[] = [
+  { id: 1, sender: "customer", text: "Oi, quero saber do meu pedido", time: SEED_TIME },
+  { id: 2, sender: "agent", text: "Qual o número do pedido?", time: SEED_TIME },
+  { id: 3, sender: "customer", text: "#4521", time: SEED_TIME },
+  { id: 4, sender: "bot", rich: "pedido-info", time: SEED_TIME },
+];
+const SEED_STEP = 5;
+
 /* ─── quick reply panel data ─── */
 const FLOWS_LIST = [
   "Atendimento - boas vindas - Ju...",
@@ -86,7 +101,7 @@ function getTime() {
   return `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
 }
 
-let msgId = 0;
+let msgId = 100;
 function nextId() {
   return ++msgId;
 }
@@ -111,8 +126,9 @@ function TypingDots({ sender }: { sender: MsgSender }) {
   );
 }
 
-function MessageBubble({ msg, time }: { msg: ChatMessage; time: string }) {
+function MessageBubble({ msg, time: clock }: { msg: ChatMessage; time: string }) {
   const isCustomer = msg.sender === "customer";
+  const time = msg.time ?? clock;
 
   if (msg.rich === "pedido-info") {
     return (
@@ -120,7 +136,7 @@ function MessageBubble({ msg, time }: { msg: ChatMessage; time: string }) {
         <div className="max-w-[85%] rounded-[10px] rounded-br-[2px] bg-[#F1FDD4] px-3 py-1.5 text-[10px] leading-[1.55] text-[#0F172A]">
           <p className="font-semibold">Pedido #4521</p>
           <p>- Status: Em transporte</p>
-          <p>- Previsão: 18/04</p>
+          <p>- Previsão: amanhã</p>
           <p>- Transportadora: Jadlog</p>
           <Timestamp time={time} sent />
         </div>
@@ -276,7 +292,7 @@ function QuickReplyPanel({
         <div className="flex items-center justify-between">
           <div className="min-w-0">
             <span className="block truncate text-[14px] font-semibold text-[#0F172A]">Iarley Silva</span>
-            <span className="mt-0.5 block text-[10px] text-[#8A94A6]">Criado em 02/04/2026</span>
+            <span className="mt-0.5 block text-[10px] text-[#8A94A6]">Criado há 3 meses</span>
           </div>
           <div className="inline-flex items-center gap-3 text-[#525A67]">
             <PenOff className="h-4 w-4" />
@@ -416,7 +432,7 @@ function QuickReplyPanel({
 
 /* ─── main component ─── */
 export function HeroChatReplica() {
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [messages, setMessages] = useState<ChatMessage[]>(SEED_MESSAGES);
   const [typing, setTyping] = useState<MsgSender | null>(null);
   const [quickReplies, setQuickReplies] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState("");
@@ -433,7 +449,7 @@ export function HeroChatReplica() {
   const cursorTimersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   const chatRef = useRef<HTMLDivElement>(null);
-  const stepRef = useRef(0);
+  const stepRef = useRef(SEED_STEP);
   const waitingRef = useRef(false);
   const autoTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const mountedRef = useRef(true);
@@ -487,7 +503,7 @@ export function HeroChatReplica() {
   /* reset everything and restart loop */
   const resetAndRestart = useCallback(() => {
     if (!mountedRef.current) return;
-    setMessages([]);
+    setMessages(SEED_MESSAGES);
     setTyping(null);
     setQuickReplies([]);
     setInputValue("");
@@ -496,7 +512,7 @@ export function HeroChatReplica() {
     setQrTab("mensagens");
     setCursor(null);
     clearCursorTimers();
-    stepRef.current = 0;
+    stepRef.current = SEED_STEP;
     waitingRef.current = false;
     if (autoTimerRef.current) {
       clearTimeout(autoTimerRef.current);
@@ -830,21 +846,25 @@ export function HeroChatReplica() {
 
             <div className="mt-3 flex flex-col items-center gap-1.5">
               <div className="relative h-[80px] w-[80px]">
-                <div
-                  className="h-full w-full rounded-[20px] bg-cover bg-center"
-                  style={{ backgroundImage: "url('/images/contact-iarley.png')" }}
+                <Image
+                  src="/images/contact-iarley.webp"
+                  alt="Foto do contato Iarley Silva"
+                  width={80}
+                  height={80}
+                  sizes="80px"
+                  className="h-full w-full rounded-[20px] object-cover"
                 />
                 <span className="absolute bottom-0 right-0 flex h-5 w-5 items-center justify-center rounded-full bg-[#25D366] ring-2 ring-[#F7F8FA]">
                   <Phone className="h-2.5 w-2.5 fill-white text-white" />
                 </span>
               </div>
               <p className="text-[14px] font-semibold text-[#0F172A]">Iarley Silva</p>
-              <p className="text-[10px] text-[#8A94A6]">Criado em 02/04/2026</p>
+              <p className="text-[10px] text-[#8A94A6]">Criado há 3 meses</p>
             </div>
 
             <div className="mt-4 space-y-2.5">
               <ContactInfoRow icon={<Phone className="h-3.5 w-3.5" />} label="Canal" value="WhatsApp" />
-              <ContactInfoRow icon={<CalendarClock className="h-3.5 w-3.5" />} label="Criado em" value="02/04/2026" />
+              <ContactInfoRow icon={<CalendarClock className="h-3.5 w-3.5" />} label="Criado" value="há 3 meses" />
               <ContactInfoRow icon={<File className="h-3.5 w-3.5" />} label="Etiqueta" value="Iarley" />
             </div>
 

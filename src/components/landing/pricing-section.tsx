@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { ArrowRight, Minus, Plus, Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { AnimateIn } from '@/components/ui/animate-in';
-import { ctaPlanDark, ctaPlanPrimary } from './cta-styles';
+import { ctaPlanPrimary, ctaPlanSecondary } from './cta-styles';
 import { LANDING_CTA } from './cta-links';
 import {
   getPlan,
@@ -95,8 +95,23 @@ function getPlanPriceDiscount(
   };
 }
 
+/** "de R$147 no mês seguinte" -> "R$147" (o preço cheio que vale a partir do 2º mês). */
+function regularPriceOf(subtext: string) {
+  const match = subtext.match(/R\$\s?([\d.]+)/);
+  return match ? `R$${match[1]}` : null;
+}
+
 export function PricingSection() {
   const [connections, setConnections] = useState(1);
+  const stripRef = useRef<HTMLOListElement>(null);
+
+  // Mobile: o trilho abre já centralizado no PRO (plano em destaque).
+  useEffect(() => {
+    const strip = stripRef.current;
+    if (!strip || window.innerWidth >= 768) return;
+    const rec = strip.querySelector<HTMLElement>('[data-recommended="true"]');
+    if (rec) strip.scrollLeft = rec.offsetLeft - (strip.clientWidth - rec.clientWidth) / 2;
+  }, []);
 
   const planFor = useMemo(
     () => (tier: Tier) => getPlan(tier, connections),
@@ -104,7 +119,7 @@ export function PricingSection() {
   );
 
   return (
-    <section id="pricing" className="bg-[#FAFAF8] py-24 relative">
+    <section id="pricing" className="bg-[#FAFAF8] py-12 sm:py-16 lg:py-24 relative scroll-mt-16">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         {/* Header */}
         <AnimateIn>
@@ -117,7 +132,7 @@ export function PricingSection() {
               <span className="font-extrabold text-primary">para vender mais.</span>
             </h2>
             <p className="mx-auto max-w-xl text-pretty text-[15px] leading-relaxed text-slate-600">
-              Cada conexão é um canal ativo da sua operação: WhatsApp, Instagram, Email, Widget ou Messenger. Escolha a quantidade, veja o preço na hora e ajuste quando crescer.
+              Cada conexão é um canal ativo da sua operação, como o WhatsApp ou o Instagram. Escolha a quantidade, veja o preço na hora e ajuste quando crescer.
             </p>
           </div>
         </AnimateIn>
@@ -171,7 +186,11 @@ export function PricingSection() {
               }}
             />
 
-            <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative">
+            {/* Mobile: trilho horizontal com snap (abre no PRO). md+: faixa contínua de planos. */}
+            <ol
+              ref={stripRef}
+              className="no-scrollbar relative -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-4 pt-2 md:mx-0 md:grid md:grid-cols-2 md:gap-0 md:overflow-visible md:px-0 md:pb-0 md:pt-0 lg:grid-cols-4"
+            >
               {STEPS.map((step, idx) => {
                 const isIaPlan = step.tier === 'basicIa' || step.tier === 'proIa';
                 const needsCustomIa = isIaPlan && connections > 5;
@@ -181,16 +200,21 @@ export function PricingSection() {
                 return (
                   <li
                     key={step.tier}
+                    data-recommended={isRec ? 'true' : undefined}
                     className={cn(
-                      'relative bg-white p-6 lg:p-7 flex flex-col border-t border-slate-200 transition-all group/card',
+                      'relative bg-white p-6 lg:p-7 flex flex-col transition-all group/card',
+                      // mobile: cada plano é um cartão do trilho
+                      'w-[84%] max-w-[340px] shrink-0 snap-center rounded-2xl border border-slate-200',
+                      // md+: faixa contínua com divisórias
+                      'md:w-auto md:max-w-none md:shrink md:rounded-none md:border-0 md:border-t',
                       'lg:border-t-0 lg:border-l',
                       'md:even:border-l md:odd:border-l-0 lg:even:border-l',
-                      idx === 0 && 'rounded-t-2xl md:rounded-none md:rounded-tl-2xl lg:border-l-0 lg:rounded-tl-2xl lg:rounded-bl-2xl lg:rounded-tr-none',
+                      idx === 0 && 'md:rounded-tl-2xl lg:border-l-0 lg:rounded-tl-2xl lg:rounded-bl-2xl lg:rounded-tr-none',
                       idx === 1 && 'md:rounded-tr-2xl lg:rounded-none',
                       idx === 2 && 'md:rounded-bl-2xl lg:rounded-none',
-                      idx === STEPS.length - 1 && 'rounded-b-2xl md:rounded-none md:rounded-br-2xl lg:rounded-tr-2xl lg:rounded-br-2xl lg:rounded-bl-none',
+                      idx === STEPS.length - 1 && 'md:rounded-br-2xl lg:rounded-tr-2xl lg:rounded-br-2xl lg:rounded-bl-none',
                       isRec &&
-                        'lg:-mt-3 lg:pb-10 lg:shadow-[0_20px_60px_-20px_rgba(23,199,90,0.25)] ring-1 ring-primary/20 lg:rounded-2xl lg:border-l-0 z-10'
+                        'lg:-mt-3 lg:pb-10 lg:shadow-[0_20px_60px_-20px_rgba(23,199,90,0.25)] ring-1 ring-primary/30 lg:rounded-2xl lg:border-l-0 z-10'
                     )}
                   >
                     <div className="flex items-center justify-between mb-6">
@@ -235,53 +259,46 @@ export function PricingSection() {
                     </ul>
 
                     <div className="pt-5 border-t border-slate-100 mt-auto">
-                      {priceDiscount && (
-                        <div className="mb-1.5 flex items-center gap-2 text-[11px] font-medium text-slate-400">
-                          <span>De</span>
-                          <span className="tabular-nums line-through decoration-slate-400/80">
-                            {priceDiscount.referencePrice}
+                      {plan ? (
+                        <>
+                          <span className="mb-2.5 inline-flex rounded-full bg-primary/10 px-2.5 py-0.5 text-[11px] font-bold text-primary">
+                            −20% no 1º mês
                           </span>
-                          <span className="rounded-full bg-primary/10 px-1.5 py-0.5 text-[10px] font-bold text-primary">
-                            economize {priceDiscount.savings}
-                          </span>
-                        </div>
-                      )}
-                      <div className="flex items-baseline gap-0.5 mb-1">
-                        {plan ? (
-                          <>
-                            <span className={cn('text-[11px]', priceDiscount ? 'text-primary' : 'text-slate-400')}>R$</span>
-                            <span
-                              className={cn(
-                                'font-[family-name:var(--font-sans)] font-bold text-[36px] tabular-nums leading-none tracking-[-0.02em]',
-                                priceDiscount ? 'text-primary' : 'text-slate-950'
-                              )}
-                            >
+                          <div className="flex items-baseline gap-1.5">
+                            <span className="text-[13px] font-semibold text-slate-600">R$</span>
+                            <span className="font-[family-name:var(--font-sans)] font-extrabold text-[40px] tabular-nums leading-none tracking-[-0.02em] text-slate-950">
                               {plan.price.split(',')[0]}
                             </span>
-                            <span
-                              className={cn(
-                                'font-[family-name:var(--font-sans)] font-bold text-[16px] tabular-nums',
-                                priceDiscount ? 'text-primary' : 'text-slate-500'
-                              )}
-                            >
-                              ,{plan.price.split(',')[1]}
+                            <span className="text-[13px] font-semibold text-slate-600">no 1º mês</span>
+                          </div>
+                          <div className="mt-1.5 text-[13px] leading-tight text-slate-600">
+                            depois{' '}
+                            <span className="font-semibold text-slate-800 tabular-nums">
+                              {regularPriceOf(plan.subtext) ?? plan.subtext}/mês
                             </span>
-                          </>
-                        ) : (
-                          <span className="font-[family-name:var(--font-sans)] font-bold text-[30px] text-slate-950 leading-none tracking-[-0.02em]">
+                          </div>
+                          <div className="mb-4 mt-1.5 min-h-[28px] text-[11px] leading-snug text-slate-600">
+                            {priceDiscount
+                              ? `Economiza ${priceDiscount.savings} frente a ${connections} planos de 1 conexão`
+                              : ''}
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div className="font-[family-name:var(--font-sans)] font-extrabold text-[30px] leading-none tracking-[-0.02em] text-slate-950">
                             Sob consulta
-                          </span>
-                        )}
-                      </div>
-                      <div className="text-[11px] text-slate-400 mb-4 leading-tight">
-                        {plan ? plan.subtext : 'IA acima de 5 slots entra como implantação personalizada'}
-                      </div>
+                          </div>
+                          <div className="mb-4 mt-2 min-h-[28px] text-[11px] leading-snug text-slate-600">
+                            IA acima de 5 slots entra como implantação personalizada
+                          </div>
+                        </>
+                      )}
 
                       <a
                         href={plan ? plan.link : LANDING_CTA.salesContact}
                         target={plan?.link.startsWith('http') ? '_blank' : undefined}
                         rel="noopener noreferrer"
-                        className={isRec ? ctaPlanPrimary : ctaPlanDark}
+                        className={isRec ? ctaPlanPrimary : ctaPlanSecondary}
                       >
                         <span>{plan ? 'Contratar' : 'Falar com vendas'}</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" strokeWidth={2.5} />

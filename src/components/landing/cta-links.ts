@@ -1,8 +1,9 @@
 export const LANDING_CTA = {
-  salesContact: '#enterprise',
-  demo: '#features',
+  salesContact: '#setup',
+  demo: '#produto',
   app: 'https://app.sagazchat.com',
   pricingAnchor: '#pricing',
   testimonialsAnchor: '#testimonials',
-  featuresAnchor: '#features',
+  featuresAnchor: '#produto',
+  setupAnchor: '#setup',
 } as const;

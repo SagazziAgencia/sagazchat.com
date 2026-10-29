@@ -368,7 +368,7 @@ export function RemarketingMockup() {
                                         <div className="px-6 py-4 flex items-center justify-between bg-white border-b border-slate-100">
                                             <div className="flex items-center gap-2">
                                                 <ChevronLeft className="w-4 h-4 text-slate-800 stroke-[3px]" />
-                                                <h3 className="text-slate-900 text-sm font-bold tracking-tight uppercase">RMKT JOAO</h3>
+                                                <h3 className="text-slate-900 text-sm font-bold tracking-tight uppercase">RECUPERAÇÃO DE CARRINHO</h3>
                                             </div>
                                             <div className="flex items-center gap-2">
                                                 <div className="w-3.5 h-3.5 rounded border border-slate-300 bg-white"></div>

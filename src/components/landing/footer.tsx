@@ -1,8 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Facebook, Instagram, Linkedin, MessageCircle } from 'lucide-react';
-import Image from 'next/image';
+import { Instagram } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '../brand/logo';
 import { AnimateIn } from '@/components/ui/animate-in';
@@ -18,7 +17,7 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export function Footer() {
   return (
-    <footer className="bg-slate-900 text-white pt-20">
+    <footer className="bg-slate-900 text-white pt-10 sm:pt-14 lg:pt-20">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6">
         <AnimateIn from="scale" duration={700}>
         <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 lg:p-12 overflow-hidden">
@@ -26,12 +25,12 @@ export function Footer() {
             <div className="space-y-6 text-center">
               <h2 className="font-[family-name:var(--font-sans)] text-3xl sm:text-4xl lg:text-[3rem] text-balance font-extrabold tracking-[-0.02em] leading-[1.1] text-white">
                 Tire o atendimento{' '}
-                <span className="font-extrabold text-primary">do improviso.</span>
+                <span className="font-extrabold text-brand">do improviso.</span>
               </h2>
               <p className="text-[15px] text-slate-400 text-pretty leading-relaxed max-w-xl mx-auto">
                 Escolha um plano e comece com WhatsApp, CRM e automações no mesmo lugar.
               </p>
-              <Link href={LANDING_CTA.salesContact} className={`${ctaPrimary} ${ctaMobileFull}`}>
+              <Link href={LANDING_CTA.pricingAnchor} className={`${ctaPrimary} ${ctaMobileFull}`}>
                 <WhatsAppIcon className="h-5 w-5 shrink-0" />
                 <span>Ver planos e começar</span>
               </Link>
@@ -47,16 +46,24 @@ export function Footer() {
           </div>
           <div className="flex flex-col items-center gap-2 order-last md:order-none">
             <p className="text-sm text-slate-400">© {new Date().getFullYear()} Sagazchat. Todos os direitos reservados.</p>
-            <div className="flex items-center gap-4 text-xs text-slate-500">
+            <div className="flex items-center gap-4 text-xs text-slate-400">
+              {/* TODO [CONFIRMAR]: as páginas de Termos de Uso e Política de Privacidade ainda não existem. */}
               <Link href="#" className="hover:text-white transition-colors">Termos de Uso</Link>
               <span>•</span>
               <Link href="#" className="hover:text-white transition-colors">Política de Privacidade</Link>
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <a href="#" aria-label="Facebook" className="text-slate-400 hover:text-white transition-colors p-2.5"><Facebook size={20} /></a>
-            <a href="#" aria-label="Instagram" className="text-slate-400 hover:text-white transition-colors p-2.5"><Instagram size={20} /></a>
-            <a href="#" aria-label="LinkedIn" className="text-slate-400 hover:text-white transition-colors p-2.5"><Linkedin size={20} /></a>
+            {/* Facebook e LinkedIn saíram: eram href="#". Instagram: perfil @sagazchat (vault). */}
+            <a
+              href="https://www.instagram.com/sagazchat/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram do Sagazchat"
+              className="text-slate-400 hover:text-white transition-colors p-2.5"
+            >
+              <Instagram size={20} />
+            </a>
           </div>
         </div>
         </AnimateIn>

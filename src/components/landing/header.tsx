@@ -10,9 +10,10 @@ import { ctaHeaderMobilePrimary, ctaHeaderPrimary, ctaHeaderSecondary } from './
 
 const navItems = [
   { href: '#hero', label: 'Início' },
-  { href: LANDING_CTA.featuresAnchor, label: 'Produto' },
-  { href: LANDING_CTA.pricingAnchor, label: 'Planos' },
   { href: LANDING_CTA.testimonialsAnchor, label: 'Feedbacks' },
+  { href: LANDING_CTA.featuresAnchor, label: 'Produto' },
+  { href: LANDING_CTA.setupAnchor, label: 'Setup' },
+  { href: LANDING_CTA.pricingAnchor, label: 'Planos' },
 ];
 
 export function Header() {
@@ -124,7 +125,7 @@ export function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleLinkClick}
-                className="mt-1 flex items-center justify-center gap-1 py-2.5 text-sm text-slate-400 transition-colors hover:text-slate-600"
+                className="mt-1 flex items-center justify-center gap-1 py-2.5 text-sm text-slate-500 transition-colors hover:text-slate-700"
               >
                 Área do cliente
               </a>

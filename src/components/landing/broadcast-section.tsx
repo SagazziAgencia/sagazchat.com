@@ -39,7 +39,7 @@ export function BroadcastMockup() {
               <Megaphone size={18} className="text-primary" />
             </div>
             <div>
-              <div className="text-sm font-bold text-slate-800">Black Friday 2025</div>
+              <div className="text-sm font-bold text-slate-800">Oferta da semana</div>
               <div className="text-[11px] text-slate-400">Transmissão ativa</div>
             </div>
           </div>

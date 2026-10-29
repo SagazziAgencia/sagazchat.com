@@ -35,7 +35,7 @@ function VisualWebhook() {
       <div className="flex items-center gap-1.5">
         <span className="rounded-md bg-white px-2 py-1 text-[9px] font-bold text-slate-700 shadow-sm ring-1 ring-slate-200">Hotmart</span>
         <span className="rounded-md bg-white px-2 py-1 text-[9px] font-bold text-slate-700 shadow-sm ring-1 ring-slate-200">Kiwify</span>
-        <span className="rounded-md bg-white px-2 py-1 text-[9px] font-bold text-slate-500 shadow-sm ring-1 ring-slate-200">+12</span>
+        <span className="rounded-md bg-white px-2 py-1 text-[9px] font-bold text-slate-600 shadow-sm ring-1 ring-slate-200">+12</span>
       </div>
       <div className="flex flex-col items-center gap-1 text-slate-400">
         <div className="h-4 w-px bg-slate-300" />
@@ -155,7 +155,7 @@ const VISUALS = [VisualWebhook, VisualPayload, VisualMessage, VisualRecovered];
 /* ─── Main Section ─── */
 export function WebhookSection() {
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section id="recuperacao" className="bg-white py-10 sm:py-14 lg:py-24">
       <div className="mx-auto max-w-[1360px] px-4 sm:px-6">
         {/* Header centered */}
         <AnimateIn>
@@ -170,11 +170,16 @@ export function WebhookSection() {
             <p className="max-w-xl text-pretty text-[15px] leading-relaxed text-slate-600">
               Abandono de checkout, boleto vencendo ou pagamento recusado viram mensagem automática no WhatsApp.
             </p>
+            {/* Mobile: o resultado (card 04 do trilho) fica visível sem precisar arrastar. */}
+            <p className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3.5 py-1.5 text-[13px] font-semibold text-emerald-800 ring-1 ring-emerald-200 sm:hidden">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+              Venda recuperada: R$ 297,00 paga em 4min 12s
+            </p>
           </div>
         </AnimateIn>
 
         {/* Horizontal steps */}
-        <div className="relative mt-14 lg:mt-20">
+        <div className="relative mt-10 lg:mt-16">
           {/* Desktop connector line — dashed, subtle */}
           <div
             className="pointer-events-none absolute left-0 right-0 top-[104px] hidden lg:block"
@@ -185,11 +190,12 @@ export function WebhookSection() {
             </svg>
           </div>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          {/* Mobile: os 4 passos viram trilho horizontal (snap) pra não esticar a página; a partir de sm vira grade. */}
+          <div className="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-3 pt-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0 lg:grid-cols-4 lg:gap-6">
             {STEPS.map((step, i) => {
               const Visual = VISUALS[i];
               return (
-                <AnimateIn key={i} delay={i * 120}>
+                <AnimateIn key={i} delay={i * 120} className="w-[78%] max-w-[320px] shrink-0 snap-center sm:w-auto sm:max-w-none">
                   <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_20px_40px_-15px_rgba(23,199,90,0.18)]">
                     {/* Visual area */}
                     <div className="relative aspect-[5/4] border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white">
@@ -221,9 +227,13 @@ export function WebhookSection() {
           </div>
         </div>
 
+        <p className="mt-1 text-center text-[12px] font-medium text-slate-500 sm:hidden" aria-hidden="true">
+          Arraste pro lado: 01 → 04
+        </p>
+
         {/* CTA */}
         <AnimateIn delay={500}>
-          <div className="mt-12 flex justify-center lg:mt-16">
+          <div className="mt-8 hidden justify-center sm:flex lg:mt-14">
             <a
               href="#pricing"
               className={`${ctaPrimary} ${ctaMobileFull}`}

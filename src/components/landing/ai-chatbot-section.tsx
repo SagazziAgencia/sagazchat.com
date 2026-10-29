@@ -258,8 +258,8 @@ export function AiChatMockup() {
 /* ─── main component ─── */
 export const AiChatbotSection = () => {
   return (
-    <section className="bg-[#F8FAFC] lg:min-h-screen">
-      <div className="mx-auto flex max-w-[1360px] flex-col items-center gap-12 px-4 py-20 sm:px-6 lg:min-h-screen lg:flex-row lg:items-center lg:gap-16 lg:py-0">
+    <section id="ia" className="scroll-mt-20 bg-[#F8FAFC] lg:min-h-screen">
+      <div className="mx-auto flex max-w-[1360px] flex-col items-center gap-12 px-4 py-10 sm:px-6 sm:py-14 lg:min-h-screen lg:flex-row lg:items-center lg:gap-16 lg:py-0">
         {/* Left – Platform Chat Mockup */}
         <AnimateIn from="left" delay={100} className="order-2 w-full lg:order-1 lg:w-[55%] lg:flex-none">
           <AiChatMockup />

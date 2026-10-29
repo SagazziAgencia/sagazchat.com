@@ -25,7 +25,7 @@ const integrations = [
   { name: 'Eduzz', src: 'https://i.ibb.co/W4wcQjhz/eduzz-logo-4.png' },
   { name: 'Kirvano', src: 'https://i.ibb.co/NdhbQh33/Logo-Kirvano-png-name-20230811-28731-1bw3q5f.png' },
   { name: 'Cakto', src: 'https://i.ibb.co/TB75t8Fz/Logo-png-name-20230112-29660-e039kf.png' },
-  { name: 'OpenAI', src: 'https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg' },
+  { name: 'OpenAI', src: '/images/integrations/openai.svg' },
   { name: 'Lastlink', src: 'https://i.ibb.co/twg0vzNx/IE3ht6-SQf2b-ZBWVc-Gi-PA-gz5ryqqcw78ieafxfvaf.png' },
   { name: 'Agendor', src: 'https://i.ibb.co/8LjZNGSg/Agendor-logo-500x240-max-500x240.png' },
   { name: 'Pipefy', src: 'https://i.ibb.co/whbJnKVP/Pipefy-logo-black.png' },
@@ -100,9 +100,9 @@ function SafeImage({
 
 export function IntegrationsTicker() {
   return (
-    <section className="relative z-20 overflow-hidden border-y border-slate-100 bg-gradient-to-b from-slate-50/80 to-white py-8 sm:py-10">
+    <section className="relative z-20 overflow-hidden border-y border-slate-100 bg-gradient-to-b from-slate-50/80 to-white py-6 sm:py-10">
       <div className="mx-auto max-w-[1360px] px-4 sm:px-6 mb-5">
-        <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+        <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
           +19 integrações nativas com suas ferramentas favoritas
         </p>
       </div>
@@ -122,8 +122,9 @@ export function IntegrationsTicker() {
                   src={item.src}
                   alt={item.name}
                   fill
-                  quality={100}
+                  quality={75}
                   sizes="112px"
+                  unoptimized={item.src.endsWith('.svg')}
                   className="object-contain"
                 />
               </div>

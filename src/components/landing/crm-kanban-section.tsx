@@ -26,35 +26,63 @@ type KanbanColumnType = {
   total: string;
   count: number;
   barColor: string;
-  card?: {
+  cards?: {
     tags: CardTag[];
     name: string;
     value: string;
-  };
+  }[];
 };
 
 const TAG_QUENTE: CardTag = { label: 'Quente', bg: 'bg-rose-50', text: 'text-rose-600', dot: 'bg-rose-500' };
 const TAG_REPOSTA: CardTag = { label: 'Resposta', bg: 'bg-slate-900', text: 'text-white', dot: 'bg-white' };
 const TAG_CLIENTE: CardTag = { label: 'Cliente', bg: 'bg-emerald-50', text: 'text-emerald-700', dot: 'bg-emerald-500' };
+const TAG_NOVO: CardTag = { label: 'Novo', bg: 'bg-sky-50', text: 'text-sky-700', dot: 'bg-sky-500' };
+const TAG_FRIO: CardTag = { label: 'Frio', bg: 'bg-slate-100', text: 'text-slate-600', dot: 'bg-slate-400' };
 
+/* Exemplo atemporal e com nomes fictícios: todas as colunas com card (a versão anterior
+   mostrava 4 de 5 colunas vazias e nomes de contatos reais). */
 const COLUMNS: KanbanColumnType[] = [
-  { title: 'Prospecção nova', total: 'R$ 0,00', count: 0, barColor: '#3B82F6' },
+  {
+    title: 'Prospecção nova',
+    total: 'R$ 205,00',
+    count: 2,
+    barColor: '#3B82F6',
+    cards: [
+      { tags: [TAG_NOVO], name: 'Marcos Vieira', value: 'R$ 120,00' },
+      { tags: [TAG_NOVO], name: 'Larissa Prado', value: 'R$ 85,00' },
+    ],
+  },
   {
     title: 'Prospecção Interna',
     total: 'R$ 50,00',
     count: 1,
     barColor: '#3B82F6',
-    card: { tags: [TAG_QUENTE, TAG_REPOSTA], name: 'Silvia rase do renan.f...', value: 'R$ 50,00' },
+    cards: [{ tags: [TAG_QUENTE, TAG_REPOSTA], name: 'Silvia Andrade', value: 'R$ 50,00' }],
   },
-  { title: 'Em orçamento', total: 'R$ 0,00', count: 0, barColor: '#3B82F6' },
   {
-    title: 'Fechado',
-    total: 'R$ 96,99',
+    title: 'Em orçamento',
+    total: 'R$ 246,99',
     count: 1,
     barColor: '#3B82F6',
-    card: { tags: [TAG_QUENTE, TAG_CLIENTE], name: 'Josiane Krachinski pr...', value: 'R$ 96,99' },
+    cards: [{ tags: [TAG_QUENTE, TAG_REPOSTA], name: 'Rafael Torres', value: 'R$ 246,99' }],
   },
-  { title: 'Perdido', total: 'R$ 0,00', count: 0, barColor: '#3B82F6' },
+  {
+    title: 'Fechado',
+    total: 'R$ 246,99',
+    count: 2,
+    barColor: '#3B82F6',
+    cards: [
+      { tags: [TAG_QUENTE, TAG_CLIENTE], name: 'Josiane Prado', value: 'R$ 96,99' },
+      { tags: [TAG_CLIENTE], name: 'Paulo Nogueira', value: 'R$ 150,00' },
+    ],
+  },
+  {
+    title: 'Perdido',
+    total: 'R$ 60,00',
+    count: 1,
+    barColor: '#3B82F6',
+    cards: [{ tags: [TAG_FRIO], name: 'Elisa Matos', value: 'R$ 60,00' }],
+  },
 ];
 
 /* ─── Empty state illustration ─── */
@@ -77,7 +105,7 @@ function EmptyState() {
   );
 }
 
-function KanbanCard({ card }: { card: NonNullable<KanbanColumnType['card']> }) {
+function KanbanCard({ card }: { card: NonNullable<KanbanColumnType['cards']>[number] }) {
   return (
     <div className="kanban-motion-card flex flex-col gap-2.5 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
       <div className="flex items-start justify-between gap-2">
@@ -152,7 +180,11 @@ function KanbanColumn({ column }: { column: KanbanColumnType }) {
 
       {/* Body */}
       <div className="flex flex-1 flex-col gap-2">
-        {column.card ? <KanbanCard card={column.card} /> : <EmptyState />}
+        {column.cards?.length ? (
+          column.cards.map((card) => <KanbanCard key={card.name} card={card} />)
+        ) : (
+          <EmptyState />
+        )}
         
         <button
           type="button"
@@ -184,7 +216,7 @@ export function KanbanMockup() {
       <div className="flex items-center justify-between px-5 py-4">
         <div className="flex items-center gap-2">
           <ChevronLeft className="h-4 w-4 text-slate-800" strokeWidth={3} />
-          <span className="text-[14px] font-bold text-slate-900">Comercial Dayane</span>
+          <span className="text-[14px] font-bold text-slate-900">Comercial</span>
         </div>
         <div className="flex items-center gap-2">
           <button className="flex items-center gap-2 rounded-md bg-slate-900 px-3 py-1.5 text-[11px] font-bold text-white transition-colors hover:bg-slate-800">
@@ -230,7 +262,7 @@ export function KanbanMockup() {
 
 export const CrmKanbanSection = () => {
   return (
-    <ScrollStory as="section" className="kanban-scroll-story bg-slate-50 py-20 md:py-28">
+    <ScrollStory as="section" className="kanban-scroll-story bg-slate-50 py-14 md:py-24">
       <div className="mx-auto grid max-w-[1360px] grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
         {/* Left — Copy */}
         <AnimateIn from="left" delay={100}>

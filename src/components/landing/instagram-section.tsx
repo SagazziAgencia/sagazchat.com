@@ -81,8 +81,8 @@ export function InstagramSection() {
   }, []);
 
   return (
-    <ScrollStory as="section" className="instagram-scroll-story bg-white">
-      <div className="mx-auto flex w-full max-w-[1360px] px-4 pb-16 pt-6 sm:px-6 sm:pb-20 sm:pt-8 lg:min-h-[calc(100svh-130px)] lg:items-center lg:pb-24 lg:pt-10">
+    <ScrollStory as="section" id="instagram" className="instagram-scroll-story scroll-mt-20 bg-white">
+      <div className="mx-auto flex w-full max-w-[1360px] px-4 pb-8 pt-10 sm:px-6 sm:pb-20 sm:pt-8 lg:min-h-[calc(100svh-130px)] lg:items-center lg:pb-24 lg:pt-10">
         <div className="flex w-full flex-col gap-12 lg:flex-row lg:items-center lg:gap-12">
           {/* Left – Copy */}
           <AnimateIn from="left" delay={100} className="w-full lg:w-[40%] lg:flex-none">
@@ -104,7 +104,7 @@ export function InstagramSection() {
 
             <ul className="flex w-full flex-col gap-4 pt-2 text-left">
               {FEATURES.map((feat, index) => (
-                <li key={index} className="flex items-center justify-center gap-3 lg:justify-start">
+                <li key={index} className={`flex items-center justify-center gap-3 lg:justify-start ${index > 0 ? 'max-sm:hidden' : ''}`}>
                   <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#DD2A7B]" />
                   <span className="text-[15px] text-slate-700">{feat}</span>
                 </li>
@@ -131,7 +131,7 @@ export function InstagramSection() {
               <div aria-hidden="true" className="instagram-flow-connector hidden sm:block" />
               {/* ── Phone 1: Instagram Feed ── */}
               <div className="instagram-phone instagram-phone-feed relative w-[260px] flex-none">
-                <div className="relative flex h-[540px] w-full flex-col overflow-hidden rounded-[1.5rem] border-[3px] border-slate-700 bg-black shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+                <div className="relative flex h-[470px] w-full flex-col sm:h-[540px] overflow-hidden rounded-[1.5rem] border-[3px] border-slate-700 bg-black shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
                   {/* Status bar + Dynamic Island */}
                   <div className="relative flex items-center justify-between bg-black px-4 pb-0.5 pt-2">
                     <span className="text-[8px] font-semibold text-white">9:41</span>
@@ -178,7 +178,7 @@ export function InstagramSection() {
                     </div>
 
                     {/* Post image — square ratio */}
-                    <div className="flex aspect-square w-full items-center justify-center bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-900">
+                    <div className="flex aspect-[4/3] w-full items-center justify-center bg-gradient-to-br sm:aspect-square from-emerald-900 via-emerald-800 to-emerald-900">
                       <p className="px-6 text-center text-[12px] font-bold leading-tight text-emerald-200">
                         Aumente suas vendas!<br/>
                         Comente &quot;EU QUERO&quot;
@@ -250,7 +250,7 @@ export function InstagramSection() {
 
               {/* ── Phone 2: Instagram DM ── */}
               <div className="instagram-phone instagram-phone-dm relative w-[260px] flex-none">
-                <div className="relative flex h-[540px] w-full flex-col overflow-hidden rounded-[1.5rem] border-[3px] border-slate-700 bg-black shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+                <div className="relative flex h-[470px] w-full flex-col sm:h-[540px] overflow-hidden rounded-[1.5rem] border-[3px] border-slate-700 bg-black shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
                   {/* Status bar + Dynamic Island */}
                   <div className="relative flex items-center justify-between bg-black px-4 pb-0.5 pt-2">
                     <span className="text-[8px] font-semibold text-white">9:41</span>
@@ -304,7 +304,7 @@ export function InstagramSection() {
                       <div className="w-5 flex-shrink-0" />
                       <div className="max-w-[80%] rounded-2xl rounded-bl-sm bg-slate-800 px-3 py-2">
                         <p className="text-[10px] leading-relaxed text-slate-200">
-                          Aqui está seu cupom com <span className="font-semibold text-primary">15% off</span>:
+                          Aqui está seu cupom com <span className="font-semibold text-brand">15% off</span>:
                         </p>
                         <div className="mt-1.5 rounded-lg bg-slate-700/60 px-2.5 py-1.5">
                           <p className="text-[9px] font-medium text-blue-400 underline">loja.com/oferta-exclusiva</p>

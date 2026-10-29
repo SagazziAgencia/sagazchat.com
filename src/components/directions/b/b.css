@@ -1,0 +1,58 @@
+.dir-b {
+  --b-paper: #f2f4ee;
+  --b-white: #ffffff;
+  --b-ink: #0a1410;
+  --b-mute: #4a5a51;
+  --b-line: rgba(10, 20, 16, 0.14);
+  --b-green: #17c75a;
+  --b-green-text: #0b7a33;
+  --b-tint: #ddf7e5;
+  background: var(--b-paper);
+  color: var(--b-ink);
+  font-family: var(--font-dir), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.dir-b ::selection { background: var(--b-green); color: var(--b-ink); }
+.dir-b .b-mono { font-family: var(--font-dir-mono), ui-monospace, monospace; }
+.dir-b .b-h { font-weight: 800; letter-spacing: -0.04em; line-height: 0.96; font-variation-settings: 'wdth' 92; }
+/* numerais condensados, pesados: o número é o herói */
+.dir-b .b-num {
+  font-weight: 900;
+  font-variation-settings: 'wdth' 75;
+  letter-spacing: -0.045em;
+  line-height: 0.8;
+  font-variant-numeric: tabular-nums;
+}
+.dir-b .b-ghost { color: rgba(10, 20, 16, 0.13); }
+
+.dir-b .b-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  height: 54px; padding: 0 26px; font-weight: 700; font-size: 15px;
+  border: 2px solid var(--b-ink); border-radius: 4px;
+  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+}
+.dir-b .b-btn-primary { background: var(--b-green); color: var(--b-ink); box-shadow: 4px 4px 0 var(--b-ink); }
+.dir-b .b-btn-primary:hover { transform: translate(-1px, -1px); box-shadow: 6px 6px 0 var(--b-ink); }
+.dir-b .b-btn-primary:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--b-ink); }
+.dir-b .b-btn-ghost { background: transparent; color: var(--b-ink); }
+.dir-b .b-btn-ghost:hover { background: var(--b-ink); color: var(--b-paper); }
+.dir-b a:focus-visible, .dir-b button:focus-visible { outline: 3px solid #0b57d0; outline-offset: 3px; }
+
+@keyframes b-msg-in { from { opacity: 0; transform: translateY(12px) scale(0.97); } to { opacity: 1; transform: none; } }
+.dir-b .b-msg { animation: b-msg-in 480ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes b-stamp { from { opacity: 0; transform: scale(1.5) rotate(-6deg); } to { opacity: 1; transform: rotate(-3deg); } }
+.dir-b .b-stamp { animation: b-stamp 420ms cubic-bezier(0.2, 1.2, 0.4, 1) both; transform: rotate(-3deg); }
+@keyframes b-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.dir-b .b-grow { transform-origin: left; animation: b-grow linear both; }
+
+/* recibo do plano: borda inferior serrilhada (cor do papel recorta o cartão) */
+.dir-b .b-zig {
+  height: 12px;
+  border-left: 2px solid var(--b-ink);
+  border-right: 2px solid var(--b-ink);
+  background:
+    linear-gradient(45deg, var(--b-paper) 6px, transparent 0) 0 0 / 17px 12px repeat-x,
+    linear-gradient(-45deg, var(--b-paper) 6px, transparent 0) 0 0 / 17px 12px repeat-x,
+    #fff;
+}
+.dir-b .b-leader { flex: 1; border-bottom: 2px dotted rgba(10, 20, 16, 0.3); transform: translateY(-4px); min-width: 12px; }

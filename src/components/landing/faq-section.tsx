@@ -9,14 +9,32 @@ import {
 import { HelpCircle } from 'lucide-react';
 import { AnimateIn } from '@/components/ui/animate-in';
 
+/*
+ * Só entra pergunta com fato no vault/central de ajuda.
+ * TODO [CONFIRMAR] pra entrar: valor e prazo do setup, regra de cancelamento (imediato ou fim
+ * do ciclo, multa, reembolso), formas de pagamento. Hoje não há fonte documentada pra nenhum dos três.
+ */
 const faqItems = [
+  {
+    question: 'É WhatsApp oficial ou não oficial? Corro risco de bloqueio?',
+    answer:
+      'Tem os dois. O WhatsApp por QR Code conecta o número do celular e depende da sessão continuar ativa. O WhatsApp Oficial usa a API da Meta e é mais estável. Nos disparos em massa, o Sagazchat usa intervalo aleatório e pausa por lote pra proteger o número, mas nenhum envio em massa zera o risco: use número dedicado e não misture disparo pesado com atendimento humano sem estratégia.',
+  },
   {
     question: 'Qual é o tempo médio para configurar e começar a usar o Sagazchat?',
     answer: 'A base começa rápido: conecte o número, organize a equipe e coloque as funções principais para rodar. Fluxos mais completos dependem da sua regra comercial.',
   },
   {
+    question: 'Vocês montam tudo pra mim?',
+    answer: 'Sim. Preencha o formulário da seção “A gente monta com você”. Depois vêm reunião, formulário completo, criação e entrega: você participa do começo e do fim, e o meio a gente resolve.',
+  },
+  {
     question: 'Posso ter múltiplos atendentes usando o mesmo número de WhatsApp?',
     answer: 'Sim. Vários atendentes podem usar o mesmo número com histórico compartilhado, setores e contexto preservado.',
+  },
+  {
+    question: 'A IA responde sozinha? E se o cliente mandar áudio?',
+    answer: 'Você cria o agente e treina com a sua base: preços, regras, processos. Ele responde sozinho, transcreve o áudio e usa o contexto da conversa. Você define quando a conversa passa pra um atendente do seu time.',
   },
   {
     question: 'Preciso de equipe técnica para montar automações e usar a IA?',
@@ -27,17 +45,17 @@ const faqItems = [
     answer: 'Webhook avisa ao Sagazchat que algo aconteceu em outro sistema. Assim você recupera checkout, envia pós-venda ou inicia um fluxo sem ação manual.',
   },
   {
-    question: 'Existe algum contrato de fidelidade ou posso cancelar quando quiser?',
-    answer: 'Não existe fidelidade. Os planos são recorrentes e você pode cancelar quando quiser, sem multa contratual. A ideia é manter sua operação porque faz sentido, não porque ficou presa.',
+    question: 'Existe contrato de fidelidade?',
+    answer: 'Não. Os planos são recorrentes, cobrados por mês, e você não assume período mínimo. A ideia é manter sua operação porque faz sentido, não porque ficou presa.',
   },
 ];
 
 export function FaqSection() {
   return (
-    <section className="py-20 lg:py-32 bg-white text-slate-900">
+    <section id="faq" className="py-10 sm:py-14 lg:py-24 bg-white text-slate-900 scroll-mt-16">
       <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
         <AnimateIn>
-          <div className="text-center mb-12 flex flex-col items-center">
+          <div className="text-center mb-8 lg:mb-12 flex flex-col items-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary mb-5 font-[family-name:var(--font-sans)]">
               FAQ
             </p>
@@ -45,7 +63,7 @@ export function FaqSection() {
               Dúvidas antes de{' '}
               <span className="font-extrabold text-primary">começar.</span>
             </h2>
-            <p className="text-[15px] text-slate-600 leading-relaxed mt-5 max-w-xl mx-auto">
+            <p className="hidden text-[15px] text-slate-600 leading-relaxed mt-5 max-w-xl mx-auto sm:block">
               O que costuma travar antes de colocar atendimento e automação no ar.
             </p>
           </div>
